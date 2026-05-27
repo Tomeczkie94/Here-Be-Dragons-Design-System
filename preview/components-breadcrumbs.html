@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Here Be Dragons — Breadcrumbs</title>
+
+  <!-- React 18 + Babel standalone -->
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="../colors_and_type.css">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--parchment-100);
+      color: var(--ink-brown);
+      font-family: var(--font-body);
+      font-size: var(--text-body);
+      line-height: var(--lh-body);
+      padding: 3rem 2rem;
+      max-width: 820px;
+      margin: 0 auto;
+    }
+    h1 { font-family: var(--font-display); font-size: var(--text-h1); color: var(--ink-black); letter-spacing: var(--ls-display); line-height: var(--lh-display); margin-bottom: 0.5rem; }
+    .subtitle { font-family: var(--font-flavor); font-style: italic; color: var(--ink-faded); margin-bottom: 3rem; border-bottom: 2px double var(--gold-deep); padding-bottom: 1.5rem; }
+    .section-heading { font-family: var(--font-display); font-size: var(--text-h2); color: var(--ink-black); letter-spacing: var(--ls-display); margin-bottom: 1.5rem; margin-top: 3rem; }
+    .spec-block { background: var(--parchment-200); border: 1px solid var(--ink-faded); padding: 0.875rem 1.25rem; margin-top: 0.75rem; max-width: 560px; }
+    .spec-label { font-family: var(--font-mono); font-size: 0.6875rem; color: var(--ink-faded); letter-spacing: 0.12em; text-transform: uppercase; display: block; margin-bottom: 0.4rem; }
+    .spec-value { font-family: var(--font-mono); font-size: 0.8125rem; color: var(--ink-black); line-height: 1.65; }
+    .gap { margin-bottom: 2rem; }
+
+    /* Demo containers */
+    .demo-area {
+      padding: 1.25rem 1.5rem;
+      border: 1px dashed var(--ink-faded);
+      background: var(--parchment-100);
+      min-height: 3rem;
+    }
+    .demo-area--card {
+      background: linear-gradient(135deg, var(--parchment-100), var(--parchment-200));
+      border: 2px solid var(--ink-brown);
+      box-shadow: var(--shadow-card);
+      padding: 1.5rem 2rem;
+    }
+    .demo-area--dark {
+      background: linear-gradient(180deg, var(--ink-black) 0%, var(--shadow) 100%);
+      border: none;
+      padding: 1.5rem 2rem;
+    }
+
+    /* ─── Breadcrumb (CSS mirror — used by React component via class injection) ── */
+    /* The JSX component injects its own :focus-visible rules via <style>; the
+       structural layout rules below ensure the component is correctly framed
+       inside each demo-area without needing additional wrapper divs. */
+
+    /* ─── Eyebrow + breadcrumb group ─────────────────────────── */
+    .breadcrumb-group {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-1);
+    }
+
+    /* Page context block — pairs eyebrow + breadcrumb + divider */
+    .breadcrumb-header {
+      padding-bottom: var(--space-4);
+      border-bottom: 1px dashed var(--ink-faded);
+      margin-bottom: var(--space-6);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Breadcrumbs</h1>
+  <p class="subtitle">Wayfinding trail for deep content hierarchies. Display-face links in faded ink, gold separators, iron-gall current page. Follows the WAI-ARIA breadcrumb navigation pattern.</p>
+
+  <!-- ── 1. Standard ── -->
+  <h2 class="section-heading">Standard — Three Levels</h2>
+  <div class="demo-area gap" id="demo-1"></div>
+  <div class="spec-block">
+    <span class="spec-label">Spec</span>
+    <span class="spec-value">
+      &lt;nav aria-label="Breadcrumb"&gt; → &lt;ol&gt; → &lt;li&gt;<br>
+      .breadcrumb__link: --font-display · 0.8125rem · ls 0.05em · --ink-faded<br>
+      :hover → color --gold-deep · border-bottom 1px solid --gold-deep<br>
+      .breadcrumb__sep: "›" · aria-hidden · --gold · 0.75rem<br>
+      .breadcrumb__current: --ink-black · no href · aria-current="page"
+    </span>
+  </div>
+
+  <!-- ── 2. With location eyebrow ── -->
+  <h2 class="section-heading">With Location Eyebrow</h2>
+  <div class="demo-area gap" id="demo-2"></div>
+  <div class="spec-block">
+    <span class="spec-label">Eyebrow pairing</span>
+    <span class="spec-value">
+      eyebrow prop wraps .eyebrow + &lt;nav&gt; in a column-flex group with gap: --space-1<br>
+      .eyebrow: --font-display · 13px · ls 0.3em · uppercase · --gold-deep<br>
+      Recommended for spell/creature/item detail pages
+    </span>
+  </div>
+
+  <!-- ── 3. With page header divider ── -->
+  <h2 class="section-heading">Page Header — With Divider</h2>
+  <div class="demo-area gap" id="demo-3"></div>
+
+  <!-- ── 4. Collapsed — deep hierarchy ── -->
+  <h2 class="section-heading">Collapsed — Deep Hierarchy</h2>
+  <div class="demo-area gap" id="demo-4"></div>
+  <div class="spec-block">
+    <span class="spec-label">Collapsed variant</span>
+    <span class="spec-value">
+      maxVisible={3} prop collapses middle levels to an ellipsis "…"<br>
+      aria-label="more pages" on the ellipsis &lt;span&gt;<br>
+      Rule: always shows root + ellipsis + last (maxVisible−2) ancestors + current<br>
+      Collapse when 3 or more intermediate levels are hidden
+    </span>
+  </div>
+
+  <!-- ── 5. On card surface ── -->
+  <h2 class="section-heading">On Card Surface (Parchment-200)</h2>
+  <div class="demo-area demo-area--card gap" id="demo-5"></div>
+  <div class="spec-block">
+    <span class="spec-label">Card surface</span>
+    <span class="spec-value">
+      Default token colours hold on --parchment-200 card backgrounds.<br>
+      --ink-faded links: ~4.8:1 on --parchment-200 (passes AA for UI components)<br>
+      --gold-deep hover: ~4.1:1 on --parchment-200 (passes AA large text)
+    </span>
+  </div>
+
+  <!-- ── 6. Dark surface ── -->
+  <h2 class="section-heading">Dark Surface (Sidebar / Dark Panel)</h2>
+  <div class="demo-area demo-area--dark gap" id="demo-6"></div>
+  <div class="spec-block">
+    <span class="spec-label">Dark modifier (dark prop)</span>
+    <span class="spec-value">
+      link: rgba(168,141,90,0.65) → hover: --gold-bright (#d4a548)<br>
+      sep: --gold-deep · current: --parchment-100<br>
+      :focus-visible outline: 2px solid --parchment-100<br>
+      Use on --ink-black / --shadow panel backgrounds only
+    </span>
+  </div>
+
+  <!-- ── 7. Single level ── -->
+  <h2 class="section-heading">Single Level (Root Page)</h2>
+  <div class="demo-area gap" id="demo-7"></div>
+  <div class="spec-block">
+    <span class="spec-label">Edge case</span>
+    <span class="spec-value">
+      Root page: single item, no separator, aria-current="page"<br>
+      Component stays in DOM for consistent landmark structure.<br>
+      Consider omitting entirely at the top-most level if redundant.
+    </span>
+  </div>
+
+  <!-- ── 8. Two levels ── -->
+  <h2 class="section-heading">Two Levels — Section Root</h2>
+  <div class="demo-area gap" id="demo-8"></div>
+
+  <!-- ── Accessibility notes ── -->
+  <h2 class="section-heading">Accessibility</h2>
+  <div class="spec-block" style="max-width:620px">
+    <span class="spec-label">ARIA pattern (WAI-ARIA 1.2)</span>
+    <span class="spec-value">
+      &lt;nav aria-label="Breadcrumb"&gt; — named landmark<br>
+      &lt;ol&gt; — ordered list; reading order conveys path depth<br>
+      aria-current="page" — on the final, non-linked item<br>
+      aria-hidden="true" — on every separator glyph<br>
+      aria-label="more pages" — on the ellipsis span<br>
+      :focus-visible only — never suppress outline without replacement<br>
+      Light surface: outline 2px solid --gold-deep, offset 2px<br>
+      Dark surface: outline 2px solid --parchment-100, offset 2px<br>
+      No scrollIntoView() usage
+    </span>
+  </div>
+
+  <!-- ── Component API ── -->
+  <h2 class="section-heading">Component API</h2>
+  <div class="spec-block" style="max-width:620px">
+    <span class="spec-label">Props — Breadcrumb.jsx</span>
+    <span class="spec-value">
+      items      — { label: string, href?: string }[]  (required)<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Last item without href becomes aria-current="page"<br>
+      eyebrow    — string | null  · renders eyebrow label above trail<br>
+      dark       — boolean  · flips colours for dark panel backgrounds<br>
+      maxVisible — number | null  · collapses middle levels to ellipsis<br>
+      ariaLabel  — string  · names the &lt;nav&gt; landmark  (default: "Breadcrumb")
+    </span>
+  </div>
+
+  <!-- ── Token quick-ref ── -->
+  <h2 class="section-heading">Token Reference</h2>
+  <div class="spec-block" style="max-width:620px">
+    <span class="spec-label">Tokens used</span>
+    <span class="spec-value">
+      font:        --font-display (links + current) · --font-body (ellipsis)<br>
+      size:        --text-label (0.8125rem / 13px)<br>
+      spacing:     letter-spacing 0.05em<br>
+      link colour: --ink-faded (#6b4f35)<br>
+      link hover:  --gold-deep (#7a5a22)<br>
+      separator:   --gold (#b8893b) · "›" glyph<br>
+      current:     --ink-black (#1a1410)<br>
+      ellipsis:    --ink-faded · Roboto body face<br>
+      focus ring:  2px solid --gold-deep · offset 2px<br>
+      transition:  color 0.12s ease · border-bottom-color 0.12s ease
+    </span>
+  </div>
+
+  <footer style="margin-top:4rem;padding-top:1.5rem;border-top:1px dashed var(--ink-faded);font-family:var(--font-mono);font-size:0.75rem;color:var(--ink-faded);">
+    Here Be Dragons — Breadcrumbs component · preview/components-breadcrumbs.html
+  </footer>
+
+  <!-- ── Load component ── -->
+  <script type="text/babel" src="../ui_kits/app/components/Breadcrumb.jsx"></script>
+
+  <!-- ── Mount all demos ── -->
+  <script type="text/babel">
+    const { Breadcrumb } = window;
+
+    /* ── 1. Standard — three levels ───────────────────────────── */
+    ReactDOM.createRoot(document.getElementById('demo-1')).render(
+      <Breadcrumb
+        items={[
+          { label: 'Compendium', href: '#' },
+          { label: 'Spells',     href: '#' },
+          { label: 'Fireball' },
+        ]}
+      />
+    );
+
+    /* ── 2. With location eyebrow — four levels ────────────────── */
+    ReactDOM.createRoot(document.getElementById('demo-2')).render(
+      <Breadcrumb
+        eyebrow="Location"
+        items={[
+          { label: 'Compendium',         href: '#' },
+          { label: 'Spells',             href: '#' },
+          { label: 'School of Evocation', href: '#' },
+          { label: 'Fireball' },
+        ]}
+      />
+    );
+
+    /* ── 3. Page header with dashed divider ────────────────────── */
+    ReactDOM.createRoot(document.getElementById('demo-3')).render(
+      <>
+        <div className="breadcrumb-header">
+          <Breadcrumb
+            eyebrow="Location"
+            items={[
+              { label: 'Compendium', href: '#' },
+              { label: 'Monsters',   href: '#' },
+              { label: 'Ancient Red Dragon' },
+            ]}
+          />
+        </div>
+        <p style={{
+          fontFamily: 'var(--font-flavor)',
+          fontStyle: 'italic',
+          fontSize: 'var(--text-flavor)',
+          color: 'var(--ink-faded)',
+        }}>
+          The <code style={{fontFamily:'var(--font-mono)',fontSize:'0.75rem',background:'transparent'}}>breadcrumb-header</code> wrapper
+          adds a dashed bottom rule and bottom padding, creating a clear content zone above the page title.
+        </p>
+      </>
+    );
+
+    /* ── 4. Collapsed — deep hierarchy via maxVisible ──────────── */
+    ReactDOM.createRoot(document.getElementById('demo-4')).render(
+      <Breadcrumb
+        maxVisible={3}
+        items={[
+          { label: 'Compendium',          href: '#' },
+          { label: 'Spells',              href: '#' },
+          { label: 'Arcane Arts',         href: '#' },
+          { label: 'School of Evocation', href: '#' },
+          { label: 'Fireball' },
+        ]}
+      />
+    );
+
+    /* ── 5. On card surface (parchment-200) ────────────────────── */
+    ReactDOM.createRoot(document.getElementById('demo-5')).render(
+      <Breadcrumb
+        items={[
+          { label: 'Compendium', href: '#' },
+          { label: 'Equipment',  href: '#' },
+          { label: 'Flametongue' },
+        ]}
+      />
+    );
+
+    /* ── 6. Dark surface ───────────────────────────────────────── */
+    ReactDOM.createRoot(document.getElementById('demo-6')).render(
+      <Breadcrumb
+        dark={true}
+        items={[
+          { label: 'Compendium',    href: '#' },
+          { label: 'Characters',    href: '#' },
+          { label: 'Aragorn Dunedain' },
+        ]}
+      />
+    );
+
+    /* ── 7. Single level — root page ───────────────────────────── */
+    ReactDOM.createRoot(document.getElementById('demo-7')).render(
+      <Breadcrumb
+        items={[
+          { label: 'Compendium' },
+        ]}
+      />
+    );
+
+    /* ── 8. Two levels — section root ──────────────────────────── */
+    ReactDOM.createRoot(document.getElementById('demo-8')).render(
+      <Breadcrumb
+        items={[
+          { label: 'Compendium', href: '#' },
+          { label: 'Classes' },
+        ]}
+      />
+    );
+  </script>
+
+</body>
+</html>

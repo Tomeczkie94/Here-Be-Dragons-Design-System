@@ -156,6 +156,32 @@ const App = () => {
   const [activeSection, setActiveSection] = React.useState('spells');
   const [selectedSpell, setSelectedSpell]   = React.useState(null);
 
+  /* ── Breadcrumb items for each section ───────────────────────── */
+  const SECTION_LABELS = {
+    spells:     'Spells',
+    monsters:   'Monsters',
+    equipment:  'Equipment',
+    classes:    'Classes',
+    character:  'Character',
+    dice:       'Dice Roller',
+    initiative: 'Initiative',
+  };
+
+  const getNavBreadcrumbs = () => {
+    const sectionLabel = SECTION_LABELS[activeSection] || activeSection;
+    if (activeSection === 'spells' && selectedSpell) {
+      return [
+        { label: 'Compendium', href: '#' },
+        { label: 'Spells',     href: '#' },
+        { label: selectedSpell.name },
+      ];
+    }
+    return [
+      { label: 'Compendium', href: '#' },
+      { label: sectionLabel },
+    ];
+  };
+
   const shellStyles = {
     app: {
       display: 'flex', height: '100vh', overflow: 'hidden',
@@ -166,6 +192,14 @@ const App = () => {
       overflow: 'hidden', position: 'relative', zIndex: 2,
     },
     content: { flex: 1, overflowY: 'auto' },
+    breadcrumbBar: {
+      padding: '9px 32px',
+      background: 'rgba(245,236,215,0.97)',
+      borderBottom: '1px dashed #6b4f35',
+      position: 'sticky',
+      top: 0,
+      zIndex: 5,
+    },
     inner: { padding: '32px', maxWidth: '900px' },
     placeholder: {
       padding: '48px 32px',
@@ -203,6 +237,9 @@ const App = () => {
       case 'spells':
         return (
           <main style={shellStyles.content}>
+            <div style={shellStyles.breadcrumbBar}>
+              <Breadcrumb items={getNavBreadcrumbs()} ariaLabel="Section navigation" />
+            </div>
             <HeroSection
               meta="Arcane Knowledge"
               title="Spell Compendium"
@@ -225,6 +262,9 @@ const App = () => {
       case 'monsters':
         return (
           <main style={shellStyles.content}>
+            <div style={shellStyles.breadcrumbBar}>
+              <Breadcrumb items={getNavBreadcrumbs()} ariaLabel="Section navigation" />
+            </div>
             <HeroSection
               meta="Bestiary"
               title="Monster Compendium"
@@ -239,6 +279,9 @@ const App = () => {
       case 'equipment':
         return (
           <main style={shellStyles.content}>
+            <div style={shellStyles.breadcrumbBar}>
+              <Breadcrumb items={getNavBreadcrumbs()} ariaLabel="Section navigation" />
+            </div>
             <HeroSection
               meta="Treasure & Arms"
               title="Equipment"
@@ -253,6 +296,9 @@ const App = () => {
       case 'classes':
         return (
           <main style={shellStyles.content}>
+            <div style={shellStyles.breadcrumbBar}>
+              <Breadcrumb items={getNavBreadcrumbs()} ariaLabel="Section navigation" />
+            </div>
             <HeroSection
               meta="Heroic Paths"
               title="Class Features"
@@ -274,6 +320,9 @@ const App = () => {
       case 'dice':
         return (
           <main style={shellStyles.content}>
+            <div style={shellStyles.breadcrumbBar}>
+              <Breadcrumb items={getNavBreadcrumbs()} ariaLabel="Section navigation" />
+            </div>
             <HeroSection
               meta="Fortune's Hand"
               title="Dice Roller"
@@ -286,6 +335,9 @@ const App = () => {
       case 'character':
         return (
           <main style={shellStyles.content}>
+            <div style={shellStyles.breadcrumbBar}>
+              <Breadcrumb items={getNavBreadcrumbs()} ariaLabel="Section navigation" />
+            </div>
             <HeroSection
               meta="Adventurer's Record"
               title="Character Sheet"
@@ -300,6 +352,9 @@ const App = () => {
       case 'initiative':
         return (
           <main style={shellStyles.content}>
+            <div style={shellStyles.breadcrumbBar}>
+              <Breadcrumb items={getNavBreadcrumbs()} ariaLabel="Section navigation" />
+            </div>
             <HeroSection
               meta="Battle Order"
               title="Initiative Tracker"
@@ -314,6 +369,9 @@ const App = () => {
       default:
         return (
           <main style={shellStyles.content}>
+            <div style={shellStyles.breadcrumbBar}>
+              <Breadcrumb items={getNavBreadcrumbs()} ariaLabel="Section navigation" />
+            </div>
             <div style={shellStyles.placeholder}>
               <em>"This section of the compendium remains unwritten. Return when the scribes have finished their work."</em>
             </div>
@@ -324,7 +382,10 @@ const App = () => {
 
   return (
     <div style={shellStyles.app}>
-      <Navigation activeSection={activeSection} onNavigate={setActiveSection}/>
+      <Navigation
+        activeSection={activeSection}
+        onNavigate={(section) => { setActiveSection(section); setSelectedSpell(null); }}
+      />
       <div style={shellStyles.main}>{renderContent()}</div>
     </div>
   );
