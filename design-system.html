@@ -1583,6 +1583,331 @@
     @media (max-width: 700px) {
       .form-section-grid { grid-template-columns: 1fr; }
     }
+
+    /* ─── Breadcrumb ─────────────────────────────────────── */
+    .breadcrumb {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .breadcrumb__item {
+      display: flex;
+      align-items: center;
+    }
+    .breadcrumb__sep {
+      display: inline-block;
+      color: var(--gold);
+      font-size: 0.75rem;
+      margin: 0 0.5rem;
+      line-height: 1;
+      user-select: none;
+    }
+    .breadcrumb__link {
+      font-family: var(--font-display);
+      font-size: var(--text-label);
+      letter-spacing: 0.05em;
+      color: var(--ink-faded);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      padding-bottom: 1px;
+      white-space: nowrap;
+      transition: color 0.12s ease, border-bottom-color 0.12s ease;
+    }
+    .breadcrumb__link:hover {
+      color: var(--gold-deep);
+      border-bottom-color: var(--gold-deep);
+    }
+    .breadcrumb__link:focus-visible {
+      outline: 2px solid var(--gold-deep);
+      outline-offset: 2px;
+      border-bottom-color: transparent;
+    }
+    .breadcrumb__current {
+      font-family: var(--font-display);
+      font-size: var(--text-label);
+      letter-spacing: 0.05em;
+      color: var(--ink-black);
+      white-space: nowrap;
+    }
+    .breadcrumb__ellipsis {
+      font-family: var(--font-body);
+      font-size: 0.9375rem;
+      color: var(--ink-faded);
+      letter-spacing: 0;
+      padding: 0 0.25rem;
+      cursor: default;
+      user-select: none;
+      line-height: 1;
+    }
+    /* Dark surface modifier */
+    .breadcrumb--dark .breadcrumb__link     { color: rgba(168,141,90,0.65); }
+    .breadcrumb--dark .breadcrumb__link:hover {
+      color: var(--gold-bright);
+      border-bottom-color: var(--gold-bright);
+    }
+    .breadcrumb--dark .breadcrumb__link:focus-visible {
+      outline-color: var(--parchment-100);
+      border-bottom-color: transparent;
+    }
+    .breadcrumb--dark .breadcrumb__sep      { color: var(--gold-deep); }
+    .breadcrumb--dark .breadcrumb__current  { color: var(--parchment-100); }
+    .breadcrumb--dark .breadcrumb__ellipsis { color: var(--gold-deep); }
+    /* Eyebrow + breadcrumb group */
+    .breadcrumb-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+    /* Page header — adds dashed rule below the trail */
+    .breadcrumb-header {
+      padding-bottom: var(--space-4);
+      border-bottom: 1px dashed var(--ink-faded);
+      margin-bottom: var(--space-6);
+    }
+    /* Demo containers for the Breadcrumbs section */
+    .bc-demo {
+      padding: 1.25rem 1.5rem;
+      border: 1px dashed var(--ink-faded);
+      background: var(--parchment-100);
+      margin-bottom: var(--space-6);
+    }
+    .bc-demo--card {
+      background: linear-gradient(135deg, var(--parchment-100), var(--parchment-200));
+      border: 2px solid var(--ink-brown);
+      box-shadow: 4px 4px 0 var(--parchment-400);
+      padding: 1.5rem 2rem;
+    }
+    .bc-demo--dark {
+      background: linear-gradient(180deg, var(--ink-black) 0%, var(--shadow) 100%);
+      border: none;
+      padding: 1.5rem 2rem;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .breadcrumb__link { transition: none; }
+    }
+
+    /* ─── Time Picker ───────────────────────────────────── */
+    .tp-wrap { position: relative; display: inline-block; }
+    .tp-trigger {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      min-width: 180px;
+      background: var(--parchment-100);
+      border: 1.5px solid var(--ink-faded);
+      cursor: pointer;
+      font-family: var(--font-display);
+      font-size: 0.875rem;
+      letter-spacing: 0.08em;
+      color: var(--ink-brown);
+      user-select: none;
+      outline: none;
+      transition: background 0.12s, border-color 0.12s;
+      white-space: nowrap;
+    }
+    .tp-trigger:hover { background: var(--parchment-200); border-color: var(--gold-deep); }
+    .tp-trigger:focus-visible { outline: 2px solid var(--gold-deep); outline-offset: 2px; }
+    .tp-trigger:disabled { opacity: 0.6; cursor: not-allowed; background: var(--parchment-200); border-color: var(--parchment-400); }
+    .tp-trigger--placeholder { color: var(--ink-faded); }
+    .tp-trigger-label { flex: 1; }
+    .tp-trigger-arrow { font-size: 0.65rem; color: var(--parchment-400); margin-left: auto; flex-shrink: 0; }
+    .tp-panel {
+      position: absolute;
+      top: calc(100% + 4px);
+      left: 0;
+      z-index: 300;
+      background: var(--parchment-200);
+      border: 1.5px solid var(--ink-brown);
+      box-shadow: 4px 4px 0 var(--parchment-400);
+      min-width: 264px;
+      font-family: var(--font-display);
+    }
+    .tp-panel[hidden] { display: none; }
+    .tp-header {
+      padding: 12px 16px 10px;
+      border-bottom: 1px solid var(--parchment-400);
+      background: var(--parchment-300);
+      display: flex;
+      align-items: baseline;
+      gap: 2px;
+    }
+    .tp-display-h, .tp-display-m {
+      font-size: 1.75rem;
+      letter-spacing: 0.04em;
+      color: var(--ink-black);
+      line-height: 1;
+      font-variant-numeric: tabular-nums;
+    }
+    .tp-display-sep { font-size: 1.5rem; color: var(--gold-deep); padding: 0 2px; line-height: 1; }
+    .tp-display-ampm {
+      font-size: 0.6875rem;
+      letter-spacing: 0.2em;
+      color: var(--gold-deep);
+      margin-left: 6px;
+      align-self: flex-end;
+      padding-bottom: 2px;
+    }
+    .tp-cols { display: flex; border-bottom: 1px solid var(--parchment-400); }
+    .tp-col { display: flex; flex-direction: column; flex: 1; }
+    .tp-col-label {
+      font-family: var(--font-display);
+      font-size: 0.5625rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold-deep);
+      text-align: center;
+      padding: 6px 4px 4px;
+      border-bottom: 1px solid var(--parchment-300);
+      background: var(--parchment-200);
+    }
+    .tp-col-scroll {
+      height: 180px;
+      overflow-y: auto;
+      overflow-x: hidden;
+      scrollbar-width: thin;
+      scrollbar-color: var(--parchment-400) var(--parchment-200);
+    }
+    .tp-col-scroll::-webkit-scrollbar { width: 4px; }
+    .tp-col-scroll::-webkit-scrollbar-track { background: var(--parchment-200); }
+    .tp-col-scroll::-webkit-scrollbar-thumb { background: var(--parchment-400); }
+    .tp-item {
+      height: 36px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 0.9375rem;
+      letter-spacing: 0.05em;
+      color: var(--ink-brown);
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      transition: background 0.1s, color 0.1s;
+    }
+    .tp-item:hover { background: var(--parchment-300); color: var(--ink-black); }
+    .tp-item.is-selected { background: var(--blood); color: var(--parchment-100); }
+    .tp-item:focus-visible { outline: 2px solid var(--gold-deep); outline-offset: -2px; }
+    .tp-col-divider { width: 1px; background: var(--parchment-400); flex-shrink: 0; }
+    .tp-ampm-col { display: flex; flex-direction: column; width: 52px; flex-shrink: 0; }
+    .tp-ampm-wrap {
+      height: 180px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 8px;
+      padding: 8px;
+    }
+    .tp-ampm-btn {
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 0.8125rem;
+      letter-spacing: 0.12em;
+      color: var(--ink-faded);
+      background: transparent;
+      border: 1px solid var(--parchment-400);
+      cursor: pointer;
+      transition: all 0.1s;
+    }
+    .tp-ampm-btn:hover { background: var(--parchment-300); color: var(--ink-black); }
+    .tp-ampm-btn.is-active { background: var(--blood); border-color: var(--blood-deep); color: var(--parchment-100); }
+    .tp-ampm-btn:focus-visible { outline: 2px solid var(--gold-deep); outline-offset: 1px; }
+    .tp-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 12px;
+      border-top: 1px solid var(--parchment-400);
+    }
+    .tp-clear-btn {
+      background: none;
+      border: none;
+      font-family: var(--font-display);
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-faded);
+      cursor: pointer;
+      padding: 4px 0;
+      transition: color 0.12s;
+    }
+    .tp-clear-btn:hover { color: var(--blood); }
+    .tp-clear-btn:focus-visible { outline: 2px solid var(--gold-deep); outline-offset: 2px; }
+    .tp-confirm-btn {
+      background: var(--blood);
+      border: none;
+      box-shadow: 2px 2px 0 var(--blood-deep);
+      font-family: var(--font-display);
+      font-size: 0.75rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--parchment-100);
+      cursor: pointer;
+      padding: 6px 14px;
+      transition: box-shadow 0.1s, transform 0.1s;
+    }
+    .tp-confirm-btn:hover { box-shadow: 2px 2px 0 var(--ink-black); transform: translate(-1px,-1px); }
+    .tp-confirm-btn:focus-visible { outline: 2px solid var(--parchment-100); outline-offset: 2px; }
+    /* Demo layout for the Time Picker section */
+    .tp-demo-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-8);
+      align-items: flex-start;
+      margin-bottom: var(--space-8);
+    }
+    .tp-demo-unit { display: flex; flex-direction: column; gap: var(--space-2); }
+    .tp-demo-caption {
+      font-family: var(--font-display);
+      font-size: 0.6875rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold-deep);
+    }
+    /* Clickable / editable hour display in header */
+    .tp-display-h--editable {
+      cursor: pointer;
+      border-bottom: 1.5px solid transparent;
+      transition: color 0.1s, border-color 0.1s;
+    }
+    .tp-display-h--editable:hover { color: var(--gold-deep); border-bottom-color: var(--gold-deep); }
+    .tp-header-hint {
+      margin-left: auto;
+      font-size: 0.5rem;
+      letter-spacing: 0.1em;
+      color: var(--parchment-400);
+      text-transform: uppercase;
+      align-self: flex-end;
+      padding-bottom: 3px;
+      white-space: nowrap;
+    }
+    .tp-header-input {
+      font-size: 1.75rem;
+      letter-spacing: 0.04em;
+      color: var(--ink-brown);
+      line-height: 1;
+      font-variant-numeric: tabular-nums;
+      font-family: var(--font-display);
+      background: transparent;
+      border: none;
+      border-bottom: 1.5px solid var(--gold-deep);
+      outline: none;
+      width: 2.4ch;
+      padding: 0;
+      text-align: center;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .tp-trigger, .tp-item, .tp-ampm-btn, .tp-clear-btn, .tp-confirm-btn {
+        transition: none !important;
+      }
+    }
   </style>
 </head>
 <body>
@@ -3005,6 +3330,475 @@ DC <span class="tok-val">20</span> <span class="tok-cmt">— Ancient inscription
       </svg>
     </div>
 
+    <!-- ══════════════════════ X. BREADCRUMBS ══════════════════════ -->
+    <section class="ds-section" id="breadcrumbs" aria-labelledby="breadcrumb-title">
+      <div class="container">
+        <span class="section-numeral" aria-hidden="true">X</span>
+        <h2 class="section-title" id="breadcrumb-title">Breadcrumbs</h2>
+
+        <p style="max-width:65ch;margin-bottom:var(--space-8);color:var(--ink-brown);">Wayfinding trail for deep content hierarchies — display-face ancestor links in faded ink, gold <code class="mono-pill" style="font-size:0.8125rem;">›</code> separators, iron-gall current page. Implements the WAI-ARIA 1.2 breadcrumb navigation pattern.</p>
+
+        <!-- ─ 1. Standard ─ -->
+        <h3 class="sub-head">Standard — Three Levels</h3>
+        <div class="bc-demo">
+          <nav aria-label="Breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb__item">
+                <a href="#" class="breadcrumb__link">Compendium</a>
+              </li>
+              <li class="breadcrumb__item">
+                <span class="breadcrumb__sep" aria-hidden="true">›</span>
+                <a href="#" class="breadcrumb__link">Spells</a>
+              </li>
+              <li class="breadcrumb__item">
+                <span class="breadcrumb__sep" aria-hidden="true">›</span>
+                <span class="breadcrumb__current" aria-current="page">Fireball</span>
+              </li>
+            </ol>
+          </nav>
+        </div>
+        <pre class="code-block" data-lang="HTML" style="margin-bottom:var(--space-12);"><code>&lt;nav aria-label="Breadcrumb"&gt;
+  &lt;ol class="breadcrumb"&gt;
+    &lt;li class="breadcrumb__item"&gt;
+      &lt;a href="/compendium" class="breadcrumb__link"&gt;Compendium&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li class="breadcrumb__item"&gt;
+      &lt;span class="breadcrumb__sep" aria-hidden="true"&gt;›&lt;/span&gt;
+      &lt;a href="/compendium/spells" class="breadcrumb__link"&gt;Spells&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li class="breadcrumb__item"&gt;
+      &lt;span class="breadcrumb__sep" aria-hidden="true"&gt;›&lt;/span&gt;
+      &lt;span class="breadcrumb__current" aria-current="page"&gt;Fireball&lt;/span&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/nav&gt;</code></pre>
+
+        <!-- ─ 2. With location eyebrow ─ -->
+        <h3 class="sub-head">With Location Eyebrow — Four Levels</h3>
+        <div class="bc-demo">
+          <div class="breadcrumb-group">
+            <span class="eyebrow" style="margin-bottom:0;">Location</span>
+            <nav aria-label="Breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb__item">
+                  <a href="#" class="breadcrumb__link">Compendium</a>
+                </li>
+                <li class="breadcrumb__item">
+                  <span class="breadcrumb__sep" aria-hidden="true">›</span>
+                  <a href="#" class="breadcrumb__link">Spells</a>
+                </li>
+                <li class="breadcrumb__item">
+                  <span class="breadcrumb__sep" aria-hidden="true">›</span>
+                  <a href="#" class="breadcrumb__link">School of Evocation</a>
+                </li>
+                <li class="breadcrumb__item">
+                  <span class="breadcrumb__sep" aria-hidden="true">›</span>
+                  <span class="breadcrumb__current" aria-current="page">Fireball</span>
+                </li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+        <div class="callout" style="margin-bottom:var(--space-12);">
+          <p class="callout__label">Sage Advice</p>
+          <p class="callout__body">Pair the breadcrumb with an <code style="font-style:normal;font-family:var(--font-mono);font-size:0.8125rem;">.eyebrow</code> label above it using <code style="font-style:normal;font-family:var(--font-mono);font-size:0.8125rem;">.breadcrumb-group</code> (column flex, 4px gap). Recommended on spell, creature, and item detail pages.</p>
+        </div>
+
+        <!-- ─ 3. Page header with divider ─ -->
+        <h3 class="sub-head">Page Header — With Dashed Divider</h3>
+        <div class="bc-demo">
+          <div class="breadcrumb-header">
+            <div class="breadcrumb-group">
+              <span class="eyebrow" style="margin-bottom:0;">Location</span>
+              <nav aria-label="Breadcrumb">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb__item">
+                    <a href="#" class="breadcrumb__link">Compendium</a>
+                  </li>
+                  <li class="breadcrumb__item">
+                    <span class="breadcrumb__sep" aria-hidden="true">›</span>
+                    <a href="#" class="breadcrumb__link">Monsters</a>
+                  </li>
+                  <li class="breadcrumb__item">
+                    <span class="breadcrumb__sep" aria-hidden="true">›</span>
+                    <span class="breadcrumb__current" aria-current="page">Ancient Red Dragon</span>
+                  </li>
+                </ol>
+              </nav>
+            </div>
+          </div>
+          <p style="font-family:var(--font-flavor);font-style:italic;font-size:var(--text-flavor);color:var(--ink-faded);">The <code style="font-style:normal;font-family:var(--font-mono);font-size:0.75rem;">.breadcrumb-header</code> wrapper adds a <code style="font-style:normal;font-family:var(--font-mono);font-size:0.75rem;">1px dashed --ink-faded</code> bottom rule and padding, creating a clear content zone above the page title.</p>
+        </div>
+        <pre class="code-block" data-lang="HTML" style="margin-bottom:var(--space-12);"><code>&lt;div class="breadcrumb-header"&gt;
+  &lt;div class="breadcrumb-group"&gt;
+    &lt;span class="eyebrow"&gt;Location&lt;/span&gt;
+    &lt;nav aria-label="Breadcrumb"&gt;…&lt;/nav&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;h1&gt;Ancient Red Dragon&lt;/h1&gt;</code></pre>
+
+        <!-- ─ 4. Collapsed ─ -->
+        <h3 class="sub-head">Collapsed — Deep Hierarchy</h3>
+        <div class="bc-demo">
+          <nav aria-label="Breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb__item">
+                <a href="#" class="breadcrumb__link">Compendium</a>
+              </li>
+              <li class="breadcrumb__item">
+                <span class="breadcrumb__sep" aria-hidden="true">›</span>
+                <span class="breadcrumb__ellipsis" aria-label="more pages">…</span>
+              </li>
+              <li class="breadcrumb__item">
+                <span class="breadcrumb__sep" aria-hidden="true">›</span>
+                <a href="#" class="breadcrumb__link">School of Evocation</a>
+              </li>
+              <li class="breadcrumb__item">
+                <span class="breadcrumb__sep" aria-hidden="true">›</span>
+                <span class="breadcrumb__current" aria-current="page">Fireball</span>
+              </li>
+            </ol>
+          </nav>
+        </div>
+        <div class="callout" style="margin-bottom:var(--space-12);">
+          <p class="callout__label">Sage Advice</p>
+          <p class="callout__body">Always show: root + ellipsis + last two ancestors + current page. Collapse when three or more intermediate levels are hidden. The ellipsis <code style="font-style:normal;font-family:var(--font-mono);font-size:0.8125rem;">&lt;span&gt;</code> carries <code style="font-style:normal;font-family:var(--font-mono);font-size:0.8125rem;">aria-label="more pages"</code> so screen readers announce it correctly. In the React component, pass <code style="font-style:normal;font-family:var(--font-mono);font-size:0.8125rem;">maxVisible={3}</code>.</p>
+        </div>
+
+        <!-- ─ 5. On card surface ─ -->
+        <h3 class="sub-head">On Card Surface (Parchment-200)</h3>
+        <div class="bc-demo bc-demo--card">
+          <nav aria-label="Breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb__item">
+                <a href="#" class="breadcrumb__link">Compendium</a>
+              </li>
+              <li class="breadcrumb__item">
+                <span class="breadcrumb__sep" aria-hidden="true">›</span>
+                <a href="#" class="breadcrumb__link">Equipment</a>
+              </li>
+              <li class="breadcrumb__item">
+                <span class="breadcrumb__sep" aria-hidden="true">›</span>
+                <span class="breadcrumb__current" aria-current="page">Flametongue</span>
+              </li>
+            </ol>
+          </nav>
+        </div>
+        <p style="font-family:var(--font-flavor);font-style:italic;font-size:var(--text-flavor);color:var(--ink-faded);margin-bottom:var(--space-12);">Default token colours hold on <code style="font-style:normal;font-family:var(--font-mono);font-size:0.75rem;">--parchment-200</code> card surfaces. <code style="font-style:normal;font-family:var(--font-mono);font-size:0.75rem;">--ink-faded</code> links pass ~4.8:1 (AA for UI components); <code style="font-style:normal;font-family:var(--font-mono);font-size:0.75rem;">--gold-deep</code> hover passes ~4.1:1 (AA large text).</p>
+
+        <!-- ─ 6. Dark surface ─ -->
+        <h3 class="sub-head">Dark Surface — Sidebar / Dark Panel</h3>
+        <div class="bc-demo bc-demo--dark">
+          <nav aria-label="Breadcrumb">
+            <ol class="breadcrumb breadcrumb--dark">
+              <li class="breadcrumb__item">
+                <a href="#" class="breadcrumb__link">Compendium</a>
+              </li>
+              <li class="breadcrumb__item">
+                <span class="breadcrumb__sep" aria-hidden="true">›</span>
+                <a href="#" class="breadcrumb__link">Characters</a>
+              </li>
+              <li class="breadcrumb__item">
+                <span class="breadcrumb__sep" aria-hidden="true">›</span>
+                <span class="breadcrumb__current" aria-current="page">Aragorn Dunedain</span>
+              </li>
+            </ol>
+          </nav>
+        </div>
+        <pre class="code-block" data-lang="HTML" style="margin-bottom:var(--space-12);"><code>&lt;!-- Add .breadcrumb--dark on the &lt;ol&gt; for dark panel backgrounds --&gt;
+&lt;ol class="breadcrumb breadcrumb--dark"&gt;…&lt;/ol&gt;
+
+&lt;!-- React: dark prop --&gt;
+&lt;Breadcrumb dark={true} items={…} /&gt;</code></pre>
+
+        <!-- ─ 7. Edge cases: single + two levels ─ -->
+        <h3 class="sub-head">Edge Cases — Single &amp; Two Levels</h3>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-6);margin-bottom:var(--space-12);">
+          <div>
+            <span class="eyebrow" style="font-size:var(--text-micro);margin-bottom:var(--space-3);">Single level — root page</span>
+            <div class="bc-demo" style="margin-bottom:0;">
+              <nav aria-label="Breadcrumb">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb__item">
+                    <span class="breadcrumb__current" aria-current="page">Compendium</span>
+                  </li>
+                </ol>
+              </nav>
+            </div>
+            <p style="font-family:var(--font-flavor);font-style:italic;font-size:0.8125rem;color:var(--ink-faded);margin-top:var(--space-3);">Single item, no separator, <code style="font-style:normal;font-family:var(--font-mono);font-size:0.75rem;">aria-current="page"</code>. Keep the landmark for consistent AT structure; consider omitting entirely at root.</p>
+          </div>
+          <div>
+            <span class="eyebrow" style="font-size:var(--text-micro);margin-bottom:var(--space-3);">Two levels — section root</span>
+            <div class="bc-demo" style="margin-bottom:0;">
+              <nav aria-label="Breadcrumb">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb__item">
+                    <a href="#" class="breadcrumb__link">Compendium</a>
+                  </li>
+                  <li class="breadcrumb__item">
+                    <span class="breadcrumb__sep" aria-hidden="true">›</span>
+                    <span class="breadcrumb__current" aria-current="page">Classes</span>
+                  </li>
+                </ol>
+              </nav>
+            </div>
+          </div>
+        </div>
+
+        <!-- ─ Accessibility ─ -->
+        <h3 class="sub-head">Accessibility</h3>
+        <div class="panel-grid" style="margin-bottom:var(--space-12);">
+          <div class="panel">
+            <span class="panel__title">ARIA pattern (WAI-ARIA 1.2)</span>
+            <p class="panel__body"><code class="mono-pill" style="font-size:0.75rem;">&lt;nav aria-label="Breadcrumb"&gt;</code> — named landmark</p>
+            <p class="panel__body"><code class="mono-pill" style="font-size:0.75rem;">&lt;ol&gt;</code> — ordered list; reading order conveys path depth</p>
+            <p class="panel__body"><code class="mono-pill" style="font-size:0.75rem;">aria-current="page"</code> — final non-linked item only</p>
+            <p class="panel__body"><code class="mono-pill" style="font-size:0.75rem;">aria-hidden="true"</code> — every <code style="font-size:0.8125rem;font-family:var(--font-mono);color:var(--gold-bright);background:var(--shadow);padding:2px 5px;border-left:3px solid var(--gold);">›</code> separator glyph</p>
+            <p class="panel__body" style="margin:0;"><code class="mono-pill" style="font-size:0.75rem;">aria-label="more pages"</code> — ellipsis span</p>
+          </div>
+          <div class="panel">
+            <span class="panel__title">Focus rings</span>
+            <p class="panel__body"><strong style="color:var(--ink-black);">Light surface</strong> — <code class="mono-pill" style="font-size:0.75rem;">outline: 2px solid --gold-deep</code>, offset 2px</p>
+            <p class="panel__body"><strong style="color:var(--ink-black);">Dark surface</strong> — <code class="mono-pill" style="font-size:0.75rem;">outline: 2px solid --parchment-100</code>, offset 2px</p>
+            <p class="panel__body"><code class="mono-pill" style="font-size:0.75rem;">:focus-visible</code> only — never suppress without replacement</p>
+            <p class="panel__body" style="margin:0;">No <code class="mono-pill" style="font-size:0.75rem;">scrollIntoView()</code> usage</p>
+          </div>
+        </div>
+
+        <!-- ─ Token reference ─ -->
+        <h3 class="sub-head">Token Reference</h3>
+        <div class="panel" style="max-width:600px;">
+          <span class="panel__title">Tokens used</span>
+          <div style="display:grid;grid-template-columns:auto 1fr;gap:var(--space-2) var(--space-6);align-items:baseline;">
+            <span style="font-family:var(--font-mono);font-size:0.75rem;color:var(--ink-faded);">font</span>
+            <span style="font-family:var(--font-mono);font-size:0.8125rem;color:var(--ink-black);">--font-display (links, current) · --font-body (ellipsis)</span>
+            <span style="font-family:var(--font-mono);font-size:0.75rem;color:var(--ink-faded);">size</span>
+            <span style="font-family:var(--font-mono);font-size:0.8125rem;color:var(--ink-black);">--text-label (0.8125rem · 13px)</span>
+            <span style="font-family:var(--font-mono);font-size:0.75rem;color:var(--ink-faded);">link</span>
+            <span style="font-family:var(--font-mono);font-size:0.8125rem;color:var(--ink-black);">--ink-faded → hover --gold-deep</span>
+            <span style="font-family:var(--font-mono);font-size:0.75rem;color:var(--ink-faded);">separator</span>
+            <span style="font-family:var(--font-mono);font-size:0.8125rem;color:var(--ink-black);">--gold · "›" · 0.75rem</span>
+            <span style="font-family:var(--font-mono);font-size:0.75rem;color:var(--ink-faded);">current</span>
+            <span style="font-family:var(--font-mono);font-size:0.8125rem;color:var(--ink-black);">--ink-black · no href</span>
+            <span style="font-family:var(--font-mono);font-size:0.75rem;color:var(--ink-faded);">ellipsis</span>
+            <span style="font-family:var(--font-mono);font-size:0.8125rem;color:var(--ink-black);">--ink-faded · --font-body</span>
+            <span style="font-family:var(--font-mono);font-size:0.75rem;color:var(--ink-faded);">focus</span>
+            <span style="font-family:var(--font-mono);font-size:0.8125rem;color:var(--ink-black);">2px solid --gold-deep · offset 2px</span>
+            <span style="font-family:var(--font-mono);font-size:0.75rem;color:var(--ink-faded);">transition</span>
+            <span style="font-family:var(--font-mono);font-size:0.8125rem;color:var(--ink-black);">color 0.12s ease · border-bottom-color 0.12s ease</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── SIGIL X: Crossed Quills (Navigation) ── -->
+    <div class="sigil-divider" role="presentation" aria-hidden="true">
+      <svg width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true" focusable="false">
+        <circle cx="22" cy="22" r="19" stroke="#7a5a22" stroke-width="1" opacity="0.35"/>
+        <!-- Quill 1: top-left to bottom-right -->
+        <path d="M10 10 Q22 16, 34 34" stroke="#b8893b" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+        <path d="M34 34 Q28 28, 10 10 Q14 16, 20 18Z" fill="rgba(184,137,59,0.15)" stroke="#7a5a22" stroke-width="1"/>
+        <path d="M32 30 L34 34 L30 32" stroke="#7a5a22" stroke-width="1" stroke-linejoin="round" fill="none"/>
+        <!-- Quill 2: top-right to bottom-left -->
+        <path d="M34 10 Q22 16, 10 34" stroke="#7a1212" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.7"/>
+        <path d="M10 34 Q16 28, 34 10 Q30 16, 24 18Z" fill="rgba(122,18,18,0.10)" stroke="#7a1212" stroke-width="1" opacity="0.7"/>
+        <path d="M12 30 L10 34 L14 32" stroke="#7a1212" stroke-width="1" stroke-linejoin="round" fill="none" opacity="0.7"/>
+        <circle cx="22" cy="22" r="2.5" fill="#7a5a22"/>
+      </svg>
+    </div>
+
+    <!-- ══════════════════════ XI. TIME PICKER ══════════════════════ -->
+    <section class="ds-section" id="time-picker" aria-labelledby="time-picker-title">
+      <div class="container">
+        <span class="section-numeral" aria-hidden="true">XI</span>
+        <h2 class="section-title" id="time-picker-title">Time Picker</h2>
+
+        <p style="max-width:65ch;margin-bottom:var(--space-8);color:var(--ink-brown);">Scrollable hour and minute columns with medieval canonical-hour presets. Supports 12- and 24-hour formats, configurable minute steps, and AM/PM toggle. Follows the WAI-ARIA dialog pattern for the open panel.</p>
+
+        <!-- ─ Interactive demos ─ -->
+        <h3 class="sub-head">Live Demos</h3>
+        <div class="tp-demo-row" style="margin-bottom:var(--space-12);">
+          <div class="tp-demo-unit">
+            <span class="tp-demo-caption">12-Hour (default)</span>
+            <div class="tp-wrap" id="tp-ds-1" data-format="12" data-step="5"></div>
+          </div>
+          <div class="tp-demo-unit">
+            <span class="tp-demo-caption">24-Hour · 15-min step · value 14:30</span>
+            <div class="tp-wrap" id="tp-ds-2" data-format="24" data-step="15" data-value="14:30"></div>
+          </div>
+          <div class="tp-demo-unit">
+            <span class="tp-demo-caption">Pre-filled · 09:30</span>
+            <div class="tp-wrap" id="tp-ds-3" data-format="12" data-step="5" data-value="09:30"></div>
+          </div>
+          <div class="tp-demo-unit">
+            <span class="tp-demo-caption">Disabled</span>
+            <button type="button" class="tp-trigger" disabled aria-label="Disabled time picker" aria-haspopup="dialog" aria-expanded="false">
+              <svg width="13" height="16" viewBox="0 0 13 16" fill="none" aria-hidden="true" focusable="false">
+                <path d="M1.5 1h10M1.5 15h10" stroke="#6b4f35" stroke-width="1.5" stroke-linecap="round"/>
+                <path d="M2.5 1.5L6.5 8L10.5 1.5Z" fill="#b8893b" stroke="#7a5a22" stroke-width="0.75"/>
+                <path d="M2.5 14.5L6.5 8L10.5 14.5Z" fill="#a88d5a" stroke="#7a5a22" stroke-width="0.75"/>
+              </svg>
+              <span class="tp-trigger-label tp-trigger--placeholder">Select the hour…</span>
+              <span class="tp-trigger-arrow" aria-hidden="true">▾</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- ─ Anatomy reference ─ -->
+        <h3 class="sub-head">Anatomy</h3>
+        <div style="display:flex;flex-wrap:wrap;gap:var(--space-8);margin-bottom:var(--space-12);align-items:flex-start;">
+          <!-- Static panel cross-section -->
+          <div>
+            <p style="font-family:var(--font-display);font-size:0.6875rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold-deep);margin-bottom:var(--space-3);">Panel cross-section</p>
+            <div style="background:var(--parchment-200);border:1.5px solid var(--ink-brown);box-shadow:4px 4px 0 var(--parchment-400);width:264px;font-family:var(--font-display);">
+              <!-- Header -->
+              <div style="padding:12px 16px 10px;border-bottom:1px solid var(--parchment-400);background:var(--parchment-300);display:flex;align-items:baseline;gap:2px;">
+                <span style="font-size:1.75rem;letter-spacing:0.04em;color:var(--ink-black);line-height:1;">09</span>
+                <span style="font-size:1.5rem;color:var(--gold-deep);padding:0 2px;line-height:1;">:</span>
+                <span style="font-size:1.75rem;letter-spacing:0.04em;color:var(--ink-black);line-height:1;">30</span>
+                <span style="font-size:0.6875rem;letter-spacing:0.2em;color:var(--gold-deep);margin-left:6px;align-self:flex-end;padding-bottom:2px;">AM</span>
+              </div>
+              <!-- Columns -->
+              <div style="display:flex;border-bottom:1px solid var(--parchment-400);">
+                <!-- Hour col -->
+                <div style="flex:1;border-right:1px solid var(--parchment-400);">
+                  <div style="font-size:0.5625rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold-deep);text-align:center;padding:6px 4px 4px;border-bottom:1px solid var(--parchment-300);">Hour</div>
+                  <div style="overflow:hidden;">
+                    <div style="height:36px;display:flex;align-items:center;justify-content:center;color:var(--ink-faded);font-size:0.9375rem;">08</div>
+                    <div style="height:36px;display:flex;align-items:center;justify-content:center;background:var(--blood);color:var(--parchment-100);font-size:0.9375rem;">09</div>
+                    <div style="height:36px;display:flex;align-items:center;justify-content:center;color:var(--ink-faded);font-size:0.9375rem;">10</div>
+                  </div>
+                </div>
+                <!-- Minute col -->
+                <div style="flex:1;border-right:1px solid var(--parchment-400);">
+                  <div style="font-size:0.5625rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold-deep);text-align:center;padding:6px 4px 4px;border-bottom:1px solid var(--parchment-300);">Min</div>
+                  <div style="overflow:hidden;">
+                    <div style="height:36px;display:flex;align-items:center;justify-content:center;color:var(--ink-faded);font-size:0.9375rem;">25</div>
+                    <div style="height:36px;display:flex;align-items:center;justify-content:center;background:var(--blood);color:var(--parchment-100);font-size:0.9375rem;">30</div>
+                    <div style="height:36px;display:flex;align-items:center;justify-content:center;color:var(--ink-faded);font-size:0.9375rem;">35</div>
+                  </div>
+                </div>
+                <!-- AM/PM col -->
+                <div style="width:52px;display:flex;flex-direction:column;">
+                  <div style="font-size:0.5625rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold-deep);text-align:center;padding:6px 4px 4px;border-bottom:1px solid var(--parchment-300);">AM·PM</div>
+                  <div style="display:flex;flex-direction:column;justify-content:center;gap:8px;padding:8px;height:108px;">
+                    <button type="button" class="tp-ampm-btn is-active" style="pointer-events:none;">AM</button>
+                    <button type="button" class="tp-ampm-btn" style="pointer-events:none;">PM</button>
+                  </div>
+                </div>
+              </div>
+              <!-- Footer -->
+              <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 12px;border-top:1px solid var(--parchment-400);">
+                <span class="tp-clear-btn" style="pointer-events:none;">Clear</span>
+                <span class="tp-confirm-btn" style="pointer-events:none;">Confirm</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- ─ Code ─ -->
+        <h3 class="sub-head">JSX Usage</h3>
+        <pre class="code-block" data-lang="JSX" style="margin-bottom:var(--space-12);"><code>&lt;TimePicker
+  value="09:30"
+  format="12"
+  minuteStep={15}
+  onChange={(val) =&gt; console.log(val)} {/* "HH:MM" or null */}
+/&gt;
+
+{/* 24-hour, quarter-hour grid */}
+&lt;TimePicker format="24" minuteStep={15} value="14:00" /&gt;
+
+{/* Disabled */}
+&lt;TimePicker disabled value="18:00" /&gt;
+
+{/* With associated label */}
+&lt;label htmlFor="tp-depart"&gt;Departure Time&lt;/label&gt;
+&lt;TimePicker id="tp-depart" ariaLabel="Departure time" /&gt;</code></pre>
+
+        <!-- ─ Sage Advice ─ -->
+        <div class="callout" style="max-width:65ch;margin-bottom:var(--space-8);">
+          <strong class="callout__head">Sage Advice</strong>
+          <p>Use <strong>minuteStep={15}</strong> or <strong>minuteStep={30}</strong> for scheduling flows where users select from a fixed grid. Reserve <code class="mono-pill" style="font-size:0.8125rem;">minuteStep={1}</code> for precise time entry (e.g. duration recording).</p>
+        </div>
+
+        <!-- ─ Accessibility ─ -->
+        <h3 class="sub-head">Accessibility</h3>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-6);margin-bottom:var(--space-12);">
+          <div class="callout" style="background:var(--parchment-200);border-color:var(--parchment-400);">
+            <strong class="callout__head">ARIA Pattern</strong>
+            <ul style="margin:0;padding-left:1.2em;font-family:var(--font-mono);font-size:0.75rem;line-height:1.8;color:var(--ink-brown);">
+              <li>Trigger: <code>role="button"</code> <code>aria-haspopup="dialog"</code> <code>aria-expanded</code></li>
+              <li>Panel: <code>role="dialog"</code> <code>aria-label</code> <code>aria-modal="false"</code></li>
+              <li>Columns: <code>role="listbox"</code> with unique <code>aria-label</code></li>
+              <li>Rows: <code>role="option"</code> <code>aria-selected</code></li>
+              <li>Header: <code>aria-hidden="true"</code> — decorative only</li>
+            </ul>
+          </div>
+          <div class="callout" style="background:var(--parchment-200);border-color:var(--parchment-400);">
+            <strong class="callout__head">Keyboard &amp; Focus</strong>
+            <ul style="margin:0;padding-left:1.2em;font-family:var(--font-mono);font-size:0.75rem;line-height:1.8;color:var(--ink-brown);">
+              <li><kbd style="background:var(--parchment-300);padding:1px 4px;border:1px solid var(--parchment-400);">Esc</kbd> — close panel, return focus to trigger</li>
+              <li><kbd style="background:var(--parchment-300);padding:1px 4px;border:1px solid var(--parchment-400);">Enter</kbd> / <kbd style="background:var(--parchment-300);padding:1px 4px;border:1px solid var(--parchment-400);">Space</kbd> — select focused option</li>
+              <li>Click outside — closes panel</li>
+              <li>Focus ring: 2px solid <code>--gold-deep</code> (light) / <code>--parchment-100</code> (Confirm button)</li>
+              <li>No <code>scrollIntoView()</code> — uses <code>scrollTop</code> only</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- ─ Token reference ─ -->
+        <h3 class="sub-head">Token Reference</h3>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-2) var(--space-8);max-width:720px;margin-bottom:var(--space-12);">
+          <span style="font-family:var(--font-mono);font-size:0.75rem;color:var(--ink-faded);">panel background</span>
+          <span style="font-family:var(--font-mono);font-size:0.8125rem;color:var(--ink-black);">--parchment-200 (#ead9b3)</span>
+          <span style="font-family:var(--font-mono);font-size:0.75rem;color:var(--ink-faded);">panel border</span>
+          <span style="font-family:var(--font-mono);font-size:0.8125rem;color:var(--ink-black);">1.5px solid --ink-brown</span>
+          <span style="font-family:var(--font-mono);font-size:0.75rem;color:var(--ink-faded);">panel shadow</span>
+          <span style="font-family:var(--font-mono);font-size:0.8125rem;color:var(--ink-black);">4px 4px 0 --parchment-400</span>
+          <span style="font-family:var(--font-mono);font-size:0.75rem;color:var(--ink-faded);">header background</span>
+          <span style="font-family:var(--font-mono);font-size:0.8125rem;color:var(--ink-black);">--parchment-300 (#d4bc88)</span>
+          <span style="font-family:var(--font-mono);font-size:0.75rem;color:var(--ink-faded);">time separator ":"</span>
+          <span style="font-family:var(--font-mono);font-size:0.8125rem;color:var(--ink-black);">--gold-deep · 1.5rem display font</span>
+          <span style="font-family:var(--font-mono);font-size:0.75rem;color:var(--ink-faded);">selected row</span>
+          <span style="font-family:var(--font-mono);font-size:0.8125rem;color:var(--ink-black);">--blood bg · --parchment-100 text</span>
+          <span style="font-family:var(--font-mono);font-size:0.75rem;color:var(--ink-faded);">active AM/PM</span>
+          <span style="font-family:var(--font-mono);font-size:0.8125rem;color:var(--ink-black);">--blood bg · --blood-deep border</span>
+          <span style="font-family:var(--font-mono);font-size:0.75rem;color:var(--ink-faded);">trigger border</span>
+          <span style="font-family:var(--font-mono);font-size:0.8125rem;color:var(--ink-black);">--ink-faded → hover --gold-deep</span>
+          <span style="font-family:var(--font-mono);font-size:0.75rem;color:var(--ink-faded);">Confirm button</span>
+          <span style="font-family:var(--font-mono);font-size:0.8125rem;color:var(--ink-black);">--blood bg · 2px 2px 0 --blood-deep shadow</span>
+          <span style="font-family:var(--font-mono);font-size:0.75rem;color:var(--ink-faded);">Clear button</span>
+          <span style="font-family:var(--font-mono);font-size:0.8125rem;color:var(--ink-black);">--ink-faded text → hover --blood</span>
+          <span style="font-family:var(--font-mono);font-size:0.75rem;color:var(--ink-faded);">focus ring</span>
+          <span style="font-family:var(--font-mono);font-size:0.8125rem;color:var(--ink-black);">2px solid --gold-deep · offset 2px</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── SIGIL XI: Hourglass (Time) ── -->
+    <div class="sigil-divider" role="presentation" aria-hidden="true">
+      <svg width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true" focusable="false">
+        <circle cx="22" cy="22" r="19" stroke="#7a5a22" stroke-width="1" opacity="0.35"/>
+        <circle cx="22" cy="22" r="13" stroke="#b8893b" stroke-width="0.75" opacity="0.3"/>
+        <!-- Hourglass frame: top & bottom bars -->
+        <path d="M13 10h18" stroke="#7a5a22" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M13 34h18" stroke="#7a5a22" stroke-width="1.5" stroke-linecap="round"/>
+        <!-- Hourglass body: top sand cone -->
+        <path d="M13 10 L22 22 L31 10Z" fill="rgba(184,137,59,0.2)" stroke="#b8893b" stroke-width="1" stroke-linejoin="round"/>
+        <!-- Hourglass body: bottom sand cone -->
+        <path d="M13 34 L22 22 L31 34Z" fill="rgba(168,141,90,0.35)" stroke="#a88d5a" stroke-width="1" stroke-linejoin="round"/>
+        <!-- Sand grain settled at bottom -->
+        <ellipse cx="22" cy="31" rx="5" ry="2" fill="rgba(122,90,34,0.25)"/>
+        <!-- Neck circle (pivot) -->
+        <circle cx="22" cy="22" r="2" fill="#7a1212" opacity="0.85"/>
+        <!-- Top sand trickle -->
+        <line x1="22" y1="15" x2="22" y2="22" stroke="#b8893b" stroke-width="0.75" opacity="0.5"/>
+      </svg>
+    </div>
+
   </main><!-- /main -->
 
   <!-- ════════════════════════════════════════════════
@@ -3047,6 +3841,16 @@ DC <span class="tok-val">20</span> <span class="tok-cmt">— Ancient inscription
 
   <script>
     /* ─────────────────────────────────────────────────
+       PREVENT href="#" FROM SCROLLING TO PAGE TOP
+       All demo anchor links use href="#" for visual
+       authenticity only — they must not navigate.
+    ───────────────────────────────────────────────── */
+    document.addEventListener('click', function(e) {
+      var a = e.target.closest('a[href="#"]');
+      if (a) e.preventDefault();
+    });
+
+    /* ─────────────────────────────────────────────────
        DROPDOWN — toggle, keyboard, click-outside
     ───────────────────────────────────────────────── */
     function toggleDropdown(id) {
@@ -3063,9 +3867,9 @@ DC <span class="tok-val">20</span> <span class="tok-cmt">— Ancient inscription
     function openDropdown(wrap, btn, menu) {
       menu.removeAttribute('hidden');
       btn.setAttribute('aria-expanded', 'true');
-      /* focus first enabled item */
+      /* focus first enabled item — preventScroll so page doesn't jump */
       var first = menu.querySelector('.dropdown__item:not([disabled]):not([aria-disabled="true"])');
-      if (first) first.focus();
+      if (first) first.focus({ preventScroll: true });
     }
 
     function closeAllDropdowns() {
@@ -3082,8 +3886,8 @@ DC <span class="tok-val">20</span> <span class="tok-cmt">— Ancient inscription
       if (!openMenu) return;
       var items = Array.from(openMenu.querySelectorAll('.dropdown__item:not([disabled]):not([aria-disabled="true"])'));
       var idx   = items.indexOf(document.activeElement);
-      if (e.key === 'ArrowDown')  { e.preventDefault(); items[(idx + 1) % items.length].focus(); }
-      if (e.key === 'ArrowUp')    { e.preventDefault(); items[(idx - 1 + items.length) % items.length].focus(); }
+      if (e.key === 'ArrowDown')  { e.preventDefault(); items[(idx + 1) % items.length].focus({ preventScroll: true }); }
+      if (e.key === 'ArrowUp')    { e.preventDefault(); items[(idx - 1 + items.length) % items.length].focus({ preventScroll: true }); }
       if (e.key === 'Escape')     { closeAllDropdowns(); }
       if (e.key === 'Tab')        { closeAllDropdowns(); }
     });
@@ -3199,11 +4003,11 @@ DC <span class="tok-val">20</span> <span class="tok-cmt">— Ancient inscription
       panel.removeAttribute('hidden');
       trigger.setAttribute('aria-expanded','true');
       renderCalendar(picker);
-      /* focus the selected or first available day */
+      /* focus the selected or first available day — preventScroll so page doesn't jump */
       setTimeout(function() {
         var sel = panel.querySelector('.date-picker__day--selected') ||
                   panel.querySelector('.date-picker__day:not(.date-picker__day--other-month)');
-        if (sel) sel.focus();
+        if (sel) sel.focus({ preventScroll: true });
       }, 0);
     }
 
@@ -3212,7 +4016,7 @@ DC <span class="tok-val">20</span> <span class="tok-cmt">— Ancient inscription
       var trigger = picker.querySelector('.date-picker__trigger');
       panel.setAttribute('hidden','');
       trigger.setAttribute('aria-expanded','false');
-      trigger.focus();
+      trigger.focus({ preventScroll: true });
     }
 
     function initDatePicker(picker) {
@@ -3714,6 +4518,361 @@ DC <span class="tok-val">20</span> <span class="tok-cmt">— Ancient inscription
       });
 
     })(); /* end Autocomplete IIFE */
+
+    /* ═══════════════════════════════════════════════════════
+       TIME PICKER CONTROLLER — infinite drum-roll scroll
+       Vanilla JS. Reads data-format, data-step, data-value.
+    ═══════════════════════════════════════════════════════ */
+    (function () {
+      'use strict';
+
+      var ITEM_H  = 36;
+      var COL_H   = 180;
+      var COPIES  = 5;
+      var MID_CPY = 2;
+
+      function pad(n) { return String(n).padStart(2, '0'); }
+      function disp12(h24) { return (h24 % 12) || 12; }
+      function toH24(d, ap) { return ap === 'AM' ? (d === 12 ? 0 : d) : (d === 12 ? 12 : d + 12); }
+
+      function scrollTopFor(logicalIdx, listLen) {
+        return (MID_CPY * listLen + logicalIdx) * ITEM_H + ITEM_H / 2 - COL_H / 2;
+      }
+
+      function hourglassSVG() {
+        return '<svg width="13" height="16" viewBox="0 0 13 16" fill="none" aria-hidden="true" focusable="false">' +
+          '<path d="M1.5 1h10M1.5 15h10" stroke="#6b4f35" stroke-width="1.5" stroke-linecap="round"/>' +
+          '<path d="M2.5 1.5L6.5 8L10.5 1.5Z" fill="#b8893b" stroke="#7a5a22" stroke-width="0.75"/>' +
+          '<path d="M2.5 14.5L6.5 8L10.5 14.5Z" fill="#a88d5a" stroke="#7a5a22" stroke-width="0.75"/>' +
+          '</svg>';
+      }
+
+      function buildPanelHTML(is12, step) {
+        var hours = is12 ? [1,2,3,4,5,6,7,8,9,10,11,12] : (function(){
+          var a=[]; for(var i=0;i<24;i++) a.push(i); return a;
+        })();
+        var mins = []; for (var m=0;m<60;m+=step) mins.push(m);
+
+        /* Build 5 copies of each list for infinite scroll */
+        function buildItems(arr, attrName, labelFn) {
+          var html = '';
+          for (var c=0; c<COPIES; c++) {
+            for (var i=0; i<arr.length; i++) {
+              var v = arr[i];
+              html += '<button type="button" class="tp-item" data-' + attrName + '="' + v +
+                      '" data-copy="' + c + '">' + labelFn(v) + '</button>';
+            }
+          }
+          return html;
+        }
+
+        var hrItems = buildItems(hours, 'h', pad);
+        var mnItems = buildItems(mins,  'm', pad);
+
+        var ampmHTML = is12
+          ? '<div class="tp-col-divider"></div>' +
+            '<div class="tp-ampm-col">' +
+            '<div class="tp-col-label" aria-hidden="true">AM·PM</div>' +
+            '<div class="tp-ampm-wrap">' +
+            '<button type="button" class="tp-ampm-btn" data-ap="AM" role="option" aria-selected="false">AM</button>' +
+            '<button type="button" class="tp-ampm-btn" data-ap="PM" role="option" aria-selected="false">PM</button>' +
+            '</div></div>'
+          : '';
+
+        return '<div class="tp-panel" hidden role="dialog" aria-label="Time picker">' +
+          '<div class="tp-header" aria-hidden="true">' +
+          '<span class="tp-display-h tp-display-h--editable" title="Click to type hour">––</span>' +
+          '<span class="tp-display-sep">:</span>' +
+          '<span class="tp-display-m">––</span>' +
+          (is12 ? '<span class="tp-display-ampm">AM</span>' : '') +
+          '<span class="tp-header-hint">click hour to type</span>' +
+          '</div>' +
+          '<div class="tp-cols">' +
+          '<div class="tp-col">' +
+          '<div class="tp-col-label" aria-hidden="true">' + (is12 ? 'Hour' : 'Hour (24)') + '</div>' +
+          '<div class="tp-col-scroll" role="listbox" aria-label="Select hour">' + hrItems + '</div>' +
+          '</div>' +
+          '<div class="tp-col-divider"></div>' +
+          '<div class="tp-col">' +
+          '<div class="tp-col-label" aria-hidden="true">Min</div>' +
+          '<div class="tp-col-scroll" role="listbox" aria-label="Select minute">' + mnItems + '</div>' +
+          '</div>' +
+          ampmHTML +
+          '</div>' +
+          '<div class="tp-footer">' +
+          '<button type="button" class="tp-clear-btn">Clear</button>' +
+          '<button type="button" class="tp-confirm-btn">Confirm</button>' +
+          '</div></div>';
+      }
+
+      function initTimePicker(wrapper) {
+        var is12  = wrapper.dataset.format !== '24';
+        var step  = parseInt(wrapper.dataset.step) || 1;
+        var initV = wrapper.dataset.value || null;
+
+        var hours = is12 ? [1,2,3,4,5,6,7,8,9,10,11,12] : (function(){
+          var a=[]; for(var i=0;i<24;i++) a.push(i); return a;
+        })();
+        var mins = []; for (var m=0;m<60;m+=step) mins.push(m);
+
+        /* State */
+        var h24 = null, minute = null, ampm = 'AM';
+        var hrLoopFn = null, mnLoopFn = null;
+
+        /* Parse initial value */
+        if (initV) {
+          var pts = initV.split(':');
+          if (pts.length === 2) {
+            h24 = parseInt(pts[0], 10);
+            minute = parseInt(pts[1], 10);
+            ampm = h24 >= 12 ? 'PM' : 'AM';
+          }
+        }
+
+        /* Build markup */
+        wrapper.innerHTML = buildPanelHTML(is12, step);
+
+        /* Prepend trigger */
+        var trigger = document.createElement('button');
+        trigger.type = 'button';
+        trigger.className = 'tp-trigger' + (h24 === null ? ' tp-trigger--placeholder' : '');
+        trigger.setAttribute('aria-haspopup', 'dialog');
+        trigger.setAttribute('aria-expanded', 'false');
+        trigger.setAttribute('aria-label', 'Time picker');
+        trigger.innerHTML =
+          hourglassSVG() +
+          '<span class="tp-trigger-label">' +
+          (h24 !== null ? getDisplayStr(h24, minute) : 'Select the hour…') +
+          '</span>' +
+          '<span class="tp-trigger-arrow" aria-hidden="true">▾</span>';
+        wrapper.insertBefore(trigger, wrapper.firstChild);
+
+        /* DOM refs */
+        var panel    = wrapper.querySelector('.tp-panel');
+        var dispH    = panel.querySelector('.tp-display-h');
+        var dispM    = panel.querySelector('.tp-display-m');
+        var dispAP   = panel.querySelector('.tp-display-ampm');
+        var hintEl   = panel.querySelector('.tp-header-hint');
+        var hrScroll = panel.querySelectorAll('.tp-col-scroll')[0];
+        var mnScroll = panel.querySelectorAll('.tp-col-scroll')[1];
+        var clearBtn = panel.querySelector('.tp-clear-btn');
+        var cnfBtn   = panel.querySelector('.tp-confirm-btn');
+        var labelEl  = trigger.querySelector('.tp-trigger-label');
+
+        function getDisplayStr(h, m) {
+          if (h === null || m === null) return null;
+          var mm = pad(m);
+          if (!is12) return pad(h) + ':' + mm;
+          return disp12(h) + ':' + mm + ' ' + (h >= 12 ? 'PM' : 'AM');
+        }
+
+        function curAmPm() {
+          return h24 !== null ? (h24 >= 12 ? 'PM' : 'AM') : ampm;
+        }
+
+        function updateHeader() {
+          if (!panel.querySelector('.tp-header-input')) {
+            if (dispH) dispH.textContent = h24 !== null ? (is12 ? pad(disp12(h24)) : pad(h24)) : '––';
+          }
+          if (dispM) dispM.textContent = minute !== null ? pad(minute) : '––';
+          if (dispAP && is12) dispAP.textContent = curAmPm();
+        }
+
+        function updateTrigger() {
+          var str = getDisplayStr(h24, minute);
+          labelEl.textContent = str || 'Select the hour…';
+          trigger.className = 'tp-trigger' + (str ? '' : ' tp-trigger--placeholder');
+        }
+
+        function markSelected() {
+          var selDispHr = h24 !== null ? (is12 ? disp12(h24) : h24) : null;
+          hrScroll.querySelectorAll('.tp-item').forEach(function(btn) {
+            var bh = parseInt(btn.dataset.h, 10);
+            var c  = parseInt(btn.dataset.copy, 10);
+            var match = selDispHr !== null && selDispHr === bh;
+            btn.classList.toggle('is-selected', match);
+            btn.setAttribute('role', 'option');
+            btn.setAttribute('aria-selected', (match && c === MID_CPY) ? 'true' : 'false');
+          });
+          mnScroll.querySelectorAll('.tp-item').forEach(function(btn) {
+            var bm = parseInt(btn.dataset.m, 10);
+            var c  = parseInt(btn.dataset.copy, 10);
+            var match = (minute === bm);
+            btn.classList.toggle('is-selected', match);
+            btn.setAttribute('role', 'option');
+            btn.setAttribute('aria-selected', (match && c === MID_CPY) ? 'true' : 'false');
+          });
+          if (is12) {
+            var ap = curAmPm();
+            panel.querySelectorAll('.tp-ampm-btn').forEach(function(btn) {
+              var on = btn.dataset.ap === ap;
+              btn.classList.toggle('is-active', on);
+              btn.setAttribute('aria-selected', on ? 'true' : 'false');
+            });
+          }
+        }
+
+        function scrollToMid(scrollEl, logicalIdx, listLen) {
+          scrollEl.scrollTop = scrollTopFor(Math.max(0, logicalIdx), listLen);
+        }
+
+        function attachLoop(el, listLen) {
+          var oneSetH = listLen * ITEM_H;
+          return function() {
+            if (el.scrollTop < oneSetH) {
+              el.scrollTop += 2 * oneSetH;
+            } else if (el.scrollTop >= 4 * oneSetH) {
+              el.scrollTop -= 2 * oneSetH;
+            }
+          };
+        }
+
+        function openPanel() {
+          panel.removeAttribute('hidden');
+          trigger.setAttribute('aria-expanded', 'true');
+          updateHeader();
+          markSelected();
+
+          var selDispHr = h24 !== null ? (is12 ? disp12(h24) : h24) : null;
+          var hrIdx = selDispHr !== null ? hours.indexOf(selDispHr) : 0;
+          var mnIdx = minute !== null ? mins.indexOf(minute) : 0;
+          if (mnIdx < 0) mnIdx = 0;
+
+          setTimeout(function() {
+            scrollToMid(hrScroll, hrIdx, hours.length);
+            scrollToMid(mnScroll, mnIdx, mins.length);
+          }, 30);
+
+          if (hrLoopFn) hrScroll.removeEventListener('scroll', hrLoopFn);
+          if (mnLoopFn) mnScroll.removeEventListener('scroll', mnLoopFn);
+          hrLoopFn = attachLoop(hrScroll, hours.length);
+          mnLoopFn = attachLoop(mnScroll, mins.length);
+          hrScroll.addEventListener('scroll', hrLoopFn, { passive: true });
+          mnScroll.addEventListener('scroll', mnLoopFn, { passive: true });
+        }
+
+        function cancelHrEdit() {
+          var inp = panel.querySelector('.tp-header-input');
+          if (inp && inp.parentNode) {
+            inp.parentNode.replaceChild(dispH, inp);
+            if (hintEl) hintEl.removeAttribute('hidden');
+          }
+        }
+
+        function closePanel() {
+          cancelHrEdit();
+          panel.setAttribute('hidden', '');
+          trigger.setAttribute('aria-expanded', 'false');
+          if (hrLoopFn) { hrScroll.removeEventListener('scroll', hrLoopFn); hrLoopFn = null; }
+          if (mnLoopFn) { mnScroll.removeEventListener('scroll', mnLoopFn); mnLoopFn = null; }
+          trigger.focus({ preventScroll: true });
+        }
+
+        /* ── Manual hour editing ── */
+        function commitHrEdit(raw) {
+          var trimmed = (raw || '').trim();
+          cancelHrEdit();
+          updateHeader();
+          if (!trimmed) return;
+          var n = parseInt(trimmed, 10);
+          if (isNaN(n)) return;
+          if (is12) {
+            if (n < 1 || n > 12) return;
+            h24 = toH24(n, ampm);
+          } else {
+            if (n < 0 || n > 23) return;
+            h24 = n;
+          }
+          updateHeader(); markSelected();
+          setTimeout(function() {
+            var idx = hours.indexOf(n);
+            if (idx !== -1) scrollToMid(hrScroll, idx, hours.length);
+          }, 10);
+        }
+
+        function startHrEdit() {
+          if (panel.querySelector('.tp-header-input')) return;
+          var inp = document.createElement('input');
+          inp.type = 'text'; inp.inputMode = 'numeric'; inp.maxLength = 2;
+          inp.className = 'tp-header-input';
+          inp.setAttribute('aria-label', 'Type hour, ' + (is12 ? '1 to 12' : '0 to 23'));
+          inp.value = h24 !== null ? String(is12 ? disp12(h24) : h24) : '';
+          dispH.parentNode.replaceChild(inp, dispH);
+          if (hintEl) hintEl.setAttribute('hidden', '');
+          inp.focus(); inp.select();
+          inp.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter')  { e.stopPropagation(); commitHrEdit(inp.value); }
+            if (e.key === 'Escape') { e.stopPropagation(); cancelHrEdit(); updateHeader(); }
+          });
+          inp.addEventListener('blur', function() { commitHrEdit(inp.value); });
+        }
+
+        /* Trigger */
+        trigger.addEventListener('click', function(e) {
+          e.stopPropagation();
+          if (trigger.getAttribute('aria-expanded') === 'true') closePanel();
+          else openPanel();
+        });
+
+        /* Click on header hour → edit */
+        dispH.addEventListener('click', startHrEdit);
+
+        /* Hour selection */
+        hrScroll.addEventListener('click', function(e) {
+          var btn = e.target.closest('.tp-item');
+          if (!btn) return;
+          var bh = parseInt(btn.dataset.h, 10);
+          h24 = is12 ? toH24(bh, ampm) : bh;
+          updateHeader(); markSelected();
+        });
+
+        /* Minute selection */
+        mnScroll.addEventListener('click', function(e) {
+          var btn = e.target.closest('.tp-item');
+          if (!btn) return;
+          minute = parseInt(btn.dataset.m, 10);
+          updateHeader(); markSelected();
+        });
+
+        /* AM/PM */
+        if (is12) {
+          panel.querySelectorAll('.tp-ampm-btn').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+              ampm = btn.dataset.ap;
+              if (h24 !== null) h24 = toH24(disp12(h24), ampm);
+              updateHeader(); markSelected();
+            });
+          });
+        }
+
+        /* Confirm */
+        cnfBtn.addEventListener('click', function() { updateTrigger(); closePanel(); });
+
+        /* Clear */
+        clearBtn.addEventListener('click', function() {
+          h24 = null; minute = null; ampm = 'AM';
+          updateHeader(); markSelected(); updateTrigger(); closePanel();
+        });
+
+        /* Escape */
+        panel.addEventListener('keydown', function(e) {
+          if (e.key === 'Escape') { e.stopPropagation(); closePanel(); }
+        });
+
+        /* Click outside */
+        document.addEventListener('click', function(e) {
+          if (!wrapper.contains(e.target)) closePanel();
+        });
+      }
+
+      /* Boot */
+      document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('.tp-wrap[data-format], .tp-wrap[data-step], .tp-wrap[data-value]').forEach(function(w) {
+          initTimePicker(w);
+        });
+      });
+
+    })(); /* end Time Picker IIFE */
   </script>
 </body>
 </html>

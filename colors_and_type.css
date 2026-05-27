@@ -398,6 +398,118 @@
   margin-bottom: var(--space-3);
 }
 
+/* ─── Breadcrumb ─────────────────────────────────────────────────────── */
+/*
+ * WAI-ARIA 1.2 breadcrumb pattern.
+ * Structure:
+ *   <nav aria-label="Breadcrumb">
+ *     <ol class="breadcrumb">
+ *       <li class="breadcrumb__item">
+ *         <a href="…" class="breadcrumb__link">Ancestor</a>
+ *       </li>
+ *       <li class="breadcrumb__item">
+ *         <span class="breadcrumb__sep" aria-hidden="true">›</span>
+ *         <a href="…" class="breadcrumb__link">Parent</a>
+ *       </li>
+ *       <li class="breadcrumb__item">
+ *         <span class="breadcrumb__sep" aria-hidden="true">›</span>
+ *         <span class="breadcrumb__current" aria-current="page">Current</span>
+ *       </li>
+ *     </ol>
+ *   </nav>
+ *
+ * Modifiers:
+ *   .breadcrumb--dark  — for --ink-black / --shadow panel backgrounds
+ *
+ * Wrappers:
+ *   .breadcrumb-group  — flex column; pair with .eyebrow above
+ *   .breadcrumb-header — adds dashed bottom rule for page header context
+ */
+.breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.breadcrumb__item {
+  display: flex;
+  align-items: center;
+}
+.breadcrumb__sep {
+  display: inline-block;
+  color: var(--gold);
+  font-size: 0.75rem;
+  margin: 0 var(--space-2);
+  line-height: 1;
+  user-select: none;
+}
+.breadcrumb__link {
+  font-family: var(--font-display);
+  font-size: var(--text-label);
+  letter-spacing: 0.05em;
+  color: var(--ink-faded);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 1px;
+  white-space: nowrap;
+  transition: color var(--transition-fast), border-bottom-color var(--transition-fast);
+}
+.breadcrumb__link:hover {
+  color: var(--gold-deep);
+  border-bottom-color: var(--gold-deep);
+}
+.breadcrumb__link:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: var(--focus-offset);
+  border-bottom-color: transparent;
+}
+.breadcrumb__current {
+  font-family: var(--font-display);
+  font-size: var(--text-label);
+  letter-spacing: 0.05em;
+  color: var(--ink-black);
+  white-space: nowrap;
+}
+.breadcrumb__ellipsis {
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  color: var(--ink-faded);
+  letter-spacing: 0;
+  padding: 0 var(--space-1);
+  cursor: default;
+  user-select: none;
+  line-height: 1;
+}
+
+/* Dark-surface modifier — for --ink-black / --shadow panel backgrounds */
+.breadcrumb--dark .breadcrumb__sep      { color: var(--gold-deep); }
+.breadcrumb--dark .breadcrumb__link     { color: rgba(168, 141, 90, 0.65); }
+.breadcrumb--dark .breadcrumb__link:hover {
+  color: var(--gold-bright);
+  border-bottom-color: var(--gold-bright);
+}
+.breadcrumb--dark .breadcrumb__link:focus-visible {
+  outline: 2px solid var(--parchment-100);
+  outline-offset: var(--focus-offset);
+  border-bottom-color: transparent;
+}
+.breadcrumb--dark .breadcrumb__current  { color: var(--parchment-100); }
+.breadcrumb--dark .breadcrumb__ellipsis { color: var(--gold-deep); }
+
+/* Layout helpers */
+.breadcrumb-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+.breadcrumb-header {
+  padding-bottom: var(--space-4);
+  border-bottom: 1px dashed var(--ink-faded);
+  margin-bottom: var(--space-6);
+}
+
 /* ─── Accessibility: motion ─────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   *,
