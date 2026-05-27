@@ -1,0 +1,10 @@
+{
+  "name": "here-be-dragons-design-system",
+  "version": "1.0.0",
+  "description": "Here Be Dragons — D&D-styled design system for fantasy/RPG web interfaces",
+  "private": true,
+  "scripts": {
+    "dev": "npx serve@14 . --no-clipboard",
+    "start": "npx serve@14 . --no-clipboard"
+  }
+}
