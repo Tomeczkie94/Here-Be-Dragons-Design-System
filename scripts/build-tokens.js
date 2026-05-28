@@ -65,19 +65,40 @@ if (!fs.existsSync(TOKEN_JSON)) {
   process.exit(1);
 }
 
-const tree   = JSON.parse(fs.readFileSync(TOKEN_JSON, 'utf8'));
-const tokens = collectTokens(tree);
+const tree = JSON.parse(fs.readFileSync(TOKEN_JSON, 'utf8'));
 
+// Collect tokens grouped by top-level key so we can emit section comments
+function collectGroups(obj) {
+  const groups = [];
+  for (const [topKey, topVal] of Object.entries(obj)) {
+    if (topKey.startsWith('$')) continue;
+    const tokens = [];
+    if (topVal && typeof topVal === 'object' && '$value' in topVal) {
+      tokens.push({ segments: [topKey], value: topVal.$value, type: topVal.$type });
+    } else if (topVal && typeof topVal === 'object') {
+      tokens.push(...collectTokens(topVal, [topKey]));
+    }
+    if (tokens.length > 0) groups.push({ key: topKey, tokens });
+  }
+  return groups;
+}
+
+const groups = collectGroups(tree);
 let tokensWritten   = 0;
 let aliasesResolved = 0;
 
 const lines = [':root {'];
-for (const token of tokens) {
-  const cssVar        = toCssVarName(token.segments);
-  const { css, isAlias } = resolveValue(token.value);
-  if (isAlias) aliasesResolved++;
-  lines.push(`  ${cssVar}: ${css};`);
-  tokensWritten++;
+for (let gi = 0; gi < groups.length; gi++) {
+  const { key, tokens } = groups[gi];
+  lines.push(`  /* ── ${key} ${'─'.repeat(Math.max(0, 52 - key.length))} */`);
+  for (const token of tokens) {
+    const cssVar        = toCssVarName(token.segments);
+    const { css, isAlias } = resolveValue(token.value);
+    if (isAlias) aliasesResolved++;
+    lines.push(`  ${cssVar}: ${css};`);
+    tokensWritten++;
+  }
+  if (gi < groups.length - 1) lines.push('');
 }
 lines.push('}');
 

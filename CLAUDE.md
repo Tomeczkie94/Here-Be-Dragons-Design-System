@@ -10,7 +10,7 @@ When in doubt, re-read this file before writing a single line of code.
 
 **Name:** Here Be Dragons DS
 **Purpose:** A framework-agnostic, token-driven design system that can be consumed by any tech stack without modification to its core.
-**Preview URLs:** `http://localhost:3000/` and `http://localhost:3000/design-system`
+**Preview URLs:** `http://localhost:3000/` and `http://localhost:3000/preview/design-system`
 **Served by:** `npx serve` or `python3 -m http.server` — static files only, no server-side logic.
 
 ---
