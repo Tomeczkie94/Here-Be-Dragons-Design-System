@@ -93,7 +93,7 @@
   --hbd-color-surface-action-ghost: var(--hbd-color-transparent);
   --hbd-color-text-primary: var(--hbd-color-ink-900);
   --hbd-color-text-secondary: var(--hbd-color-ink-700);
-  --hbd-color-text-muted: var(--hbd-color-ink-500);
+  --hbd-color-text-muted: var(--hbd-color-ink-600);
   --hbd-color-text-placeholder: var(--hbd-color-ink-400);
   --hbd-color-text-disabled: var(--hbd-color-ink-300);
   --hbd-color-text-inverse: var(--hbd-color-parchment-50);

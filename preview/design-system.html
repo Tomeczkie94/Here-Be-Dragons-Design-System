@@ -7,6 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=IM+Fell+English:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/ds/index.css">
   <style>
     /* ─── Tiamat Condensed SC ───────────────────────────── */
     @font-face {
@@ -2078,7 +2079,7 @@
         <h2 class="ds-toc__heading">Contents</h2>
         <ul class="ds-toc__list">
           <li><a class="ds-toc__link" href="#color">Color</a></li>
-          <li><a class="ds-toc__link" href="#typography">Typography</a></li>
+          <li><a class="ds-toc__link" href="#foundation-typography">Typography</a></li>
           <li><a class="ds-toc__link" href="#texture">Texture</a></li>
           <li><a class="ds-toc__link" href="#borders">Borders</a></li>
           <li><a class="ds-toc__link" href="#components">Components</a></li>
@@ -2224,50 +2225,108 @@
     </div>
 
     <!-- ══════════════════════ II. TYPOGRAPHY ══════════════════════ -->
-    <section class="ds-section" id="typography" aria-labelledby="type-title">
+    <section class="ds-section" id="foundation-typography" aria-labelledby="heading-typography">
       <div class="container">
         <span class="section-numeral" aria-hidden="true">II</span>
-        <h2 class="section-title" id="type-title">Typography</h2>
+        <h2 class="ds-section__heading" id="heading-typography">Typography</h2>
+        <p class="ds-section__description">
+          The type foundation pairs five token-driven families — Tiamat Condensed SC for display,
+          Cinzel for accent headings, IM Fell English for serif body and flavour text, Roboto for
+          UI labels, and JetBrains Mono for code. Apply the tag-agnostic <code>.hbd-text-*</code>
+          utilities on any element to render text at the correct scale, line-height, and weight.
+        </p>
 
-        <div class="type-specimen">
-          <span class="type-specimen__meta">Hero · Tiamat Condensed SC · clamp(3.5rem, 7vw, 6rem) · lh 1.1 · ls 0.02em</span>
-          <div class="display-hero" aria-label="Here Be Dragons — hero specimen">Here Be Dragons</div>
+        <!-- Group 1 · Typefaces -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">Typefaces</h3>
+          <div class="ds-preview-canvas" style="flex-direction:column;align-items:flex-start;">
+            <div>
+              <span class="hbd-text-hero hbd-text-primary">Tiamat Condensed SC</span>
+              <span class="hbd-text-micro hbd-text-muted" style="display:block;">--hbd-font-family-display</span>
+            </div>
+            <div>
+              <span class="hbd-text-h1 hbd-text-primary">Cinzel</span>
+              <span class="hbd-text-micro hbd-text-muted" style="display:block;">--hbd-font-family-accent</span>
+            </div>
+            <div>
+              <span class="hbd-text-body hbd-text-primary">IM Fell English</span>
+              <span class="hbd-text-micro hbd-text-muted" style="display:block;">--hbd-font-family-serif</span>
+            </div>
+            <div>
+              <span class="hbd-text-label hbd-text-primary">Roboto</span>
+              <span class="hbd-text-micro hbd-text-muted" style="display:block;">--hbd-font-family-ui</span>
+            </div>
+            <div>
+              <span class="hbd-text-mono hbd-text-primary">JetBrains Mono</span>
+              <span class="hbd-text-micro hbd-text-muted" style="display:block;">--hbd-font-family-mono</span>
+            </div>
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>&lt;span class="hbd-text-hero"&gt;Tiamat Condensed SC&lt;/span&gt;
+&lt;span class="hbd-text-h1"&gt;Cinzel&lt;/span&gt;
+&lt;span class="hbd-text-body"&gt;IM Fell English&lt;/span&gt;
+&lt;span class="hbd-text-label"&gt;Roboto&lt;/span&gt;
+&lt;span class="hbd-text-mono"&gt;JetBrains Mono&lt;/span&gt;</code></pre>
+          </details>
         </div>
 
-        <div class="type-specimen">
-          <span class="type-specimen__meta">H1 · Tiamat Condensed SC · clamp(2rem, 4.5vw, 2.5rem)</span>
-          <h1 class="spec-h1">The Ancient Tome of Arcane Lore</h1>
+        <!-- Group 2 · Heading scale -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">Heading scale</h3>
+          <div class="ds-preview-canvas" style="flex-direction:column;align-items:flex-start;">
+            <p class="hbd-text-h1 hbd-text-primary">A Spell Most Foul</p>
+            <p class="hbd-text-h2 hbd-text-primary">A Spell Most Foul</p>
+            <p class="hbd-text-h3 hbd-text-primary">A Spell Most Foul</p>
+            <p class="hbd-text-h4 hbd-text-primary">A Spell Most Foul</p>
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>&lt;p class="hbd-text-h1"&gt;A Spell Most Foul&lt;/p&gt;
+&lt;p class="hbd-text-h2"&gt;A Spell Most Foul&lt;/p&gt;
+&lt;p class="hbd-text-h3"&gt;A Spell Most Foul&lt;/p&gt;
+&lt;p class="hbd-text-h4"&gt;A Spell Most Foul&lt;/p&gt;</code></pre>
+          </details>
         </div>
 
-        <div class="type-specimen">
-          <span class="type-specimen__meta">H2 · Tiamat Condensed SC · clamp(1.375rem, 3vw, 1.75rem)</span>
-          <h2 class="spec-h2">Chapter XII — Dragon Hoards &amp; Hidden Treasures</h2>
+        <!-- Group 3 · Body & flavour -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">Body &amp; flavour</h3>
+          <div class="ds-preview-canvas" style="flex-direction:column;align-items:flex-start;">
+            <p class="hbd-text-body hbd-text-primary" style="max-width:65ch;">
+              In the age before memory, when the world was still young and the gods walked among
+              mortals, there arose creatures of terrible power — ancient beyond reckoning, vast as
+              mountains, and wise as the ocean depths. The scholars called them dragons.
+            </p>
+            <p class="hbd-text-flavor hbd-text-muted" style="max-width:52ch;">
+              "Beware the dragon's gaze, for it strips away all pretense and illusion."
+            </p>
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>&lt;p class="hbd-text-body"&gt;In the age before memory…&lt;/p&gt;
+&lt;p class="hbd-text-flavor"&gt;"Beware the dragon's gaze…"&lt;/p&gt;</code></pre>
+          </details>
         </div>
 
-        <div class="type-specimen">
-          <span class="type-specimen__meta">H3 · Tiamat Condensed SC · clamp(1.0625rem, 2.2vw, 1.25rem)</span>
-          <h3 class="spec-h3">The Draconic Alphabet and Its Origins</h3>
-        </div>
-
-        <div class="type-specimen">
-          <span class="type-specimen__meta">Body · Roboto 400 · 17px / 1.7 · max-width 65ch</span>
-          <p class="dropcap" style="max-width:65ch;color:var(--ink-brown);">In the age before memory, when the world was still young and the gods walked among mortals, there arose creatures of terrible power. They were ancient beyond reckoning, vast as mountains, and wise as the ocean depths. The scholars called them dragons, and in their hoard-filled lairs they kept the secrets of creation itself, written in iron-gall ink on the finest vellum.</p>
-        </div>
-
-        <div class="type-specimen">
-          <span class="type-specimen__meta">Flavor Text · IM Fell English italic · 15px / 1.6 · always italicized</span>
-          <p style="font-family:var(--font-flavor);font-style:italic;font-size:var(--text-flavor);line-height:var(--lh-flavor);color:var(--ink-brown);max-width:52ch;">"Beware the dragon's gaze, for it strips away all pretense and illusion. In those ancient, gold-flecked eyes you shall see only truth — and truth is rarely kind to the unprepared."</p>
-        </div>
-
-        <div class="type-specimen">
-          <span class="type-specimen__meta">Eyebrow Label · Tiamat caps · 13px · ls 0.3em · uppercase</span>
-          <span class="eyebrow">Legendary Creature · Dragon · Chaotic Evil</span>
-          <span class="eyebrow" style="color:var(--blood);">Evocation · Level 9 · Concentration Required</span>
-        </div>
-
-        <div class="type-specimen">
-          <span class="type-specimen__meta">Mono · JetBrains Mono · 14px · code blocks, hex values, token names</span>
-          <code class="mono-pill">--ink-black: #1a1410; /* iron-gall — primary text */</code>
+        <!-- Group 4 · UI & code -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">UI &amp; code</h3>
+          <div class="ds-preview-canvas" style="flex-direction:column;align-items:flex-start;">
+            <span class="hbd-text-label hbd-text-primary">Casting Time</span>
+            <span class="hbd-text-label hbd-text-primary">Components</span>
+            <span class="hbd-text-label hbd-text-primary">Saving Throw</span>
+            <span class="hbd-text-micro hbd-text-muted">Recharge 5–6 · concentration up to 1 minute</span>
+            <code class="hbd-text-mono hbd-text-primary">const dmg = roll('8d6');</code>
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>&lt;span class="hbd-text-label"&gt;Casting Time&lt;/span&gt;
+&lt;span class="hbd-text-label"&gt;Components&lt;/span&gt;
+&lt;span class="hbd-text-label"&gt;Saving Throw&lt;/span&gt;
+&lt;span class="hbd-text-micro"&gt;Recharge 5–6…&lt;/span&gt;
+&lt;code class="hbd-text-mono"&gt;const dmg = roll('8d6');&lt;/code&gt;</code></pre>
+          </details>
         </div>
 
       </div>

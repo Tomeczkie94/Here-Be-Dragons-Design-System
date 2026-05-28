@@ -1,4 +1,20 @@
 /* Here Be Dragons DS — ds/index.css
  * @import barrel for all DS styles (ordered per CLAUDE.md §6.5)
- * Populate this file after tokens and foundations are authored.
  */
+
+/* 1. Tokens */
+@import '../tokens/tokens.css';
+
+/* 2. Themes — added when theme files exist */
+
+/* 3. Reset */
+@import './styles/reset.css';
+
+/* 4. Foundations */
+@import './styles/foundations/typography.css';
+@import './styles/foundations/elevation.css';
+@import './styles/foundations/motion.css';
+@import './styles/foundations/borders.css';
+@import './styles/foundations/accessibility.css';
+
+/* 5. Components — alphabetical */
