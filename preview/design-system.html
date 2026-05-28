@@ -12,9 +12,9 @@
     @font-face {
       font-family: "Tiamat Condensed SC";
       src: local("Tiamat Condensed SC"),
-           url("assets_TiamatCondensedSC-Regular.woff2") format("woff2"),
-           url("assets_TiamatCondensedSC-Regular.woff") format("woff"),
-           url("assets_TiamatCondensedSC-Regular.ttf") format("truetype");
+           url("../assets_TiamatCondensedSC-Regular.woff2") format("woff2"),
+           url("../assets_TiamatCondensedSC-Regular.woff") format("woff"),
+           url("../assets_TiamatCondensedSC-Regular.ttf") format("truetype");
       font-weight: 700;
       font-style: normal;
       font-display: swap;
@@ -1908,6 +1908,121 @@
         transition: none !important;
       }
     }
+
+    /* ─── Table of Contents nav ─────────────────────────────── */
+    .ds-toc {
+      border-bottom: 1px dashed var(--ink-faded);
+      padding-block: var(--space-6);
+      position: sticky;
+      top: 0;
+      background: var(--parchment-100);
+      z-index: 50;
+    }
+    .ds-toc__heading {
+      font-family: var(--font-display);
+      font-size: var(--text-micro);
+      letter-spacing: var(--ls-label);
+      text-transform: uppercase;
+      color: var(--ink-faded);
+      margin-bottom: var(--space-3);
+    }
+    .ds-toc__list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2) var(--space-4);
+      list-style: none;
+    }
+    .ds-toc__link {
+      font-family: var(--font-display);
+      font-size: var(--text-label);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold-deep);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: color 0.15s ease, border-color 0.15s ease;
+    }
+    .ds-toc__link:hover { color: var(--blood); border-bottom-color: var(--blood); }
+    .ds-toc__link:focus-visible { outline: 2px solid var(--blood); outline-offset: 2px; }
+
+    /* ─── Foundation section structure (CLAUDE.md §10.2) ──── */
+    .ds-section__heading {
+      font-family: var(--font-display);
+      font-size: var(--text-h1);
+      font-weight: 700;
+      letter-spacing: var(--ls-display);
+      line-height: var(--lh-display);
+      color: var(--ink-black);
+      padding-bottom: var(--space-6);
+      border-bottom: 2px double var(--gold-deep);
+      margin-bottom: var(--space-8);
+    }
+    .ds-section__description {
+      font-family: var(--font-body);
+      font-size: var(--text-body);
+      line-height: var(--lh-body);
+      color: var(--ink-brown);
+      max-width: 65ch;
+      margin-bottom: var(--space-8);
+    }
+    .ds-preview-group { margin-bottom: var(--space-8); }
+    .ds-preview-group__label {
+      font-family: var(--font-display);
+      font-size: var(--text-micro);
+      letter-spacing: var(--ls-label);
+      text-transform: uppercase;
+      color: var(--ink-faded);
+      display: block;
+      margin-bottom: var(--space-3);
+    }
+    .ds-preview-canvas {
+      background: var(--parchment-200);
+      border: 1.5px solid var(--parchment-400);
+      padding: var(--space-8);
+      min-height: 80px;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: var(--space-4);
+      border-radius: 1px 1px 0 0;
+    }
+    .ds-preview-code {
+      border: 1.5px solid var(--parchment-400);
+      border-top: none;
+      border-radius: 0 0 1px 1px;
+    }
+    .ds-preview-code > summary {
+      padding: var(--space-2) var(--space-4);
+      cursor: pointer;
+      font-family: var(--font-mono);
+      font-size: var(--text-micro);
+      color: var(--ink-faded);
+      letter-spacing: 0.08em;
+      user-select: none;
+    }
+    .ds-preview-code > summary:focus-visible {
+      outline: 2px solid var(--blood);
+      outline-offset: 2px;
+    }
+    .ds-preview-code pre {
+      margin: 0;
+      padding: var(--space-4) var(--space-6);
+      background: var(--shadow);
+      border-top: 1.5px solid var(--parchment-400);
+      overflow-x: auto;
+    }
+    .ds-preview-code code {
+      font-family: var(--font-mono);
+      font-size: 0.875rem;
+      color: #c4b89a;
+      line-height: 1.65;
+    }
+    .ds-placeholder-notice {
+      font-family: var(--font-flavor);
+      font-style: italic;
+      color: var(--ink-faded);
+      font-size: var(--text-flavor);
+    }
   </style>
 </head>
 <body>
@@ -1957,6 +2072,27 @@
        MAIN
   ════════════════════════════════════════════════════ -->
   <main id="main">
+
+    <nav class="ds-toc" aria-label="Design system sections">
+      <div class="container">
+        <h2 class="ds-toc__heading">Contents</h2>
+        <ul class="ds-toc__list">
+          <li><a class="ds-toc__link" href="#color">Color</a></li>
+          <li><a class="ds-toc__link" href="#typography">Typography</a></li>
+          <li><a class="ds-toc__link" href="#texture">Texture</a></li>
+          <li><a class="ds-toc__link" href="#borders">Borders</a></li>
+          <li><a class="ds-toc__link" href="#components">Components</a></li>
+          <li><a class="ds-toc__link" href="#form-controls">Form Controls</a></li>
+          <li><a class="ds-toc__link" href="#breadcrumbs">Breadcrumbs</a></li>
+          <li><a class="ds-toc__link" href="#time-picker">Time Picker</a></li>
+          <li><a class="ds-toc__link" href="#spacing">Spacing</a></li>
+          <li><a class="ds-toc__link" href="#elevation">Elevation</a></li>
+          <li><a class="ds-toc__link" href="#motion">Motion</a></li>
+          <li><a class="ds-toc__link" href="#radius">Radius</a></li>
+          <li><a class="ds-toc__link" href="#accessibility">Accessibility</a></li>
+        </ul>
+      </div>
+    </nav>
 
     <!-- ══════════════════════ I. COLOR PALETTE ══════════════════════ -->
     <section class="ds-section" id="color" aria-labelledby="color-title">
@@ -3798,6 +3934,136 @@ DC <span class="tok-val">20</span> <span class="tok-cmt">— Ancient inscription
         <line x1="22" y1="15" x2="22" y2="22" stroke="#b8893b" stroke-width="0.75" opacity="0.5"/>
       </svg>
     </div>
+
+    <!-- ══════════════════════ FOUNDATION: SPACING ══════════════════════ -->
+    <section class="ds-section" id="spacing" aria-labelledby="heading-spacing">
+      <div class="container">
+        <h2 class="ds-section__heading" id="heading-spacing">Spacing</h2>
+        <p class="ds-section__description">
+          All spacing derives from a 4 px base unit. The scale covers 4, 8, 12, 16, 24, 32, 48, 64, 96, and 128 px. Use only these token values — never introduce arbitrary spacing.
+        </p>
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">Spacing Scale</h3>
+          <div class="ds-preview-canvas">
+            <p class="ds-placeholder-notice">Token visualisation coming soon.</p>
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code><!-- --hbd-space-* tokens --></code></pre>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════ FOUNDATION: ELEVATION ══════════════════════ -->
+    <section class="ds-section" id="elevation" aria-labelledby="heading-elevation">
+      <div class="container">
+        <h2 class="ds-section__heading" id="heading-elevation">Elevation</h2>
+        <p class="ds-section__description">
+          Elevation is expressed via box-shadow levels (0–5) and a z-index scale. Shadows use warm, ink-tinted transparency to stay on-brand.
+        </p>
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">Shadow Levels</h3>
+          <div class="ds-preview-canvas">
+            <p class="ds-placeholder-notice">Token visualisation coming soon.</p>
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code><!-- --hbd-shadow-* tokens --></code></pre>
+          </details>
+        </div>
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">Z-Index Scale</h3>
+          <div class="ds-preview-canvas">
+            <p class="ds-placeholder-notice">Token reference table coming soon.</p>
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code><!-- --hbd-z-* tokens --></code></pre>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════ FOUNDATION: MOTION ══════════════════════ -->
+    <section class="ds-section" id="motion" aria-labelledby="heading-motion">
+      <div class="container">
+        <h2 class="ds-section__heading" id="heading-motion">Motion</h2>
+        <p class="ds-section__description">
+          Motion tokens define duration steps and easing curves. All animation respects <code>prefers-reduced-motion</code> — a global override collapses all durations to near-zero when the user requests less motion.
+        </p>
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">Duration Scale</h3>
+          <div class="ds-preview-canvas">
+            <p class="ds-placeholder-notice">Token visualisation coming soon.</p>
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code><!-- --hbd-duration-* tokens --></code></pre>
+          </details>
+        </div>
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">Easing Curves</h3>
+          <div class="ds-preview-canvas">
+            <p class="ds-placeholder-notice">Token visualisation coming soon.</p>
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code><!-- --hbd-ease-* tokens --></code></pre>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════ FOUNDATION: RADIUS ══════════════════════ -->
+    <section class="ds-section" id="radius" aria-labelledby="heading-radius">
+      <div class="container">
+        <h2 class="ds-section__heading" id="heading-radius">Radius</h2>
+        <p class="ds-section__description">
+          Six radius steps from sharp (none) to fully circular (full). Use <code>--hbd-radius-md</code> as the default for most interactive elements and <code>--hbd-radius-full</code> for pill-shaped badges and tags.
+        </p>
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">Radius Scale</h3>
+          <div class="ds-preview-canvas">
+            <p class="ds-placeholder-notice">Token visualisation coming soon.</p>
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code><!-- --hbd-radius-* tokens --></code></pre>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════ FOUNDATION: ACCESSIBILITY ══════════════════════ -->
+    <section class="ds-section" id="accessibility" aria-labelledby="heading-accessibility">
+      <div class="container">
+        <h2 class="ds-section__heading" id="heading-accessibility">Accessibility</h2>
+        <p class="ds-section__description">
+          All components target WCAG 2.2 Level AA. Requirements include 4.5:1 contrast for normal text, 3:1 for large text and UI elements, a visible 2 px focus ring on every interactive element, full keyboard operability, and <code>prefers-reduced-motion</code> support.
+        </p>
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">Focus Ring</h3>
+          <div class="ds-preview-canvas">
+            <p class="ds-placeholder-notice">Token visualisation coming soon.</p>
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code><!-- :focus-visible pattern --></code></pre>
+          </details>
+        </div>
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">Reduced Motion</h3>
+          <div class="ds-preview-canvas">
+            <p class="ds-placeholder-notice">Token visualisation coming soon.</p>
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code><!-- @media (prefers-reduced-motion: reduce) pattern --></code></pre>
+          </details>
+        </div>
+      </div>
+    </section>
 
   </main><!-- /main -->
 
