@@ -494,10 +494,10 @@ All spacing values derive from a **4px base unit**. Valid spacing tokens: 4, 8, 
 
 ```
 --hbd-radius-none:  0
---hbd-radius-sm:    2px
---hbd-radius-md:    4px
---hbd-radius-lg:    8px
---hbd-radius-xl:    12px
+--hbd-radius-sm:    1px
+--hbd-radius-md:    2px
+--hbd-radius-lg:    3px
+--hbd-radius-xl:    4px
 --hbd-radius-full:  9999px
 ```
 

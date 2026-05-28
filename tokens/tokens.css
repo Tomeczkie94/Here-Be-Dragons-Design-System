@@ -4,7 +4,7 @@
  */
 
 :root {
-  /* ── color ─────────────────────────────────────── */
+  /* ── color ─────────────────────────────────────────────── */
   --hbd-color-ink-950: #0d0a07;
   --hbd-color-ink-900: #1a1410;
   --hbd-color-ink-800: #2e2418;
@@ -16,16 +16,18 @@
   --hbd-color-ink-200: #dcc4a0;
   --hbd-color-ink-100: #ede3d0;
   --hbd-color-ink-50: #f5f0e8;
+  --hbd-color-ink-brown: #3d2817;
+  --hbd-color-ink-faded: #6b4f35;
   --hbd-color-parchment-950: #2a2419;
   --hbd-color-parchment-900: #3d3520;
   --hbd-color-parchment-800: #5c5035;
   --hbd-color-parchment-700: #7a6b48;
   --hbd-color-parchment-600: #9e8c62;
   --hbd-color-parchment-500: #bba87c;
-  --hbd-color-parchment-400: #cfbf98;
-  --hbd-color-parchment-300: #e0d4b8;
-  --hbd-color-parchment-200: #eee5cc;
-  --hbd-color-parchment-100: #f5efdf;
+  --hbd-color-parchment-400: #a88d5a;
+  --hbd-color-parchment-300: #d4bc88;
+  --hbd-color-parchment-200: #ead9b3;
+  --hbd-color-parchment-100: #f5ecd7;
   --hbd-color-parchment-50: #fdf8f0;
   --hbd-color-crimson-950: #3d0505;
   --hbd-color-crimson-900: #5a0a0a;
@@ -48,6 +50,9 @@
   --hbd-color-gold-200: #f7e8b0;
   --hbd-color-gold-100: #faf3d8;
   --hbd-color-gold-50: #fdf9ed;
+  --hbd-color-gold: #b8893b;
+  --hbd-color-gold-bright: #d4a548;
+  --hbd-color-gold-deep: #7a5a22;
   --hbd-color-forest-900: #0d2e10;
   --hbd-color-forest-800: #164a1a;
   --hbd-color-forest-700: #1e6624;
@@ -68,6 +73,11 @@
   --hbd-color-sapphire-200: #c2d8f5;
   --hbd-color-sapphire-100: #e0ecfb;
   --hbd-color-sapphire-50: #f0f6fd;
+  --hbd-color-sapphire: #1e3a5f;
+  --hbd-color-blood: #7a1212;
+  --hbd-color-blood-deep: #4a0808;
+  --hbd-color-emerald: #2d5a3d;
+  --hbd-color-shadow-bg: #2a1f17;
   --hbd-color-white: #ffffff;
   --hbd-color-black: #000000;
   --hbd-color-transparent: transparent;
@@ -115,7 +125,7 @@
   --hbd-color-status-info-icon: var(--hbd-color-sapphire-700);
   --hbd-color-focus-ring: var(--hbd-color-sapphire-600);
 
-  /* ── spacing ─────────────────────────────────── */
+  /* ── spacing ───────────────────────────────────────────── */
   --hbd-space-1: 4px;
   --hbd-space-2: 8px;
   --hbd-space-3: 12px;
@@ -127,14 +137,14 @@
   --hbd-space-24: 96px;
   --hbd-space-32: 128px;
 
-  /* ── font-family ─────────────────────────────── */
+  /* ── font-family ───────────────────────────────────────── */
   --hbd-font-family-display: 'Tiamat Condensed SC', 'Cinzel', serif;
   --hbd-font-family-serif: 'IM Fell English', 'Georgia', serif;
   --hbd-font-family-accent: 'Cinzel', 'Palatino Linotype', 'Book Antiqua', serif;
   --hbd-font-family-ui: 'Roboto', 'Helvetica Neue', 'Arial', sans-serif;
   --hbd-font-family-mono: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', 'Consolas', monospace;
 
-  /* ── font-size ─────────────────────────────────── */
+  /* ── font-size ─────────────────────────────────────────── */
   --hbd-font-size-xs: 0.75rem;
   --hbd-font-size-sm: 0.875rem;
   --hbd-font-size-md: 1rem;
@@ -146,8 +156,17 @@
   --hbd-font-size-5xl: 3rem;
   --hbd-font-size-6xl: 3.75rem;
   --hbd-font-size-7xl: 4.5rem;
+  --hbd-font-size-hero: clamp(3rem, 7vw, 6rem);
+  --hbd-font-size-h1: clamp(2rem, 4.5vw, 2.5rem);
+  --hbd-font-size-h2: clamp(1.375rem, 3vw, 1.75rem);
+  --hbd-font-size-h3: clamp(1.0625rem, 2.2vw, 1.25rem);
+  --hbd-font-size-h4: 1.125rem;
+  --hbd-font-size-body: 1.0625rem;
+  --hbd-font-size-flavor: 0.9375rem;
+  --hbd-font-size-label: 0.8125rem;
+  --hbd-font-size-micro: 0.6875rem;
 
-  /* ── font-weight ─────────────────────────────── */
+  /* ── font-weight ───────────────────────────────────────── */
   --hbd-font-weight-light: 300;
   --hbd-font-weight-regular: 400;
   --hbd-font-weight-medium: 500;
@@ -155,32 +174,37 @@
   --hbd-font-weight-bold: 700;
   --hbd-font-weight-black: 900;
 
-  /* ── line-height ─────────────────────────────── */
+  /* ── line-height ───────────────────────────────────────── */
   --hbd-line-height-none: 1;
   --hbd-line-height-tight: 1.2;
   --hbd-line-height-snug: 1.35;
   --hbd-line-height-normal: 1.5;
   --hbd-line-height-relaxed: 1.65;
   --hbd-line-height-loose: 2;
+  --hbd-line-height-display: 1.1;
+  --hbd-line-height-body: 1.7;
+  --hbd-line-height-flavor: 1.6;
 
-  /* ── letter-spacing ────────────────────────── */
+  /* ── letter-spacing ────────────────────────────────────── */
   --hbd-letter-spacing-tighter: -0.05em;
   --hbd-letter-spacing-tight: -0.025em;
   --hbd-letter-spacing-normal: 0em;
   --hbd-letter-spacing-wide: 0.025em;
   --hbd-letter-spacing-wider: 0.05em;
   --hbd-letter-spacing-widest: 0.15em;
-  --hbd-letter-spacing-display: 0.1em;
+  --hbd-letter-spacing-display: 0.02em;
+  --hbd-letter-spacing-label: 0.3em;
+  --hbd-letter-spacing-button: 0.2em;
 
-  /* ── radius ──────────────────────────────────── */
+  /* ── radius ────────────────────────────────────────────── */
   --hbd-radius-none: 0;
-  --hbd-radius-sm: 2px;
-  --hbd-radius-md: 4px;
-  --hbd-radius-lg: 8px;
-  --hbd-radius-xl: 12px;
+  --hbd-radius-sm: 1px;
+  --hbd-radius-md: 2px;
+  --hbd-radius-lg: 3px;
+  --hbd-radius-xl: 4px;
   --hbd-radius-full: 9999px;
 
-  /* ── shadow ──────────────────────────────────── */
+  /* ── shadow ────────────────────────────────────────────── */
   --hbd-shadow-0: none;
   --hbd-shadow-1: 0 1px 2px 0 rgba(13, 10, 7, 0.06), 0 1px 3px 0 rgba(13, 10, 7, 0.10);
   --hbd-shadow-2: 0 2px 4px -1px rgba(13, 10, 7, 0.08), 0 4px 6px -1px rgba(13, 10, 7, 0.12);
@@ -188,7 +212,7 @@
   --hbd-shadow-4: 0 8px 10px -4px rgba(13, 10, 7, 0.10), 0 20px 25px -5px rgba(13, 10, 7, 0.18);
   --hbd-shadow-5: 0 16px 20px -6px rgba(13, 10, 7, 0.12), 0 40px 50px -10px rgba(13, 10, 7, 0.22);
 
-  /* ── z ───────────────────────────────────────────── */
+  /* ── z ─────────────────────────────────────────────────── */
   --hbd-z-below: -1;
   --hbd-z-base: 0;
   --hbd-z-raised: 10;
@@ -200,23 +224,34 @@
   --hbd-z-toast: 600;
   --hbd-z-tooltip: 700;
 
-  /* ── duration ─────────────────────────────────── */
+  /* ── duration ──────────────────────────────────────────── */
   --hbd-duration-instant: 0ms;
   --hbd-duration-fast: 100ms;
   --hbd-duration-normal: 200ms;
   --hbd-duration-slow: 350ms;
   --hbd-duration-slower: 500ms;
 
-  /* ── ease ─────────────────────────────────────────── */
+  /* ── ease ──────────────────────────────────────────────── */
   --hbd-ease-linear: linear;
   --hbd-ease-in: cubic-bezier(0.4, 0, 1, 1);
   --hbd-ease-out: cubic-bezier(0, 0, 0.2, 1);
   --hbd-ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
   --hbd-ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
 
-  /* ── border ──────────────────────────────────── */
+  /* ── border ────────────────────────────────────────────── */
   --hbd-border-width-hairline: 0.5px;
   --hbd-border-width-thin: 1px;
   --hbd-border-width-medium: 2px;
   --hbd-border-width-thick: 4px;
+
+  /* ── layout ────────────────────────────────────────────── */
+  --hbd-layout-max-width: 68.75rem;
+  --hbd-layout-page-padding: clamp(1rem, 4vw, 3rem);
+
+  /* ── transition ────────────────────────────────────────── */
+  --hbd-transition-fast: 0.12s ease;
+  --hbd-transition-base: 0.2s ease;
+
+  /* ── focus ─────────────────────────────────────────────── */
+  --hbd-focus-offset: 2px;
 }
