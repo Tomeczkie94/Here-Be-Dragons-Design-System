@@ -1,0 +1,278 @@
+[21:24:41.074] [INFO] [36mInitializing Storybook[39m
+[21:24:41.396] [DEBUG] Getting package.json info for /Users/tomaszjakobiec/Projects/Personal/ds-here-be-dragons-design-design-system/package.json...
+[21:24:41.396] [INFO] Package manager: npm
+[21:24:41.397] [DEBUG] Getting CLI versions from NPM for storybook...
+[21:24:41.397] [DEBUG] Executing command: npm info storybook version
+[21:24:41.903] [INFO] Adding Storybook version 10.4.1 to your project
+[21:24:41.903] [DEBUG] Executing command: npm config get min-release-age --workspaces=false --include-workspace-root
+[21:24:42.035] [DEBUG] Using cached package.json for /Users/tomaszjakobiec/Projects/Personal/ds-here-be-dragons-design-design-system/package.json...
+[21:24:42.035] [DEBUG] Project type detected: react
+[21:24:42.035] [DEBUG] Using cached package.json for /Users/tomaszjakobiec/Projects/Personal/ds-here-be-dragons-design-design-system/package.json...
+[21:24:42.036] [DEBUG] Using cached package.json for /Users/tomaszjakobiec/Projects/Personal/ds-here-be-dragons-design-design-system/package.json...
+[21:24:42.036] [INFO] Framework detected: react-vite
+[21:24:42.036] [DEBUG] Getting installed version for vitest...
+[21:24:42.037] [DEBUG] Executing command: npm ls --json --depth=99 2>/dev/null
+[21:24:42.354] [DEBUG] Executing command: npm ls --json --depth=0 2>/dev/null
+[21:24:42.650] [DEBUG] Error finding installations for vitest: ExecaError: Command failed with exit code 1: npm ls --json '--depth=0' '2>/dev/null'
+
+{
+  "version": "1.0.0",
+  "name": "here-be-dragons-design-system"
+}
+[21:24:42.650] [DEBUG] No installations found for vitest
+[21:24:42.650] [DEBUG] Getting installed version for msw...
+[21:24:42.650] [DEBUG] Executing command: npm ls --json --depth=99 2>/dev/null
+[21:24:42.976] [DEBUG] Executing command: npm ls --json --depth=0 2>/dev/null
+[21:24:43.269] [DEBUG] Error finding installations for msw: ExecaError: Command failed with exit code 1: npm ls --json '--depth=0' '2>/dev/null'
+
+{
+  "version": "1.0.0",
+  "name": "here-be-dragons-design-system"
+}
+[21:24:43.269] [DEBUG] No installations found for msw
+[21:24:48.615] [PROMPT] New to Storybook? {"choice":true}
+[21:24:48.615] [INFO] Storybook collects completely anonymous usage telemetry. We use it to shape Storybook's roadmap and prioritize features. You can learn more, including how to opt out, at https://storybook.js.org/telemetry
+[21:24:53.958] [PROMPT] Would you like to install AI features (MCP addon and prompt suggestions)? {"choice":true}
+[21:24:54.477] [INFO] base-generator-task-start: Generating Storybook configuration
+[21:24:54.478] [DEBUG] Using cached package.json for /Users/tomaszjakobiec/Projects/Personal/ds-here-be-dragons-design-design-system/package.json...
+[21:24:54.478] [DEBUG] Using cached package.json for /Users/tomaszjakobiec/Projects/Personal/ds-here-be-dragons-design-design-system/package.json...
+[21:24:54.478] [DEBUG] Using cached package.json for /Users/tomaszjakobiec/Projects/Personal/ds-here-be-dragons-design-design-system/package.json...
+[21:24:54.479] [DEBUG] Using cached version for storybook...
+[21:24:54.479] [DEBUG] Getting CLI versions from NPM for @chromatic-com/storybook...
+[21:24:54.479] [DEBUG] Executing command: npm info @chromatic-com/storybook version
+[21:24:54.483] [DEBUG] Getting CLI versions from NPM for @storybook/addon-vitest...
+[21:24:54.483] [DEBUG] Executing command: npm info @storybook/addon-vitest version
+[21:24:54.486] [DEBUG] Getting CLI versions from NPM for @storybook/addon-docs...
+[21:24:54.486] [DEBUG] Executing command: npm info @storybook/addon-docs version
+[21:24:54.489] [DEBUG] Getting CLI versions from NPM for @storybook/addon-mcp...
+[21:24:54.489] [DEBUG] Executing command: npm info @storybook/addon-mcp version
+[21:24:55.403] [INFO] base-generator-task: - Configuring main.ts
+[21:24:55.404] [INFO] base-generator-task: - Configuring preview.ts
+[21:24:55.404] [INFO] base-generator-task: - Adding Storybook command to package.json
+[21:24:55.404] [DEBUG] Getting package.json info for /Users/tomaszjakobiec/Projects/Personal/ds-here-be-dragons-design-design-system/package.json...
+[21:24:55.404] [DEBUG] Using cached package.json for /Users/tomaszjakobiec/Projects/Personal/ds-here-be-dragons-design-design-system/package.json...
+[21:24:55.404] [DEBUG] Using cached package.json for /Users/tomaszjakobiec/Projects/Personal/ds-here-be-dragons-design-design-system/package.json...
+[21:24:55.405] [INFO] base-generator-task: - Copying framework templates
+[21:24:55.420] [DEBUG] Executing command: npm config get registry --workspaces=false --include-workspace-root
+[21:24:55.918] [INFO] base-generator-task-success: Storybook configuration generated
+[21:24:55.918] [DEBUG] Using cached package.json for /Users/tomaszjakobiec/Projects/Personal/ds-here-be-dragons-design-design-system/package.json...
+[21:24:55.918] [DEBUG] Using cached installed version for vitest...
+[21:24:55.918] [DEBUG] Getting installed version for @vitest/coverage-v8...
+[21:24:55.918] [DEBUG] Executing command: npm ls --json --depth=99 2>/dev/null
+[21:24:56.283] [DEBUG] Executing command: npm ls --json --depth=0 2>/dev/null
+[21:24:56.577] [DEBUG] Error finding installations for @vitest/coverage-v8: ExecaError: Command failed with exit code 1: npm ls --json '--depth=0' '2>/dev/null'
+
+{
+  "version": "1.0.0",
+  "name": "here-be-dragons-design-system"
+}
+[21:24:56.577] [DEBUG] No installations found for @vitest/coverage-v8
+[21:24:56.577] [DEBUG] Getting installed version for @vitest/coverage-istanbul...
+[21:24:56.577] [DEBUG] Executing command: npm ls --json --depth=99 2>/dev/null
+[21:24:56.899] [DEBUG] Executing command: npm ls --json --depth=0 2>/dev/null
+[21:24:57.185] [DEBUG] Error finding installations for @vitest/coverage-istanbul: ExecaError: Command failed with exit code 1: npm ls --json '--depth=0' '2>/dev/null'
+
+{
+  "version": "1.0.0",
+  "name": "here-be-dragons-design-system"
+}
+[21:24:57.185] [DEBUG] No installations found for @vitest/coverage-istanbul
+[21:24:57.185] [INFO] adding-dependencies-task-start: Adding dependencies to package.json
+[21:24:57.186] [INFO] adding-dependencies-task: Adding devDependencies:
+- storybook@^10.4.1
+- @chromatic-com/storybook@^5.2.1
+- @storybook/addon-vitest@^10.4.1
+- @storybook/addon-docs@^10.4.1
+- @storybook/addon-mcp@^0.6.0
+- vitest
+- playwright
+- @vitest/browser-playwright
+- @vitest/coverage-v8
+[21:24:57.186] [DEBUG] Using cached package.json for /Users/tomaszjakobiec/Projects/Personal/ds-here-be-dragons-design-design-system/package.json...
+[21:24:57.186] [DEBUG] Using cached version for storybook...
+[21:24:57.186] [DEBUG] Using cached version for @chromatic-com/storybook...
+[21:24:57.186] [DEBUG] Using cached version for @storybook/addon-vitest...
+[21:24:57.186] [DEBUG] Using cached version for @storybook/addon-docs...
+[21:24:57.186] [DEBUG] Using cached version for @storybook/addon-mcp...
+[21:24:57.186] [DEBUG] Getting CLI versions from NPM for vitest...
+[21:24:57.186] [DEBUG] Executing command: npm info vitest version
+[21:24:57.560] [DEBUG] Getting CLI versions from NPM for playwright...
+[21:24:57.560] [DEBUG] Executing command: npm info playwright version
+[21:24:58.371] [DEBUG] Getting CLI versions from NPM for @vitest/browser-playwright...
+[21:24:58.371] [DEBUG] Executing command: npm info @vitest/browser-playwright version
+[21:24:58.691] [DEBUG] Getting CLI versions from NPM for @vitest/coverage-v8...
+[21:24:58.691] [DEBUG] Executing command: npm info @vitest/coverage-v8 version
+[21:24:59.049] [DEBUG] Using cached package.json for /Users/tomaszjakobiec/Projects/Personal/ds-here-be-dragons-design-design-system/package.json...
+[21:24:59.050] [INFO] adding-dependencies-task-success: Dependencies added to package.json
+[21:24:59.050] [INFO] Installing dependencies...
+[21:24:59.050] [INFO] install-dependencies-spinner-start: Installing dependencies...
+[21:24:59.050] [DEBUG] Executing command: npm install
+[21:25:01.773] [ERROR] Installation of dependencies failed! {"error":"ExecaError: Command failed with exit code 1: npm install\n\nnpm error code ERESOLVE\nnpm error ERESOLVE could not resolve\nnpm error\nnpm error While resolving: here-be-dragons-design-system@1.0.0\nnpm error Found: storybook@8.6.18\nnpm error node_modules/storybook\nnpm error   dev storybook@\"^10.4.1\" from the root project\nnpm error   peer storybook@\"^8.6.18\" from @storybook/addon-a11y@8.6.18\nnpm error   node_modules/@storybook/addon-a11y\nnpm error     dev @storybook/addon-a11y@\"^8.5.0\" from the root project\nnpm error   28 more (@storybook/addon-actions, ...)\nnpm error\nnpm error Could not resolve dependency:\nnpm error dev @chromatic-com/storybook@\"^5.2.1\" from the root project\nnpm error\nnpm error Conflicting peer dependency: storybook@10.4.1\nnpm error node_modules/storybook\nnpm error   peer storybook@\"^0.0.0-0 || ^10.1.0 || ^10.1.0-0 || ^10.2.0-0 || ^10.3.0-0 || ^10.4.0-0 || ^10.5.0-0 || ^10.6.0-0\" from @chromatic-com/storybook@5.2.1\nnpm error   node_modules/@chromatic-com/storybook\nnpm error     dev @chromatic-com/storybook@\"^5.2.1\" from the root project\nnpm error\nnpm error Fix the upstream dependency conflict, or retry\nnpm error this command with --force or --legacy-peer-deps\nnpm error to accept an incorrect (and potentially broken) dependency resolution.\nnpm error\nnpm error\nnpm error For a full report see:\nnpm error /Users/tomaszjakobiec/.npm/_logs/2026-05-27T19_24_59_148Z-eresolve-report.txt\nnpm error A complete log of this run can be found in: /Users/tomaszjakobiec/.npm/_logs/2026-05-27T19_24_59_148Z-debug-0.log\n    at getFinalError (file:///Users/tomaszjakobiec/.npm/_npx/ecccd379458fbd6a/node_modules/storybook/dist/_node-chunks/chunk-PNYLLFX3.js:11559:10)\n    at makeError (file:///Users/tomaszjakobiec/.npm/_npx/ecccd379458fbd6a/node_modules/storybook/dist/_node-chunks/chunk-PNYLLFX3.js:13095:15)\n    at getAsyncResult (file:///Users/tomaszjakobiec/.npm/_npx/ecccd379458fbd6a/node_modules/storybook/dist/_node-chunks/chunk-PNYLLFX3.js:15741:158)\n    at handlePromise (file:///Users/tomaszjakobiec/.npm/_npx/ecccd379458fbd6a/node_modules/storybook/dist/_node-chunks/chunk-PNYLLFX3.js:15727:162)\n    at async Object.executeTaskWithSpinner (file:///Users/tomaszjakobiec/.npm/_npx/ecccd379458fbd6a/node_modules/storybook/dist/_node-chunks/chunk-3BPHYDN5.js:3683:11)\n    at async NPMProxy.installDependencies (file:///Users/tomaszjakobiec/.npm/_npx/ecccd379458fbd6a/node_modules/storybook/dist/_node-chunks/chunk-PNYLLFX3.js:9700:5)\n    at async NPMProxy.installDependencies (file:///Users/tomaszjakobiec/.npm/_npx/ecccd379458fbd6a/node_modules/storybook/dist/_node-chunks/chunk-PNYLLFX3.js:16433:7)\n    at async DependencyInstallationCommand.execute (file:///Users/tomaszjakobiec/.npm/_npx/ecccd379458fbd6a/node_modules/create-storybook/dist/_node-chunks/chunk-UR7I3RA2.js:2301:9)\n    at async doInitiate (file:///Users/tomaszjakobiec/.npm/_npx/ecccd379458fbd6a/node_modules/create-storybook/dist/_node-chunks/chunk-UR7I3RA2.js:3535:38)\n    at async file:///Users/tomaszjakobiec/.npm/_npx/ecccd379458fbd6a/node_modules/create-storybook/dist/_node-chunks/chunk-UR7I3RA2.js:3590:20"}
+[21:25:01.773] [ERROR] install-dependencies-spinner-error: [31mInstallation of dependencies failed![39m
+[21:25:01.775] [INFO] configure-addons-task-start: Configuring addons...
+[21:25:01.775] [INFO] configure-addons-task: Configuring @chromatic-com/storybook...
+[21:25:01.775] [INFO] configure-addons-task: @chromatic-com/storybook configured
+
+[21:25:01.775] [INFO] configure-addons-task: Configuring @storybook/addon-vitest...
+[21:25:01.776] [DEBUG] Getting package.json info for /Users/tomaszjakobiec/Projects/Personal/ds-here-be-dragons-design-design-system/package.json...
+[21:25:01.776] [DEBUG] Using cached package.json for /Users/tomaszjakobiec/Projects/Personal/ds-here-be-dragons-design-design-system/package.json...
+[21:25:01.776] [DEBUG] Using cached installed version for vitest...
+[21:25:01.776] [DEBUG] Vitest version specifier: 4.1.7
+[21:25:01.877] [DEBUG] Using cached installed version for vitest...
+[21:25:01.877] [DEBUG] Using cached installed version for msw...
+[21:25:01.894] [INFO] Updating your Vite config file:
+[21:25:01.894] [INFO]   /Users/tomaszjakobiec/Projects/Personal/ds-here-be-dragons-design-design-system/vite.config.ts
+[21:25:01.899] [INFO] Setting up a11y addon for @storybook/addon-vitest
+[21:25:01.899] [INFO] Setting up a11y addon for @storybook/addon-vitest
+[21:25:01.899] [DEBUG] Executing command: npx storybook@10.4.1 automigrate addon-a11y-addon-test --loglevel silent --yes --skip-doctor --package-manager npm --skip-install
+[21:25:12.416] [INFO] a11y addon setup successfully
+[21:25:12.416] [INFO] [32ma11y addon setup successfully[39m
+[21:25:12.417] [INFO] [32m@storybook/addon-vitest setup completed successfully[39m
+[21:25:12.418] [INFO] @storybook/addon-vitest is now configured and you're ready to run your tests!
+Here are a couple of tips to get you started:
+
+• You can run tests with "[36mnpx vitest --project=storybook[39m"
+• Vitest IDE extension shows all stories as tests in your editor!
+
+Check the documentation for more information about its features and options at:
+https://storybook.js.org/docs/next/writing-tests/integrations/vitest-addon
+[21:25:12.419] [INFO] configure-addons-task: @storybook/addon-vitest configured
+
+[21:25:12.420] [INFO] configure-addons-task: Configuring @storybook/addon-a11y...
+[21:25:12.426] [DEBUG] Executing command: npx storybook@10.4.1 automigrate addon-a11y-addon-test --loglevel silent --skip-doctor --yes --package-manager npm --config-dir .storybook
+[21:25:15.363] [DEBUG] {
+  "shortMessage": "Command failed with exit code 1: npx 'storybook@10.4.1' automigrate addon-a11y-addon-test --loglevel silent --skip-doctor --yes --package-manager npm --config-dir .storybook",
+  "command": "npx storybook@10.4.1 automigrate addon-a11y-addon-test --loglevel silent --skip-doctor --yes --package-manager npm --config-dir .storybook",
+  "escapedCommand": "npx 'storybook@10.4.1' automigrate addon-a11y-addon-test --loglevel silent --skip-doctor --yes --package-manager npm --config-dir .storybook",
+  "cwd": "/Users/tomaszjakobiec/Projects/Personal/ds-here-be-dragons-design-design-system",
+  "durationMs": 2936.844917,
+  "failed": true,
+  "timedOut": false,
+  "isCanceled": false,
+  "isGracefullyCanceled": false,
+  "isTerminated": false,
+  "isMaxBuffer": false,
+  "isForcefullyTerminated": false,
+  "exitCode": 1,
+  "stdout": "",
+  "stderr": "",
+  "stdio": [
+    null,
+    "",
+    ""
+  ],
+  "ipcOutput": [],
+  "pipedFrom": []
+}
+[21:25:15.363] [INFO] configure-addons-task: Configuring @storybook/addon-docs...
+[21:25:15.365] [INFO] configure-addons-task: @storybook/addon-docs configured
+
+[21:25:15.365] [INFO] configure-addons-task: Configuring @storybook/addon-mcp...
+[21:25:15.370] [INFO] configure-addons-task: @storybook/addon-mcp configured
+
+[21:25:15.370] [ERROR] configure-addons-task-error: Failed to configure addons
+[21:25:15.370] [INFO] [2m✅ @chromatic-com/storybook[22m
+[21:25:15.371] [INFO] [2m✅ @storybook/addon-vitest[22m
+[21:25:15.371] [INFO] [2m❌ @storybook/addon-a11y[22m
+[21:25:15.371] [INFO] [2m✅ @storybook/addon-docs[22m
+[21:25:15.371] [INFO] [2m✅ @storybook/addon-mcp[22m
+[21:25:15.372] [INFO] Playwright browser binaries are necessary for @storybook/addon-vitest. The download can take some time. If you don't want to wait, you can skip the installation and run the following command manually later:
+[36mnpx playwright install chromium --with-deps[39m
+[21:25:25.977] [PROMPT] Do you want to install Playwright with Chromium now? {"choice":true}
+[21:25:25.977] [INFO] Installing Playwright browser binaries (press "c" to abort)
+[21:25:25.977] [INFO] playwright-installation-spinner-start: Installing Playwright browser binaries (press "c" to abort)
+[21:25:25.978] [DEBUG] Executing command: npx playwright install chromium --with-deps
+[21:25:28.420] [INFO] Installing Playwright browser binaries (press "c" to abort): Removing unused browser at /Users/tomaszjakobiec/Library/Caches/ms-playwright/chromium-1194
+
+[21:25:28.420] [INFO] playwright-installation-spinner: Installing Playwright browser binaries (press "c" to abort): Removing unused browser a
+[21:25:28.420] [INFO] Installing Playwright browser binaries (press "c" to abort): Removing unused browser at /Users/tomaszjakobiec/Library/Caches/ms-playwright/chromium_headless_shell-1194
+Removing unused browser at /Users/tomaszjakobiec/Library/Caches/ms-playwright/firefox-1495
+Removing unused browser at /Users/tomaszjakobiec/Library/Caches/ms-playwright/webkit-2215
+
+[21:25:28.420] [INFO] playwright-installation-spinner: Installing Playwright browser binaries (press "c" to abort): Removing unused browser a
+[21:25:29.222] [INFO] Installing Playwright browser binaries (press "c" to abort): Downloading Chrome for Testing 148.0.7778.96 (playwright chromium v1223)[2m from https://cdn.playwright.dev/builds/cft/148.0.7778.96/mac-arm64/chrome-mac-arm64.zip[22m
+
+[21:25:29.222] [INFO] playwright-installation-spinner: Installing Playwright browser binaries (press "c" to abort): Downloading Chrome for Te
+[21:25:29.881] [INFO] Installing Playwright browser binaries (press "c" to abort): |                                                                                |   0% of 169.2 MiB
+
+[21:25:29.881] [INFO] playwright-installation-spinner: Installing Playwright browser binaries (press "c" to abort): |                        
+[21:25:31.185] [INFO] Installing Playwright browser binaries (press "c" to abort): |■■■■■■■■                                                                        |  10% of 169.2 MiB
+
+[21:25:31.185] [INFO] playwright-installation-spinner: Installing Playwright browser binaries (press "c" to abort): |■■■■■■■■                
+[21:25:31.671] [INFO] Installing Playwright browser binaries (press "c" to abort): |■■■■■■■■■■■■■■■■                                                                |  20% of 169.2 MiB
+
+[21:25:31.671] [INFO] playwright-installation-spinner: Installing Playwright browser binaries (press "c" to abort): |■■■■■■■■■■■■■■■■        
+[21:25:32.139] [INFO] Installing Playwright browser binaries (press "c" to abort): |■■■■■■■■■■■■■■■■■■■■■■■■                                                        |  30% of 169.2 MiB
+
+[21:25:32.139] [INFO] playwright-installation-spinner: Installing Playwright browser binaries (press "c" to abort): |■■■■■■■■■■■■■■■■■■■■■■■■
+[21:25:32.630] [INFO] Installing Playwright browser binaries (press "c" to abort): |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                                |  40% of 169.2 MiB
+
+[21:25:32.630] [INFO] playwright-installation-spinner: Installing Playwright browser binaries (press "c" to abort): |■■■■■■■■■■■■■■■■■■■■■■■■
+[21:25:33.102] [INFO] Installing Playwright browser binaries (press "c" to abort): |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                        |  50% of 169.2 MiB
+
+[21:25:33.102] [INFO] playwright-installation-spinner: Installing Playwright browser binaries (press "c" to abort): |■■■■■■■■■■■■■■■■■■■■■■■■
+[21:25:33.602] [INFO] Installing Playwright browser binaries (press "c" to abort): |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                |  60% of 169.2 MiB
+
+[21:25:33.602] [INFO] playwright-installation-spinner: Installing Playwright browser binaries (press "c" to abort): |■■■■■■■■■■■■■■■■■■■■■■■■
+[21:25:34.113] [INFO] Installing Playwright browser binaries (press "c" to abort): |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                        |  70% of 169.2 MiB
+
+[21:25:34.113] [INFO] playwright-installation-spinner: Installing Playwright browser binaries (press "c" to abort): |■■■■■■■■■■■■■■■■■■■■■■■■
+[21:25:34.614] [INFO] Installing Playwright browser binaries (press "c" to abort): |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                |  80% of 169.2 MiB
+
+[21:25:34.614] [INFO] playwright-installation-spinner: Installing Playwright browser binaries (press "c" to abort): |■■■■■■■■■■■■■■■■■■■■■■■■
+[21:25:35.171] [INFO] Installing Playwright browser binaries (press "c" to abort): |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■        |  90% of 169.2 MiB
+
+[21:25:35.171] [INFO] playwright-installation-spinner: Installing Playwright browser binaries (press "c" to abort): |■■■■■■■■■■■■■■■■■■■■■■■■
+[21:25:35.664] [INFO] Installing Playwright browser binaries (press "c" to abort): |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 169.2 MiB
+
+[21:25:35.664] [INFO] playwright-installation-spinner: Installing Playwright browser binaries (press "c" to abort): |■■■■■■■■■■■■■■■■■■■■■■■■
+[21:25:37.336] [INFO] Installing Playwright browser binaries (press "c" to abort): Chrome for Testing 148.0.7778.96 (playwright chromium v1223) downloaded to /Users/tomaszjakobiec/Library/Caches/ms-playwright/chromium-1223
+
+[21:25:37.336] [INFO] playwright-installation-spinner: Installing Playwright browser binaries (press "c" to abort): Chrome for Testing 148.0.
+[21:25:37.337] [INFO] Installing Playwright browser binaries (press "c" to abort): Downloading Chrome Headless Shell 148.0.7778.96 (playwright chromium-headless-shell v1223)[2m from https://cdn.playwright.dev/builds/cft/148.0.7778.96/mac-arm64/chrome-headless-shell-mac-arm64.zip[22m
+
+[21:25:37.337] [INFO] playwright-installation-spinner: Installing Playwright browser binaries (press "c" to abort): Downloading Chrome Headle
+[21:25:37.886] [INFO] Installing Playwright browser binaries (press "c" to abort): |                                                                                |   0% of 92.4 MiB
+
+[21:25:37.886] [INFO] playwright-installation-spinner: Installing Playwright browser binaries (press "c" to abort): |                        
+[21:25:39.158] [INFO] Installing Playwright browser binaries (press "c" to abort): |■■■■■■■■                                                                        |  10% of 92.4 MiB
+
+[21:25:39.158] [INFO] playwright-installation-spinner: Installing Playwright browser binaries (press "c" to abort): |■■■■■■■■                
+[21:25:39.514] [INFO] Installing Playwright browser binaries (press "c" to abort): |■■■■■■■■■■■■■■■■                                                                |  20% of 92.4 MiB
+
+[21:25:39.514] [INFO] playwright-installation-spinner: Installing Playwright browser binaries (press "c" to abort): |■■■■■■■■■■■■■■■■        
+[21:25:39.847] [INFO] Installing Playwright browser binaries (press "c" to abort): |■■■■■■■■■■■■■■■■■■■■■■■■                                                        |  30% of 92.4 MiB
+
+[21:25:39.847] [INFO] playwright-installation-spinner: Installing Playwright browser binaries (press "c" to abort): |■■■■■■■■■■■■■■■■■■■■■■■■
+[21:25:40.080] [INFO] Installing Playwright browser binaries (press "c" to abort): |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                                |  40% of 92.4 MiB
+
+[21:25:40.080] [INFO] playwright-installation-spinner: Installing Playwright browser binaries (press "c" to abort): |■■■■■■■■■■■■■■■■■■■■■■■■
+[21:25:40.401] [INFO] Installing Playwright browser binaries (press "c" to abort): |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                        |  50% of 92.4 MiB
+
+[21:25:40.401] [INFO] playwright-installation-spinner: Installing Playwright browser binaries (press "c" to abort): |■■■■■■■■■■■■■■■■■■■■■■■■
+[21:25:40.594] [INFO] Installing Playwright browser binaries (press "c" to abort): |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                |  60% of 92.4 MiB
+
+[21:25:40.594] [INFO] playwright-installation-spinner: Installing Playwright browser binaries (press "c" to abort): |■■■■■■■■■■■■■■■■■■■■■■■■
+[21:25:40.911] [INFO] Installing Playwright browser binaries (press "c" to abort): |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                        |  70% of 92.4 MiB
+
+[21:25:40.911] [INFO] playwright-installation-spinner: Installing Playwright browser binaries (press "c" to abort): |■■■■■■■■■■■■■■■■■■■■■■■■
+[21:25:41.109] [INFO] Installing Playwright browser binaries (press "c" to abort): |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                |  80% of 92.4 MiB
+
+[21:25:41.109] [INFO] playwright-installation-spinner: Installing Playwright browser binaries (press "c" to abort): |■■■■■■■■■■■■■■■■■■■■■■■■
+[21:25:41.443] [INFO] Installing Playwright browser binaries (press "c" to abort): |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■        |  90% of 92.4 MiB
+
+[21:25:41.443] [INFO] playwright-installation-spinner: Installing Playwright browser binaries (press "c" to abort): |■■■■■■■■■■■■■■■■■■■■■■■■
+[21:25:41.660] [INFO] Installing Playwright browser binaries (press "c" to abort): |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 92.4 MiB
+
+[21:25:41.660] [INFO] playwright-installation-spinner: Installing Playwright browser binaries (press "c" to abort): |■■■■■■■■■■■■■■■■■■■■■■■■
+[21:25:42.640] [INFO] Installing Playwright browser binaries (press "c" to abort): Chrome Headless Shell 148.0.7778.96 (playwright chromium-headless-shell v1223) downloaded to /Users/tomaszjakobiec/Library/Caches/ms-playwright/chromium_headless_shell-1223
+
+[21:25:42.640] [INFO] playwright-installation-spinner: Installing Playwright browser binaries (press "c" to abort): Chrome Headless Shell 148
+[21:25:42.652] [INFO] Playwright browser binaries installed successfully
+[21:25:42.652] [INFO] playwright-installation-spinner-stop: Playwright browser binaries installed successfully
+[21:25:43.412] [WARN] Storybook setup completed, but some non-blocking errors occurred. Please check the log file below for details.
+[21:25:43.414] [INFO] To run Storybook, run [36mnpm run storybook[39m. CTRL+C to stop.
+[21:25:43.415] [INFO] Official documentation reference: [36mhttps://storybook.js.org/llms.txt[39m
+[21:25:43.415] [INFO] To finalize setting up with AI, paste this prompt to your AI agent:
+
+[38;2;255;71;133mRun `npx storybook ai setup` and follow its instructions precisely.[39m

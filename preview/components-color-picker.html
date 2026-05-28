@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ColorPicker — Here Be Dragons Design System</title>
+  <link rel="stylesheet" href="../colors_and_type.css">
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--parchment-100);
+      color: var(--ink-brown);
+      font-family: var(--font-body);
+      font-size: var(--text-body);
+      line-height: var(--lh-body);
+      padding: 3rem 2rem;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    h1 {
+      font-family: var(--font-display);
+      font-size: var(--text-h1);
+      color: var(--ink-black);
+      letter-spacing: var(--ls-display);
+      line-height: var(--lh-display);
+      margin-bottom: 0.5rem;
+    }
+    .subtitle {
+      font-family: var(--font-flavor);
+      font-style: italic;
+      color: var(--ink-faded);
+      margin-bottom: 3rem;
+      border-bottom: 2px double var(--gold-deep);
+      padding-bottom: 1.5rem;
+    }
+    .section-heading {
+      font-family: var(--font-display);
+      font-size: var(--text-h2);
+      color: var(--ink-black);
+      letter-spacing: var(--ls-display);
+      margin-bottom: 1.5rem;
+      margin-top: 3rem;
+    }
+    .spec-block {
+      background: var(--parchment-200);
+      border: 1px solid var(--ink-faded);
+      padding: 0.875rem 1.25rem;
+      margin-top: 0.75rem;
+      max-width: 620px;
+    }
+    .spec-label {
+      font-family: var(--font-mono);
+      font-size: 0.6875rem;
+      color: var(--ink-faded);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 0.4rem;
+    }
+    .spec-value {
+      font-family: var(--font-mono);
+      font-size: 0.8125rem;
+      color: var(--ink-black);
+      line-height: 1.65;
+    }
+    .gap { margin-bottom: 2rem; }
+    .demo-area {
+      padding: 1.5rem 2rem;
+      border: 1px dashed var(--ink-faded);
+      background: var(--parchment-100);
+      min-height: 3.5rem;
+    }
+    .demo-cols {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+    @media (max-width: 600px) { .demo-cols { grid-template-columns: 1fr; } }
+    .demo-col-label {
+      font-family: var(--font-display);
+      font-size: 0.6875rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold-deep);
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+    .live-output {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--ink-faded);
+      margin-top: 0.75rem;
+      min-height: 1.2em;
+    }
+    .live-output strong { color: var(--gold-deep); font-weight: 400; }
+    footer {
+      margin-top: 4rem;
+      padding-top: 1.5rem;
+      border-top: 1px dashed var(--ink-faded);
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--ink-faded);
+    }
+    @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+  </style>
+</head>
+<body>
+
+  <h1>Color Picker</h1>
+  <p class="subtitle">An inline swatch-based colour selection widget drawing from the Here Be Dragons token palette.</p>
+
+  <!-- Mount points -->
+  <div id="demo-1"></div>
+  <div id="demo-2"></div>
+  <div id="demo-3"></div>
+  <div id="demo-4"></div>
+  <div id="demo-5"></div>
+  <div id="demo-6"></div>
+
+  <footer>ColorPicker · Here Be Dragons Design System · preview/components-color-picker.html</footer>
+
+  <!-- Load component -->
+  <script type="text/babel" src="../ui_kits/app/components/ColorPicker.jsx"></script>
+
+  <script type="text/babel">
+    // ── Demo 1: Default DS palette, no initial value, onChange output ────
+    function Demo1() {
+      const [output, setOutput] = React.useState(null);
+      return (
+        <section>
+          <h2 className="section-heading">1 · Default — DS Palette</h2>
+          <div className="spec-block gap">
+            <span className="spec-label">Props</span>
+            <span className="spec-value">{'label="Colour" showHexInput showCopyBtn'}</span>
+          </div>
+          <div className="demo-area">
+            <ColorPicker
+              label="Colour"
+              onChange={(hex) => setOutput(hex)}
+            />
+            <p className="live-output">
+              onChange → <strong>{output !== null ? output : '(none yet)'}</strong>
+            </p>
+          </div>
+        </section>
+      );
+    }
+
+    // ── Demo 2: Pre-selected to Blood (#7a1212) ─────────────────────────
+    function Demo2() {
+      const [color, setColor] = React.useState('#7a1212');
+      return (
+        <section>
+          <h2 className="section-heading">2 · Pre-selected — Blood (#7a1212)</h2>
+          <div className="spec-block gap">
+            <span className="spec-label">Props</span>
+            <span className="spec-value">{'value="#7a1212" onChange={setColor}'}</span>
+          </div>
+          <div className="demo-area">
+            <ColorPicker
+              label="Dragon's Blood"
+              value={color}
+              onChange={setColor}
+            />
+            <p className="live-output">
+              Controlled value → <strong>{color}</strong>
+            </p>
+          </div>
+        </section>
+      );
+    }
+
+    // ── Demo 3: Custom presets ──────────────────────────────────────────
+    const CUSTOM_PRESETS = [
+      { name: 'Coral',      hex: '#ff6b6b' },
+      { name: 'Sky',        hex: '#74b9ff' },
+      { name: 'Mint',       hex: '#55efc4' },
+      { name: 'Lavender',   hex: '#a29bfe' },
+      { name: 'Amber',      hex: '#fdcb6e' },
+      { name: 'Rose',       hex: '#fd79a8' },
+    ];
+    function Demo3() {
+      const [output, setOutput] = React.useState(null);
+      return (
+        <section>
+          <h2 className="section-heading">3 · Custom Presets</h2>
+          <div className="spec-block gap">
+            <span className="spec-label">Props</span>
+            <span className="spec-value">{'presets={CUSTOM_PRESETS} label="Web Extras"'}</span>
+          </div>
+          <div className="demo-area">
+            <ColorPicker
+              label="Web Extras"
+              presets={CUSTOM_PRESETS}
+              onChange={setOutput}
+            />
+            <p className="live-output">
+              onChange → <strong>{output !== null ? output : '(none yet)'}</strong>
+            </p>
+          </div>
+        </section>
+      );
+    }
+
+    // ── Demo 4: Without hex input ───────────────────────────────────────
+    function Demo4() {
+      const [output, setOutput] = React.useState(null);
+      return (
+        <section>
+          <h2 className="section-heading">4 · Swatches Only — No Hex Input</h2>
+          <div className="spec-block gap">
+            <span className="spec-label">Props</span>
+            <span className="spec-value">{'showHexInput={false}'}</span>
+          </div>
+          <div className="demo-area">
+            <ColorPicker
+              label="Pigment"
+              showHexInput={false}
+              onChange={setOutput}
+            />
+            <p className="live-output">
+              onChange → <strong>{output !== null ? output : '(none yet)'}</strong>
+            </p>
+          </div>
+        </section>
+      );
+    }
+
+    // ── Demo 5: Disabled ────────────────────────────────────────────────
+    function Demo5() {
+      return (
+        <section>
+          <h2 className="section-heading">5 · Disabled State</h2>
+          <div className="spec-block gap">
+            <span className="spec-label">Props</span>
+            <span className="spec-value">{'disabled={true} value="#2d5a3d"'}</span>
+          </div>
+          <div className="demo-area">
+            <ColorPicker
+              label="Arcane Green"
+              value="#2d5a3d"
+              disabled={true}
+            />
+          </div>
+        </section>
+      );
+    }
+
+    // ── Demo 6: Two pickers side by side ────────────────────────────────
+    const LIGHT_PALETTE = [
+      { name: 'Parchment 100', hex: '#f5ecd7' },
+      { name: 'Parchment 200', hex: '#ead9b3' },
+      { name: 'Parchment 300', hex: '#d4bc88' },
+      { name: 'Parchment 400', hex: '#a88d5a' },
+      { name: 'Gold',          hex: '#b8893b' },
+      { name: 'Gold Bright',   hex: '#d4a548' },
+      { name: 'Gold Deep',     hex: '#7a5a22' },
+    ];
+    const DARK_PALETTE = [
+      { name: 'Ink Black',  hex: '#1a1410' },
+      { name: 'Ink Brown',  hex: '#3d2817' },
+      { name: 'Ink Faded',  hex: '#6b4f35' },
+      { name: 'Blood',      hex: '#7a1212' },
+      { name: 'Blood Deep', hex: '#4a0808' },
+      { name: 'Emerald',    hex: '#2d5a3d' },
+      { name: 'Sapphire',   hex: '#1e3a5f' },
+      { name: 'Shadow',     hex: '#2a1f17' },
+    ];
+    function Demo6() {
+      const [light, setLight] = React.useState(null);
+      const [dark, setDark]   = React.useState(null);
+      return (
+        <section>
+          <h2 className="section-heading">6 · Side by Side — Light vs Dark Palette</h2>
+          <div className="spec-block gap">
+            <span className="spec-label">Layout</span>
+            <span className="spec-value">Two ColorPickers with split sub-palettes rendered in a grid</span>
+          </div>
+          <div className="demo-area demo-cols">
+            <div>
+              <span className="demo-col-label">Light Tones</span>
+              <ColorPicker
+                label="Light"
+                presets={LIGHT_PALETTE}
+                onChange={setLight}
+              />
+              <p className="live-output">→ <strong>{light || '—'}</strong></p>
+            </div>
+            <div>
+              <span className="demo-col-label">Dark Tones</span>
+              <ColorPicker
+                label="Dark"
+                presets={DARK_PALETTE}
+                onChange={setDark}
+              />
+              <p className="live-output">→ <strong>{dark || '—'}</strong></p>
+            </div>
+          </div>
+        </section>
+      );
+    }
+
+    // ── Mount all demos ─────────────────────────────────────────────────
+    ReactDOM.createRoot(document.getElementById('demo-1')).render(<Demo1 />);
+    ReactDOM.createRoot(document.getElementById('demo-2')).render(<Demo2 />);
+    ReactDOM.createRoot(document.getElementById('demo-3')).render(<Demo3 />);
+    ReactDOM.createRoot(document.getElementById('demo-4')).render(<Demo4 />);
+    ReactDOM.createRoot(document.getElementById('demo-5')).render(<Demo5 />);
+    ReactDOM.createRoot(document.getElementById('demo-6')).render(<Demo6 />);
+  </script>
+
+</body>
+</html>

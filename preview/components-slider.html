@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Here Be Dragons — Slider</title>
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="../colors_and_type.css">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--parchment-100);
+      color: var(--ink-brown);
+      font-family: var(--font-body);
+      font-size: var(--text-body);
+      line-height: var(--lh-body);
+      padding: 3rem 2rem;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    h1 { font-family: var(--font-display); font-size: var(--text-h1); color: var(--ink-black); letter-spacing: var(--ls-display); line-height: var(--lh-display); margin-bottom: 0.5rem; }
+    .subtitle { font-family: var(--font-flavor); font-style: italic; color: var(--ink-faded); margin-bottom: 3rem; border-bottom: 2px double var(--gold-deep); padding-bottom: 1.5rem; }
+    .section-heading { font-family: var(--font-display); font-size: var(--text-h2); color: var(--ink-black); letter-spacing: var(--ls-display); margin-bottom: 1.5rem; margin-top: 3rem; }
+    .spec-block { background: var(--parchment-200); border: 1px solid var(--ink-faded); padding: 0.875rem 1.25rem; margin-top: 0.75rem; max-width: 620px; }
+    .spec-label { font-family: var(--font-mono); font-size: 0.6875rem; color: var(--ink-faded); letter-spacing: 0.12em; text-transform: uppercase; display: block; margin-bottom: 0.4rem; }
+    .spec-value { font-family: var(--font-mono); font-size: 0.8125rem; color: var(--ink-black); line-height: 1.65; }
+    .gap { margin-bottom: 2rem; }
+    .demo-area { padding: 1.5rem 2rem; border: 1px dashed var(--ink-faded); background: var(--parchment-100); min-height: 3.5rem; }
+    .demo-area--card { background: linear-gradient(135deg, var(--parchment-100), var(--parchment-200)); border: 2px solid var(--ink-brown); box-shadow: var(--shadow-card); padding: 1.5rem 2rem; }
+    .demo-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    @media (max-width: 600px) { .demo-cols { grid-template-columns: 1fr; } }
+    .demo-col-label { font-family: var(--font-display); font-size: 0.6875rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold-deep); margin-bottom: 0.75rem; display: block; }
+    .live-output { font-family: var(--font-mono); font-size: 0.75rem; color: var(--ink-faded); margin-top: 0.75rem; min-height: 1.2em; }
+    .live-output strong { color: var(--gold-deep); font-weight: 400; }
+    footer { margin-top: 4rem; padding-top: 1.5rem; border-top: 1px dashed var(--ink-faded); font-family: var(--font-mono); font-size: 0.75rem; color: var(--ink-faded); }
+    @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+  </style>
+</head>
+<body>
+
+  <h1>Slider</h1>
+  <p class="subtitle">A custom-styled range control — div-based visual track over a native input, fully keyboard-accessible, with hard-offset thumb and parchment rail.</p>
+
+  <!-- Demo mount points -->
+  <div id="demo-1"></div>
+  <div id="demo-2"></div>
+  <div id="demo-3"></div>
+  <div id="demo-4"></div>
+  <div id="demo-5"></div>
+  <div id="demo-6"></div>
+
+  <script type="text/babel" src="../ui_kits/app/components/Slider.jsx"></script>
+
+  <script type="text/babel">
+    const { Slider } = window;
+
+    // ── 1. Default (0–100, step 1) — uncontrolled, onChange output ───────────
+    const Demo1 = () => {
+      const [output, setOutput] = React.useState(null);
+      return (
+        <React.Fragment>
+          <h2 className="section-heading">1. Default — 0 to 100, step 1</h2>
+          <div className="demo-area gap">
+            <Slider
+              defaultValue={30}
+              onChange={(v) => setOutput(v)}
+            />
+            <p className="live-output">
+              {output !== null
+                ? <React.Fragment>onChange fired → <strong>{output}</strong></React.Fragment>
+                : 'Drag the thumb to trigger onChange…'}
+            </p>
+          </div>
+          <div className="spec-block">
+            <span className="spec-label">Usage</span>
+            <span className="spec-value">{'<Slider defaultValue={30} onChange={v => console.log(v)} />'}</span>
+          </div>
+        </React.Fragment>
+      );
+    };
+
+    // ── 2. With label + valueSuffix "%" — pre-filled at 65 ────────────────────
+    const Demo2 = () => {
+      const [val, setVal] = React.useState(65);
+      return (
+        <React.Fragment>
+          <h2 className="section-heading">2. Label + value suffix — pre-filled at 65%</h2>
+          <div className="demo-area gap">
+            <Slider
+              label="Spell Intensity"
+              valueSuffix="%"
+              value={val}
+              onChange={setVal}
+            />
+          </div>
+          <div className="spec-block">
+            <span className="spec-label">Usage</span>
+            <span className="spec-value">{'<Slider label="Spell Intensity" valueSuffix="%" value={65} onChange={setVal} />'}</span>
+          </div>
+        </React.Fragment>
+      );
+    };
+
+    // ── 3. Min / max / step variants ─────────────────────────────────────────
+    const Demo3 = () => {
+      const [temp, setTemp] = React.useState(20);
+      const [gold, setGold] = React.useState(250);
+      return (
+        <React.Fragment>
+          <h2 className="section-heading">3. Min / Max / Step variants</h2>
+          <div className="demo-cols gap">
+            <div>
+              <span className="demo-col-label">Temperature (step 0.5, suffix °C)</span>
+              <div className="demo-area">
+                <Slider
+                  label="Forge Heat"
+                  min={-20}
+                  max={120}
+                  step={0.5}
+                  value={temp}
+                  valueSuffix="°C"
+                  onChange={setTemp}
+                />
+              </div>
+            </div>
+            <div>
+              <span className="demo-col-label">Gold (min 0, max 999, step 10)</span>
+              <div className="demo-area">
+                <Slider
+                  label="Treasury"
+                  min={0}
+                  max={999}
+                  step={10}
+                  value={gold}
+                  valueSuffix="gp"
+                  onChange={setGold}
+                />
+              </div>
+            </div>
+          </div>
+          <div className="spec-block">
+            <span className="spec-label">Temperature usage</span>
+            <span className="spec-value">{'<Slider label="Forge Heat" min={-20} max={120} step={0.5} valueSuffix="°C" />'}</span>
+          </div>
+        </React.Fragment>
+      );
+    };
+
+    // ── 4. Disabled states ────────────────────────────────────────────────────
+    const Demo4 = () => (
+      <React.Fragment>
+        <h2 className="section-heading">4. Disabled states</h2>
+        <div className="demo-cols gap">
+          <div>
+            <span className="demo-col-label">Disabled — at minimum (0)</span>
+            <div className="demo-area">
+              <Slider
+                label="Locked Rune"
+                disabled
+                defaultValue={0}
+              />
+            </div>
+          </div>
+          <div>
+            <span className="demo-col-label">Disabled — with value (72)</span>
+            <div className="demo-area">
+              <Slider
+                label="Bound Enchantment"
+                disabled
+                defaultValue={72}
+                valueSuffix="%"
+              />
+            </div>
+          </div>
+        </div>
+        <div className="spec-block">
+          <span className="spec-label">Usage</span>
+          <span className="spec-value">{'<Slider label="Locked Rune" disabled defaultValue={72} />'}</span>
+        </div>
+      </React.Fragment>
+    );
+
+    // ── 5. Marks enabled ──────────────────────────────────────────────────────
+    const Demo5 = () => {
+      const [val, setVal] = React.useState(50);
+      return (
+        <React.Fragment>
+          <h2 className="section-heading">5. With marks enabled</h2>
+          <div className="demo-area gap" style={{ maxWidth: '480px' }}>
+            <Slider
+              label="Dragon's Wrath"
+              marks
+              value={val}
+              onChange={setVal}
+              valueSuffix="%"
+            />
+          </div>
+          <div className="spec-block">
+            <span className="spec-label">Usage</span>
+            <span className="spec-value">{'<Slider label="Dragon\'s Wrath" marks value={50} valueSuffix="%" />'}</span>
+          </div>
+        </React.Fragment>
+      );
+    };
+
+    // ── 6. On card surface ────────────────────────────────────────────────────
+    const Demo6 = () => {
+      const [atk, setAtk]     = React.useState(14);
+      const [def, setDef]     = React.useState(8);
+      const [magic, setMagic] = React.useState(62);
+      return (
+        <React.Fragment>
+          <h2 className="section-heading">6. On card surface</h2>
+          <div className="demo-area--card gap" style={{ maxWidth: '480px' }}>
+            <p style={{
+              fontFamily: 'var(--font-display)',
+              fontSize: '1.125rem',
+              color: 'var(--ink-black)',
+              letterSpacing: 'var(--ls-display)',
+              marginBottom: '1.25rem',
+            }}>Character Attributes</p>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+              <Slider label="Attack"   min={0} max={20} step={1} value={atk}   onChange={setAtk}   marks />
+              <Slider label="Defence"  min={0} max={20} step={1} value={def}   onChange={setDef}   marks />
+              <Slider label="Arcana"   min={0} max={100} step={1} value={magic} onChange={setMagic} valueSuffix="%" />
+            </div>
+          </div>
+        </React.Fragment>
+      );
+    };
+
+    // ── Mount all demos ───────────────────────────────────────────────────────
+    const root1 = ReactDOM.createRoot(document.getElementById('demo-1'));
+    const root2 = ReactDOM.createRoot(document.getElementById('demo-2'));
+    const root3 = ReactDOM.createRoot(document.getElementById('demo-3'));
+    const root4 = ReactDOM.createRoot(document.getElementById('demo-4'));
+    const root5 = ReactDOM.createRoot(document.getElementById('demo-5'));
+    const root6 = ReactDOM.createRoot(document.getElementById('demo-6'));
+
+    root1.render(<Demo1 />);
+    root2.render(<Demo2 />);
+    root3.render(<Demo3 />);
+    root4.render(<Demo4 />);
+    root5.render(<Demo5 />);
+    root6.render(<Demo6 />);
+  </script>
+
+  <footer>
+    Here Be Dragons Design System — Slider component preview
+  </footer>
+</body>
+</html>

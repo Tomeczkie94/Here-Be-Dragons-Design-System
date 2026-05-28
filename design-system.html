@@ -1583,6 +1583,80 @@
     @media (max-width: 700px) {
       .form-section-grid { grid-template-columns: 1fr; }
     }
+
+    /* ═══════════════════════════════════════════════════════════
+       IX–XII. INTERACTIVE COMPONENTS
+    ══════════════════════════════════════════════════════════════ */
+
+    /* ─── IX. SLIDER ──────────────────────────────────────────── */
+    .sl-wrap { display: flex; flex-direction: column; gap: 6px; width: 100%; }
+    .sl-label-row { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; margin-bottom: 2px; }
+    .sl-label { font-family: var(--font-display); font-size: 0.75rem; font-weight: 700; color: var(--gold-deep); letter-spacing: 0.12em; text-transform: uppercase; }
+    .sl-badge { font-family: var(--font-display); font-size: 0.75rem; font-weight: 700; color: var(--ink-black); background: var(--parchment-200); border: 1px solid var(--ink-black); box-shadow: 2px 2px 0 var(--parchment-300); border-radius: 1px; padding: 1px 7px; letter-spacing: 0.05em; }
+    .sl-track-wrap { position: relative; height: 20px; display: flex; align-items: center; cursor: pointer; }
+    .sl-rail { position: absolute; left: 0; right: 0; height: 6px; background: var(--parchment-200); border: 1px solid var(--parchment-400); border-radius: 1px; overflow: hidden; }
+    .sl-fill { position: absolute; left: 0; top: 0; height: 100%; background: var(--blood); transition: width 0.08s ease; }
+    .sl-thumb { position: absolute; top: 50%; transform: translate(-50%, -50%); width: 18px; height: 18px; background: var(--blood); border: 1.5px solid var(--gold-deep); border-radius: 1px; box-shadow: 2px 2px 0 var(--blood-deep); pointer-events: none; z-index: 1; transition: left 0.08s ease; }
+    .sl-native { position: absolute; top: 0; left: 0; right: 0; bottom: 0; opacity: 0; width: 100%; height: 100%; cursor: pointer; z-index: 2; margin: 0; padding: 0; -webkit-appearance: none; }
+    .sl-native:disabled { cursor: not-allowed; }
+    .sl-minmax { display: flex; justify-content: space-between; margin-top: 4px; }
+    .sl-minmax span { font-family: var(--font-display); font-size: 0.5625rem; font-weight: 700; color: var(--parchment-400); letter-spacing: 0.1em; text-transform: uppercase; }
+    .sl-wrap--disabled .sl-fill { background: var(--parchment-400); }
+    .sl-wrap--disabled .sl-thumb { background: var(--parchment-400); border-color: var(--ink-faded); box-shadow: none; }
+    .sl-wrap--disabled .sl-track-wrap { cursor: not-allowed; }
+
+    /* ─── X. FILE UPLOAD ──────────────────────────────────────── */
+    .fu-wrap { display: flex; flex-direction: column; gap: 6px; }
+    .fu-label { font-family: var(--font-display); font-size: 0.75rem; font-weight: 700; color: var(--gold-deep); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 2px; }
+    .fu-zone { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; padding: 28px 16px; border: 2px dashed var(--parchment-400); border-radius: 1px; background: var(--parchment-100); cursor: pointer; text-align: center; transition: border-color 0.15s, background 0.15s; min-height: 120px; position: relative; }
+    .fu-zone:hover { border-color: var(--gold-deep); background: var(--parchment-200); }
+    .fu-zone--drag { border-color: var(--blood) !important; background: rgba(122,18,18,0.04) !important; border-style: solid !important; }
+    .fu-zone__text { font-family: var(--font-display); font-size: 0.8125rem; color: var(--ink-brown); letter-spacing: 0.05em; }
+    .fu-zone__sub { font-family: var(--font-display); font-size: 0.625rem; color: var(--parchment-400); letter-spacing: 0.1em; text-transform: uppercase; }
+    .fu-input { position: absolute; top: 0; left: 0; right: 0; bottom: 0; opacity: 0; cursor: pointer; width: 100%; height: 100%; }
+    .fu-list { display: flex; flex-direction: column; gap: 6px; margin-top: 4px; }
+    .fu-file { display: flex; align-items: center; gap: 8px; padding: 6px 10px; background: var(--parchment-200); border: 1px solid var(--parchment-400); border-radius: 1px; box-shadow: 2px 2px 0 var(--parchment-300); font-family: var(--font-mono); font-size: 0.75rem; color: var(--ink-brown); }
+    .fu-file__name { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .fu-file__size { flex-shrink: 0; color: var(--parchment-400); font-size: 0.6875rem; }
+    .fu-hint { font-family: var(--font-flavor); font-style: italic; font-size: 0.8125rem; color: var(--ink-faded); }
+    .fu-wrap--disabled { opacity: 0.55; pointer-events: none; }
+
+    /* ─── XI. COLOR PICKER ────────────────────────────────────── */
+    .cp-wrap { display: inline-flex; flex-direction: column; gap: 10px; padding: 16px; background: linear-gradient(135deg, var(--parchment-100), var(--parchment-200)); border: 2px solid var(--ink-black); box-shadow: 4px 4px 0 var(--parchment-400); border-radius: 1px; }
+    .cp-label { font-family: var(--font-display); font-size: 0.6875rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold-deep); }
+    .cp-grid { display: grid; grid-template-columns: repeat(5, 32px); gap: 6px; }
+    .cp-swatch { width: 32px; height: 32px; border: 1.5px solid rgba(0,0,0,0.2); border-radius: 1px; cursor: pointer; transition: transform 0.1s, box-shadow 0.1s; }
+    .cp-swatch:hover { transform: translate(-1px,-1px); box-shadow: 2px 2px 0 rgba(0,0,0,0.3); }
+    .cp-swatch--selected { border: 2px solid var(--gold-deep) !important; box-shadow: 2px 2px 0 var(--blood-deep) !important; transform: translate(-1px,-1px); }
+    .cp-swatch:focus-visible { outline: 2px solid var(--blood); outline-offset: 2px; }
+    .cp-hex-row { display: flex; gap: 6px; align-items: center; }
+    .cp-hex-input { flex: 1; min-width: 0; padding: 5px 8px; background: var(--parchment-100); border: 1.5px solid var(--parchment-400); border-radius: 1px; font-family: var(--font-mono); font-size: 0.875rem; color: var(--ink-black); letter-spacing: 0.08em; outline: none; }
+    .cp-hex-input:focus { border-color: var(--gold-deep); }
+    .cp-hex-input--error { border-color: var(--blood) !important; }
+    .cp-apply-btn { padding: 5px 12px; background: var(--blood); border: 1.5px solid var(--blood-deep); border-radius: 1px; box-shadow: 2px 2px 0 var(--blood-deep); font-family: var(--font-display); font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--parchment-100); cursor: pointer; white-space: nowrap; transition: background 0.1s; }
+    .cp-apply-btn:hover { background: var(--blood-deep); }
+    .cp-preview-row { display: flex; align-items: center; gap: 8px; }
+    .cp-preview-chip { width: 28px; height: 28px; border: 1.5px solid rgba(0,0,0,0.2); border-radius: 1px; flex-shrink: 0; }
+    .cp-preview-hex { font-family: var(--font-mono); font-size: 0.8125rem; color: var(--ink-brown); letter-spacing: 0.06em; }
+    .cp-copy-btn { margin-left: auto; padding: 3px 9px; background: var(--parchment-200); border: 1px solid var(--parchment-400); border-radius: 1px; box-shadow: 2px 2px 0 var(--parchment-300); font-family: var(--font-display); font-size: 0.5625rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold-deep); cursor: pointer; white-space: nowrap; }
+    .cp-copy-btn:hover { background: var(--parchment-300); }
+    .cp-wrap--disabled { opacity: 0.55; pointer-events: none; }
+
+    /* ─── XII. OTP INPUT ─────────────────────────────────────── */
+    .otp-wrap { display: flex; flex-direction: column; gap: 8px; align-items: flex-start; }
+    .otp-label { font-family: var(--font-display); font-size: 0.75rem; font-weight: 700; color: var(--gold-deep); letter-spacing: 0.12em; text-transform: uppercase; }
+    .otp-cells { display: flex; align-items: center; gap: 6px; }
+    .otp-sep { font-family: var(--font-display); font-size: 1.25rem; color: var(--parchment-400); line-height: 1; user-select: none; padding: 0 2px; }
+    .otp-cell { width: 44px; height: 52px; text-align: center; font-family: var(--font-display); font-size: 1.375rem; font-weight: 700; letter-spacing: 0.05em; border: 1.5px solid var(--parchment-400); border-radius: 1px; background: var(--parchment-100); color: var(--ink-black); outline: none; caret-color: var(--blood); transition: border-color 0.12s, background 0.12s; }
+    .otp-cell:focus { border-color: var(--gold-deep); background: var(--parchment-200); }
+    .otp-cell--filled { background: var(--parchment-200); border-color: var(--ink-brown); box-shadow: 2px 2px 0 var(--parchment-300); }
+    .otp-cell--error { border-color: var(--blood) !important; background: rgba(122,18,18,0.05) !important; }
+    .otp-hint { font-family: var(--font-flavor); font-style: italic; font-size: 0.8125rem; color: var(--blood); }
+    .otp-wrap--disabled { opacity: 0.55; pointer-events: none; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .sl-fill, .sl-thumb, .fu-zone, .cp-swatch, .otp-cell { transition: none !important; }
+    }
   </style>
 </head>
 <body>
@@ -2992,6 +3066,390 @@ DC <span class="tok-val">20</span> <span class="tok-cmt">— Ancient inscription
       </div>
     </section>
 
+    <!-- ── SIGIL: Quill Nib (before Slider) ── -->
+    <div class="sigil-divider" role="presentation" aria-hidden="true">
+      <svg width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true" focusable="false">
+        <path d="M22 8 C28 8 37 15 37 23 C37 31 30 39 22 41 C18 34 13 26 15 17 Z" fill="rgba(184,137,59,0.1)" stroke="#7a5a22" stroke-width="1.5"/>
+        <path d="M22 41 L18 44 M22 41 L20 44" stroke="#7a5a22" stroke-width="1.2" stroke-linecap="round"/>
+        <path d="M15 17 L31 33" stroke="#b8893b" stroke-width="0.75" opacity="0.7"/>
+        <circle cx="22" cy="23" r="2.5" fill="#7a1212"/>
+        <circle cx="22" cy="23" r="1" fill="#4a0808"/>
+      </svg>
+    </div>
+
+    <!-- ══════════════════════ IX. SLIDER ══════════════════════ -->
+    <section class="ds-section" id="slider" aria-labelledby="slider-title">
+      <div class="container">
+        <span class="section-numeral" aria-hidden="true">IX</span>
+        <h2 class="section-title" id="slider-title">Slider</h2>
+
+        <p style="max-width:65ch;margin-bottom:var(--space-8);color:var(--ink-brown);">Custom div-based track over a native <code class="mono-pill" style="font-size:0.8rem;">input[type=range]</code>. The invisible native input sits at z-index 2 for full OS-level keyboard and pointer support; the parchment-themed rail, blood fill, and square thumb are purely visual, updated by JS as the value changes.</p>
+
+        <div class="panel-grid">
+          <div style="display:flex;flex-direction:column;gap:var(--space-8);">
+
+            <!-- Demo 1: Basic percentage -->
+            <div class="sl-wrap" data-suffix="%">
+              <div class="sl-label-row">
+                <label class="sl-label" for="sl-d1">Dragon's Breath Intensity</label>
+                <span class="sl-badge">45%</span>
+              </div>
+              <div class="sl-track-wrap">
+                <div class="sl-rail"><div class="sl-fill" style="width:45%"></div></div>
+                <div class="sl-thumb" style="left:45%"></div>
+                <input class="sl-native" id="sl-d1" type="range" min="0" max="100" value="45">
+              </div>
+              <div class="sl-minmax"><span>0%</span><span>100%</span></div>
+            </div>
+
+            <!-- Demo 2: Step 25 with suffix -->
+            <div class="sl-wrap" data-suffix=" sp">
+              <div class="sl-label-row">
+                <label class="sl-label" for="sl-d2">Spell Points</label>
+                <span class="sl-badge">50 sp</span>
+              </div>
+              <div class="sl-track-wrap">
+                <div class="sl-rail"><div class="sl-fill" style="width:50%"></div></div>
+                <div class="sl-thumb" style="left:50%"></div>
+                <input class="sl-native" id="sl-d2" type="range" min="0" max="100" value="50" step="25">
+              </div>
+              <div class="sl-minmax"><span>0 sp</span><span>100 sp</span></div>
+            </div>
+
+            <!-- Demo 3: Disabled -->
+            <div class="sl-wrap sl-wrap--disabled" data-suffix=" gp">
+              <div class="sl-label-row">
+                <label class="sl-label" for="sl-d3">Locked Bounty</label>
+                <span class="sl-badge">30 gp</span>
+              </div>
+              <div class="sl-track-wrap">
+                <div class="sl-rail"><div class="sl-fill" style="width:30%"></div></div>
+                <div class="sl-thumb" style="left:30%"></div>
+                <input class="sl-native" id="sl-d3" type="range" min="0" max="100" value="30" disabled>
+              </div>
+              <div class="sl-minmax"><span>0 gp</span><span>100 gp</span></div>
+            </div>
+
+          </div>
+
+          <div style="display:flex;flex-direction:column;gap:var(--space-6);">
+            <div class="panel">
+              <span class="panel__title">Anatomy</span>
+              <p class="panel__body"><code class="mono-pill" style="font-size:0.75rem;">.sl-wrap</code> stacks a label row, track wrap, and min/max row. The track wrap uses <code class="mono-pill" style="font-size:0.75rem;">position: relative</code> to layer rail → fill → thumb → native input in z-order. Fill width and thumb left are set to <code class="mono-pill" style="font-size:0.75rem;">pct = (val−min) / (max−min) × 100</code>. The native input is opacity 0 at z-index 2 and handles all pointer and keyboard events.</p>
+            </div>
+            <div class="panel">
+              <span class="panel__title">JSX Props</span>
+              <table style="width:100%;border-collapse:collapse;font-family:var(--font-mono);font-size:0.7rem;color:var(--ink-brown);">
+                <thead><tr style="border-bottom:1px solid var(--parchment-400);">
+                  <th style="text-align:left;padding:3px 6px;color:var(--gold-deep);">Prop</th>
+                  <th style="text-align:left;padding:3px 6px;color:var(--gold-deep);">Default</th>
+                </tr></thead>
+                <tbody>
+                  <tr><td style="padding:3px 6px;">value / defaultValue</td><td style="padding:3px 6px;">—</td></tr>
+                  <tr><td style="padding:3px 6px;">min / max / step</td><td style="padding:3px 6px;">0 / 100 / 1</td></tr>
+                  <tr><td style="padding:3px 6px;">onChange(val)</td><td style="padding:3px 6px;">—</td></tr>
+                  <tr><td style="padding:3px 6px;">label</td><td style="padding:3px 6px;">null</td></tr>
+                  <tr><td style="padding:3px 6px;">valueSuffix</td><td style="padding:3px 6px;">''</td></tr>
+                  <tr><td style="padding:3px 6px;">showValue</td><td style="padding:3px 6px;">true</td></tr>
+                  <tr><td style="padding:3px 6px;">marks</td><td style="padding:3px 6px;">false</td></tr>
+                  <tr><td style="padding:3px 6px;">disabled</td><td style="padding:3px 6px;">false</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <pre class="code-block" data-lang="JSX"><code>&lt;Slider
+  label="Dragon Heat"
+  min={0} max={200} step={10}
+  defaultValue={80}
+  valueSuffix="°F"
+  marks
+  onChange={v =&gt; console.log(v)}
+/&gt;</code></pre>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── SIGIL: Parchment Scroll (before File Upload) ── -->
+    <div class="sigil-divider" role="presentation" aria-hidden="true">
+      <svg width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true" focusable="false">
+        <rect x="10" y="12" width="24" height="20" rx="1" fill="rgba(245,236,215,0.6)" stroke="#7a5a22" stroke-width="1.5"/>
+        <path d="M10 12 C10 9,14 7,14 10 C14 13,10 13,10 16" stroke="#b8893b" stroke-width="1.5" fill="none"/>
+        <path d="M34 12 C34 9,30 7,30 10 C30 13,34 13,34 16" stroke="#b8893b" stroke-width="1.5" fill="none"/>
+        <path d="M10 32 C10 35,14 37,14 34 C14 31,10 31,10 28" stroke="#b8893b" stroke-width="1.5" fill="none"/>
+        <path d="M34 32 C34 35,30 37,30 34 C30 31,34 31,34 28" stroke="#b8893b" stroke-width="1.5" fill="none"/>
+        <line x1="15" y1="19" x2="29" y2="19" stroke="#7a5a22" stroke-width="0.75"/>
+        <line x1="15" y1="22" x2="29" y2="22" stroke="#7a5a22" stroke-width="0.75"/>
+        <line x1="15" y1="25" x2="24" y2="25" stroke="#7a5a22" stroke-width="0.75"/>
+      </svg>
+    </div>
+
+    <!-- ══════════════════════ X. FILE UPLOAD ══════════════════════ -->
+    <section class="ds-section" id="file-upload" aria-labelledby="file-upload-title">
+      <div class="container">
+        <span class="section-numeral" aria-hidden="true">X</span>
+        <h2 class="section-title" id="file-upload-title">File Upload</h2>
+
+        <p style="max-width:65ch;margin-bottom:var(--space-8);color:var(--ink-brown);">Parchment-scroll drop zone with three interaction states — idle (dashed gold border), hover (golden solid border), and drag-over (blood border, tinted background). Files render as manuscript rows below the zone. Supports click-to-browse and drag-and-drop simultaneously.</p>
+
+        <div class="panel-grid">
+          <div style="display:flex;flex-direction:column;gap:var(--space-6);">
+
+            <!-- Demo 1: Basic drop zone -->
+            <div class="fu-wrap">
+              <div class="fu-zone" id="fu-demo-1">
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true" focusable="false">
+                  <rect x="8" y="7" width="24" height="28" rx="1" fill="#ead9b3" stroke="#a88d5a" stroke-width="1.5"/>
+                  <rect x="4" y="7" width="32" height="5" rx="0.5" fill="#f5ecd7" stroke="#a88d5a" stroke-width="1"/>
+                  <rect x="4" y="30" width="32" height="5" rx="0.5" fill="#f5ecd7" stroke="#a88d5a" stroke-width="1"/>
+                  <line x1="12" y1="17" x2="28" y2="17" stroke="#7a5a22" stroke-width="1" opacity="0.5"/>
+                  <line x1="12" y1="21" x2="28" y2="21" stroke="#7a5a22" stroke-width="1" opacity="0.5"/>
+                  <line x1="12" y1="25" x2="22" y2="25" stroke="#7a5a22" stroke-width="1" opacity="0.5"/>
+                  <path d="M20 9 L20 3 M20 3 L17 6 M20 3 L23 6" stroke="#7a1212" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span class="fu-zone__text">Drop manuscript here or click to browse</span>
+                <span class="fu-zone__sub">Any file type · No size limit</span>
+                <input class="fu-input" type="file" multiple aria-label="Upload files">
+              </div>
+              <div class="fu-list" id="fu-list-1"></div>
+            </div>
+
+            <!-- Demo 2: Labeled with accept + hint -->
+            <div class="fu-wrap">
+              <span class="fu-label">Campaign Maps</span>
+              <div class="fu-zone" id="fu-demo-2">
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true" focusable="false">
+                  <rect x="8" y="7" width="24" height="28" rx="1" fill="#ead9b3" stroke="#a88d5a" stroke-width="1.5"/>
+                  <rect x="4" y="7" width="32" height="5" rx="0.5" fill="#f5ecd7" stroke="#a88d5a" stroke-width="1"/>
+                  <rect x="4" y="30" width="32" height="5" rx="0.5" fill="#f5ecd7" stroke="#a88d5a" stroke-width="1"/>
+                  <line x1="12" y1="17" x2="28" y2="17" stroke="#7a5a22" stroke-width="1" opacity="0.5"/>
+                  <line x1="12" y1="21" x2="28" y2="21" stroke="#7a5a22" stroke-width="1" opacity="0.5"/>
+                  <line x1="12" y1="25" x2="22" y2="25" stroke="#7a5a22" stroke-width="1" opacity="0.5"/>
+                  <path d="M20 9 L20 3 M20 3 L17 6 M20 3 L23 6" stroke="#7a1212" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span class="fu-zone__text">Upload .jpg or .png images only</span>
+                <span class="fu-zone__sub">Max 5 MB per file</span>
+                <input class="fu-input" type="file" accept="image/*" multiple aria-label="Upload campaign map images">
+              </div>
+              <div class="fu-list" id="fu-list-2"></div>
+              <span class="fu-hint">These chronicles will be shared with all party members</span>
+            </div>
+
+          </div>
+
+          <div style="display:flex;flex-direction:column;gap:var(--space-6);">
+            <div class="panel">
+              <span class="panel__title">Anatomy</span>
+              <p class="panel__body"><code class="mono-pill" style="font-size:0.75rem;">.fu-wrap</code> stacks an optional label, the drop zone, a file list, and an optional hint. The zone uses <code class="mono-pill" style="font-size:0.75rem;">position: relative</code> so an absolutely-positioned <code class="mono-pill" style="font-size:0.75rem;">opacity: 0</code> native <code class="mono-pill" style="font-size:0.75rem;">&lt;input type="file"&gt;</code> covers its full area. Drag-enter adds <code class="mono-pill" style="font-size:0.75rem;">.fu-zone--drag</code>; dragleave checks <code class="mono-pill" style="font-size:0.75rem;">contains(relatedTarget)</code> to avoid false resets on child elements.</p>
+            </div>
+            <div class="panel">
+              <span class="panel__title">JSX Props</span>
+              <table style="width:100%;border-collapse:collapse;font-family:var(--font-mono);font-size:0.7rem;color:var(--ink-brown);">
+                <thead><tr style="border-bottom:1px solid var(--parchment-400);">
+                  <th style="text-align:left;padding:3px 6px;color:var(--gold-deep);">Prop</th>
+                  <th style="text-align:left;padding:3px 6px;color:var(--gold-deep);">Default</th>
+                </tr></thead>
+                <tbody>
+                  <tr><td style="padding:3px 6px;">accept</td><td style="padding:3px 6px;">'*'</td></tr>
+                  <tr><td style="padding:3px 6px;">multiple</td><td style="padding:3px 6px;">false</td></tr>
+                  <tr><td style="padding:3px 6px;">maxSizeMB</td><td style="padding:3px 6px;">null</td></tr>
+                  <tr><td style="padding:3px 6px;">onChange(files)</td><td style="padding:3px 6px;">—</td></tr>
+                  <tr><td style="padding:3px 6px;">label / hint</td><td style="padding:3px 6px;">null</td></tr>
+                  <tr><td style="padding:3px 6px;">placeholder</td><td style="padding:3px 6px;">null</td></tr>
+                  <tr><td style="padding:3px 6px;">disabled</td><td style="padding:3px 6px;">false</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <pre class="code-block" data-lang="JSX"><code>&lt;FileUpload
+  label="Spell Scrolls"
+  accept=".pdf,.txt"
+  multiple
+  maxSizeMB={10}
+  hint="Ancient texts only"
+  onChange={files =&gt; console.log(files)}
+/&gt;</code></pre>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── SIGIL: Gemstone Facet (before Color Picker) ── -->
+    <div class="sigil-divider" role="presentation" aria-hidden="true">
+      <svg width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true" focusable="false">
+        <polygon points="22,7 37,18 37,26 22,37 7,26 7,18" fill="rgba(184,137,59,0.08)" stroke="#7a5a22" stroke-width="1.5"/>
+        <polygon points="22,13 31,20 31,24 22,31 13,24 13,20" fill="rgba(184,137,59,0.1)" stroke="#b8893b" stroke-width="1"/>
+        <line x1="22" y1="7" x2="22" y2="13"  stroke="#7a5a22" stroke-width="0.75"/>
+        <line x1="37" y1="18" x2="31" y2="20" stroke="#7a5a22" stroke-width="0.75"/>
+        <line x1="37" y1="26" x2="31" y2="24" stroke="#7a5a22" stroke-width="0.75"/>
+        <line x1="22" y1="37" x2="22" y2="31" stroke="#7a5a22" stroke-width="0.75"/>
+        <line x1="7" y1="26" x2="13" y2="24"  stroke="#7a5a22" stroke-width="0.75"/>
+        <line x1="7" y1="18" x2="13" y2="20"  stroke="#7a5a22" stroke-width="0.75"/>
+        <circle cx="22" cy="22" r="2.5" fill="#7a1212"/>
+        <circle cx="22" cy="22" r="1"   fill="#4a0808"/>
+      </svg>
+    </div>
+
+    <!-- ══════════════════════ XI. COLOR PICKER ══════════════════════ -->
+    <section class="ds-section" id="color-picker" aria-labelledby="color-picker-title">
+      <div class="container">
+        <span class="section-numeral" aria-hidden="true">XI</span>
+        <h2 class="section-title" id="color-picker-title">Color Picker</h2>
+
+        <p style="max-width:65ch;margin-bottom:var(--space-8);color:var(--ink-brown);">Swatch grid constrained to the 15 design-system tokens, plus a hex input for arbitrary values. The selected swatch lifts via <code class="mono-pill" style="font-size:0.8rem;">translate(−1px,−1px)</code> and gains a gold-deep border. An invalid hex value triggers a blood-red border on the input field.</p>
+
+        <div class="panel-grid" style="align-items:start;">
+          <div>
+            <div class="cp-wrap" data-value="#7a1212" id="cp-demo-1">
+              <span class="cp-label">Ink Colour</span>
+              <div class="cp-grid"></div>
+              <div class="cp-hex-row">
+                <input class="cp-hex-input" type="text" maxlength="7" value="#7a1212" aria-label="Hex colour value" spellcheck="false">
+                <button class="cp-apply-btn" type="button">Apply</button>
+              </div>
+              <div class="cp-preview-row">
+                <div class="cp-preview-chip" style="background:#7a1212;"></div>
+                <span class="cp-preview-hex">#7a1212</span>
+                <button class="cp-copy-btn" type="button">Copy</button>
+              </div>
+            </div>
+          </div>
+
+          <div style="display:flex;flex-direction:column;gap:var(--space-6);">
+            <div class="panel">
+              <span class="panel__title">Anatomy</span>
+              <p class="panel__body"><code class="mono-pill" style="font-size:0.75rem;">.cp-wrap</code> uses a two-stop parchment gradient with a hard 4px offset shadow. The <code class="mono-pill" style="font-size:0.75rem;">.cp-grid</code> is a 5-column CSS grid of 32×32 <code class="mono-pill" style="font-size:0.75rem;">&lt;button&gt;</code> swatches. Selected state uses <code class="mono-pill" style="font-size:0.75rem;">transform: translate(-1px,-1px)</code> plus a gold-deep border and blood-deep shadow offset. The preview row shows the current color as a chip, hex string, and one-click copy button.</p>
+            </div>
+            <div class="panel">
+              <span class="panel__title">JSX Props</span>
+              <table style="width:100%;border-collapse:collapse;font-family:var(--font-mono);font-size:0.7rem;color:var(--ink-brown);">
+                <thead><tr style="border-bottom:1px solid var(--parchment-400);">
+                  <th style="text-align:left;padding:3px 6px;color:var(--gold-deep);">Prop</th>
+                  <th style="text-align:left;padding:3px 6px;color:var(--gold-deep);">Default</th>
+                </tr></thead>
+                <tbody>
+                  <tr><td style="padding:3px 6px;">value / defaultValue</td><td style="padding:3px 6px;">—</td></tr>
+                  <tr><td style="padding:3px 6px;">palette</td><td style="padding:3px 6px;">DS_PALETTE (15)</td></tr>
+                  <tr><td style="padding:3px 6px;">onChange(hex)</td><td style="padding:3px 6px;">—</td></tr>
+                  <tr><td style="padding:3px 6px;">showHexInput</td><td style="padding:3px 6px;">true</td></tr>
+                  <tr><td style="padding:3px 6px;">label</td><td style="padding:3px 6px;">null</td></tr>
+                  <tr><td style="padding:3px 6px;">disabled</td><td style="padding:3px 6px;">false</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <pre class="code-block" data-lang="JSX"><code>&lt;ColorPicker
+  label="Dragon Scale"
+  defaultValue="#2d5a3d"
+  onChange={hex =&gt; setColour(hex)}
+/&gt;</code></pre>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── SIGIL: Iron Key (before OTP Input) ── -->
+    <div class="sigil-divider" role="presentation" aria-hidden="true">
+      <svg width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true" focusable="false">
+        <circle cx="16" cy="19" r="8"   fill="none" stroke="#7a5a22" stroke-width="1.5"/>
+        <circle cx="16" cy="19" r="4"   fill="none" stroke="#b8893b" stroke-width="1"/>
+        <circle cx="16" cy="19" r="1.5" fill="#7a1212"/>
+        <line x1="24" y1="19" x2="42" y2="19" stroke="#7a5a22" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="38" y1="19" x2="38" y2="24" stroke="#7a5a22" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="34" y1="19" x2="34" y2="23" stroke="#7a5a22" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="30" y1="19" x2="30" y2="22" stroke="#7a5a22" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+    </div>
+
+    <!-- ══════════════════════ XII. OTP INPUT ══════════════════════ -->
+    <section class="ds-section" id="otp-input" aria-labelledby="otp-input-title">
+      <div class="container">
+        <span class="section-numeral" aria-hidden="true">XII</span>
+        <h2 class="section-title" id="otp-input-title">OTP Input</h2>
+
+        <p style="max-width:65ch;margin-bottom:var(--space-8);color:var(--ink-brown);">N-digit auto-advance input boxes for one-time codes, PINs, and verification sequences. Focus advances on fill and retreats on Backspace from an empty cell. An em-dash separator renders between positions 3 and 4 on 6-cell variants. Paste distributes clipboard characters across remaining cells.</p>
+
+        <div class="panel-grid">
+          <div style="display:flex;flex-direction:column;gap:var(--space-8);">
+
+            <!-- Demo 1: 6-digit code with separator -->
+            <div class="otp-wrap" id="otp-demo-1">
+              <span class="otp-label" id="otp-lbl-1">Arcane Access Code</span>
+              <div class="otp-cells" role="group" aria-labelledby="otp-lbl-1">
+                <input class="otp-cell" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1" aria-label="Digit 1">
+                <input class="otp-cell" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1" aria-label="Digit 2">
+                <input class="otp-cell" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1" aria-label="Digit 3">
+                <span class="otp-sep" aria-hidden="true">—</span>
+                <input class="otp-cell" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1" aria-label="Digit 4">
+                <input class="otp-cell" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1" aria-label="Digit 5">
+                <input class="otp-cell" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1" aria-label="Digit 6">
+              </div>
+            </div>
+
+            <!-- Demo 2: 4-digit PIN -->
+            <div class="otp-wrap" id="otp-demo-2">
+              <span class="otp-label" id="otp-lbl-2">Vault PIN</span>
+              <div class="otp-cells" role="group" aria-labelledby="otp-lbl-2">
+                <input class="otp-cell" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1" aria-label="PIN digit 1">
+                <input class="otp-cell" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1" aria-label="PIN digit 2">
+                <input class="otp-cell" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1" aria-label="PIN digit 3">
+                <input class="otp-cell" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1" aria-label="PIN digit 4">
+              </div>
+            </div>
+
+            <!-- Demo 3: Error state (static) -->
+            <div class="otp-wrap" id="otp-demo-3">
+              <span class="otp-label" id="otp-lbl-3">Invalid Seal</span>
+              <div class="otp-cells" role="group" aria-labelledby="otp-lbl-3">
+                <input class="otp-cell otp-cell--filled otp-cell--error" type="text" maxlength="1" value="4" aria-label="Digit 1" aria-invalid="true" readonly>
+                <input class="otp-cell otp-cell--filled otp-cell--error" type="text" maxlength="1" value="2" aria-label="Digit 2" aria-invalid="true" readonly>
+                <input class="otp-cell otp-cell--filled otp-cell--error" type="text" maxlength="1" value="0" aria-label="Digit 3" aria-invalid="true" readonly>
+                <span class="otp-sep" aria-hidden="true">—</span>
+                <input class="otp-cell otp-cell--filled otp-cell--error" type="text" maxlength="1" value="8" aria-label="Digit 4" aria-invalid="true" readonly>
+                <input class="otp-cell otp-cell--filled otp-cell--error" type="text" maxlength="1" value="0" aria-label="Digit 5" aria-invalid="true" readonly>
+                <input class="otp-cell otp-cell--filled otp-cell--error" type="text" maxlength="1" value="8" aria-label="Digit 6" aria-invalid="true" readonly>
+              </div>
+              <span class="otp-hint">The seal does not match our records</span>
+            </div>
+
+          </div>
+
+          <div style="display:flex;flex-direction:column;gap:var(--space-6);">
+            <div class="panel">
+              <span class="panel__title">Anatomy</span>
+              <p class="panel__body">Each cell is a single-character <code class="mono-pill" style="font-size:0.75rem;">&lt;input maxlength="1"&gt;</code>. On fill, focus moves to the next cell via <code class="mono-pill" style="font-size:0.75rem;">setTimeout(()=&gt;cells[i+1].focus(),0)</code>. On Backspace from an empty cell, focus retreats and the previous cell clears. Paste distributes clipboard characters from the focused position forward. Three fill states: empty (parchment-100, faded border), filled (parchment-200, ink-brown border, shadow), error (blood border, tinted bg).</p>
+            </div>
+            <div class="panel">
+              <span class="panel__title">JSX Props</span>
+              <table style="width:100%;border-collapse:collapse;font-family:var(--font-mono);font-size:0.7rem;color:var(--ink-brown);">
+                <thead><tr style="border-bottom:1px solid var(--parchment-400);">
+                  <th style="text-align:left;padding:3px 6px;color:var(--gold-deep);">Prop</th>
+                  <th style="text-align:left;padding:3px 6px;color:var(--gold-deep);">Default</th>
+                </tr></thead>
+                <tbody>
+                  <tr><td style="padding:3px 6px;">length</td><td style="padding:3px 6px;">6</td></tr>
+                  <tr><td style="padding:3px 6px;">value / defaultValue</td><td style="padding:3px 6px;">—</td></tr>
+                  <tr><td style="padding:3px 6px;">type</td><td style="padding:3px 6px;">'numeric'</td></tr>
+                  <tr><td style="padding:3px 6px;">error</td><td style="padding:3px 6px;">false</td></tr>
+                  <tr><td style="padding:3px 6px;">onComplete(code)</td><td style="padding:3px 6px;">—</td></tr>
+                  <tr><td style="padding:3px 6px;">onChange(chars)</td><td style="padding:3px 6px;">—</td></tr>
+                  <tr><td style="padding:3px 6px;">label</td><td style="padding:3px 6px;">null</td></tr>
+                  <tr><td style="padding:3px 6px;">disabled</td><td style="padding:3px 6px;">false</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <pre class="code-block" data-lang="JSX"><code>&lt;OTPInput
+  label="Arcane Code"
+  length={6}
+  type="numeric"
+  onComplete={code =&gt; verify(code)}
+/&gt;</code></pre>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
     <!-- ── SIGIL IX: Eight-Pointed Seal ── -->
     <div class="sigil-divider" role="presentation" aria-hidden="true">
       <svg width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true" focusable="false">
@@ -3714,6 +4172,249 @@ DC <span class="tok-val">20</span> <span class="tok-cmt">— Ancient inscription
       });
 
     })(); /* end Autocomplete IIFE */
+
+    /* ─────────────────────────────────────────────────────────────
+       IX. SLIDER — update fill & thumb on native input change
+    ─────────────────────────────────────────────────────────────── */
+    (function () {
+      'use strict';
+
+      function initSlider(wrap) {
+        var native = wrap.querySelector('.sl-native');
+        var fill   = wrap.querySelector('.sl-fill');
+        var thumb  = wrap.querySelector('.sl-thumb');
+        var badge  = wrap.querySelector('.sl-badge');
+        if (!native) return;
+        var suffix = (wrap.dataset.suffix || '');
+
+        function update() {
+          var min = parseFloat(native.min)   || 0;
+          var max = parseFloat(native.max)   || 100;
+          var val = parseFloat(native.value) || 0;
+          var pct = (max === min) ? 0 : ((val - min) / (max - min)) * 100;
+          if (fill)  fill.style.width  = pct + '%';
+          if (thumb) thumb.style.left  = pct + '%';
+          if (badge) badge.textContent = val + suffix;
+        }
+
+        native.addEventListener('input', update);
+        update();
+      }
+
+      document.addEventListener('DOMContentLoaded', function () {
+        document.querySelectorAll('.sl-wrap').forEach(initSlider);
+      });
+
+    })(); /* end Slider IIFE */
+
+    /* ─────────────────────────────────────────────────────────────
+       X. FILE UPLOAD — drag-and-drop + file list rendering
+    ─────────────────────────────────────────────────────────────── */
+    (function () {
+      'use strict';
+
+      function fmtBytes(bytes) {
+        if (bytes < 1024)    return bytes + ' B';
+        if (bytes < 1048576) return (bytes / 1024).toFixed(1)    + ' KB';
+        return                      (bytes / 1048576).toFixed(1) + ' MB';
+      }
+
+      function initFU(wrap) {
+        var zone  = wrap.querySelector('.fu-zone');
+        var input = wrap.querySelector('.fu-input');
+        var list  = wrap.querySelector('.fu-list');
+        if (!zone || !input) return;
+
+        function render(files) {
+          if (!list) return;
+          list.innerHTML = '';
+          Array.from(files).forEach(function (f) {
+            var row = document.createElement('div');
+            row.className = 'fu-file';
+            row.innerHTML =
+              '<span class="fu-file__name">' + f.name + '</span>' +
+              '<span class="fu-file__size">' + fmtBytes(f.size) + '</span>';
+            list.appendChild(row);
+          });
+        }
+
+        input.addEventListener('change', function () { render(this.files); });
+
+        zone.addEventListener('dragover', function (e) {
+          e.preventDefault();
+          zone.classList.add('fu-zone--drag');
+        });
+        zone.addEventListener('dragleave', function (e) {
+          if (!zone.contains(e.relatedTarget)) zone.classList.remove('fu-zone--drag');
+        });
+        zone.addEventListener('drop', function (e) {
+          e.preventDefault();
+          zone.classList.remove('fu-zone--drag');
+          render(e.dataTransfer.files);
+        });
+      }
+
+      document.addEventListener('DOMContentLoaded', function () {
+        document.querySelectorAll('.fu-wrap').forEach(initFU);
+      });
+
+    })(); /* end FileUpload IIFE */
+
+    /* ─────────────────────────────────────────────────────────────
+       XI. COLOR PICKER — swatch grid + hex input + clipboard copy
+    ─────────────────────────────────────────────────────────────── */
+    (function () {
+      'use strict';
+
+      var DS_COLORS = [
+        { name: 'Parchment 100', hex: '#f5ecd7' },
+        { name: 'Parchment 200', hex: '#ead9b3' },
+        { name: 'Parchment 300', hex: '#d4bc88' },
+        { name: 'Parchment 400', hex: '#a88d5a' },
+        { name: 'Ink Black',     hex: '#1a1410' },
+        { name: 'Ink Brown',     hex: '#3d2817' },
+        { name: 'Ink Faded',     hex: '#6b4f35' },
+        { name: 'Shadow',        hex: '#2a1f17' },
+        { name: 'Gold',          hex: '#b8893b' },
+        { name: 'Gold Bright',   hex: '#d4a548' },
+        { name: 'Gold Deep',     hex: '#7a5a22' },
+        { name: 'Blood',         hex: '#7a1212' },
+        { name: 'Blood Deep',    hex: '#4a0808' },
+        { name: 'Emerald',       hex: '#2d5a3d' },
+        { name: 'Sapphire',      hex: '#1e3a5f' },
+      ];
+
+      function normHex(h) { return h.trim().replace(/^#/, '').toLowerCase(); }
+      function validHex(h) { return /^#?[0-9a-f]{6}$/i.test(h.trim()); }
+      function toHash(h)   { var t = h.trim(); return t.startsWith('#') ? t : '#' + t; }
+
+      function initCP(wrap) {
+        var grid    = wrap.querySelector('.cp-grid');
+        var hexInp  = wrap.querySelector('.cp-hex-input');
+        var applyBtn= wrap.querySelector('.cp-apply-btn');
+        var chip    = wrap.querySelector('.cp-preview-chip');
+        var hexSpan = wrap.querySelector('.cp-preview-hex');
+        var copyBtn = wrap.querySelector('.cp-copy-btn');
+        var selected = (wrap.dataset.value || '#7a1212').toLowerCase();
+
+        function apply(hex) {
+          selected = hex.toLowerCase();
+          if (hexInp)  hexInp.value = selected;
+          if (hexInp)  hexInp.classList.remove('cp-hex-input--error');
+          if (chip)    chip.style.background = selected;
+          if (hexSpan) hexSpan.textContent   = selected;
+          if (grid) {
+            grid.querySelectorAll('.cp-swatch').forEach(function (sw) {
+              var match = normHex(sw.dataset.hex) === normHex(selected);
+              sw.classList.toggle('cp-swatch--selected', match);
+              sw.setAttribute('aria-pressed', match ? 'true' : 'false');
+            });
+          }
+        }
+
+        if (grid) {
+          DS_COLORS.forEach(function (c) {
+            var btn = document.createElement('button');
+            btn.type      = 'button';
+            btn.className = 'cp-swatch';
+            btn.style.background = c.hex;
+            btn.dataset.hex      = c.hex;
+            btn.setAttribute('aria-label',   c.name + ' ' + c.hex);
+            btn.setAttribute('aria-pressed', 'false');
+            btn.addEventListener('click', function () { apply(c.hex); });
+            grid.appendChild(btn);
+          });
+        }
+
+        if (applyBtn && hexInp) {
+          applyBtn.addEventListener('click', function () {
+            var v = toHash(hexInp.value);
+            if (validHex(v)) { apply(v); }
+            else             { hexInp.classList.add('cp-hex-input--error'); }
+          });
+          hexInp.addEventListener('keydown', function (e) {
+            hexInp.classList.remove('cp-hex-input--error');
+            if (e.key === 'Enter') { e.preventDefault(); applyBtn.click(); }
+          });
+        }
+
+        if (copyBtn) {
+          copyBtn.addEventListener('click', function () {
+            if (!navigator.clipboard) return;
+            navigator.clipboard.writeText(selected).then(function () {
+              copyBtn.textContent = 'Copied!';
+              setTimeout(function () { copyBtn.textContent = 'Copy'; }, 1500);
+            });
+          });
+        }
+
+        apply(selected);
+      }
+
+      document.addEventListener('DOMContentLoaded', function () {
+        document.querySelectorAll('.cp-wrap').forEach(initCP);
+      });
+
+    })(); /* end ColorPicker IIFE */
+
+    /* ─────────────────────────────────────────────────────────────
+       XII. OTP INPUT — auto-advance, backspace retreat, paste fill
+    ─────────────────────────────────────────────────────────────── */
+    (function () {
+      'use strict';
+
+      function initOTP(wrap) {
+        /* Skip cells that are pre-filled as static error demos */
+        var cells = Array.from(wrap.querySelectorAll('.otp-cell')).filter(function (c) {
+          return !c.hasAttribute('readonly');
+        });
+        if (!cells.length) return;
+
+        function setVal(cell, v) {
+          cell.value = v;
+          cell.classList.toggle('otp-cell--filled', !!v);
+        }
+
+        cells.forEach(function (cell, i) {
+          cell.addEventListener('focus', function () { cell.select(); });
+
+          cell.addEventListener('input', function () {
+            var raw = cell.value.replace(/[^0-9a-zA-Z]/g, '').toUpperCase();
+            var ch  = raw.slice(-1);
+            setVal(cell, ch);
+            if (ch && i < cells.length - 1) {
+              setTimeout(function () { cells[i + 1].focus(); }, 0);
+            }
+          });
+
+          cell.addEventListener('keydown', function (e) {
+            if (e.key === 'Backspace') {
+              e.preventDefault();
+              if (cell.value)  { setVal(cell, ''); }
+              else if (i > 0)  { setVal(cells[i - 1], ''); cells[i - 1].focus(); }
+            } else if (e.key === 'ArrowLeft'  && i > 0)              { e.preventDefault(); cells[i - 1].focus(); }
+            else   if (e.key === 'ArrowRight' && i < cells.length-1) { e.preventDefault(); cells[i + 1].focus(); }
+            else   if (e.key === 'Home')  { e.preventDefault(); cells[0].focus(); }
+            else   if (e.key === 'End')   { e.preventDefault(); cells[cells.length - 1].focus(); }
+          });
+
+          cell.addEventListener('paste', function (e) {
+            e.preventDefault();
+            var text = (e.clipboardData || window.clipboardData)
+              .getData('text').replace(/[^0-9a-zA-Z]/g, '').toUpperCase();
+            for (var j = 0; j < text.length && i + j < cells.length; j++) {
+              setVal(cells[i + j], text[j]);
+            }
+            cells[Math.min(i + text.length, cells.length - 1)].focus();
+          });
+        });
+      }
+
+      document.addEventListener('DOMContentLoaded', function () {
+        document.querySelectorAll('.otp-wrap').forEach(initOTP);
+      });
+
+    })(); /* end OTPInput IIFE */
   </script>
 </body>
 </html>

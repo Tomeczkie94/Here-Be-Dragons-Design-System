@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OTPInput — Here Be Dragons Design System</title>
+  <link rel="stylesheet" href="../colors_and_type.css">
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--parchment-100);
+      color: var(--ink-brown);
+      font-family: var(--font-body);
+      font-size: var(--text-body);
+      line-height: var(--lh-body);
+      padding: 3rem 2rem;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    h1 {
+      font-family: var(--font-display);
+      font-size: var(--text-h1);
+      color: var(--ink-black);
+      letter-spacing: var(--ls-display);
+      line-height: var(--lh-display);
+      margin-bottom: 0.5rem;
+    }
+    .subtitle {
+      font-family: var(--font-flavor);
+      font-style: italic;
+      color: var(--ink-faded);
+      margin-bottom: 3rem;
+      border-bottom: 2px double var(--gold-deep);
+      padding-bottom: 1.5rem;
+    }
+    .section-heading {
+      font-family: var(--font-display);
+      font-size: var(--text-h2);
+      color: var(--ink-black);
+      letter-spacing: var(--ls-display);
+      margin-bottom: 1.5rem;
+      margin-top: 3rem;
+    }
+    .spec-block {
+      background: var(--parchment-200);
+      border: 1px solid var(--ink-faded);
+      padding: 0.875rem 1.25rem;
+      margin-top: 0.75rem;
+      max-width: 620px;
+    }
+    .spec-label {
+      font-family: var(--font-mono);
+      font-size: 0.6875rem;
+      color: var(--ink-faded);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 0.4rem;
+    }
+    .spec-value {
+      font-family: var(--font-mono);
+      font-size: 0.8125rem;
+      color: var(--ink-black);
+      line-height: 1.65;
+    }
+    .gap { margin-bottom: 2rem; }
+    .demo-area {
+      padding: 1.5rem 2rem;
+      border: 1px dashed var(--ink-faded);
+      background: var(--parchment-100);
+      min-height: 3.5rem;
+    }
+    .live-output {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--ink-faded);
+      margin-top: 0.75rem;
+      min-height: 1.2em;
+    }
+    .live-output strong { color: var(--gold-deep); font-weight: 400; }
+    .live-output .complete { color: var(--blood); }
+    footer {
+      margin-top: 4rem;
+      padding-top: 1.5rem;
+      border-top: 1px dashed var(--ink-faded);
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--ink-faded);
+    }
+    @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+  </style>
+</head>
+<body>
+
+  <h1>OTP Input</h1>
+  <p class="subtitle">One-time passcode entry with auto-advance, paste, full keyboard navigation, and a visual separator for 6-digit codes.</p>
+
+  <!-- Mount points -->
+  <div id="demo-1"></div>
+  <div id="demo-2"></div>
+  <div id="demo-3"></div>
+  <div id="demo-4"></div>
+  <div id="demo-5"></div>
+  <div id="demo-6"></div>
+
+  <footer>OTPInput · Here Be Dragons Design System · preview/components-otp-input.html</footer>
+
+  <!-- Load component -->
+  <script type="text/babel" src="../ui_kits/app/components/OTPInput.jsx"></script>
+
+  <script type="text/babel">
+    // ── Demo 1: Default 6-digit numeric ────────────────────────────────
+    function Demo1() {
+      const [val, setVal]         = React.useState('');
+      const [complete, setComplete] = React.useState(null);
+      return (
+        <section>
+          <h2 className="section-heading">1 · Default — 6-Digit Numeric</h2>
+          <div className="spec-block gap">
+            <span className="spec-label">Props</span>
+            <span className="spec-value">{'length={6} type="numeric" label="Arcane Sigil"'}</span>
+          </div>
+          <div className="demo-area">
+            <OTPInput
+              label="Arcane Sigil"
+              length={6}
+              type="numeric"
+              hint="Enter the six-digit seal to unlock the vault."
+              onChange={setVal}
+              onComplete={setComplete}
+            />
+            <p className="live-output">
+              onChange → <strong>{val || '(empty)'}</strong>
+              {complete && <span className="complete"> · onComplete → <strong>{complete}</strong></span>}
+            </p>
+          </div>
+        </section>
+      );
+    }
+
+    // ── Demo 2: 4-digit PIN ─────────────────────────────────────────────
+    function Demo2() {
+      const [val, setVal]         = React.useState('');
+      const [complete, setComplete] = React.useState(null);
+      return (
+        <section>
+          <h2 className="section-heading">2 · 4-Digit PIN</h2>
+          <div className="spec-block gap">
+            <span className="spec-label">Props</span>
+            <span className="spec-value">{'length={4} type="numeric" label="PIN"'}</span>
+          </div>
+          <div className="demo-area">
+            <OTPInput
+              label="PIN"
+              length={4}
+              type="numeric"
+              hint="Four digits guard the inner sanctum."
+              onChange={setVal}
+              onComplete={setComplete}
+            />
+            <p className="live-output">
+              onChange → <strong>{val || '(empty)'}</strong>
+              {complete && <span className="complete"> · onComplete → <strong>{complete}</strong></span>}
+            </p>
+          </div>
+        </section>
+      );
+    }
+
+    // ── Demo 3: 6-char alphanumeric ─────────────────────────────────────
+    function Demo3() {
+      const [val, setVal]         = React.useState('');
+      const [complete, setComplete] = React.useState(null);
+      return (
+        <section>
+          <h2 className="section-heading">3 · 6-Character Alphanumeric Code</h2>
+          <div className="spec-block gap">
+            <span className="spec-label">Props</span>
+            <span className="spec-value">{'length={6} type="alphanumeric" label="Invitation Code"'}</span>
+          </div>
+          <div className="demo-area">
+            <OTPInput
+              label="Invitation Code"
+              length={6}
+              type="alphanumeric"
+              hint="Letters and numerals alike — the cipher accepts both."
+              onChange={setVal}
+              onComplete={setComplete}
+            />
+            <p className="live-output">
+              onChange → <strong>{val || '(empty)'}</strong>
+              {complete && <span className="complete"> · onComplete → <strong>{complete}</strong></span>}
+            </p>
+          </div>
+        </section>
+      );
+    }
+
+    // ── Demo 4: Pre-filled controlled value ─────────────────────────────
+    function Demo4() {
+      const [val, setVal] = React.useState('123456');
+      function handleClear() { setVal(''); }
+      function handleReset() { setVal('123456'); }
+      return (
+        <section>
+          <h2 className="section-heading">4 · Pre-filled Value ("123456")</h2>
+          <div className="spec-block gap">
+            <span className="spec-label">Props</span>
+            <span className="spec-value">{'value="123456" onChange={setVal} (controlled)'}</span>
+          </div>
+          <div className="demo-area">
+            <OTPInput
+              label="Rune Sequence"
+              length={6}
+              type="numeric"
+              value={val}
+              onChange={setVal}
+            />
+            <p className="live-output">
+              Controlled value → <strong>{val || '(empty)'}</strong>
+            </p>
+            <div style={{ display: 'flex', gap: '8px', marginTop: '12px' }}>
+              <button
+                onClick={handleReset}
+                style={{
+                  fontFamily: '"Tiamat Condensed SC","Cinzel",serif',
+                  fontSize: '0.6875rem',
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.15em',
+                  padding: '5px 12px',
+                  background: '#7a1212',
+                  color: '#f5ecd7',
+                  border: 'none',
+                  borderRadius: '1px',
+                  boxShadow: '2px 2px 0 #4a0808',
+                  cursor: 'pointer',
+                }}
+              >
+                Reset
+              </button>
+              <button
+                onClick={handleClear}
+                style={{
+                  fontFamily: '"Tiamat Condensed SC","Cinzel",serif',
+                  fontSize: '0.6875rem',
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.15em',
+                  padding: '5px 12px',
+                  background: 'none',
+                  color: '#6b4f35',
+                  border: '1.5px solid #a88d5a',
+                  borderRadius: '1px',
+                  cursor: 'pointer',
+                }}
+              >
+                Clear
+              </button>
+            </div>
+          </div>
+        </section>
+      );
+    }
+
+    // ── Demo 5: Error state ─────────────────────────────────────────────
+    function Demo5() {
+      const [val, setVal]     = React.useState('');
+      const [err, setErr]     = React.useState('');
+      const [submitted, setSubmitted] = React.useState(false);
+
+      function handleComplete(code) {
+        if (code !== '000000') {
+          setErr('The seal is broken. This code is not recognised.');
+          setSubmitted(false);
+        } else {
+          setErr('');
+          setSubmitted(true);
+        }
+      }
+
+      return (
+        <section>
+          <h2 className="section-heading">5 · Error State</h2>
+          <div className="spec-block gap">
+            <span className="spec-label">Props</span>
+            <span className="spec-value">{'error={errorMessage} — triggered when wrong code entered (try anything except 000000)'}</span>
+          </div>
+          <div className="demo-area">
+            <OTPInput
+              label="Secret Seal"
+              length={6}
+              type="numeric"
+              value={val}
+              onChange={(v) => { setVal(v); setErr(''); setSubmitted(false); }}
+              onComplete={handleComplete}
+              error={err || null}
+              hint={submitted ? null : 'Hint: the correct seal is 000000.'}
+            />
+            {submitted && (
+              <p style={{
+                fontFamily: '"Tiamat Condensed SC","Cinzel",serif',
+                fontSize: '0.75rem',
+                letterSpacing: '0.1em',
+                color: '#2d5a3d',
+                marginTop: '10px',
+              }}>
+                The vault opens before you.
+              </p>
+            )}
+          </div>
+        </section>
+      );
+    }
+
+    // ── Demo 6: Disabled state ──────────────────────────────────────────
+    function Demo6() {
+      return (
+        <section>
+          <h2 className="section-heading">6 · Disabled State</h2>
+          <div className="spec-block gap">
+            <span className="spec-label">Props</span>
+            <span className="spec-value">{'disabled={true} value="42" length={6}'}</span>
+          </div>
+          <div className="demo-area">
+            <OTPInput
+              label="Sealed Vault"
+              length={6}
+              type="numeric"
+              value="42"
+              disabled={true}
+              hint="This seal has been closed by the archmage."
+            />
+          </div>
+        </section>
+      );
+    }
+
+    // ── Mount all demos ─────────────────────────────────────────────────
+    ReactDOM.createRoot(document.getElementById('demo-1')).render(<Demo1 />);
+    ReactDOM.createRoot(document.getElementById('demo-2')).render(<Demo2 />);
+    ReactDOM.createRoot(document.getElementById('demo-3')).render(<Demo3 />);
+    ReactDOM.createRoot(document.getElementById('demo-4')).render(<Demo4 />);
+    ReactDOM.createRoot(document.getElementById('demo-5')).render(<Demo5 />);
+    ReactDOM.createRoot(document.getElementById('demo-6')).render(<Demo6 />);
+  </script>
+
+</body>
+</html>
