@@ -271,4 +271,9 @@
   /* ── callout ───────────────────────────────────────────── */
   --hbd-callout-sage-advice-bg: rgba(184, 137, 59, 0.08);
   --hbd-callout-sage-advice-border: var(--hbd-color-gold-deep);
+
+  /* ── checkbox ──────────────────────────────────────────── */
+  --hbd-checkbox-size: 22px;
+  --hbd-checkbox-shadow: 2px 2px 0 var(--hbd-color-parchment-400);
+  --hbd-checkbox-shadow-checked: 2px 2px 0 var(--hbd-color-blood-deep);
 }

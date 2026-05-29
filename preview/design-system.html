@@ -2093,6 +2093,7 @@
           <li><a class="ds-toc__link" href="#component-button">Button</a></li>
           <li><a class="ds-toc__link" href="#component-breadcrumbs">Breadcrumbs</a></li>
           <li><a class="ds-toc__link" href="#component-callout">Callout</a></li>
+          <li><a class="ds-toc__link" href="#component-checkbox">Checkbox</a></li>
           <li><a class="ds-toc__link" href="#texture">Texture</a></li>
           <li><a class="ds-toc__link" href="#borders">Borders</a></li>
           <li><a class="ds-toc__link" href="#components">Components</a></li>
@@ -3655,6 +3656,121 @@
       <svg width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true" focusable="false">
         <circle cx="22" cy="22" r="19" stroke="#7a5a22" stroke-width="1" opacity="0.4"/>
         <path d="M22 11v10M22 27v2" stroke="#b8893b" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </div>
+
+    <!-- ══════════════════════ COMPONENT · CHECKBOX ══════════════════════ -->
+    <section class="ds-section" id="component-checkbox" aria-labelledby="heading-checkbox">
+      <div class="container">
+        <span class="section-numeral" aria-hidden="true">C·4</span>
+        <h2 class="ds-section__heading" id="heading-checkbox">Checkbox</h2>
+        <p class="ds-section__description">
+          Checkboxes allow users to select one or more independent options. Use a checkbox group
+          with <code>&lt;fieldset&gt;</code> and <code>&lt;legend&gt;</code> when options are
+          related. Rendered as <code>&lt;hbd-checkbox&gt;</code> wrapping a native
+          <code>&lt;input type="checkbox"&gt;</code>.
+        </p>
+
+        <!-- Group 1 · States -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">States</h3>
+          <div class="ds-preview-canvas" style="flex-direction:column;align-items:flex-start;gap:var(--hbd-space-2);">
+            <hbd-checkbox>Unchecked</hbd-checkbox>
+            <hbd-checkbox checked>Checked</hbd-checkbox>
+            <hbd-checkbox indeterminate>Indeterminate</hbd-checkbox>
+            <hbd-checkbox disabled>Disabled unchecked</hbd-checkbox>
+            <hbd-checkbox checked disabled>Disabled checked</hbd-checkbox>
+            <hbd-checkbox error="You must accept the pact to proceed.">Error</hbd-checkbox>
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>&lt;hbd-checkbox&gt;Unchecked&lt;/hbd-checkbox&gt;
+&lt;hbd-checkbox checked&gt;Checked&lt;/hbd-checkbox&gt;
+&lt;hbd-checkbox indeterminate&gt;Indeterminate&lt;/hbd-checkbox&gt;
+&lt;hbd-checkbox disabled&gt;Disabled unchecked&lt;/hbd-checkbox&gt;
+&lt;hbd-checkbox checked disabled&gt;Disabled checked&lt;/hbd-checkbox&gt;
+&lt;hbd-checkbox error="You must accept the pact to proceed."&gt;Error&lt;/hbd-checkbox&gt;</code></pre>
+          </details>
+        </div>
+
+        <!-- Group 2 · With hint text -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">With hint text</h3>
+          <div class="ds-preview-canvas" style="flex-direction:column;align-items:flex-start;gap:var(--hbd-space-2);">
+            <hbd-checkbox>
+              Verbal component
+              <span slot="hint">This spell requires spoken incantation.</span>
+            </hbd-checkbox>
+            <hbd-checkbox>
+              Somatic component
+              <span slot="hint">This spell requires precise hand movements.</span>
+            </hbd-checkbox>
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>&lt;hbd-checkbox&gt;
+  Verbal component
+  &lt;span slot="hint"&gt;This spell requires spoken incantation.&lt;/span&gt;
+&lt;/hbd-checkbox&gt;</code></pre>
+          </details>
+        </div>
+
+        <!-- Group 3 · Checkbox group -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">Checkbox group</h3>
+          <div class="ds-preview-canvas" style="align-items:stretch;">
+            <fieldset class="hbd-checkbox-group">
+              <legend>Spell components</legend>
+              <hbd-checkbox name="components" value="verbal" checked>Verbal</hbd-checkbox>
+              <hbd-checkbox name="components" value="somatic" checked>Somatic</hbd-checkbox>
+              <hbd-checkbox name="components" value="material">Material</hbd-checkbox>
+              <hbd-checkbox name="components" value="focus" disabled>Focus</hbd-checkbox>
+            </fieldset>
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>&lt;fieldset class="hbd-checkbox-group"&gt;
+  &lt;legend&gt;Spell components&lt;/legend&gt;
+  &lt;hbd-checkbox name="components" value="verbal" checked&gt;Verbal&lt;/hbd-checkbox&gt;
+  &lt;hbd-checkbox name="components" value="somatic" checked&gt;Somatic&lt;/hbd-checkbox&gt;
+  &lt;hbd-checkbox name="components" value="material"&gt;Material&lt;/hbd-checkbox&gt;
+  &lt;hbd-checkbox name="components" value="focus" disabled&gt;Focus&lt;/hbd-checkbox&gt;
+&lt;/fieldset&gt;</code></pre>
+          </details>
+        </div>
+
+        <!-- Group 4 · Error group -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">Error group</h3>
+          <div class="ds-preview-canvas" style="align-items:stretch;">
+            <fieldset class="hbd-checkbox-group" aria-describedby="cb-group-error">
+              <legend>Spell components</legend>
+              <hbd-checkbox name="components-err" value="verbal">Verbal</hbd-checkbox>
+              <hbd-checkbox name="components-err" value="somatic">Somatic</hbd-checkbox>
+              <hbd-checkbox name="components-err" value="material">Material</hbd-checkbox>
+              <hbd-checkbox name="components-err" value="focus">Focus</hbd-checkbox>
+              <span id="cb-group-error" class="hbd-text-label" role="alert" style="color:var(--hbd-color-status-error-text);">Select at least one component to cast this spell.</span>
+            </fieldset>
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>&lt;fieldset class="hbd-checkbox-group" aria-describedby="err"&gt;
+  &lt;legend&gt;Spell components&lt;/legend&gt;
+  &lt;hbd-checkbox …&gt;Verbal&lt;/hbd-checkbox&gt; …
+  &lt;span id="err" role="alert"&gt;Select at least one component…&lt;/span&gt;
+&lt;/fieldset&gt;</code></pre>
+          </details>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── SIGIL · Checkbox divider ── -->
+    <div class="sigil-divider" role="presentation" aria-hidden="true">
+      <svg width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true" focusable="false">
+        <circle cx="22" cy="22" r="19" stroke="#7a5a22" stroke-width="1" opacity="0.4"/>
+        <rect x="14" y="14" width="16" height="16" rx="2" fill="none" stroke="#b8893b" stroke-width="1.5"/>
+        <path d="M17 22l3.5 3.5L28 18" fill="none" stroke="#7a1212" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
     </div>
 
