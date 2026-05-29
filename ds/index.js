@@ -6,3 +6,4 @@ import './components/hbd-button.js';
 import './components/hbd-callout.js';
 import './components/hbd-checkbox.js';
 import './components/hbd-codeblock.js';
+import './components/hbd-divider.js';

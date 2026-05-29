@@ -235,9 +235,3 @@
 .hbd-grid--2 { grid-template-columns: repeat(2, 1fr); }
 .hbd-grid--3 { grid-template-columns: repeat(3, 1fr); }
 .hbd-grid--4 { grid-template-columns: repeat(4, 1fr); }
-
-.hbd-divider {
-  border: none;
-  border-top: var(--hbd-border-width-thin) solid var(--hbd-color-border-default);
-  margin: 0;
-}
