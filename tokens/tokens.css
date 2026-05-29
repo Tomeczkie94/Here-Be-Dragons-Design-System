@@ -247,6 +247,10 @@
   /* ── layout ────────────────────────────────────────────── */
   --hbd-layout-max-width: 68.75rem;
   --hbd-layout-page-padding: clamp(1rem, 4vw, 3rem);
+  --hbd-layout-container-max-width: 68.75rem;
+  --hbd-layout-container-padding: clamp(1rem, 4vw, 3rem);
+  --hbd-layout-section-gap: 96px;
+  --hbd-layout-column-gap: 24px;
 
   /* ── transition ────────────────────────────────────────── */
   --hbd-transition-fast: 0.12s ease;

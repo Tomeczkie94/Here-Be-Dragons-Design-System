@@ -19,5 +19,6 @@
 @import './styles/foundations/motion.css';
 @import './styles/foundations/borders.css';
 @import './styles/foundations/accessibility.css';
+@import './styles/foundations/spacing.css';
 
 /* 5. Components — alphabetical */
