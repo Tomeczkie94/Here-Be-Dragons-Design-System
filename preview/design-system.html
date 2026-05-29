@@ -2098,6 +2098,7 @@
           <li><a class="ds-toc__link" href="#component-divider">Divider</a></li>
           <li><a class="ds-toc__link" href="#component-time-picker">Time Picker</a></li>
           <li><a class="ds-toc__link" href="#component-spell-card">Spell Card</a></li>
+          <li><a class="ds-toc__link" href="#component-stat-block">Stat Block</a></li>
           <li><a class="ds-toc__link" href="#texture">Texture</a></li>
           <li><a class="ds-toc__link" href="#borders">Borders</a></li>
           <li><a class="ds-toc__link" href="#components">Components</a></li>
@@ -4191,6 +4192,155 @@
         <circle cx="22" cy="22" r="19" stroke="#7a5a22" stroke-width="1" opacity="0.4"/>
         <path d="M22 11l3 7h7l-5.5 4.5L28 30l-6-4-6 4 1.5-7.5L12 18h7z" fill="none" stroke="#b8893b" stroke-width="1.5" stroke-linejoin="round"/>
         <circle cx="22" cy="22" r="2" fill="#7a1212"/>
+      </svg>
+    </div>
+
+    <!-- ══════════════════════ COMPONENT · STAT BLOCK ══════════════════════ -->
+    <section class="ds-section" id="component-stat-block" aria-labelledby="heading-stat-block">
+      <div class="container">
+        <span class="section-numeral" aria-hidden="true">C·9</span>
+        <h2 class="ds-section__heading" id="heading-stat-block">Stat Block</h2>
+        <p class="ds-section__description">
+          Stat blocks display the complete game statistics for a D&amp;D creature or NPC in the
+          structured format familiar to players and Dungeon Masters. Rendered as
+          <code>&lt;hbd-stat-block&gt;</code>. Ability scores use a real <code>&lt;table&gt;</code>,
+          properties use <code>&lt;dl&gt;</code> pairs, and each section is an <code>&lt;h3&gt;</code>
+          inside the card's <code>&lt;article&gt;</code>. The component is static and display-only.
+        </p>
+
+        <!-- Group 1 · Standard creature -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">Standard creature</h3>
+          <div class="ds-preview-canvas" style="align-items:flex-start;">
+            <hbd-stat-block creature-name="Goblin Scout" size="Small" type="Humanoid (goblinoid)"
+              alignment="Neutral Evil" ac="13 (leather armor)" hp="7 (2d6)" speed="30 ft."
+              str="8" dex="14" con="10" int="10" wis="8" cha="8" cr="¼ (50 XP)">
+              <span slot="senses">darkvision 60 ft., passive Perception 9</span>
+              <span slot="languages">Common, Goblin</span>
+              <div slot="traits">
+                <p class="hbd-stat-block__trait"><span class="hbd-stat-block__trait-name">Nimble Escape. </span><span class="hbd-stat-block__trait-body">The goblin can take the Disengage or Hide action as a bonus action on each of its turns.</span></p>
+              </div>
+              <div slot="actions">
+                <p class="hbd-stat-block__trait"><span class="hbd-stat-block__trait-name">Scimitar. </span><span class="hbd-stat-block__trait-body">Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 5 (1d6 + 2) slashing damage.</span></p>
+                <p class="hbd-stat-block__trait"><span class="hbd-stat-block__trait-name">Shortbow. </span><span class="hbd-stat-block__trait-body">Ranged Weapon Attack: +4 to hit, range 80/320 ft., one target. Hit: 5 (1d6 + 2) piercing damage.</span></p>
+              </div>
+            </hbd-stat-block>
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>&lt;hbd-stat-block creature-name="Goblin Scout" size="Small"
+  type="Humanoid (goblinoid)" alignment="Neutral Evil"
+  ac="13 (leather armor)" hp="7 (2d6)" speed="30 ft."
+  str="8" dex="14" con="10" int="10" wis="8" cha="8" cr="¼ (50 XP)"&gt;
+  &lt;span slot="senses"&gt;darkvision 60 ft., passive Perception 9&lt;/span&gt;
+  &lt;span slot="languages"&gt;Common, Goblin&lt;/span&gt;
+  &lt;div slot="actions"&gt;
+    &lt;p class="hbd-stat-block__trait"&gt;&lt;span class="hbd-stat-block__trait-name"&gt;Scimitar. &lt;/span&gt;
+    &lt;span class="hbd-stat-block__trait-body"&gt;Melee Weapon Attack…&lt;/span&gt;&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/hbd-stat-block&gt;</code></pre>
+          </details>
+        </div>
+
+        <!-- Group 2 · Legendary creature -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">Legendary creature</h3>
+          <div class="ds-preview-canvas" style="align-items:flex-start;">
+            <hbd-stat-block legendary creature-name="Ancient Red Dragon" size="Gargantuan"
+              type="Dragon" alignment="Chaotic Evil" ac="22 (natural armor)"
+              hp="546 (28d20 + 252)" speed="40 ft., climb 40 ft., fly 80 ft."
+              str="30" dex="10" con="29" int="18" wis="15" cha="23" cr="24 (62,000 XP)">
+              <span slot="saving-throws">Dex +7, Con +16, Wis +9, Cha +13</span>
+              <span slot="senses">blindsight 60 ft., darkvision 120 ft.</span>
+              <span slot="languages">Common, Draconic</span>
+              <div slot="traits">
+                <p class="hbd-stat-block__trait"><span class="hbd-stat-block__trait-name">Legendary Resistance (3/Day). </span><span class="hbd-stat-block__trait-body">If the dragon fails a saving throw, it can choose to succeed instead.</span></p>
+              </div>
+              <div slot="actions">
+                <p class="hbd-stat-block__trait"><span class="hbd-stat-block__trait-name">Multiattack. </span><span class="hbd-stat-block__trait-body">The dragon can use its Frightful Presence. It then makes three attacks: one with its bite and two with its claws.</span></p>
+                <p class="hbd-stat-block__trait"><span class="hbd-stat-block__trait-name">Fire Breath (Recharge 5–6). </span><span class="hbd-stat-block__trait-body">The dragon exhales fire in a 90-foot cone. Each creature in that area must make a DC 24 Dexterity saving throw, taking 91 (26d6) fire damage on a failed save.</span></p>
+              </div>
+              <div slot="legendary-actions">
+                <p class="hbd-stat-block__trait"><span class="hbd-stat-block__trait-name">Detect. </span><span class="hbd-stat-block__trait-body">The dragon makes a Wisdom (Perception) check.</span></p>
+                <p class="hbd-stat-block__trait"><span class="hbd-stat-block__trait-name">Wing Attack (Costs 2 Actions). </span><span class="hbd-stat-block__trait-body">The dragon beats its wings. Each creature within 15 feet must succeed on a DC 25 Dexterity saving throw or take 17 (2d6 + 10) bludgeoning damage and be knocked prone.</span></p>
+              </div>
+            </hbd-stat-block>
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>&lt;hbd-stat-block legendary creature-name="Ancient Red Dragon" …&gt;
+  &lt;span slot="saving-throws"&gt;Dex +7, Con +16, Wis +9, Cha +13&lt;/span&gt;
+  &lt;div slot="legendary-actions"&gt;
+    &lt;p class="hbd-stat-block__trait"&gt;&lt;span class="hbd-stat-block__trait-name"&gt;Detect. &lt;/span&gt;
+    &lt;span class="hbd-stat-block__trait-body"&gt;The dragon makes a Wisdom check.&lt;/span&gt;&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/hbd-stat-block&gt;</code></pre>
+          </details>
+        </div>
+
+        <!-- Group 3 · Compact variant -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">Compact variant</h3>
+          <div class="ds-preview-canvas" style="align-items:flex-start;gap:var(--hbd-space-8);">
+            <hbd-stat-block compact creature-name="Goblin Scout" size="Small"
+              type="Humanoid (goblinoid)" alignment="Neutral Evil" ac="13 (leather armor)"
+              hp="7 (2d6)" speed="30 ft." str="8" dex="14" con="10" int="10" wis="8" cha="8"
+              cr="¼ (50 XP)">
+              <span slot="senses">darkvision 60 ft., passive Perception 9</span>
+              <span slot="languages">Common, Goblin</span>
+              <div slot="actions">
+                <p class="hbd-stat-block__trait"><span class="hbd-stat-block__trait-name">Scimitar. </span><span class="hbd-stat-block__trait-body">Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 5 (1d6 + 2) slashing damage.</span></p>
+              </div>
+            </hbd-stat-block>
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>&lt;hbd-stat-block compact creature-name="Goblin Scout" …&gt;…&lt;/hbd-stat-block&gt;</code></pre>
+          </details>
+        </div>
+
+        <!-- Group 4 · NPC / humanoid -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">NPC / humanoid</h3>
+          <div class="ds-preview-canvas" style="align-items:flex-start;">
+            <hbd-stat-block creature-name="Mage" size="Medium" type="Humanoid (any race)"
+              alignment="Any alignment" ac="12 (15 with mage armor)" hp="40 (9d8)" speed="30 ft."
+              str="9" dex="14" con="11" int="17" wis="12" cha="11" cr="6 (2,300 XP)">
+              <span slot="saving-throws">Int +6, Wis +4</span>
+              <span slot="skills">Arcana +6, History +6</span>
+              <span slot="senses">passive Perception 11</span>
+              <span slot="languages">any four languages</span>
+              <div slot="traits">
+                <p class="hbd-stat-block__trait"><span class="hbd-stat-block__trait-name">Spellcasting. </span><span class="hbd-stat-block__trait-body">The mage is a 9th-level spellcaster. Its spellcasting ability is Intelligence (spell save DC 14, +6 to hit with spell attacks).</span></p>
+              </div>
+              <div slot="actions">
+                <p class="hbd-stat-block__trait"><span class="hbd-stat-block__trait-name">Dagger. </span><span class="hbd-stat-block__trait-body">Melee or Ranged Weapon Attack: +5 to hit, reach 5 ft. or range 20/60 ft., one target. Hit: 4 (1d4 + 2) piercing damage.</span></p>
+              </div>
+            </hbd-stat-block>
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>&lt;hbd-stat-block creature-name="Mage" size="Medium" type="Humanoid (any race)"
+  alignment="Any alignment" ac="12 (15 with mage armor)" hp="40 (9d8)"
+  speed="30 ft." str="9" dex="14" con="11" int="17" wis="12" cha="11"
+  cr="6 (2,300 XP)"&gt;
+  &lt;span slot="saving-throws"&gt;Int +6, Wis +4&lt;/span&gt;
+  &lt;span slot="skills"&gt;Arcana +6, History +6&lt;/span&gt;
+  &lt;div slot="traits"&gt;&lt;p class="hbd-stat-block__trait"&gt;…Spellcasting…&lt;/p&gt;&lt;/div&gt;
+&lt;/hbd-stat-block&gt;</code></pre>
+          </details>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── SIGIL · Stat Block divider ── -->
+    <div class="sigil-divider" role="presentation" aria-hidden="true">
+      <svg width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true" focusable="false">
+        <circle cx="22" cy="22" r="19" stroke="#7a5a22" stroke-width="1" opacity="0.4"/>
+        <rect x="14" y="13" width="16" height="18" fill="none" stroke="#b8893b" stroke-width="1.5"/>
+        <line x1="17" y1="19" x2="27" y2="19" stroke="#7a1212" stroke-width="1.2"/>
+        <line x1="17" y1="23" x2="27" y2="23" stroke="#7a1212" stroke-width="1.2"/>
       </svg>
     </div>
 

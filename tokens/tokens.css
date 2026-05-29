@@ -108,6 +108,8 @@
   --hbd-color-text-link: var(--hbd-color-sapphire-700);
   --hbd-color-text-link-hover: var(--hbd-color-sapphire-900);
   --hbd-color-text-heading: var(--hbd-color-ink-900);
+  --hbd-color-text-emphasis: var(--hbd-color-blood);
+  --hbd-color-text-emphasis-strong: var(--hbd-color-blood-deep);
   --hbd-color-border-default: var(--hbd-color-ink-300);
   --hbd-color-border-subtle: var(--hbd-color-ink-200);
   --hbd-color-border-strong: var(--hbd-color-ink-700);
@@ -334,4 +336,18 @@
   --hbd-spell-card-corner-weight: 1.5px;
   --hbd-spell-card-shadow: 4px 4px 0 var(--hbd-color-parchment-400);
   --hbd-spell-card-shadow-selected: 4px 4px 0 var(--hbd-color-gold-deep);
+
+  /* ── stat-block ────────────────────────────────────────── */
+  --hbd-stat-block-bar-width: 6px;
+  --hbd-stat-block-inner-pad-y: 1rem;
+  --hbd-stat-block-inner-pad-x: 1.25rem;
+  --hbd-stat-block-rule-gap: 0.625rem;
+  --hbd-stat-block-ability-bg: rgba(122, 18, 18, 0.06);
+  --hbd-stat-block-ability-border: rgba(122, 18, 18, 0.2);
+  --hbd-stat-block-ability-pad: 0.3125rem;
+  --hbd-stat-block-ability-pad-tight: 0.125rem;
+  --hbd-stat-block-ability-head-size: 0.625rem;
+  --hbd-stat-block-name-gap: 2px;
+  --hbd-stat-block-feature-gap: 0.375rem;
+  --hbd-stat-block-feature-leading: 1.55;
 }
