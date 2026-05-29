@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=IM+Fell+English:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/ds/index.css">
+  <script type="module" src="/ds/index.js"></script>
   <style>
     /* ─── Tiamat Condensed SC ───────────────────────────── */
     @font-face {
@@ -2089,6 +2090,7 @@
           <li><a class="ds-toc__link" href="#foundation-elevation">Elevation &amp; Shadows</a></li>
           <li><a class="ds-toc__link" href="#foundation-motion">Motion</a></li>
           <li><a class="ds-toc__link" href="#foundation-accessibility">Accessibility</a></li>
+          <li><a class="ds-toc__link" href="#component-button">Button</a></li>
           <li><a class="ds-toc__link" href="#texture">Texture</a></li>
           <li><a class="ds-toc__link" href="#borders">Borders</a></li>
           <li><a class="ds-toc__link" href="#components">Components</a></li>
@@ -3343,6 +3345,106 @@
       <svg width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true" focusable="false">
         <circle cx="22" cy="22" r="19" stroke="#7a5a22" stroke-width="1" opacity="0.4"/>
         <circle cx="22" cy="22" r="9" fill="none" stroke="#b8893b" stroke-width="1.5"/>
+        <circle cx="22" cy="22" r="2" fill="#7a1212"/>
+      </svg>
+    </div>
+
+    <!-- ══════════════════════ COMPONENT · BUTTON ══════════════════════ -->
+    <section class="ds-section" id="component-button" aria-labelledby="heading-button">
+      <div class="container">
+        <span class="section-numeral" aria-hidden="true">C·1</span>
+        <h2 class="ds-section__heading" id="heading-button">Button</h2>
+        <p class="ds-section__description">
+          Buttons trigger actions (submit, cast, delete); use a link instead when the control
+          navigates to another page or view. Rendered as the <code>&lt;hbd-button&gt;</code> web
+          component wrapping a native <code>&lt;button&gt;</code>.
+        </p>
+
+        <!-- Group 1 · Variants -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">Variants</h3>
+          <div class="ds-preview-canvas">
+            <hbd-button variant="default">Inspect Scroll</hbd-button>
+            <hbd-button variant="primary">Identify Creature</hbd-button>
+            <hbd-button variant="gold">Attune Item</hbd-button>
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>&lt;hbd-button variant="default"&gt;Inspect Scroll&lt;/hbd-button&gt;
+&lt;hbd-button variant="primary"&gt;Identify Creature&lt;/hbd-button&gt;
+&lt;hbd-button variant="gold"&gt;Attune Item&lt;/hbd-button&gt;</code></pre>
+          </details>
+        </div>
+
+        <!-- Group 2 · Sizes -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">Sizes</h3>
+          <div class="ds-preview-canvas">
+            <hbd-button variant="primary" size="sm">Small</hbd-button>
+            <hbd-button variant="primary" size="md">Medium</hbd-button>
+            <hbd-button variant="primary" size="lg">Large</hbd-button>
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>&lt;hbd-button variant="primary" size="sm"&gt;Small&lt;/hbd-button&gt;
+&lt;hbd-button variant="primary" size="md"&gt;Medium&lt;/hbd-button&gt;
+&lt;hbd-button variant="primary" size="lg"&gt;Large&lt;/hbd-button&gt;</code></pre>
+          </details>
+        </div>
+
+        <!-- Group 3 · States -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">States</h3>
+          <div class="ds-preview-canvas">
+            <hbd-button variant="primary">Default</hbd-button>
+            <hbd-button variant="primary" disabled>Disabled</hbd-button>
+            <hbd-button variant="primary" loading>Loading</hbd-button>
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>&lt;hbd-button variant="primary"&gt;Default&lt;/hbd-button&gt;
+&lt;hbd-button variant="primary" disabled&gt;Disabled&lt;/hbd-button&gt;
+&lt;hbd-button variant="primary" loading&gt;Loading&lt;/hbd-button&gt;</code></pre>
+          </details>
+        </div>
+
+        <!-- Group 4 · With icons -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">With icons</h3>
+          <div class="ds-preview-canvas">
+            <hbd-button variant="gold">
+              <span slot="icon-left" class="hbd-button__icon" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1l2 5h5l-4 3.5L12.5 15 8 11.5 3.5 15 5 9.5 1 6h5z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg>
+              </span>
+              Claim Reward
+            </hbd-button>
+            <hbd-button variant="default" aria-label="Close">
+              <span slot="icon-left" class="hbd-button__icon" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </span>
+            </hbd-button>
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>&lt;hbd-button variant="gold"&gt;
+  &lt;span slot="icon-left" class="hbd-button__icon" aria-hidden="true"&gt;&lt;svg…&gt;&lt;/span&gt;
+  Claim Reward
+&lt;/hbd-button&gt;
+
+&lt;hbd-button variant="default" aria-label="Close"&gt;
+  &lt;span slot="icon-left" class="hbd-button__icon" aria-hidden="true"&gt;&lt;svg…&gt;&lt;/span&gt;
+&lt;/hbd-button&gt;</code></pre>
+          </details>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── SIGIL · Button divider ── -->
+    <div class="sigil-divider" role="presentation" aria-hidden="true">
+      <svg width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true" focusable="false">
+        <circle cx="22" cy="22" r="19" stroke="#7a5a22" stroke-width="1" opacity="0.4"/>
+        <rect x="13" y="17" width="18" height="10" rx="2" fill="none" stroke="#b8893b" stroke-width="1.5"/>
         <circle cx="22" cy="22" r="2" fill="#7a1212"/>
       </svg>
     </div>

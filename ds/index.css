@@ -22,3 +22,4 @@
 @import './styles/foundations/spacing.css';
 
 /* 5. Components — alphabetical */
+@import './styles/components/button.css';

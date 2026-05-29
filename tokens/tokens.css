@@ -259,4 +259,12 @@
 
   /* ── focus ─────────────────────────────────────────────── */
   --hbd-focus-offset: 2px;
+
+  /* ── button ────────────────────────────────────────────── */
+  --hbd-button-shadow: 3px 3px 0 var(--hbd-color-ink-900);
+  --hbd-button-shadow-active: 1px 1px 0 var(--hbd-color-ink-900);
+  --hbd-button-shadow-primary: 3px 3px 0 var(--hbd-color-blood-deep);
+  --hbd-button-shadow-primary-active: 1px 1px 0 var(--hbd-color-blood-deep);
+  --hbd-button-shadow-gold: 3px 3px 0 var(--hbd-color-gold-deep);
+  --hbd-button-shadow-gold-active: 1px 1px 0 var(--hbd-color-gold-deep);
 }
