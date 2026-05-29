@@ -2083,6 +2083,7 @@
           <li><a class="ds-toc__link" href="#foundation-colour">Colour</a></li>
           <li><a class="ds-toc__link" href="#foundation-spacing">Spacing</a></li>
           <li><a class="ds-toc__link" href="#foundation-borders">Borders &amp; Radius</a></li>
+          <li><a class="ds-toc__link" href="#foundation-elevation">Elevation &amp; Shadows</a></li>
           <li><a class="ds-toc__link" href="#texture">Texture</a></li>
           <li><a class="ds-toc__link" href="#borders">Borders</a></li>
           <li><a class="ds-toc__link" href="#components">Components</a></li>
@@ -2857,6 +2858,127 @@
       <svg width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true" focusable="false">
         <circle cx="22" cy="22" r="19" stroke="#7a5a22" stroke-width="1" opacity="0.4"/>
         <rect x="13" y="13" width="18" height="18" rx="2" fill="none" stroke="#b8893b" stroke-width="1.5"/>
+        <circle cx="22" cy="22" r="2" fill="#7a1212"/>
+      </svg>
+    </div>
+
+    <!-- ══════════════════════ ELEVATION & SHADOWS ══════════════════════ -->
+    <section class="ds-section" id="foundation-elevation" aria-labelledby="heading-elevation-shadows">
+      <div class="container">
+        <span class="section-numeral" aria-hidden="true">II·e</span>
+        <h2 class="ds-section__heading" id="heading-elevation-shadows">Elevation &amp; Shadows</h2>
+        <p class="ds-section__description">
+          Five elevation levels plus an inset, expressed as ink-tinted box-shadows, and a z-index
+          scale for stacking. Shadows are decorative — every elevated surface also carries a visible
+          border so its boundary is perceivable without relying on the shadow. Shadow opacity
+          increases automatically in dark mode.
+        </p>
+
+        <!-- Group 1 · Shadow scale -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">Shadow scale</h3>
+          <div class="ds-preview-canvas" style="align-items:flex-start;gap:var(--hbd-space-8);background:var(--hbd-color-surface-subtle);">
+            <div style="text-align:center;">
+              <div class="hbd-shadow-none hbd-rounded-md hbd-border-card hbd-p-6" style="min-width:120px;min-height:80px;background:var(--hbd-color-surface-default);"></div>
+              <span class="hbd-text-label hbd-text-primary" style="display:block;margin-top:var(--hbd-space-2);">.hbd-shadow-none</span>
+              <span class="hbd-text-micro hbd-text-muted" style="display:block;">--hbd-shadow-none</span>
+            </div>
+            <div style="text-align:center;">
+              <div class="hbd-shadow-sm hbd-rounded-md hbd-border-card hbd-p-6" style="min-width:120px;min-height:80px;background:var(--hbd-color-surface-default);"></div>
+              <span class="hbd-text-label hbd-text-primary" style="display:block;margin-top:var(--hbd-space-2);">.hbd-shadow-sm</span>
+              <span class="hbd-text-micro hbd-text-muted" style="display:block;">--hbd-shadow-sm</span>
+            </div>
+            <div style="text-align:center;">
+              <div class="hbd-shadow-md hbd-rounded-md hbd-border-card hbd-p-6" style="min-width:120px;min-height:80px;background:var(--hbd-color-surface-default);"></div>
+              <span class="hbd-text-label hbd-text-primary" style="display:block;margin-top:var(--hbd-space-2);">.hbd-shadow-md</span>
+              <span class="hbd-text-micro hbd-text-muted" style="display:block;">--hbd-shadow-md</span>
+            </div>
+            <div style="text-align:center;">
+              <div class="hbd-shadow-lg hbd-rounded-md hbd-border-card hbd-p-6" style="min-width:120px;min-height:80px;background:var(--hbd-color-surface-default);"></div>
+              <span class="hbd-text-label hbd-text-primary" style="display:block;margin-top:var(--hbd-space-2);">.hbd-shadow-lg</span>
+              <span class="hbd-text-micro hbd-text-muted" style="display:block;">--hbd-shadow-lg</span>
+            </div>
+            <div style="text-align:center;">
+              <div class="hbd-shadow-xl hbd-rounded-md hbd-border-card hbd-p-6" style="min-width:120px;min-height:80px;background:var(--hbd-color-surface-default);"></div>
+              <span class="hbd-text-label hbd-text-primary" style="display:block;margin-top:var(--hbd-space-2);">.hbd-shadow-xl</span>
+              <span class="hbd-text-micro hbd-text-muted" style="display:block;">--hbd-shadow-xl</span>
+            </div>
+            <div style="text-align:center;">
+              <div class="hbd-shadow-inner hbd-rounded-md hbd-border-card hbd-p-6" style="min-width:120px;min-height:80px;background:var(--hbd-color-surface-default);"></div>
+              <span class="hbd-text-label hbd-text-primary" style="display:block;margin-top:var(--hbd-space-2);">.hbd-shadow-inner</span>
+              <span class="hbd-text-micro hbd-text-muted" style="display:block;">--hbd-shadow-inner</span>
+            </div>
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>&lt;div class="hbd-shadow-md hbd-rounded-md hbd-border-card"&gt;…&lt;/div&gt;</code></pre>
+          </details>
+        </div>
+
+        <!-- Group 2 · Elevation in context -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">Elevation in context</h3>
+          <div class="ds-preview-canvas" style="background:var(--hbd-color-surface-subtle);min-height:200px;">
+            <div style="position:relative;width:100%;max-width:420px;">
+              <div class="hbd-shadow-sm hbd-rounded-md hbd-border-card hbd-p-6" style="position:relative;background:var(--hbd-color-surface-default);">
+                <span class="hbd-text-label hbd-text-primary">Layer 1 — base</span>
+              </div>
+              <div class="hbd-shadow-md hbd-z-raised hbd-rounded-md hbd-border-card hbd-p-6" style="position:relative;background:var(--hbd-color-surface-default);margin-top:calc(-1 * var(--hbd-space-4));margin-left:var(--hbd-space-8);">
+                <span class="hbd-text-label hbd-text-primary">Layer 2 — raised (.hbd-z-raised)</span>
+              </div>
+              <div class="hbd-shadow-lg hbd-z-dropdown hbd-rounded-md hbd-border-card hbd-p-6" style="position:relative;background:var(--hbd-color-surface-default);margin-top:calc(-1 * var(--hbd-space-4));margin-left:var(--hbd-space-16);">
+                <span class="hbd-text-label hbd-text-primary">Layer 3 — dropdown (.hbd-z-dropdown)</span>
+              </div>
+            </div>
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>&lt;div class="hbd-shadow-sm"&gt;Layer 1&lt;/div&gt;
+&lt;div class="hbd-shadow-md hbd-z-raised"&gt;Layer 2&lt;/div&gt;
+&lt;div class="hbd-shadow-lg hbd-z-dropdown"&gt;Layer 3&lt;/div&gt;</code></pre>
+          </details>
+        </div>
+
+        <!-- Group 3 · Z-index reference -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">Z-index reference</h3>
+          <div class="ds-preview-canvas" style="align-items:stretch;">
+            <dl style="display:grid;grid-template-columns:auto 1fr;gap:var(--hbd-space-3) var(--hbd-space-8);width:100%;margin:0;">
+              <dt class="hbd-text-label hbd-text-primary">--hbd-z-below</dt>
+              <dd class="hbd-text-body hbd-text-primary" style="margin:0;">-1 — push decorative layers behind content (texture overlays).</dd>
+              <dt class="hbd-text-label hbd-text-primary">--hbd-z-base</dt>
+              <dd class="hbd-text-body hbd-text-primary" style="margin:0;">0 — default document flow.</dd>
+              <dt class="hbd-text-label hbd-text-primary">--hbd-z-raised</dt>
+              <dd class="hbd-text-body hbd-text-primary" style="margin:0;">10 — cards and panels lifted above the page.</dd>
+              <dt class="hbd-text-label hbd-text-primary">--hbd-z-dropdown</dt>
+              <dd class="hbd-text-body hbd-text-primary" style="margin:0;">100 — dropdown menus and select popups.</dd>
+              <dt class="hbd-text-label hbd-text-primary">--hbd-z-sticky</dt>
+              <dd class="hbd-text-body hbd-text-primary" style="margin:0;">200 — sticky headers and toolbars.</dd>
+              <dt class="hbd-text-label hbd-text-primary">--hbd-z-overlay</dt>
+              <dd class="hbd-text-body hbd-text-primary" style="margin:0;">300 — modal backdrops and scrims.</dd>
+              <dt class="hbd-text-label hbd-text-primary">--hbd-z-modal</dt>
+              <dd class="hbd-text-body hbd-text-primary" style="margin:0;">400 — modal dialogs and drawers.</dd>
+              <dt class="hbd-text-label hbd-text-primary">--hbd-z-toast</dt>
+              <dd class="hbd-text-body hbd-text-primary" style="margin:0;">500 — toast notifications. (Existing token value; popover also sits at 500.)</dd>
+              <dt class="hbd-text-label hbd-text-primary">--hbd-z-tooltip</dt>
+              <dd class="hbd-text-body hbd-text-primary" style="margin:0;">600 — tooltips, the topmost layer in the existing scale.</dd>
+            </dl>
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>&lt;div class="hbd-z-modal"&gt;…&lt;/div&gt;</code></pre>
+          </details>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── SIGIL · Elevation divider ── -->
+    <div class="sigil-divider" role="presentation" aria-hidden="true">
+      <svg width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true" focusable="false">
+        <circle cx="22" cy="22" r="19" stroke="#7a5a22" stroke-width="1" opacity="0.4"/>
+        <rect x="11" y="15" width="14" height="14" fill="none" stroke="#7a5a22" stroke-width="1"/>
+        <rect x="19" y="11" width="14" height="14" fill="none" stroke="#b8893b" stroke-width="1.5"/>
         <circle cx="22" cy="22" r="2" fill="#7a1212"/>
       </svg>
     </div>
