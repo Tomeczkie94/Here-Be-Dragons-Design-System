@@ -81,12 +81,22 @@ const PX_RE = /\b(\d+px)\b/g;
 let pxCount = 0;
 
 for (const file of cssFiles) {
+  // foundations/accessibility.css is exempt from Check 2: the .hbd-sr-only,
+  // .hbd-live-polite, and .hbd-live-assertive utilities require exact 1px/-1px
+  // literals that cannot be tokenised. It remains subject to Check 1 (no hex).
+  if (file.replace(/\\/g, '/').endsWith('foundations/accessibility.css')) continue;
+
   readLines(file).forEach((rawLine, i) => {
     if (isCommentLine(rawLine)) return;
     const line = stripInlineComments(rawLine);
 
     // Skip @media / @keyframes / @supports lines — breakpoints may be hard-coded
     if (/^\s*@(media|keyframes|supports|font-face)/.test(line)) return;
+
+    // Skip shadow-string declarations: box-shadow values and --hbd-shadow-*
+    // token overrides compose offset/blur/spread in px and cannot be tokenised
+    // (documented compound-value exception).
+    if (/box-shadow|--hbd-shadow-/.test(line)) return;
 
     const stripped = stripVarCalls(line);
     PX_RE.lastIndex = 0;

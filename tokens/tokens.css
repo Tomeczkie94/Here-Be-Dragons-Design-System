@@ -81,49 +81,49 @@
   --hbd-color-white: #ffffff;
   --hbd-color-black: #000000;
   --hbd-color-transparent: transparent;
-  --hbd-color-surface-default: var(--hbd-color-parchment-50);
-  --hbd-color-surface-subtle: var(--hbd-color-parchment-100);
+  --hbd-color-surface-default: var(--hbd-color-parchment-100);
+  --hbd-color-surface-subtle: var(--hbd-color-parchment-200);
   --hbd-color-surface-muted: var(--hbd-color-parchment-200);
-  --hbd-color-surface-raised: var(--hbd-color-white);
-  --hbd-color-surface-overlay: var(--hbd-color-white);
+  --hbd-color-surface-raised: var(--hbd-color-parchment-300);
+  --hbd-color-surface-overlay: var(--hbd-color-ink-900);
   --hbd-color-surface-inverse: var(--hbd-color-ink-900);
-  --hbd-color-surface-action: var(--hbd-color-crimson-700);
-  --hbd-color-surface-action-hover: var(--hbd-color-crimson-600);
+  --hbd-color-surface-action: var(--hbd-color-blood);
+  --hbd-color-surface-action-hover: var(--hbd-color-blood-deep);
   --hbd-color-surface-action-active: var(--hbd-color-crimson-950);
   --hbd-color-surface-action-ghost: var(--hbd-color-transparent);
   --hbd-color-text-primary: var(--hbd-color-ink-900);
   --hbd-color-text-secondary: var(--hbd-color-ink-700);
-  --hbd-color-text-muted: var(--hbd-color-ink-500);
+  --hbd-color-text-muted: var(--hbd-color-ink-600);
   --hbd-color-text-placeholder: var(--hbd-color-ink-400);
-  --hbd-color-text-disabled: var(--hbd-color-ink-300);
+  --hbd-color-text-disabled: var(--hbd-color-ink-400);
   --hbd-color-text-inverse: var(--hbd-color-parchment-50);
-  --hbd-color-text-on-action: var(--hbd-color-white);
+  --hbd-color-text-on-action: var(--hbd-color-parchment-50);
   --hbd-color-text-link: var(--hbd-color-sapphire-700);
   --hbd-color-text-link-hover: var(--hbd-color-sapphire-900);
   --hbd-color-text-heading: var(--hbd-color-ink-900);
-  --hbd-color-border-default: var(--hbd-color-parchment-300);
-  --hbd-color-border-subtle: var(--hbd-color-parchment-200);
-  --hbd-color-border-strong: var(--hbd-color-ink-300);
+  --hbd-color-border-default: var(--hbd-color-ink-300);
+  --hbd-color-border-subtle: var(--hbd-color-ink-200);
+  --hbd-color-border-strong: var(--hbd-color-ink-700);
   --hbd-color-border-action: var(--hbd-color-crimson-700);
-  --hbd-color-border-focus: var(--hbd-color-sapphire-600);
   --hbd-color-border-error: var(--hbd-color-crimson-600);
-  --hbd-color-status-success-surface: var(--hbd-color-forest-50);
+  --hbd-color-input-focus-border: var(--hbd-color-gold);
+  --hbd-color-status-success-surface: var(--hbd-color-emerald);
   --hbd-color-status-success-border: var(--hbd-color-forest-600);
-  --hbd-color-status-success-text: var(--hbd-color-forest-800);
+  --hbd-color-status-success-text: var(--hbd-color-parchment-50);
   --hbd-color-status-success-icon: var(--hbd-color-forest-600);
-  --hbd-color-status-warning-surface: var(--hbd-color-gold-50);
+  --hbd-color-status-warning-surface: var(--hbd-color-gold);
   --hbd-color-status-warning-border: var(--hbd-color-gold-600);
-  --hbd-color-status-warning-text: var(--hbd-color-gold-900);
+  --hbd-color-status-warning-text: var(--hbd-color-ink-900);
   --hbd-color-status-warning-icon: var(--hbd-color-gold-700);
-  --hbd-color-status-error-surface: var(--hbd-color-crimson-50);
+  --hbd-color-status-error-surface: var(--hbd-color-blood);
   --hbd-color-status-error-border: var(--hbd-color-crimson-600);
-  --hbd-color-status-error-text: var(--hbd-color-crimson-900);
+  --hbd-color-status-error-text: var(--hbd-color-parchment-50);
   --hbd-color-status-error-icon: var(--hbd-color-crimson-600);
-  --hbd-color-status-info-surface: var(--hbd-color-sapphire-50);
+  --hbd-color-status-info-surface: var(--hbd-color-sapphire);
   --hbd-color-status-info-border: var(--hbd-color-sapphire-600);
-  --hbd-color-status-info-text: var(--hbd-color-sapphire-900);
+  --hbd-color-status-info-text: var(--hbd-color-parchment-50);
   --hbd-color-status-info-icon: var(--hbd-color-sapphire-700);
-  --hbd-color-focus-ring: var(--hbd-color-sapphire-600);
+  --hbd-color-focus-ring-outline: var(--hbd-color-gold-deep);
 
   /* ── spacing ───────────────────────────────────────────── */
   --hbd-space-1: 4px;
@@ -205,12 +205,12 @@
   --hbd-radius-full: 9999px;
 
   /* ── shadow ────────────────────────────────────────────── */
-  --hbd-shadow-0: none;
-  --hbd-shadow-1: 0 1px 2px 0 rgba(13, 10, 7, 0.06), 0 1px 3px 0 rgba(13, 10, 7, 0.10);
-  --hbd-shadow-2: 0 2px 4px -1px rgba(13, 10, 7, 0.08), 0 4px 6px -1px rgba(13, 10, 7, 0.12);
-  --hbd-shadow-3: 0 4px 6px -2px rgba(13, 10, 7, 0.08), 0 10px 15px -3px rgba(13, 10, 7, 0.14);
-  --hbd-shadow-4: 0 8px 10px -4px rgba(13, 10, 7, 0.10), 0 20px 25px -5px rgba(13, 10, 7, 0.18);
-  --hbd-shadow-5: 0 16px 20px -6px rgba(13, 10, 7, 0.12), 0 40px 50px -10px rgba(13, 10, 7, 0.22);
+  --hbd-shadow-none: none;
+  --hbd-shadow-sm: 0 1px 2px rgba(26, 20, 16, 0.12);
+  --hbd-shadow-md: 0 2px 6px rgba(26, 20, 16, 0.16), 0 1px 2px rgba(26, 20, 16, 0.10);
+  --hbd-shadow-lg: 0 4px 12px rgba(26, 20, 16, 0.18), 0 2px 4px rgba(26, 20, 16, 0.12);
+  --hbd-shadow-xl: 0 8px 24px rgba(26, 20, 16, 0.22), 0 4px 8px rgba(26, 20, 16, 0.14);
+  --hbd-shadow-inner: inset 0 1px 3px rgba(26, 20, 16, 0.20);
 
   /* ── z ─────────────────────────────────────────────────── */
   --hbd-z-below: -1;
@@ -226,7 +226,7 @@
 
   /* ── duration ──────────────────────────────────────────── */
   --hbd-duration-instant: 0ms;
-  --hbd-duration-fast: 100ms;
+  --hbd-duration-fast: 120ms;
   --hbd-duration-normal: 200ms;
   --hbd-duration-slow: 350ms;
   --hbd-duration-slower: 500ms;
@@ -237,16 +237,21 @@
   --hbd-ease-out: cubic-bezier(0, 0, 0.2, 1);
   --hbd-ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
   --hbd-ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --hbd-ease-anticipate: cubic-bezier(0.4, -0.3, 0.2, 1.3);
 
   /* ── border ────────────────────────────────────────────── */
-  --hbd-border-width-hairline: 0.5px;
-  --hbd-border-width-thin: 1px;
-  --hbd-border-width-medium: 2px;
+  --hbd-border-width-hairline: 1px;
+  --hbd-border-width-thin: 2px;
+  --hbd-border-width-medium: 3px;
   --hbd-border-width-thick: 4px;
 
   /* ── layout ────────────────────────────────────────────── */
   --hbd-layout-max-width: 68.75rem;
   --hbd-layout-page-padding: clamp(1rem, 4vw, 3rem);
+  --hbd-layout-container-max-width: 68.75rem;
+  --hbd-layout-container-padding: clamp(1rem, 4vw, 3rem);
+  --hbd-layout-section-gap: 96px;
+  --hbd-layout-column-gap: 24px;
 
   /* ── transition ────────────────────────────────────────── */
   --hbd-transition-fast: 0.12s ease;

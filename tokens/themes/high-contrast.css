@@ -1,0 +1,44 @@
+/* Here Be Dragons DS — tokens/themes/high-contrast.css
+ * High-contrast theme. Targets WCAG AAA (7:1) for all text/surface pairs.
+ * Base pair ink-900 on parchment-50 ≈ 17:1. Status meaning is carried by
+ * borders and icons, not by low-contrast tinted backgrounds.
+ */
+
+[data-theme="high-contrast"] {
+  /* surfaces */
+  --hbd-color-surface-default: var(--hbd-color-parchment-50);
+  --hbd-color-surface-subtle:  var(--hbd-color-parchment-50);
+  --hbd-color-surface-raised:  var(--hbd-color-parchment-50);
+  --hbd-color-surface-overlay: var(--hbd-color-ink-900);
+
+  /* text */
+  --hbd-color-text-primary:   var(--hbd-color-ink-900);
+  --hbd-color-text-secondary: var(--hbd-color-ink-900);
+  --hbd-color-text-muted:     var(--hbd-color-ink-900);
+  --hbd-color-text-inverse:   var(--hbd-color-parchment-50);
+  --hbd-color-text-disabled:  var(--hbd-color-ink-700);
+
+  /* borders */
+  --hbd-color-border-default: var(--hbd-color-ink-900);
+  --hbd-color-border-subtle:  var(--hbd-color-ink-900);
+  --hbd-color-border-strong:  var(--hbd-color-ink-900);
+  --hbd-color-border-focus:   var(--hbd-color-ink-900);
+
+  /* action */
+  --hbd-color-surface-action:       var(--hbd-color-ink-900);
+  --hbd-color-surface-action-hover: var(--hbd-color-ink-950);
+  --hbd-color-text-on-action:       var(--hbd-color-parchment-50);
+
+  /* status — parchment-50 surface + ink-900 text (≈17:1); meaning via border/icon */
+  --hbd-color-status-success-surface: var(--hbd-color-parchment-50);
+  --hbd-color-status-success-text:    var(--hbd-color-ink-900);
+  --hbd-color-status-warning-surface: var(--hbd-color-parchment-50);
+  --hbd-color-status-warning-text:    var(--hbd-color-ink-900);
+  --hbd-color-status-error-surface:   var(--hbd-color-parchment-50);
+  --hbd-color-status-error-text:      var(--hbd-color-ink-900);
+  --hbd-color-status-info-surface:    var(--hbd-color-parchment-50);
+  --hbd-color-status-info-text:       var(--hbd-color-ink-900);
+
+  /* focus */
+  --hbd-color-focus-ring: var(--hbd-color-ink-900);
+}

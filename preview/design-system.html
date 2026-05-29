@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,6 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=IM+Fell+English:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/ds/index.css">
   <style>
     /* ─── Tiamat Condensed SC ───────────────────────────── */
     @font-face {
@@ -2026,7 +2027,10 @@
   </style>
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to main content</a>
+  <a href="#main-content" class="hbd-skip-link">Skip to main content</a>
+  <div class="hbd-live-polite"    role="status" aria-live="polite"    aria-atomic="true"></div>
+  <div class="hbd-live-assertive" role="alert"  aria-live="assertive" aria-atomic="true"></div>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
 
   <!-- ════════════════════════════════════════════════
        HERO
@@ -2071,21 +2075,26 @@
   <!-- ════════════════════════════════════════════════
        MAIN
   ════════════════════════════════════════════════════ -->
-  <main id="main">
+  <main id="main-content">
 
     <nav class="ds-toc" aria-label="Design system sections">
       <div class="container">
         <h2 class="ds-toc__heading">Contents</h2>
         <ul class="ds-toc__list">
           <li><a class="ds-toc__link" href="#color">Color</a></li>
-          <li><a class="ds-toc__link" href="#typography">Typography</a></li>
+          <li><a class="ds-toc__link" href="#foundation-typography">Typography</a></li>
+          <li><a class="ds-toc__link" href="#foundation-colour">Colour</a></li>
+          <li><a class="ds-toc__link" href="#foundation-spacing">Spacing</a></li>
+          <li><a class="ds-toc__link" href="#foundation-borders">Borders &amp; Radius</a></li>
+          <li><a class="ds-toc__link" href="#foundation-elevation">Elevation &amp; Shadows</a></li>
+          <li><a class="ds-toc__link" href="#foundation-motion">Motion</a></li>
+          <li><a class="ds-toc__link" href="#foundation-accessibility">Accessibility</a></li>
           <li><a class="ds-toc__link" href="#texture">Texture</a></li>
           <li><a class="ds-toc__link" href="#borders">Borders</a></li>
           <li><a class="ds-toc__link" href="#components">Components</a></li>
           <li><a class="ds-toc__link" href="#form-controls">Form Controls</a></li>
           <li><a class="ds-toc__link" href="#breadcrumbs">Breadcrumbs</a></li>
           <li><a class="ds-toc__link" href="#time-picker">Time Picker</a></li>
-          <li><a class="ds-toc__link" href="#spacing">Spacing</a></li>
           <li><a class="ds-toc__link" href="#elevation">Elevation</a></li>
           <li><a class="ds-toc__link" href="#motion">Motion</a></li>
           <li><a class="ds-toc__link" href="#radius">Radius</a></li>
@@ -2224,50 +2233,294 @@
     </div>
 
     <!-- ══════════════════════ II. TYPOGRAPHY ══════════════════════ -->
-    <section class="ds-section" id="typography" aria-labelledby="type-title">
+    <section class="ds-section" id="foundation-typography" aria-labelledby="heading-typography">
       <div class="container">
         <span class="section-numeral" aria-hidden="true">II</span>
-        <h2 class="section-title" id="type-title">Typography</h2>
+        <h2 class="ds-section__heading" id="heading-typography">Typography</h2>
+        <p class="ds-section__description">
+          The type foundation pairs five token-driven families — Tiamat Condensed SC for display,
+          Cinzel for accent headings, IM Fell English for serif body and flavour text, Roboto for
+          UI labels, and JetBrains Mono for code. Apply the tag-agnostic <code>.hbd-text-*</code>
+          utilities on any element to render text at the correct scale, line-height, and weight.
+        </p>
 
-        <div class="type-specimen">
-          <span class="type-specimen__meta">Hero · Tiamat Condensed SC · clamp(3.5rem, 7vw, 6rem) · lh 1.1 · ls 0.02em</span>
-          <div class="display-hero" aria-label="Here Be Dragons — hero specimen">Here Be Dragons</div>
+        <!-- Group 1 · Typefaces -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">Typefaces</h3>
+          <div class="ds-preview-canvas" style="flex-direction:column;align-items:flex-start;">
+            <div>
+              <span class="hbd-text-hero hbd-text-primary">Tiamat Condensed SC</span>
+              <span class="hbd-text-micro hbd-text-muted" style="display:block;">--hbd-font-family-display</span>
+            </div>
+            <div>
+              <span class="hbd-text-h1 hbd-text-primary">Cinzel</span>
+              <span class="hbd-text-micro hbd-text-muted" style="display:block;">--hbd-font-family-accent</span>
+            </div>
+            <div>
+              <span class="hbd-text-body hbd-text-primary">IM Fell English</span>
+              <span class="hbd-text-micro hbd-text-muted" style="display:block;">--hbd-font-family-serif</span>
+            </div>
+            <div>
+              <span class="hbd-text-label hbd-text-primary">Roboto</span>
+              <span class="hbd-text-micro hbd-text-muted" style="display:block;">--hbd-font-family-ui</span>
+            </div>
+            <div>
+              <span class="hbd-text-mono hbd-text-primary">JetBrains Mono</span>
+              <span class="hbd-text-micro hbd-text-muted" style="display:block;">--hbd-font-family-mono</span>
+            </div>
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>&lt;span class="hbd-text-hero"&gt;Tiamat Condensed SC&lt;/span&gt;
+&lt;span class="hbd-text-h1"&gt;Cinzel&lt;/span&gt;
+&lt;span class="hbd-text-body"&gt;IM Fell English&lt;/span&gt;
+&lt;span class="hbd-text-label"&gt;Roboto&lt;/span&gt;
+&lt;span class="hbd-text-mono"&gt;JetBrains Mono&lt;/span&gt;</code></pre>
+          </details>
         </div>
 
-        <div class="type-specimen">
-          <span class="type-specimen__meta">H1 · Tiamat Condensed SC · clamp(2rem, 4.5vw, 2.5rem)</span>
-          <h1 class="spec-h1">The Ancient Tome of Arcane Lore</h1>
+        <!-- Group 2 · Heading scale -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">Heading scale</h3>
+          <div class="ds-preview-canvas" style="flex-direction:column;align-items:flex-start;">
+            <p class="hbd-text-h1 hbd-text-primary">A Spell Most Foul</p>
+            <p class="hbd-text-h2 hbd-text-primary">A Spell Most Foul</p>
+            <p class="hbd-text-h3 hbd-text-primary">A Spell Most Foul</p>
+            <p class="hbd-text-h4 hbd-text-primary">A Spell Most Foul</p>
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>&lt;p class="hbd-text-h1"&gt;A Spell Most Foul&lt;/p&gt;
+&lt;p class="hbd-text-h2"&gt;A Spell Most Foul&lt;/p&gt;
+&lt;p class="hbd-text-h3"&gt;A Spell Most Foul&lt;/p&gt;
+&lt;p class="hbd-text-h4"&gt;A Spell Most Foul&lt;/p&gt;</code></pre>
+          </details>
         </div>
 
-        <div class="type-specimen">
-          <span class="type-specimen__meta">H2 · Tiamat Condensed SC · clamp(1.375rem, 3vw, 1.75rem)</span>
-          <h2 class="spec-h2">Chapter XII — Dragon Hoards &amp; Hidden Treasures</h2>
+        <!-- Group 3 · Body & flavour -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">Body &amp; flavour</h3>
+          <div class="ds-preview-canvas" style="flex-direction:column;align-items:flex-start;">
+            <p class="hbd-text-body hbd-text-primary" style="max-width:65ch;">
+              In the age before memory, when the world was still young and the gods walked among
+              mortals, there arose creatures of terrible power — ancient beyond reckoning, vast as
+              mountains, and wise as the ocean depths. The scholars called them dragons.
+            </p>
+            <p class="hbd-text-flavor hbd-text-muted" style="max-width:52ch;">
+              "Beware the dragon's gaze, for it strips away all pretense and illusion."
+            </p>
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>&lt;p class="hbd-text-body"&gt;In the age before memory…&lt;/p&gt;
+&lt;p class="hbd-text-flavor"&gt;"Beware the dragon's gaze…"&lt;/p&gt;</code></pre>
+          </details>
         </div>
 
-        <div class="type-specimen">
-          <span class="type-specimen__meta">H3 · Tiamat Condensed SC · clamp(1.0625rem, 2.2vw, 1.25rem)</span>
-          <h3 class="spec-h3">The Draconic Alphabet and Its Origins</h3>
+        <!-- Group 4 · UI & code -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">UI &amp; code</h3>
+          <div class="ds-preview-canvas" style="flex-direction:column;align-items:flex-start;">
+            <span class="hbd-text-label hbd-text-primary">Casting Time</span>
+            <span class="hbd-text-label hbd-text-primary">Components</span>
+            <span class="hbd-text-label hbd-text-primary">Saving Throw</span>
+            <span class="hbd-text-micro hbd-text-muted">Recharge 5–6 · concentration up to 1 minute</span>
+            <code class="hbd-text-mono hbd-text-primary">const dmg = roll('8d6');</code>
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>&lt;span class="hbd-text-label"&gt;Casting Time&lt;/span&gt;
+&lt;span class="hbd-text-label"&gt;Components&lt;/span&gt;
+&lt;span class="hbd-text-label"&gt;Saving Throw&lt;/span&gt;
+&lt;span class="hbd-text-micro"&gt;Recharge 5–6…&lt;/span&gt;
+&lt;code class="hbd-text-mono"&gt;const dmg = roll('8d6');&lt;/code&gt;</code></pre>
+          </details>
         </div>
 
-        <div class="type-specimen">
-          <span class="type-specimen__meta">Body · Roboto 400 · 17px / 1.7 · max-width 65ch</span>
-          <p class="dropcap" style="max-width:65ch;color:var(--ink-brown);">In the age before memory, when the world was still young and the gods walked among mortals, there arose creatures of terrible power. They were ancient beyond reckoning, vast as mountains, and wise as the ocean depths. The scholars called them dragons, and in their hoard-filled lairs they kept the secrets of creation itself, written in iron-gall ink on the finest vellum.</p>
+      </div>
+    </section>
+
+    <!-- ══════════════════════ COLOUR ══════════════════════ -->
+    <section class="ds-section" id="foundation-colour" aria-labelledby="heading-colour">
+      <div class="container">
+        <span class="section-numeral" aria-hidden="true">II·b</span>
+        <h2 class="ds-section__heading" id="heading-colour">Colour</h2>
+        <p class="ds-section__description">
+          A three-tier token system: raw primitives, semantic role aliases that reference them, and
+          per-component overrides. Components consume semantic tokens only. The same semantic names
+          re-map across the light, dark, and high-contrast themes below.
+        </p>
+
+        <!-- Group 1 · Primitive palette -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">Primitive palette</h3>
+          <div class="ds-preview-canvas" style="flex-direction:column;align-items:stretch;gap:var(--space-6);">
+
+            <div>
+              <span class="hbd-text-label hbd-text-primary" style="display:block;margin-bottom:var(--space-3);">Parchment</span>
+              <div style="display:flex;flex-wrap:wrap;gap:var(--space-4);">
+                <div><span style="display:block;width:48px;height:48px;background:var(--hbd-color-parchment-50);border:1px solid var(--hbd-color-ink-300);"></span><span class="hbd-text-micro hbd-text-primary" style="display:block;">parchment-50</span><span class="hbd-text-micro hbd-text-muted" style="display:block;">#fdf8f0</span></div>
+                <div><span style="display:block;width:48px;height:48px;background:var(--hbd-color-parchment-100);border:1px solid var(--hbd-color-ink-300);"></span><span class="hbd-text-micro hbd-text-primary" style="display:block;">parchment-100</span><span class="hbd-text-micro hbd-text-muted" style="display:block;">#f5ecd7</span></div>
+                <div><span style="display:block;width:48px;height:48px;background:var(--hbd-color-parchment-200);border:1px solid var(--hbd-color-ink-300);"></span><span class="hbd-text-micro hbd-text-primary" style="display:block;">parchment-200</span><span class="hbd-text-micro hbd-text-muted" style="display:block;">#ead9b3</span></div>
+                <div><span style="display:block;width:48px;height:48px;background:var(--hbd-color-parchment-300);border:1px solid var(--hbd-color-ink-300);"></span><span class="hbd-text-micro hbd-text-primary" style="display:block;">parchment-300</span><span class="hbd-text-micro hbd-text-muted" style="display:block;">#d4bc88</span></div>
+              </div>
+            </div>
+
+            <div>
+              <span class="hbd-text-label hbd-text-primary" style="display:block;margin-bottom:var(--space-3);">Ink</span>
+              <div style="display:flex;flex-wrap:wrap;gap:var(--space-4);">
+                <div><span style="display:block;width:48px;height:48px;background:var(--hbd-color-ink-900);"></span><span class="hbd-text-micro hbd-text-primary" style="display:block;">ink-900</span><span class="hbd-text-micro hbd-text-muted" style="display:block;">#1a1410</span></div>
+                <div><span style="display:block;width:48px;height:48px;background:var(--hbd-color-ink-700);"></span><span class="hbd-text-micro hbd-text-primary" style="display:block;">ink-700</span><span class="hbd-text-micro hbd-text-muted" style="display:block;">#3d3020</span></div>
+                <div><span style="display:block;width:48px;height:48px;background:var(--hbd-color-ink-600);"></span><span class="hbd-text-micro hbd-text-primary" style="display:block;">ink-600</span><span class="hbd-text-micro hbd-text-muted" style="display:block;">#5a4530</span></div>
+                <div><span style="display:block;width:48px;height:48px;background:var(--hbd-color-ink-400);"></span><span class="hbd-text-micro hbd-text-primary" style="display:block;">ink-400</span><span class="hbd-text-micro hbd-text-muted" style="display:block;">#a07c57</span></div>
+                <div><span style="display:block;width:48px;height:48px;background:var(--hbd-color-ink-300);"></span><span class="hbd-text-micro hbd-text-primary" style="display:block;">ink-300</span><span class="hbd-text-micro hbd-text-muted" style="display:block;">#c4a07a</span></div>
+                <div><span style="display:block;width:48px;height:48px;background:var(--hbd-color-ink-200);"></span><span class="hbd-text-micro hbd-text-primary" style="display:block;">ink-200</span><span class="hbd-text-micro hbd-text-muted" style="display:block;">#dcc4a0</span></div>
+              </div>
+            </div>
+
+            <div>
+              <span class="hbd-text-label hbd-text-primary" style="display:block;margin-bottom:var(--space-3);">Gold</span>
+              <div style="display:flex;flex-wrap:wrap;gap:var(--space-4);">
+                <div><span style="display:block;width:48px;height:48px;background:var(--hbd-color-gold-bright);"></span><span class="hbd-text-micro hbd-text-primary" style="display:block;">gold-bright</span><span class="hbd-text-micro hbd-text-muted" style="display:block;">#d4a548</span></div>
+                <div><span style="display:block;width:48px;height:48px;background:var(--hbd-color-gold);"></span><span class="hbd-text-micro hbd-text-primary" style="display:block;">gold</span><span class="hbd-text-micro hbd-text-muted" style="display:block;">#b8893b</span></div>
+                <div><span style="display:block;width:48px;height:48px;background:var(--hbd-color-gold-deep);"></span><span class="hbd-text-micro hbd-text-primary" style="display:block;">gold-deep</span><span class="hbd-text-micro hbd-text-muted" style="display:block;">#7a5a22</span></div>
+              </div>
+            </div>
+
+            <div>
+              <span class="hbd-text-label hbd-text-primary" style="display:block;margin-bottom:var(--space-3);">Blood</span>
+              <div style="display:flex;flex-wrap:wrap;gap:var(--space-4);">
+                <div><span style="display:block;width:48px;height:48px;background:var(--hbd-color-blood);"></span><span class="hbd-text-micro hbd-text-primary" style="display:block;">blood</span><span class="hbd-text-micro hbd-text-muted" style="display:block;">#7a1212</span></div>
+                <div><span style="display:block;width:48px;height:48px;background:var(--hbd-color-blood-deep);"></span><span class="hbd-text-micro hbd-text-primary" style="display:block;">blood-deep</span><span class="hbd-text-micro hbd-text-muted" style="display:block;">#4a0808</span></div>
+              </div>
+            </div>
+
+            <div>
+              <span class="hbd-text-label hbd-text-primary" style="display:block;margin-bottom:var(--space-3);">Emerald</span>
+              <div style="display:flex;flex-wrap:wrap;gap:var(--space-4);">
+                <div><span style="display:block;width:48px;height:48px;background:var(--hbd-color-emerald);"></span><span class="hbd-text-micro hbd-text-primary" style="display:block;">emerald</span><span class="hbd-text-micro hbd-text-muted" style="display:block;">#2d5a3d</span></div>
+              </div>
+            </div>
+
+            <div>
+              <span class="hbd-text-label hbd-text-primary" style="display:block;margin-bottom:var(--space-3);">Sapphire</span>
+              <div style="display:flex;flex-wrap:wrap;gap:var(--space-4);">
+                <div><span style="display:block;width:48px;height:48px;background:var(--hbd-color-sapphire);"></span><span class="hbd-text-micro hbd-text-primary" style="display:block;">sapphire</span><span class="hbd-text-micro hbd-text-muted" style="display:block;">#1e3a5f</span></div>
+              </div>
+            </div>
+
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>&lt;span style="background:var(--hbd-color-blood);"&gt;&lt;/span&gt;
+&lt;span class="hbd-text-micro"&gt;blood&lt;/span&gt;</code></pre>
+          </details>
         </div>
 
-        <div class="type-specimen">
-          <span class="type-specimen__meta">Flavor Text · IM Fell English italic · 15px / 1.6 · always italicized</span>
-          <p style="font-family:var(--font-flavor);font-style:italic;font-size:var(--text-flavor);line-height:var(--lh-flavor);color:var(--ink-brown);max-width:52ch;">"Beware the dragon's gaze, for it strips away all pretense and illusion. In those ancient, gold-flecked eyes you shall see only truth — and truth is rarely kind to the unprepared."</p>
+        <!-- Group 2 · Semantic tokens -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">Semantic tokens</h3>
+          <div class="ds-preview-canvas" style="flex-direction:column;align-items:stretch;gap:var(--space-6);">
+
+            <div>
+              <span class="hbd-text-label hbd-text-primary" style="display:block;margin-bottom:var(--space-3);">Surfaces</span>
+              <div style="display:flex;flex-wrap:wrap;gap:var(--space-4);">
+                <div><span style="display:block;width:48px;height:48px;background:var(--hbd-color-surface-default);border:1px solid var(--hbd-color-border-default);"></span><span class="hbd-text-micro hbd-text-primary" style="display:block;">surface-default</span><span class="hbd-text-micro hbd-text-muted" style="display:block;">→ parchment-50</span></div>
+                <div><span style="display:block;width:48px;height:48px;background:var(--hbd-color-surface-subtle);border:1px solid var(--hbd-color-border-default);"></span><span class="hbd-text-micro hbd-text-primary" style="display:block;">surface-subtle</span><span class="hbd-text-micro hbd-text-muted" style="display:block;">→ parchment-100</span></div>
+                <div><span style="display:block;width:48px;height:48px;background:var(--hbd-color-surface-raised);border:1px solid var(--hbd-color-border-default);"></span><span class="hbd-text-micro hbd-text-primary" style="display:block;">surface-raised</span><span class="hbd-text-micro hbd-text-muted" style="display:block;">→ parchment-200</span></div>
+                <div><span style="display:block;width:48px;height:48px;background:var(--hbd-color-surface-overlay);border:1px solid var(--hbd-color-border-default);"></span><span class="hbd-text-micro hbd-text-primary" style="display:block;">surface-overlay</span><span class="hbd-text-micro hbd-text-muted" style="display:block;">→ ink-900</span></div>
+              </div>
+            </div>
+
+            <div>
+              <span class="hbd-text-label hbd-text-primary" style="display:block;margin-bottom:var(--space-3);">Text</span>
+              <div style="display:flex;flex-wrap:wrap;gap:var(--space-4);">
+                <div><span style="display:block;width:48px;height:48px;background:var(--hbd-color-text-primary);"></span><span class="hbd-text-micro hbd-text-primary" style="display:block;">text-primary</span><span class="hbd-text-micro hbd-text-muted" style="display:block;">→ ink-900</span></div>
+                <div><span style="display:block;width:48px;height:48px;background:var(--hbd-color-text-secondary);"></span><span class="hbd-text-micro hbd-text-primary" style="display:block;">text-secondary</span><span class="hbd-text-micro hbd-text-muted" style="display:block;">→ ink-700</span></div>
+                <div><span style="display:block;width:48px;height:48px;background:var(--hbd-color-text-muted);"></span><span class="hbd-text-micro hbd-text-primary" style="display:block;">text-muted</span><span class="hbd-text-micro hbd-text-muted" style="display:block;">→ ink-600</span></div>
+                <div><span style="display:block;width:48px;height:48px;background:var(--hbd-color-text-disabled);"></span><span class="hbd-text-micro hbd-text-primary" style="display:block;">text-disabled</span><span class="hbd-text-micro hbd-text-muted" style="display:block;">→ ink-400</span></div>
+              </div>
+            </div>
+
+            <div>
+              <span class="hbd-text-label hbd-text-primary" style="display:block;margin-bottom:var(--space-3);">Borders</span>
+              <div style="display:flex;flex-wrap:wrap;gap:var(--space-4);">
+                <div><span style="display:block;width:48px;height:48px;background:var(--hbd-color-border-default);"></span><span class="hbd-text-micro hbd-text-primary" style="display:block;">border-default</span><span class="hbd-text-micro hbd-text-muted" style="display:block;">→ ink-300</span></div>
+                <div><span style="display:block;width:48px;height:48px;background:var(--hbd-color-border-subtle);"></span><span class="hbd-text-micro hbd-text-primary" style="display:block;">border-subtle</span><span class="hbd-text-micro hbd-text-muted" style="display:block;">→ ink-200</span></div>
+                <div><span style="display:block;width:48px;height:48px;background:var(--hbd-color-border-strong);"></span><span class="hbd-text-micro hbd-text-primary" style="display:block;">border-strong</span><span class="hbd-text-micro hbd-text-muted" style="display:block;">→ ink-700</span></div>
+                <div><span style="display:block;width:48px;height:48px;background:var(--hbd-color-input-focus-border);"></span><span class="hbd-text-micro hbd-text-primary" style="display:block;">input-focus-border</span><span class="hbd-text-micro hbd-text-muted" style="display:block;">→ gold</span></div>
+              </div>
+            </div>
+
+            <div>
+              <span class="hbd-text-label hbd-text-primary" style="display:block;margin-bottom:var(--space-3);">Action</span>
+              <div style="display:flex;flex-wrap:wrap;gap:var(--space-4);">
+                <div><span style="display:block;width:48px;height:48px;background:var(--hbd-color-surface-action);"></span><span class="hbd-text-micro hbd-text-primary" style="display:block;">surface-action</span><span class="hbd-text-micro hbd-text-muted" style="display:block;">→ blood</span></div>
+                <div><span style="display:block;width:48px;height:48px;background:var(--hbd-color-surface-action-hover);"></span><span class="hbd-text-micro hbd-text-primary" style="display:block;">action-hover</span><span class="hbd-text-micro hbd-text-muted" style="display:block;">→ blood-deep</span></div>
+                <div><span style="display:block;width:48px;height:48px;background:var(--hbd-color-text-on-action);border:1px solid var(--hbd-color-border-default);"></span><span class="hbd-text-micro hbd-text-primary" style="display:block;">text-on-action</span><span class="hbd-text-micro hbd-text-muted" style="display:block;">→ parchment-50</span></div>
+              </div>
+            </div>
+
+            <div>
+              <span class="hbd-text-label hbd-text-primary" style="display:block;margin-bottom:var(--space-3);">Status</span>
+              <div style="display:flex;flex-wrap:wrap;gap:var(--space-4);">
+                <div><span style="display:block;width:48px;height:48px;background:var(--hbd-color-status-success-surface);"></span><span class="hbd-text-micro hbd-text-primary" style="display:block;">success</span><span class="hbd-text-micro hbd-text-muted" style="display:block;">→ emerald</span></div>
+                <div><span style="display:block;width:48px;height:48px;background:var(--hbd-color-status-warning-surface);"></span><span class="hbd-text-micro hbd-text-primary" style="display:block;">warning</span><span class="hbd-text-micro hbd-text-muted" style="display:block;">→ gold</span></div>
+                <div><span style="display:block;width:48px;height:48px;background:var(--hbd-color-status-error-surface);"></span><span class="hbd-text-micro hbd-text-primary" style="display:block;">error</span><span class="hbd-text-micro hbd-text-muted" style="display:block;">→ blood</span></div>
+                <div><span style="display:block;width:48px;height:48px;background:var(--hbd-color-status-info-surface);"></span><span class="hbd-text-micro hbd-text-primary" style="display:block;">info</span><span class="hbd-text-micro hbd-text-muted" style="display:block;">→ sapphire</span></div>
+              </div>
+            </div>
+
+            <div>
+              <span class="hbd-text-label hbd-text-primary" style="display:block;margin-bottom:var(--space-3);">Focus</span>
+              <div style="display:flex;flex-wrap:wrap;gap:var(--space-4);">
+                <div><span style="display:block;width:48px;height:48px;background:var(--hbd-color-focus-ring-outline);"></span><span class="hbd-text-micro hbd-text-primary" style="display:block;">focus-ring-outline</span><span class="hbd-text-micro hbd-text-muted" style="display:block;">→ gold-deep</span></div>
+              </div>
+            </div>
+
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>&lt;span style="background:var(--hbd-color-surface-action);"&gt;&lt;/span&gt;
+&lt;!-- surface-action → blood --&gt;</code></pre>
+          </details>
         </div>
 
-        <div class="type-specimen">
-          <span class="type-specimen__meta">Eyebrow Label · Tiamat caps · 13px · ls 0.3em · uppercase</span>
-          <span class="eyebrow">Legendary Creature · Dragon · Chaotic Evil</span>
-          <span class="eyebrow" style="color:var(--blood);">Evocation · Level 9 · Concentration Required</span>
-        </div>
+        <!-- Group 3 · Theme preview -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">Theme preview</h3>
+          <div class="ds-preview-canvas" style="align-items:stretch;gap:var(--space-6);">
 
-        <div class="type-specimen">
-          <span class="type-specimen__meta">Mono · JetBrains Mono · 14px · code blocks, hex values, token names</span>
-          <code class="mono-pill">--ink-black: #1a1410; /* iron-gall — primary text */</code>
+            <div data-theme="light" style="flex:1 1 220px;background:var(--hbd-color-surface-default);border:1px solid var(--hbd-color-border-default);padding:var(--space-6);">
+              <p class="hbd-text-h3" style="color:var(--hbd-color-text-primary);">Light</p>
+              <p class="hbd-text-body" style="color:var(--hbd-color-text-primary);">A scribe's fresh parchment under candlelight.</p>
+              <p class="hbd-text-micro" style="color:var(--hbd-color-text-muted);">Muted caption</p>
+              <span class="hbd-text-label" style="display:inline-block;margin-top:var(--space-3);padding:var(--space-2) var(--space-4);background:var(--hbd-color-surface-action);color:var(--hbd-color-text-on-action);">Cast Spell</span>
+            </div>
+
+            <div data-theme="dark" style="flex:1 1 220px;background:var(--hbd-color-surface-default);border:1px solid var(--hbd-color-border-default);padding:var(--space-6);">
+              <p class="hbd-text-h3" style="color:var(--hbd-color-text-primary);">Dark</p>
+              <p class="hbd-text-body" style="color:var(--hbd-color-text-primary);">The same page deep in a dragon's lair.</p>
+              <p class="hbd-text-micro" style="color:var(--hbd-color-text-muted);">Muted caption</p>
+              <span class="hbd-text-label" style="display:inline-block;margin-top:var(--space-3);padding:var(--space-2) var(--space-4);background:var(--hbd-color-surface-action);color:var(--hbd-color-text-on-action);">Cast Spell</span>
+            </div>
+
+            <div data-theme="high-contrast" style="flex:1 1 220px;background:var(--hbd-color-surface-default);border:1px solid var(--hbd-color-border-default);padding:var(--space-6);">
+              <p class="hbd-text-h3" style="color:var(--hbd-color-text-primary);">High contrast</p>
+              <p class="hbd-text-body" style="color:var(--hbd-color-text-primary);">Maximum legibility, AAA throughout.</p>
+              <p class="hbd-text-micro" style="color:var(--hbd-color-text-muted);">Muted caption</p>
+              <span class="hbd-text-label" style="display:inline-block;margin-top:var(--space-3);padding:var(--space-2) var(--space-4);background:var(--hbd-color-surface-action);color:var(--hbd-color-text-on-action);">Cast Spell</span>
+            </div>
+
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>&lt;div data-theme="dark" style="background:var(--hbd-color-surface-default);"&gt;
+  &lt;p class="hbd-text-h3" style="color:var(--hbd-color-text-primary);"&gt;Dark&lt;/p&gt;
+  &lt;p class="hbd-text-micro" style="color:var(--hbd-color-text-muted);"&gt;Muted caption&lt;/p&gt;
+  &lt;span style="background:var(--hbd-color-surface-action);color:var(--hbd-color-text-on-action);"&gt;Cast Spell&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+          </details>
         </div>
 
       </div>
@@ -2281,6 +2534,815 @@
         <polygon points="22,5 25.5,15 36,15 27.5,21.5 30.5,32 22,26 13.5,32 16.5,21.5 8,15 18.5,15"
                  fill="none" stroke="#7a5a22" stroke-width="1.5"/>
         <circle cx="22" cy="22" r="5" fill="none" stroke="#b8893b" stroke-width="1"/>
+        <circle cx="22" cy="22" r="2" fill="#7a1212"/>
+      </svg>
+    </div>
+
+    <!-- ══════════════════════ SPACING ══════════════════════ -->
+    <section class="ds-section" id="foundation-spacing" aria-labelledby="heading-spacing">
+      <div class="container">
+        <span class="section-numeral" aria-hidden="true">II·c</span>
+        <h2 class="ds-section__heading" id="heading-spacing">Spacing</h2>
+        <p class="ds-section__description">
+          All spacing derives from a 4px base unit. The same scale feeds the padding, margin, and
+          gap utilities and the layout primitives (container, stack, cluster, grid). Utilities
+          reference <code>--hbd-space-{n}</code>; layout primitives reference the
+          <code>--hbd-layout-*</code> tokens.
+        </p>
+
+        <!-- Group 1 · Spacing scale -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">Spacing scale</h3>
+          <div class="ds-preview-canvas" style="flex-direction:column;align-items:stretch;gap:var(--hbd-space-3);">
+            <div style="display:flex;align-items:center;gap:var(--hbd-space-4);"><span style="display:block;width:4px;height:16px;background:var(--hbd-color-surface-action);"></span><span class="hbd-text-label hbd-text-primary">--hbd-space-1</span><span class="hbd-text-micro hbd-text-muted">4px</span></div>
+            <div style="display:flex;align-items:center;gap:var(--hbd-space-4);"><span style="display:block;width:8px;height:16px;background:var(--hbd-color-surface-action);"></span><span class="hbd-text-label hbd-text-primary">--hbd-space-2</span><span class="hbd-text-micro hbd-text-muted">8px</span></div>
+            <div style="display:flex;align-items:center;gap:var(--hbd-space-4);"><span style="display:block;width:12px;height:16px;background:var(--hbd-color-surface-action);"></span><span class="hbd-text-label hbd-text-primary">--hbd-space-3</span><span class="hbd-text-micro hbd-text-muted">12px</span></div>
+            <div style="display:flex;align-items:center;gap:var(--hbd-space-4);"><span style="display:block;width:16px;height:16px;background:var(--hbd-color-surface-action);"></span><span class="hbd-text-label hbd-text-primary">--hbd-space-4</span><span class="hbd-text-micro hbd-text-muted">16px</span></div>
+            <div style="display:flex;align-items:center;gap:var(--hbd-space-4);"><span style="display:block;width:24px;height:16px;background:var(--hbd-color-surface-action);"></span><span class="hbd-text-label hbd-text-primary">--hbd-space-6</span><span class="hbd-text-micro hbd-text-muted">24px</span></div>
+            <div style="display:flex;align-items:center;gap:var(--hbd-space-4);"><span style="display:block;width:32px;height:16px;background:var(--hbd-color-surface-action);"></span><span class="hbd-text-label hbd-text-primary">--hbd-space-8</span><span class="hbd-text-micro hbd-text-muted">32px</span></div>
+            <div style="display:flex;align-items:center;gap:var(--hbd-space-4);"><span style="display:block;width:48px;height:16px;background:var(--hbd-color-surface-action);"></span><span class="hbd-text-label hbd-text-primary">--hbd-space-12</span><span class="hbd-text-micro hbd-text-muted">48px</span></div>
+            <div style="display:flex;align-items:center;gap:var(--hbd-space-4);"><span style="display:block;width:64px;height:16px;background:var(--hbd-color-surface-action);"></span><span class="hbd-text-label hbd-text-primary">--hbd-space-16</span><span class="hbd-text-micro hbd-text-muted">64px</span></div>
+            <div style="display:flex;align-items:center;gap:var(--hbd-space-4);"><span style="display:block;width:96px;height:16px;background:var(--hbd-color-surface-action);"></span><span class="hbd-text-label hbd-text-primary">--hbd-space-24</span><span class="hbd-text-micro hbd-text-muted">96px</span></div>
+            <div style="display:flex;align-items:center;gap:var(--hbd-space-4);"><span style="display:block;width:128px;height:16px;background:var(--hbd-color-surface-action);"></span><span class="hbd-text-label hbd-text-primary">--hbd-space-32</span><span class="hbd-text-micro hbd-text-muted">128px</span></div>
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>&lt;div class="hbd-p-4"&gt;…&lt;/div&gt;   &lt;!-- padding: var(--hbd-space-4) --&gt;
+&lt;div class="hbd-gap-6"&gt;…&lt;/div&gt; &lt;!-- gap: var(--hbd-space-6) --&gt;</code></pre>
+          </details>
+        </div>
+
+        <!-- Group 2 · Layout primitives -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">Layout primitives — .hbd-stack</h3>
+          <div class="ds-preview-canvas" style="flex-direction:column;align-items:stretch;gap:var(--hbd-space-8);">
+            <div>
+              <span class="hbd-text-micro hbd-text-muted" style="display:block;margin-bottom:var(--hbd-space-2);">.hbd-stack--sm</span>
+              <div class="hbd-stack hbd-stack--sm">
+                <div class="hbd-p-4" style="background:var(--hbd-color-surface-raised);border:1px solid var(--hbd-color-border-default);"><span class="hbd-text-body hbd-text-primary">Card one</span></div>
+                <div class="hbd-p-4" style="background:var(--hbd-color-surface-raised);border:1px solid var(--hbd-color-border-default);"><span class="hbd-text-body hbd-text-primary">Card two</span></div>
+                <div class="hbd-p-4" style="background:var(--hbd-color-surface-raised);border:1px solid var(--hbd-color-border-default);"><span class="hbd-text-body hbd-text-primary">Card three</span></div>
+              </div>
+            </div>
+            <div>
+              <span class="hbd-text-micro hbd-text-muted" style="display:block;margin-bottom:var(--hbd-space-2);">.hbd-stack--md (default)</span>
+              <div class="hbd-stack hbd-stack--md">
+                <div class="hbd-p-4" style="background:var(--hbd-color-surface-raised);border:1px solid var(--hbd-color-border-default);"><span class="hbd-text-body hbd-text-primary">Card one</span></div>
+                <div class="hbd-p-4" style="background:var(--hbd-color-surface-raised);border:1px solid var(--hbd-color-border-default);"><span class="hbd-text-body hbd-text-primary">Card two</span></div>
+                <div class="hbd-p-4" style="background:var(--hbd-color-surface-raised);border:1px solid var(--hbd-color-border-default);"><span class="hbd-text-body hbd-text-primary">Card three</span></div>
+              </div>
+            </div>
+            <div>
+              <span class="hbd-text-micro hbd-text-muted" style="display:block;margin-bottom:var(--hbd-space-2);">.hbd-stack--lg</span>
+              <div class="hbd-stack hbd-stack--lg">
+                <div class="hbd-p-4" style="background:var(--hbd-color-surface-raised);border:1px solid var(--hbd-color-border-default);"><span class="hbd-text-body hbd-text-primary">Card one</span></div>
+                <div class="hbd-p-4" style="background:var(--hbd-color-surface-raised);border:1px solid var(--hbd-color-border-default);"><span class="hbd-text-body hbd-text-primary">Card two</span></div>
+                <div class="hbd-p-4" style="background:var(--hbd-color-surface-raised);border:1px solid var(--hbd-color-border-default);"><span class="hbd-text-body hbd-text-primary">Card three</span></div>
+              </div>
+            </div>
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>&lt;div class="hbd-stack hbd-stack--lg"&gt;
+  &lt;div&gt;Card one&lt;/div&gt;
+  &lt;div&gt;Card two&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+          </details>
+        </div>
+
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">Layout primitives — .hbd-cluster</h3>
+          <div class="ds-preview-canvas">
+            <div class="hbd-cluster">
+              <span class="hbd-text-label hbd-px-3 hbd-py-2" style="background:var(--hbd-color-surface-raised);border:1px solid var(--hbd-color-border-default);color:var(--hbd-color-text-primary);">Evocation</span>
+              <span class="hbd-text-label hbd-px-3 hbd-py-2" style="background:var(--hbd-color-surface-raised);border:1px solid var(--hbd-color-border-default);color:var(--hbd-color-text-primary);">Conjuration</span>
+              <span class="hbd-text-label hbd-px-3 hbd-py-2" style="background:var(--hbd-color-surface-raised);border:1px solid var(--hbd-color-border-default);color:var(--hbd-color-text-primary);">Divination</span>
+              <span class="hbd-text-label hbd-px-3 hbd-py-2" style="background:var(--hbd-color-surface-raised);border:1px solid var(--hbd-color-border-default);color:var(--hbd-color-text-primary);">Enchantment</span>
+              <span class="hbd-text-label hbd-px-3 hbd-py-2" style="background:var(--hbd-color-surface-raised);border:1px solid var(--hbd-color-border-default);color:var(--hbd-color-text-primary);">Necromancy</span>
+              <span class="hbd-text-label hbd-px-3 hbd-py-2" style="background:var(--hbd-color-surface-raised);border:1px solid var(--hbd-color-border-default);color:var(--hbd-color-text-primary);">Transmutation</span>
+            </div>
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>&lt;div class="hbd-cluster"&gt;
+  &lt;span&gt;Evocation&lt;/span&gt; &lt;span&gt;Conjuration&lt;/span&gt; …
+&lt;/div&gt;</code></pre>
+          </details>
+        </div>
+
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">Layout primitives — .hbd-grid</h3>
+          <div class="ds-preview-canvas" style="flex-direction:column;align-items:stretch;gap:var(--hbd-space-8);">
+            <div>
+              <span class="hbd-text-micro hbd-text-muted" style="display:block;margin-bottom:var(--hbd-space-2);">.hbd-grid (auto-fit)</span>
+              <div class="hbd-grid">
+                <div class="hbd-p-4" style="background:var(--hbd-color-surface-raised);border:1px solid var(--hbd-color-border-default);"><span class="hbd-text-body hbd-text-primary">1</span></div>
+                <div class="hbd-p-4" style="background:var(--hbd-color-surface-raised);border:1px solid var(--hbd-color-border-default);"><span class="hbd-text-body hbd-text-primary">2</span></div>
+                <div class="hbd-p-4" style="background:var(--hbd-color-surface-raised);border:1px solid var(--hbd-color-border-default);"><span class="hbd-text-body hbd-text-primary">3</span></div>
+                <div class="hbd-p-4" style="background:var(--hbd-color-surface-raised);border:1px solid var(--hbd-color-border-default);"><span class="hbd-text-body hbd-text-primary">4</span></div>
+                <div class="hbd-p-4" style="background:var(--hbd-color-surface-raised);border:1px solid var(--hbd-color-border-default);"><span class="hbd-text-body hbd-text-primary">5</span></div>
+                <div class="hbd-p-4" style="background:var(--hbd-color-surface-raised);border:1px solid var(--hbd-color-border-default);"><span class="hbd-text-body hbd-text-primary">6</span></div>
+              </div>
+            </div>
+            <div>
+              <span class="hbd-text-micro hbd-text-muted" style="display:block;margin-bottom:var(--hbd-space-2);">.hbd-grid--2</span>
+              <div class="hbd-grid hbd-grid--2">
+                <div class="hbd-p-4" style="background:var(--hbd-color-surface-raised);border:1px solid var(--hbd-color-border-default);"><span class="hbd-text-body hbd-text-primary">1</span></div>
+                <div class="hbd-p-4" style="background:var(--hbd-color-surface-raised);border:1px solid var(--hbd-color-border-default);"><span class="hbd-text-body hbd-text-primary">2</span></div>
+                <div class="hbd-p-4" style="background:var(--hbd-color-surface-raised);border:1px solid var(--hbd-color-border-default);"><span class="hbd-text-body hbd-text-primary">3</span></div>
+                <div class="hbd-p-4" style="background:var(--hbd-color-surface-raised);border:1px solid var(--hbd-color-border-default);"><span class="hbd-text-body hbd-text-primary">4</span></div>
+                <div class="hbd-p-4" style="background:var(--hbd-color-surface-raised);border:1px solid var(--hbd-color-border-default);"><span class="hbd-text-body hbd-text-primary">5</span></div>
+                <div class="hbd-p-4" style="background:var(--hbd-color-surface-raised);border:1px solid var(--hbd-color-border-default);"><span class="hbd-text-body hbd-text-primary">6</span></div>
+              </div>
+            </div>
+            <div>
+              <span class="hbd-text-micro hbd-text-muted" style="display:block;margin-bottom:var(--hbd-space-2);">.hbd-grid--3</span>
+              <div class="hbd-grid hbd-grid--3">
+                <div class="hbd-p-4" style="background:var(--hbd-color-surface-raised);border:1px solid var(--hbd-color-border-default);"><span class="hbd-text-body hbd-text-primary">1</span></div>
+                <div class="hbd-p-4" style="background:var(--hbd-color-surface-raised);border:1px solid var(--hbd-color-border-default);"><span class="hbd-text-body hbd-text-primary">2</span></div>
+                <div class="hbd-p-4" style="background:var(--hbd-color-surface-raised);border:1px solid var(--hbd-color-border-default);"><span class="hbd-text-body hbd-text-primary">3</span></div>
+                <div class="hbd-p-4" style="background:var(--hbd-color-surface-raised);border:1px solid var(--hbd-color-border-default);"><span class="hbd-text-body hbd-text-primary">4</span></div>
+                <div class="hbd-p-4" style="background:var(--hbd-color-surface-raised);border:1px solid var(--hbd-color-border-default);"><span class="hbd-text-body hbd-text-primary">5</span></div>
+                <div class="hbd-p-4" style="background:var(--hbd-color-surface-raised);border:1px solid var(--hbd-color-border-default);"><span class="hbd-text-body hbd-text-primary">6</span></div>
+              </div>
+            </div>
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>&lt;div class="hbd-grid hbd-grid--3"&gt;
+  &lt;div&gt;1&lt;/div&gt; &lt;div&gt;2&lt;/div&gt; …
+&lt;/div&gt;</code></pre>
+          </details>
+        </div>
+
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">Layout primitives — .hbd-container</h3>
+          <div class="ds-preview-canvas" style="align-items:stretch;">
+            <div class="hbd-container" style="border:2px dashed var(--hbd-color-border-strong);">
+              <p class="hbd-text-body hbd-text-primary">
+                Constrained to <code>--hbd-layout-container-max-width</code> (68.75rem) and centred,
+                with horizontal padding of <code>--hbd-layout-container-padding</code>
+                (clamp(1rem, 4vw, 3rem)). The dashed border shows the box edges and padding gutter.
+              </p>
+            </div>
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>&lt;div class="hbd-container"&gt;…&lt;/div&gt;</code></pre>
+          </details>
+        </div>
+
+        <!-- Group 3 · Touch target reference -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">Touch target reference</h3>
+          <div class="ds-preview-canvas" style="align-items:flex-end;gap:var(--hbd-space-8);">
+            <div style="text-align:center;">
+              <span style="display:block;width:24px;height:24px;background:var(--hbd-color-surface-action);margin:0 auto var(--hbd-space-2);"></span>
+              <span class="hbd-text-micro hbd-text-primary" style="display:block;">24×24px</span>
+              <span class="hbd-text-micro hbd-text-muted" style="display:block;">WCAG minimum · --hbd-space-6</span>
+            </div>
+            <div style="text-align:center;">
+              <span style="display:block;width:44px;height:44px;background:var(--hbd-color-surface-action);margin:0 auto var(--hbd-space-2);"></span>
+              <span class="hbd-text-micro hbd-text-primary" style="display:block;">44×44px</span>
+              <span class="hbd-text-micro hbd-text-muted" style="display:block;">Preferred · --hbd-space-8 + --hbd-space-3</span>
+            </div>
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>&lt;!-- 24px = --hbd-space-6; 44px ≈ --hbd-space-8 (32) + --hbd-space-3 (12) --&gt;</code></pre>
+          </details>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── SIGIL · Spacing divider ── -->
+    <div class="sigil-divider" role="presentation" aria-hidden="true">
+      <svg width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true" focusable="false">
+        <circle cx="22" cy="22" r="19" stroke="#7a5a22" stroke-width="1" opacity="0.4"/>
+        <rect x="14" y="14" width="16" height="16" fill="none" stroke="#b8893b" stroke-width="1.5"/>
+        <circle cx="22" cy="22" r="2" fill="#7a1212"/>
+      </svg>
+    </div>
+
+    <!-- ══════════════════════ BORDERS & RADIUS ══════════════════════ -->
+    <section class="ds-section" id="foundation-borders" aria-labelledby="heading-borders">
+      <div class="container">
+        <span class="section-numeral" aria-hidden="true">II·d</span>
+        <h2 class="ds-section__heading" id="heading-borders">Borders &amp; Radius</h2>
+        <p class="ds-section__description">
+          Four border widths (hairline 1px → thick 4px), composable colour and style modifiers,
+          named manuscript border styles, and a sharp radius scale (0 → 4px, plus full). All values
+          reference tokens. Per the Here Be Dragons aesthetic, radii stay minimal — 2px is the
+          default for interactive elements.
+        </p>
+
+        <!-- Group 1 · Border widths -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">Border widths</h3>
+          <div class="ds-preview-canvas" style="align-items:flex-start;gap:var(--hbd-space-6);">
+            <div style="text-align:center;">
+              <span class="hbd-border hbd-border--strong hbd-p-6" style="display:block;background:var(--hbd-color-surface-raised);"></span>
+              <span class="hbd-text-micro hbd-text-primary" style="display:block;margin-top:var(--hbd-space-2);">.hbd-border</span>
+              <span class="hbd-text-micro hbd-text-muted" style="display:block;">hairline · 1px</span>
+            </div>
+            <div style="text-align:center;">
+              <span class="hbd-border hbd-border--thin hbd-border--strong hbd-p-6" style="display:block;background:var(--hbd-color-surface-raised);"></span>
+              <span class="hbd-text-micro hbd-text-primary" style="display:block;margin-top:var(--hbd-space-2);">.hbd-border--thin</span>
+              <span class="hbd-text-micro hbd-text-muted" style="display:block;">thin · 2px</span>
+            </div>
+            <div style="text-align:center;">
+              <span class="hbd-border hbd-border--medium hbd-border--strong hbd-p-6" style="display:block;background:var(--hbd-color-surface-raised);"></span>
+              <span class="hbd-text-micro hbd-text-primary" style="display:block;margin-top:var(--hbd-space-2);">.hbd-border--medium</span>
+              <span class="hbd-text-micro hbd-text-muted" style="display:block;">medium · 3px</span>
+            </div>
+            <div style="text-align:center;">
+              <span class="hbd-border hbd-border--thick hbd-border--strong hbd-p-6" style="display:block;background:var(--hbd-color-surface-raised);"></span>
+              <span class="hbd-text-micro hbd-text-primary" style="display:block;margin-top:var(--hbd-space-2);">.hbd-border--thick</span>
+              <span class="hbd-text-micro hbd-text-muted" style="display:block;">thick · 4px</span>
+            </div>
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>&lt;div class="hbd-border hbd-border--medium hbd-border--strong"&gt;…&lt;/div&gt;</code></pre>
+          </details>
+        </div>
+
+        <!-- Group 2 · Named border styles -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">Named border styles</h3>
+          <div class="ds-preview-canvas" style="align-items:flex-start;gap:var(--hbd-space-6);">
+            <span class="hbd-border-card hbd-p-4" style="background:var(--hbd-color-surface-raised);"><span class="hbd-text-label hbd-text-primary">card</span></span>
+            <span class="hbd-border-gold hbd-p-4"><span class="hbd-text-label hbd-text-primary">gold</span></span>
+            <span class="hbd-border-gold--dashed hbd-p-4"><span class="hbd-text-label hbd-text-primary">gold-dashed</span></span>
+            <span class="hbd-border-blood hbd-p-4"><span class="hbd-text-label hbd-text-primary">blood</span></span>
+            <span class="hbd-border-double hbd-p-4"><span class="hbd-text-label hbd-text-primary">double</span></span>
+            <span class="hbd-border-faint hbd-p-4"><span class="hbd-text-label hbd-text-primary">faint</span></span>
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>&lt;div class="hbd-border-gold--dashed"&gt;gold-dashed&lt;/div&gt;
+&lt;div class="hbd-border-blood"&gt;blood&lt;/div&gt;</code></pre>
+          </details>
+        </div>
+
+        <!-- Group 3 · Border styles -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">Border styles</h3>
+          <div class="ds-preview-canvas" style="align-items:flex-start;gap:var(--hbd-space-6);">
+            <span class="hbd-border hbd-border--medium hbd-border--strong hbd-p-4" style="background:var(--hbd-color-surface-raised);"><span class="hbd-text-label hbd-text-primary">solid</span></span>
+            <span class="hbd-border hbd-border--medium hbd-border--strong hbd-border--dashed hbd-p-4" style="background:var(--hbd-color-surface-raised);"><span class="hbd-text-label hbd-text-primary">dashed</span></span>
+            <span class="hbd-border hbd-border--medium hbd-border--strong hbd-border--double hbd-p-4" style="background:var(--hbd-color-surface-raised);"><span class="hbd-text-label hbd-text-primary">double</span></span>
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>&lt;div class="hbd-border hbd-border--medium hbd-border--strong hbd-border--dashed"&gt;…&lt;/div&gt;</code></pre>
+          </details>
+        </div>
+
+        <!-- Group 4 · Radius scale -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">Radius scale</h3>
+          <div class="ds-preview-canvas" style="align-items:flex-start;gap:var(--hbd-space-6);">
+            <div style="text-align:center;">
+              <span class="hbd-border hbd-rounded-none" style="display:block;width:48px;height:48px;background:var(--hbd-color-surface-raised);"></span>
+              <span class="hbd-text-micro hbd-text-primary" style="display:block;margin-top:var(--hbd-space-2);">.hbd-rounded-none</span>
+              <span class="hbd-text-micro hbd-text-muted" style="display:block;">0</span>
+            </div>
+            <div style="text-align:center;">
+              <span class="hbd-border hbd-rounded-sm" style="display:block;width:48px;height:48px;background:var(--hbd-color-surface-raised);"></span>
+              <span class="hbd-text-micro hbd-text-primary" style="display:block;margin-top:var(--hbd-space-2);">.hbd-rounded-sm</span>
+              <span class="hbd-text-micro hbd-text-muted" style="display:block;">1px</span>
+            </div>
+            <div style="text-align:center;">
+              <span class="hbd-border hbd-rounded-md" style="display:block;width:48px;height:48px;background:var(--hbd-color-surface-raised);"></span>
+              <span class="hbd-text-micro hbd-text-primary" style="display:block;margin-top:var(--hbd-space-2);">.hbd-rounded-md</span>
+              <span class="hbd-text-micro hbd-text-muted" style="display:block;">2px</span>
+            </div>
+            <div style="text-align:center;">
+              <span class="hbd-border hbd-rounded-lg" style="display:block;width:48px;height:48px;background:var(--hbd-color-surface-raised);"></span>
+              <span class="hbd-text-micro hbd-text-primary" style="display:block;margin-top:var(--hbd-space-2);">.hbd-rounded-lg</span>
+              <span class="hbd-text-micro hbd-text-muted" style="display:block;">3px</span>
+            </div>
+            <div style="text-align:center;">
+              <span class="hbd-border hbd-rounded-xl" style="display:block;width:48px;height:48px;background:var(--hbd-color-surface-raised);"></span>
+              <span class="hbd-text-micro hbd-text-primary" style="display:block;margin-top:var(--hbd-space-2);">.hbd-rounded-xl</span>
+              <span class="hbd-text-micro hbd-text-muted" style="display:block;">4px</span>
+            </div>
+            <div style="text-align:center;">
+              <span class="hbd-border hbd-rounded-full" style="display:block;width:48px;height:48px;background:var(--hbd-color-surface-raised);"></span>
+              <span class="hbd-text-micro hbd-text-primary" style="display:block;margin-top:var(--hbd-space-2);">.hbd-rounded-full</span>
+              <span class="hbd-text-micro hbd-text-muted" style="display:block;">9999px</span>
+            </div>
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>&lt;div class="hbd-border hbd-rounded-md"&gt;…&lt;/div&gt;</code></pre>
+          </details>
+        </div>
+
+        <!-- Group 5 · Focus ring -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">Focus ring</h3>
+          <div class="ds-preview-canvas">
+            <button type="button" class="hbd-focus-ring hbd-border hbd-border--thin hbd-border--strong hbd-px-6 hbd-py-3" style="background:var(--hbd-color-surface-raised);color:var(--hbd-color-text-primary);cursor:pointer;">
+              <span class="hbd-text-label">Tab to this button to see the focus ring</span>
+            </button>
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>&lt;button class="hbd-focus-ring"&gt;Tab to this button…&lt;/button&gt;</code></pre>
+          </details>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── SIGIL · Borders divider ── -->
+    <div class="sigil-divider" role="presentation" aria-hidden="true">
+      <svg width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true" focusable="false">
+        <circle cx="22" cy="22" r="19" stroke="#7a5a22" stroke-width="1" opacity="0.4"/>
+        <rect x="13" y="13" width="18" height="18" rx="2" fill="none" stroke="#b8893b" stroke-width="1.5"/>
+        <circle cx="22" cy="22" r="2" fill="#7a1212"/>
+      </svg>
+    </div>
+
+    <!-- ══════════════════════ ELEVATION & SHADOWS ══════════════════════ -->
+    <section class="ds-section" id="foundation-elevation" aria-labelledby="heading-elevation-shadows">
+      <div class="container">
+        <span class="section-numeral" aria-hidden="true">II·e</span>
+        <h2 class="ds-section__heading" id="heading-elevation-shadows">Elevation &amp; Shadows</h2>
+        <p class="ds-section__description">
+          Five elevation levels plus an inset, expressed as ink-tinted box-shadows, and a z-index
+          scale for stacking. Shadows are decorative — every elevated surface also carries a visible
+          border so its boundary is perceivable without relying on the shadow. Shadow opacity
+          increases automatically in dark mode.
+        </p>
+
+        <!-- Group 1 · Shadow scale -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">Shadow scale</h3>
+          <div class="ds-preview-canvas" style="align-items:flex-start;gap:var(--hbd-space-8);background:var(--hbd-color-surface-subtle);">
+            <div style="text-align:center;">
+              <div class="hbd-shadow-none hbd-rounded-md hbd-border-card hbd-p-6" style="min-width:120px;min-height:80px;background:var(--hbd-color-surface-default);"></div>
+              <span class="hbd-text-label hbd-text-primary" style="display:block;margin-top:var(--hbd-space-2);">.hbd-shadow-none</span>
+              <span class="hbd-text-micro hbd-text-muted" style="display:block;">--hbd-shadow-none</span>
+            </div>
+            <div style="text-align:center;">
+              <div class="hbd-shadow-sm hbd-rounded-md hbd-border-card hbd-p-6" style="min-width:120px;min-height:80px;background:var(--hbd-color-surface-default);"></div>
+              <span class="hbd-text-label hbd-text-primary" style="display:block;margin-top:var(--hbd-space-2);">.hbd-shadow-sm</span>
+              <span class="hbd-text-micro hbd-text-muted" style="display:block;">--hbd-shadow-sm</span>
+            </div>
+            <div style="text-align:center;">
+              <div class="hbd-shadow-md hbd-rounded-md hbd-border-card hbd-p-6" style="min-width:120px;min-height:80px;background:var(--hbd-color-surface-default);"></div>
+              <span class="hbd-text-label hbd-text-primary" style="display:block;margin-top:var(--hbd-space-2);">.hbd-shadow-md</span>
+              <span class="hbd-text-micro hbd-text-muted" style="display:block;">--hbd-shadow-md</span>
+            </div>
+            <div style="text-align:center;">
+              <div class="hbd-shadow-lg hbd-rounded-md hbd-border-card hbd-p-6" style="min-width:120px;min-height:80px;background:var(--hbd-color-surface-default);"></div>
+              <span class="hbd-text-label hbd-text-primary" style="display:block;margin-top:var(--hbd-space-2);">.hbd-shadow-lg</span>
+              <span class="hbd-text-micro hbd-text-muted" style="display:block;">--hbd-shadow-lg</span>
+            </div>
+            <div style="text-align:center;">
+              <div class="hbd-shadow-xl hbd-rounded-md hbd-border-card hbd-p-6" style="min-width:120px;min-height:80px;background:var(--hbd-color-surface-default);"></div>
+              <span class="hbd-text-label hbd-text-primary" style="display:block;margin-top:var(--hbd-space-2);">.hbd-shadow-xl</span>
+              <span class="hbd-text-micro hbd-text-muted" style="display:block;">--hbd-shadow-xl</span>
+            </div>
+            <div style="text-align:center;">
+              <div class="hbd-shadow-inner hbd-rounded-md hbd-border-card hbd-p-6" style="min-width:120px;min-height:80px;background:var(--hbd-color-surface-default);"></div>
+              <span class="hbd-text-label hbd-text-primary" style="display:block;margin-top:var(--hbd-space-2);">.hbd-shadow-inner</span>
+              <span class="hbd-text-micro hbd-text-muted" style="display:block;">--hbd-shadow-inner</span>
+            </div>
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>&lt;div class="hbd-shadow-md hbd-rounded-md hbd-border-card"&gt;…&lt;/div&gt;</code></pre>
+          </details>
+        </div>
+
+        <!-- Group 2 · Elevation in context -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">Elevation in context</h3>
+          <div class="ds-preview-canvas" style="background:var(--hbd-color-surface-subtle);min-height:200px;">
+            <div style="position:relative;width:100%;max-width:420px;">
+              <div class="hbd-shadow-sm hbd-rounded-md hbd-border-card hbd-p-6" style="position:relative;background:var(--hbd-color-surface-default);">
+                <span class="hbd-text-label hbd-text-primary">Layer 1 — base</span>
+              </div>
+              <div class="hbd-shadow-md hbd-z-raised hbd-rounded-md hbd-border-card hbd-p-6" style="position:relative;background:var(--hbd-color-surface-default);margin-top:calc(-1 * var(--hbd-space-4));margin-left:var(--hbd-space-8);">
+                <span class="hbd-text-label hbd-text-primary">Layer 2 — raised (.hbd-z-raised)</span>
+              </div>
+              <div class="hbd-shadow-lg hbd-z-dropdown hbd-rounded-md hbd-border-card hbd-p-6" style="position:relative;background:var(--hbd-color-surface-default);margin-top:calc(-1 * var(--hbd-space-4));margin-left:var(--hbd-space-16);">
+                <span class="hbd-text-label hbd-text-primary">Layer 3 — dropdown (.hbd-z-dropdown)</span>
+              </div>
+            </div>
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>&lt;div class="hbd-shadow-sm"&gt;Layer 1&lt;/div&gt;
+&lt;div class="hbd-shadow-md hbd-z-raised"&gt;Layer 2&lt;/div&gt;
+&lt;div class="hbd-shadow-lg hbd-z-dropdown"&gt;Layer 3&lt;/div&gt;</code></pre>
+          </details>
+        </div>
+
+        <!-- Group 3 · Z-index reference -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">Z-index reference</h3>
+          <div class="ds-preview-canvas" style="align-items:stretch;">
+            <dl style="display:grid;grid-template-columns:auto 1fr;gap:var(--hbd-space-3) var(--hbd-space-8);width:100%;margin:0;">
+              <dt class="hbd-text-label hbd-text-primary">--hbd-z-below</dt>
+              <dd class="hbd-text-body hbd-text-primary" style="margin:0;">-1 — push decorative layers behind content (texture overlays).</dd>
+              <dt class="hbd-text-label hbd-text-primary">--hbd-z-base</dt>
+              <dd class="hbd-text-body hbd-text-primary" style="margin:0;">0 — default document flow.</dd>
+              <dt class="hbd-text-label hbd-text-primary">--hbd-z-raised</dt>
+              <dd class="hbd-text-body hbd-text-primary" style="margin:0;">10 — cards and panels lifted above the page.</dd>
+              <dt class="hbd-text-label hbd-text-primary">--hbd-z-dropdown</dt>
+              <dd class="hbd-text-body hbd-text-primary" style="margin:0;">100 — dropdown menus and select popups.</dd>
+              <dt class="hbd-text-label hbd-text-primary">--hbd-z-sticky</dt>
+              <dd class="hbd-text-body hbd-text-primary" style="margin:0;">200 — sticky headers and toolbars.</dd>
+              <dt class="hbd-text-label hbd-text-primary">--hbd-z-overlay</dt>
+              <dd class="hbd-text-body hbd-text-primary" style="margin:0;">300 — modal backdrops and scrims.</dd>
+              <dt class="hbd-text-label hbd-text-primary">--hbd-z-modal</dt>
+              <dd class="hbd-text-body hbd-text-primary" style="margin:0;">400 — modal dialogs and drawers.</dd>
+              <dt class="hbd-text-label hbd-text-primary">--hbd-z-toast</dt>
+              <dd class="hbd-text-body hbd-text-primary" style="margin:0;">500 — toast notifications. (Existing token value; popover also sits at 500.)</dd>
+              <dt class="hbd-text-label hbd-text-primary">--hbd-z-tooltip</dt>
+              <dd class="hbd-text-body hbd-text-primary" style="margin:0;">600 — tooltips, the topmost layer in the existing scale.</dd>
+            </dl>
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>&lt;div class="hbd-z-modal"&gt;…&lt;/div&gt;</code></pre>
+          </details>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── SIGIL · Elevation divider ── -->
+    <div class="sigil-divider" role="presentation" aria-hidden="true">
+      <svg width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true" focusable="false">
+        <circle cx="22" cy="22" r="19" stroke="#7a5a22" stroke-width="1" opacity="0.4"/>
+        <rect x="11" y="15" width="14" height="14" fill="none" stroke="#7a5a22" stroke-width="1"/>
+        <rect x="19" y="11" width="14" height="14" fill="none" stroke="#b8893b" stroke-width="1.5"/>
+        <circle cx="22" cy="22" r="2" fill="#7a1212"/>
+      </svg>
+    </div>
+
+    <!-- ══════════════════════ MOTION ══════════════════════ -->
+    <section class="ds-section" id="foundation-motion" aria-labelledby="heading-motion-fdn">
+      <style>
+        /* Demo-only looping animations for the Motion section visualisations.
+           Scoped to #foundation-motion. DS utilities live in motion.css. */
+        @keyframes hbd-demo-progress { from { width: 0%; } to { width: 100%; } }
+        @keyframes hbd-demo-slide    { from { transform: translateX(0); } to { transform: translateX(220px); } }
+
+        #foundation-motion .motion-bar-track {
+          flex: 1; height: 14px; background: var(--hbd-color-surface-default);
+          border: var(--hbd-border-width-hairline) solid var(--hbd-color-border-default);
+          overflow: hidden;
+        }
+        #foundation-motion .motion-bar-fill {
+          height: 100%; background: var(--hbd-color-surface-action);
+          animation: hbd-demo-progress var(--demo-dur, 200ms) var(--hbd-ease-in-out) infinite alternate;
+        }
+        #foundation-motion .motion-ease-track {
+          position: relative; height: 24px; flex: 1;
+          background: var(--hbd-color-surface-default);
+          border: var(--hbd-border-width-hairline) solid var(--hbd-color-border-default);
+        }
+        #foundation-motion .motion-ease-dot {
+          position: absolute; top: 3px; left: 3px; width: 16px; height: 16px;
+          background: var(--hbd-color-surface-action);
+          animation: hbd-demo-slide var(--hbd-duration-slower) var(--demo-ease, linear) infinite alternate;
+        }
+        #foundation-motion .motion-demo-target {
+          width: 56px; height: 56px; background: var(--hbd-color-surface-action);
+          border: var(--hbd-border-width-thin) solid var(--hbd-color-border-strong);
+        }
+        /* Pause toggle — when the section is paused, stop all demo + DS animations within it */
+        #foundation-motion.is-paused *,
+        #foundation-motion.is-paused *::before,
+        #foundation-motion.is-paused *::after {
+          animation-play-state: paused !important;
+        }
+      </style>
+
+      <div class="container">
+        <span class="section-numeral" aria-hidden="true">II·f</span>
+        <h2 class="ds-section__heading" id="heading-motion-fdn">Motion</h2>
+        <p class="ds-section__description">
+          Five durations and five easing curves, composed in CSS rather than baked into
+          pre-built transition shorthands. All motion collapses to near-zero when the visitor
+          requests reduced motion. Looping demos below can be paused with the toggle.
+        </p>
+
+        <button type="button" id="motion-pause-toggle" class="hbd-focus-ring hbd-border hbd-border--thin hbd-border--strong hbd-px-4 hbd-py-2" aria-pressed="false" style="background:var(--hbd-color-surface-raised);color:var(--hbd-color-text-primary);cursor:pointer;margin-bottom:var(--hbd-space-6);">
+          <span class="hbd-text-label">Pause animations</span>
+        </button>
+
+        <!-- Group 1 · Duration scale -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">Duration scale</h3>
+          <div class="ds-preview-canvas" style="flex-direction:column;align-items:stretch;gap:var(--hbd-space-4);">
+            <div style="display:flex;align-items:center;gap:var(--hbd-space-4);"><span class="hbd-text-label hbd-text-primary" style="min-width:9ch;">instant</span><span class="hbd-text-mono hbd-text-muted" style="min-width:6ch;">0ms</span><span class="motion-bar-track"><span class="motion-bar-fill" style="--demo-dur:var(--hbd-duration-instant);"></span></span></div>
+            <div style="display:flex;align-items:center;gap:var(--hbd-space-4);"><span class="hbd-text-label hbd-text-primary" style="min-width:9ch;">fast</span><span class="hbd-text-mono hbd-text-muted" style="min-width:6ch;">120ms</span><span class="motion-bar-track"><span class="motion-bar-fill" style="--demo-dur:var(--hbd-duration-fast);"></span></span></div>
+            <div style="display:flex;align-items:center;gap:var(--hbd-space-4);"><span class="hbd-text-label hbd-text-primary" style="min-width:9ch;">normal</span><span class="hbd-text-mono hbd-text-muted" style="min-width:6ch;">200ms</span><span class="motion-bar-track"><span class="motion-bar-fill" style="--demo-dur:var(--hbd-duration-normal);"></span></span></div>
+            <div style="display:flex;align-items:center;gap:var(--hbd-space-4);"><span class="hbd-text-label hbd-text-primary" style="min-width:9ch;">slow</span><span class="hbd-text-mono hbd-text-muted" style="min-width:6ch;">350ms</span><span class="motion-bar-track"><span class="motion-bar-fill" style="--demo-dur:var(--hbd-duration-slow);"></span></span></div>
+            <div style="display:flex;align-items:center;gap:var(--hbd-space-4);"><span class="hbd-text-label hbd-text-primary" style="min-width:9ch;">slower</span><span class="hbd-text-mono hbd-text-muted" style="min-width:6ch;">500ms</span><span class="motion-bar-track"><span class="motion-bar-fill" style="--demo-dur:var(--hbd-duration-slower);"></span></span></div>
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>transition-duration: var(--hbd-duration-fast); /* 120ms */</code></pre>
+          </details>
+        </div>
+
+        <!-- Group 2 · Easing curves -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">Easing curves</h3>
+          <div class="ds-preview-canvas" style="flex-direction:column;align-items:stretch;gap:var(--hbd-space-4);">
+            <div style="display:flex;align-items:center;gap:var(--hbd-space-4);"><span class="hbd-text-label hbd-text-primary" style="min-width:10ch;">linear</span><span class="hbd-text-mono hbd-text-muted" style="min-width:28ch;">linear</span><span class="motion-ease-track"><span class="motion-ease-dot" style="--demo-ease:var(--hbd-ease-linear);"></span></span></div>
+            <div style="display:flex;align-items:center;gap:var(--hbd-space-4);"><span class="hbd-text-label hbd-text-primary" style="min-width:10ch;">in</span><span class="hbd-text-mono hbd-text-muted" style="min-width:28ch;">cubic-bezier(0.4, 0, 1, 1)</span><span class="motion-ease-track"><span class="motion-ease-dot" style="--demo-ease:var(--hbd-ease-in);"></span></span></div>
+            <div style="display:flex;align-items:center;gap:var(--hbd-space-4);"><span class="hbd-text-label hbd-text-primary" style="min-width:10ch;">out</span><span class="hbd-text-mono hbd-text-muted" style="min-width:28ch;">cubic-bezier(0, 0, 0.2, 1)</span><span class="motion-ease-track"><span class="motion-ease-dot" style="--demo-ease:var(--hbd-ease-out);"></span></span></div>
+            <div style="display:flex;align-items:center;gap:var(--hbd-space-4);"><span class="hbd-text-label hbd-text-primary" style="min-width:10ch;">in-out</span><span class="hbd-text-mono hbd-text-muted" style="min-width:28ch;">cubic-bezier(0.4, 0, 0.2, 1)</span><span class="motion-ease-track"><span class="motion-ease-dot" style="--demo-ease:var(--hbd-ease-in-out);"></span></span></div>
+            <div style="display:flex;align-items:center;gap:var(--hbd-space-4);"><span class="hbd-text-label hbd-text-primary" style="min-width:10ch;">anticipate</span><span class="hbd-text-mono hbd-text-muted" style="min-width:28ch;">cubic-bezier(0.4, -0.3, 0.2, 1.3)</span><span class="motion-ease-track"><span class="motion-ease-dot" style="--demo-ease:var(--hbd-ease-anticipate);"></span></span></div>
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>transition-timing-function: var(--hbd-ease-anticipate);</code></pre>
+          </details>
+        </div>
+
+        <!-- Group 3 · Animation library -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">Animation library</h3>
+          <div class="ds-preview-canvas hbd-grid hbd-grid--3" style="display:grid;">
+            <div class="hbd-border-card hbd-p-6" style="text-align:center;background:var(--hbd-color-surface-default);">
+              <div class="motion-demo-target hbd-animate-fade-in" data-anim="hbd-animate-fade-in" style="margin:0 auto var(--hbd-space-3);"></div>
+              <span class="hbd-text-label hbd-text-primary" style="display:block;">.hbd-animate-fade-in</span>
+              <button type="button" class="motion-replay hbd-focus-ring hbd-border hbd-border--thin hbd-border--strong hbd-px-3 hbd-py-2 hbd-mt-3" style="background:var(--hbd-color-surface-raised);color:var(--hbd-color-text-primary);cursor:pointer;"><span class="hbd-text-micro">Replay</span></button>
+            </div>
+            <div class="hbd-border-card hbd-p-6" style="text-align:center;background:var(--hbd-color-surface-default);">
+              <div class="motion-demo-target hbd-animate-slide-up" data-anim="hbd-animate-slide-up" style="margin:0 auto var(--hbd-space-3);"></div>
+              <span class="hbd-text-label hbd-text-primary" style="display:block;">.hbd-animate-slide-up</span>
+              <button type="button" class="motion-replay hbd-focus-ring hbd-border hbd-border--thin hbd-border--strong hbd-px-3 hbd-py-2 hbd-mt-3" style="background:var(--hbd-color-surface-raised);color:var(--hbd-color-text-primary);cursor:pointer;"><span class="hbd-text-micro">Replay</span></button>
+            </div>
+            <div class="hbd-border-card hbd-p-6" style="text-align:center;background:var(--hbd-color-surface-default);">
+              <div class="motion-demo-target hbd-animate-slide-down" data-anim="hbd-animate-slide-down" style="margin:0 auto var(--hbd-space-3);"></div>
+              <span class="hbd-text-label hbd-text-primary" style="display:block;">.hbd-animate-slide-down</span>
+              <button type="button" class="motion-replay hbd-focus-ring hbd-border hbd-border--thin hbd-border--strong hbd-px-3 hbd-py-2 hbd-mt-3" style="background:var(--hbd-color-surface-raised);color:var(--hbd-color-text-primary);cursor:pointer;"><span class="hbd-text-micro">Replay</span></button>
+            </div>
+            <div class="hbd-border-card hbd-p-6" style="text-align:center;background:var(--hbd-color-surface-default);">
+              <div class="motion-demo-target hbd-animate-scale-in" data-anim="hbd-animate-scale-in" style="margin:0 auto var(--hbd-space-3);"></div>
+              <span class="hbd-text-label hbd-text-primary" style="display:block;">.hbd-animate-scale-in</span>
+              <button type="button" class="motion-replay hbd-focus-ring hbd-border hbd-border--thin hbd-border--strong hbd-px-3 hbd-py-2 hbd-mt-3" style="background:var(--hbd-color-surface-raised);color:var(--hbd-color-text-primary);cursor:pointer;"><span class="hbd-text-micro">Replay</span></button>
+            </div>
+            <div class="hbd-border-card hbd-p-6" style="text-align:center;background:var(--hbd-color-surface-default);">
+              <div class="motion-demo-target hbd-animate-fade-out" data-anim="hbd-animate-fade-out" style="margin:0 auto var(--hbd-space-3);"></div>
+              <span class="hbd-text-label hbd-text-primary" style="display:block;">.hbd-animate-fade-out</span>
+              <button type="button" class="motion-replay hbd-focus-ring hbd-border hbd-border--thin hbd-border--strong hbd-px-3 hbd-py-2 hbd-mt-3" style="background:var(--hbd-color-surface-raised);color:var(--hbd-color-text-primary);cursor:pointer;"><span class="hbd-text-micro">Replay</span></button>
+            </div>
+            <div class="hbd-border-card hbd-p-6" style="text-align:center;background:var(--hbd-color-surface-default);">
+              <div class="motion-demo-target hbd-animate-pulse" data-anim="hbd-animate-pulse" style="margin:0 auto var(--hbd-space-3);"></div>
+              <span class="hbd-text-label hbd-text-primary" style="display:block;">.hbd-animate-pulse</span>
+              <button type="button" class="motion-replay hbd-focus-ring hbd-border hbd-border--thin hbd-border--strong hbd-px-3 hbd-py-2 hbd-mt-3" style="background:var(--hbd-color-surface-raised);color:var(--hbd-color-text-primary);cursor:pointer;"><span class="hbd-text-micro">Replay</span></button>
+            </div>
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>&lt;div class="hbd-animate-slide-up"&gt;…&lt;/div&gt;</code></pre>
+          </details>
+        </div>
+
+        <!-- Group 4 · Reduced motion -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">Reduced motion</h3>
+          <div class="ds-preview-canvas" style="flex-direction:column;align-items:flex-start;gap:var(--hbd-space-4);">
+            <div class="motion-demo-target hbd-animate-pulse"></div>
+            <p class="hbd-text-body hbd-text-primary" style="max-width:60ch;">
+              Enable "Reduce Motion" in your OS accessibility settings to see this animation pause.
+              The global <code>prefers-reduced-motion</code> rule in motion.css collapses all
+              animation and transition durations to near-zero.
+            </p>
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>@media (prefers-reduced-motion: reduce) { /* durations → 0.01ms */ }</code></pre>
+          </details>
+        </div>
+
+      </div>
+
+      <script>
+        /* Motion section — vanilla JS only. Pause toggle + per-card replay. */
+        (function () {
+          var section = document.getElementById('foundation-motion');
+          if (!section) return;
+
+          var toggle = document.getElementById('motion-pause-toggle');
+          if (toggle) {
+            toggle.addEventListener('click', function () {
+              var paused = section.classList.toggle('is-paused');
+              toggle.setAttribute('aria-pressed', paused ? 'true' : 'false');
+              toggle.querySelector('.hbd-text-label').textContent =
+                paused ? 'Resume animations' : 'Pause animations';
+            });
+          }
+
+          section.addEventListener('click', function (e) {
+            var btn = e.target.closest('.motion-replay');
+            if (!btn) return;
+            var card = btn.closest('div');
+            var target = card.querySelector('.motion-demo-target');
+            if (!target) return;
+            var cls = target.getAttribute('data-anim');
+            target.classList.remove(cls);
+            /* force reflow so the animation restarts */
+            void target.offsetWidth;
+            target.classList.add(cls);
+          });
+        })();
+      </script>
+    </section>
+
+    <!-- ── SIGIL · Motion divider ── -->
+    <div class="sigil-divider" role="presentation" aria-hidden="true">
+      <svg width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true" focusable="false">
+        <circle cx="22" cy="22" r="19" stroke="#7a5a22" stroke-width="1" opacity="0.4"/>
+        <path d="M8 22 Q22 6 36 22" fill="none" stroke="#b8893b" stroke-width="1.5"/>
+        <circle cx="36" cy="22" r="2" fill="#7a1212"/>
+      </svg>
+    </div>
+
+    <!-- ══════════════════════ ACCESSIBILITY ══════════════════════ -->
+    <section class="ds-section" id="foundation-accessibility" aria-labelledby="heading-a11y">
+      <div class="container">
+        <span class="section-numeral" aria-hidden="true">II·g</span>
+        <h2 class="ds-section__heading" id="heading-a11y">Accessibility</h2>
+        <p class="ds-section__description">
+          Global rules every component inherits: keyboard focus management, skip navigation,
+          screen-reader utilities, ARIA live regions, and forced-colors support. The DS targets
+          WCAG 2.2 AA throughout.
+        </p>
+
+        <!-- Group 1 · Focus management -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">Focus management</h3>
+          <div class="ds-preview-canvas" style="flex-wrap:wrap;gap:var(--hbd-space-6);">
+            <p class="hbd-text-body hbd-text-primary" style="flex-basis:100%;margin:0;">Tab through these elements to see the focus ring.</p>
+            <a href="#foundation-accessibility" class="hbd-text-body" style="color:var(--hbd-color-text-link, var(--hbd-color-text-primary));">A focusable link</a>
+            <button type="button" class="hbd-border hbd-border--thin hbd-border--strong hbd-px-4 hbd-py-2" style="background:var(--hbd-color-surface-raised);color:var(--hbd-color-text-primary);cursor:pointer;"><span class="hbd-text-label">A button</span></button>
+            <span style="display:flex;flex-direction:column;gap:var(--hbd-space-1);">
+              <label for="a11y-input" class="hbd-text-label hbd-text-primary">Adventurer name</label>
+              <input id="a11y-input" type="text" class="hbd-border hbd-border--thin hbd-border--strong hbd-px-3 hbd-py-2" style="background:var(--hbd-color-surface-default);color:var(--hbd-color-text-primary);">
+            </span>
+            <span style="display:flex;flex-direction:column;gap:var(--hbd-space-1);">
+              <label for="a11y-select" class="hbd-text-label hbd-text-primary">Class</label>
+              <select id="a11y-select" class="hbd-border hbd-border--thin hbd-border--strong hbd-px-3 hbd-py-2" style="background:var(--hbd-color-surface-default);color:var(--hbd-color-text-primary);">
+                <option>Wizard</option>
+                <option>Rogue</option>
+                <option>Paladin</option>
+              </select>
+            </span>
+            <span style="display:flex;flex-direction:column;gap:var(--hbd-space-1);">
+              <label for="a11y-textarea" class="hbd-text-label hbd-text-primary">Backstory</label>
+              <textarea id="a11y-textarea" rows="2" class="hbd-border hbd-border--thin hbd-border--strong hbd-px-3 hbd-py-2" style="background:var(--hbd-color-surface-default);color:var(--hbd-color-text-primary);"></textarea>
+            </span>
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>&lt;label for="name"&gt;Adventurer name&lt;/label&gt;
+&lt;input id="name" type="text"&gt;
+&lt;!-- :focus-visible ring applied globally via accessibility.css --&gt;</code></pre>
+          </details>
+        </div>
+
+        <!-- Group 2 · Skip link -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">Skip link</h3>
+          <div class="ds-preview-canvas">
+            <p class="hbd-text-body hbd-text-primary" style="margin:0;">
+              Press Tab immediately after loading this page to see the skip link appear in the
+              top-left corner. Activating it jumps focus past the navigation to the main content.
+            </p>
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>&lt;a href="#main-content" class="hbd-skip-link"&gt;Skip to main content&lt;/a&gt;
+&lt;!-- … --&gt;
+&lt;main id="main-content"&gt;…&lt;/main&gt;</code></pre>
+          </details>
+        </div>
+
+        <!-- Group 3 · Screen reader utilities -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">Screen reader utilities</h3>
+          <div class="ds-preview-canvas" style="gap:var(--hbd-space-8);align-items:center;">
+            <div style="text-align:center;">
+              <button type="button" class="hbd-border hbd-border--thin hbd-border--strong hbd-p-3" style="background:var(--hbd-color-surface-raised);cursor:pointer;">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true" focusable="false"><path d="M4 4L14 14M14 4L4 14" stroke="#1a1410" stroke-width="1.5" stroke-linecap="round"/></svg>
+                <span class="hbd-sr-only">Close dialog</span>
+              </button>
+              <span class="hbd-text-micro hbd-text-muted" style="display:block;margin-top:var(--hbd-space-2);">icon + .hbd-sr-only label</span>
+            </div>
+            <div style="text-align:center;">
+              <button type="button" class="hbd-border hbd-border--thin hbd-border--strong hbd-px-3 hbd-py-3" style="background:var(--hbd-color-surface-raised);color:var(--hbd-color-text-primary);cursor:pointer;display:inline-flex;align-items:center;gap:var(--hbd-space-2);">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true" focusable="false"><path d="M4 4L14 14M14 4L4 14" stroke="#1a1410" stroke-width="1.5" stroke-linecap="round"/></svg>
+                <span class="hbd-text-label">Close dialog</span>
+              </button>
+              <span class="hbd-text-micro hbd-text-muted" style="display:block;margin-top:var(--hbd-space-2);">visible label (for comparison)</span>
+            </div>
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>&lt;button&gt;
+  &lt;svg aria-hidden="true"&gt;…&lt;/svg&gt;
+  &lt;span class="hbd-sr-only"&gt;Close dialog&lt;/span&gt;
+&lt;/button&gt;</code></pre>
+          </details>
+        </div>
+
+        <!-- Group 4 · ARIA live regions -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">ARIA live regions</h3>
+          <div class="ds-preview-canvas" style="flex-direction:column;align-items:flex-start;gap:var(--hbd-space-4);">
+            <button type="button" id="a11y-announce-btn" class="hbd-border hbd-border--thin hbd-border--strong hbd-px-4 hbd-py-2" style="background:var(--hbd-color-surface-action);color:var(--hbd-color-text-on-action);cursor:pointer;"><span class="hbd-text-label">Announce a message</span></button>
+            <p id="a11y-announce-status" class="hbd-text-body hbd-text-primary" style="margin:0;min-height:1.5em;" aria-hidden="true"></p>
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>&lt;div class="hbd-live-polite" role="status" aria-live="polite" aria-atomic="true"&gt;&lt;/div&gt;
+&lt;script&gt;liveRegion.textContent = 'Spell saved to your grimoire.';&lt;/script&gt;</code></pre>
+          </details>
+        </div>
+
+        <!-- Group 5 · Colour contrast reference -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">Colour contrast reference</h3>
+          <div class="ds-preview-canvas" style="align-items:stretch;">
+            <dl style="display:grid;grid-template-columns:auto auto auto;gap:var(--hbd-space-2) var(--hbd-space-8);width:100%;margin:0;align-items:baseline;">
+              <dt class="hbd-text-label hbd-text-primary">text-primary on surface-default</dt>
+              <dd class="hbd-text-mono hbd-text-primary" style="margin:0;">15.39:1</dd>
+              <dd class="hbd-text-body hbd-text-primary" style="margin:0;">AA &#10003;</dd>
+
+              <dt class="hbd-text-label hbd-text-primary">text-secondary on surface-default</dt>
+              <dd class="hbd-text-mono hbd-text-primary" style="margin:0;">11.18:1</dd>
+              <dd class="hbd-text-body hbd-text-primary" style="margin:0;">AA &#10003;</dd>
+
+              <dt class="hbd-text-label hbd-text-primary">text-muted on surface-default</dt>
+              <dd class="hbd-text-mono hbd-text-primary" style="margin:0;">7.79:1</dd>
+              <dd class="hbd-text-body hbd-text-primary" style="margin:0;">AA &#10003;</dd>
+
+              <dt class="hbd-text-label hbd-text-primary">text-muted on surface-raised</dt>
+              <dd class="hbd-text-mono hbd-text-primary" style="margin:0;">4.95:1</dd>
+              <dd class="hbd-text-body hbd-text-primary" style="margin:0;">AA &#10003;</dd>
+
+              <dt class="hbd-text-label hbd-text-primary">action-text on action-default</dt>
+              <dd class="hbd-text-mono hbd-text-primary" style="margin:0;">10.21:1</dd>
+              <dd class="hbd-text-body hbd-text-primary" style="margin:0;">AA &#10003;</dd>
+
+              <dt class="hbd-text-label hbd-text-primary">focus-ring-outline on surface-default</dt>
+              <dd class="hbd-text-mono hbd-text-primary" style="margin:0;">5.43:1</dd>
+              <dd class="hbd-text-body hbd-text-primary" style="margin:0;">SC 1.4.11 &#10003;</dd>
+            </dl>
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>&lt;!-- ratios verified across F-01 … F-04 token work --&gt;</code></pre>
+          </details>
+        </div>
+
+      </div>
+
+      <script>
+        /* Accessibility section — vanilla JS only. Injects a message into the
+           page-level polite live region and mirrors it in a visible status line. */
+        (function () {
+          var btn = document.getElementById('a11y-announce-btn');
+          var liveRegion = document.querySelector('.hbd-live-polite');
+          var statusEcho = document.getElementById('a11y-announce-status');
+          if (!btn) return;
+          var n = 0;
+          var messages = [
+            'Spell saved to your grimoire.',
+            'Initiative rolled: 17.',
+            'The party has entered the dungeon.',
+            'Critical hit! 24 damage dealt.'
+          ];
+          btn.addEventListener('click', function () {
+            var msg = messages[n % messages.length];
+            n++;
+            if (liveRegion) liveRegion.textContent = msg;
+            if (statusEcho) statusEcho.textContent = msg;
+          });
+        })();
+      </script>
+    </section>
+
+    <!-- ── SIGIL · Accessibility divider ── -->
+    <div class="sigil-divider" role="presentation" aria-hidden="true">
+      <svg width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true" focusable="false">
+        <circle cx="22" cy="22" r="19" stroke="#7a5a22" stroke-width="1" opacity="0.4"/>
+        <circle cx="22" cy="22" r="9" fill="none" stroke="#b8893b" stroke-width="1.5"/>
         <circle cx="22" cy="22" r="2" fill="#7a1212"/>
       </svg>
     </div>
@@ -3934,26 +4996,6 @@ DC <span class="tok-val">20</span> <span class="tok-cmt">— Ancient inscription
         <line x1="22" y1="15" x2="22" y2="22" stroke="#b8893b" stroke-width="0.75" opacity="0.5"/>
       </svg>
     </div>
-
-    <!-- ══════════════════════ FOUNDATION: SPACING ══════════════════════ -->
-    <section class="ds-section" id="spacing" aria-labelledby="heading-spacing">
-      <div class="container">
-        <h2 class="ds-section__heading" id="heading-spacing">Spacing</h2>
-        <p class="ds-section__description">
-          All spacing derives from a 4 px base unit. The scale covers 4, 8, 12, 16, 24, 32, 48, 64, 96, and 128 px. Use only these token values — never introduce arbitrary spacing.
-        </p>
-        <div class="ds-preview-group">
-          <h3 class="ds-preview-group__label">Spacing Scale</h3>
-          <div class="ds-preview-canvas">
-            <p class="ds-placeholder-notice">Token visualisation coming soon.</p>
-          </div>
-          <details class="ds-preview-code">
-            <summary>View code</summary>
-            <pre><code><!-- --hbd-space-* tokens --></code></pre>
-          </details>
-        </div>
-      </div>
-    </section>
 
     <!-- ══════════════════════ FOUNDATION: ELEVATION ══════════════════════ -->
     <section class="ds-section" id="elevation" aria-labelledby="heading-elevation">
