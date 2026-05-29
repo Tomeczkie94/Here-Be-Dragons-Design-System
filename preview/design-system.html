@@ -2084,6 +2084,7 @@
           <li><a class="ds-toc__link" href="#foundation-spacing">Spacing</a></li>
           <li><a class="ds-toc__link" href="#foundation-borders">Borders &amp; Radius</a></li>
           <li><a class="ds-toc__link" href="#foundation-elevation">Elevation &amp; Shadows</a></li>
+          <li><a class="ds-toc__link" href="#foundation-motion">Motion</a></li>
           <li><a class="ds-toc__link" href="#texture">Texture</a></li>
           <li><a class="ds-toc__link" href="#borders">Borders</a></li>
           <li><a class="ds-toc__link" href="#components">Components</a></li>
@@ -2980,6 +2981,191 @@
         <rect x="11" y="15" width="14" height="14" fill="none" stroke="#7a5a22" stroke-width="1"/>
         <rect x="19" y="11" width="14" height="14" fill="none" stroke="#b8893b" stroke-width="1.5"/>
         <circle cx="22" cy="22" r="2" fill="#7a1212"/>
+      </svg>
+    </div>
+
+    <!-- ══════════════════════ MOTION ══════════════════════ -->
+    <section class="ds-section" id="foundation-motion" aria-labelledby="heading-motion-fdn">
+      <style>
+        /* Demo-only looping animations for the Motion section visualisations.
+           Scoped to #foundation-motion. DS utilities live in motion.css. */
+        @keyframes hbd-demo-progress { from { width: 0%; } to { width: 100%; } }
+        @keyframes hbd-demo-slide    { from { transform: translateX(0); } to { transform: translateX(220px); } }
+
+        #foundation-motion .motion-bar-track {
+          flex: 1; height: 14px; background: var(--hbd-color-surface-default);
+          border: var(--hbd-border-width-hairline) solid var(--hbd-color-border-default);
+          overflow: hidden;
+        }
+        #foundation-motion .motion-bar-fill {
+          height: 100%; background: var(--hbd-color-surface-action);
+          animation: hbd-demo-progress var(--demo-dur, 200ms) var(--hbd-ease-in-out) infinite alternate;
+        }
+        #foundation-motion .motion-ease-track {
+          position: relative; height: 24px; flex: 1;
+          background: var(--hbd-color-surface-default);
+          border: var(--hbd-border-width-hairline) solid var(--hbd-color-border-default);
+        }
+        #foundation-motion .motion-ease-dot {
+          position: absolute; top: 3px; left: 3px; width: 16px; height: 16px;
+          background: var(--hbd-color-surface-action);
+          animation: hbd-demo-slide var(--hbd-duration-slower) var(--demo-ease, linear) infinite alternate;
+        }
+        #foundation-motion .motion-demo-target {
+          width: 56px; height: 56px; background: var(--hbd-color-surface-action);
+          border: var(--hbd-border-width-thin) solid var(--hbd-color-border-strong);
+        }
+        /* Pause toggle — when the section is paused, stop all demo + DS animations within it */
+        #foundation-motion.is-paused *,
+        #foundation-motion.is-paused *::before,
+        #foundation-motion.is-paused *::after {
+          animation-play-state: paused !important;
+        }
+      </style>
+
+      <div class="container">
+        <span class="section-numeral" aria-hidden="true">II·f</span>
+        <h2 class="ds-section__heading" id="heading-motion-fdn">Motion</h2>
+        <p class="ds-section__description">
+          Five durations and five easing curves, composed in CSS rather than baked into
+          pre-built transition shorthands. All motion collapses to near-zero when the visitor
+          requests reduced motion. Looping demos below can be paused with the toggle.
+        </p>
+
+        <button type="button" id="motion-pause-toggle" class="hbd-focus-ring hbd-border hbd-border--thin hbd-border--strong hbd-px-4 hbd-py-2" aria-pressed="false" style="background:var(--hbd-color-surface-raised);color:var(--hbd-color-text-primary);cursor:pointer;margin-bottom:var(--hbd-space-6);">
+          <span class="hbd-text-label">Pause animations</span>
+        </button>
+
+        <!-- Group 1 · Duration scale -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">Duration scale</h3>
+          <div class="ds-preview-canvas" style="flex-direction:column;align-items:stretch;gap:var(--hbd-space-4);">
+            <div style="display:flex;align-items:center;gap:var(--hbd-space-4);"><span class="hbd-text-label hbd-text-primary" style="min-width:9ch;">instant</span><span class="hbd-text-mono hbd-text-muted" style="min-width:6ch;">0ms</span><span class="motion-bar-track"><span class="motion-bar-fill" style="--demo-dur:var(--hbd-duration-instant);"></span></span></div>
+            <div style="display:flex;align-items:center;gap:var(--hbd-space-4);"><span class="hbd-text-label hbd-text-primary" style="min-width:9ch;">fast</span><span class="hbd-text-mono hbd-text-muted" style="min-width:6ch;">120ms</span><span class="motion-bar-track"><span class="motion-bar-fill" style="--demo-dur:var(--hbd-duration-fast);"></span></span></div>
+            <div style="display:flex;align-items:center;gap:var(--hbd-space-4);"><span class="hbd-text-label hbd-text-primary" style="min-width:9ch;">normal</span><span class="hbd-text-mono hbd-text-muted" style="min-width:6ch;">200ms</span><span class="motion-bar-track"><span class="motion-bar-fill" style="--demo-dur:var(--hbd-duration-normal);"></span></span></div>
+            <div style="display:flex;align-items:center;gap:var(--hbd-space-4);"><span class="hbd-text-label hbd-text-primary" style="min-width:9ch;">slow</span><span class="hbd-text-mono hbd-text-muted" style="min-width:6ch;">350ms</span><span class="motion-bar-track"><span class="motion-bar-fill" style="--demo-dur:var(--hbd-duration-slow);"></span></span></div>
+            <div style="display:flex;align-items:center;gap:var(--hbd-space-4);"><span class="hbd-text-label hbd-text-primary" style="min-width:9ch;">slower</span><span class="hbd-text-mono hbd-text-muted" style="min-width:6ch;">500ms</span><span class="motion-bar-track"><span class="motion-bar-fill" style="--demo-dur:var(--hbd-duration-slower);"></span></span></div>
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>transition-duration: var(--hbd-duration-fast); /* 120ms */</code></pre>
+          </details>
+        </div>
+
+        <!-- Group 2 · Easing curves -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">Easing curves</h3>
+          <div class="ds-preview-canvas" style="flex-direction:column;align-items:stretch;gap:var(--hbd-space-4);">
+            <div style="display:flex;align-items:center;gap:var(--hbd-space-4);"><span class="hbd-text-label hbd-text-primary" style="min-width:10ch;">linear</span><span class="hbd-text-mono hbd-text-muted" style="min-width:28ch;">linear</span><span class="motion-ease-track"><span class="motion-ease-dot" style="--demo-ease:var(--hbd-ease-linear);"></span></span></div>
+            <div style="display:flex;align-items:center;gap:var(--hbd-space-4);"><span class="hbd-text-label hbd-text-primary" style="min-width:10ch;">in</span><span class="hbd-text-mono hbd-text-muted" style="min-width:28ch;">cubic-bezier(0.4, 0, 1, 1)</span><span class="motion-ease-track"><span class="motion-ease-dot" style="--demo-ease:var(--hbd-ease-in);"></span></span></div>
+            <div style="display:flex;align-items:center;gap:var(--hbd-space-4);"><span class="hbd-text-label hbd-text-primary" style="min-width:10ch;">out</span><span class="hbd-text-mono hbd-text-muted" style="min-width:28ch;">cubic-bezier(0, 0, 0.2, 1)</span><span class="motion-ease-track"><span class="motion-ease-dot" style="--demo-ease:var(--hbd-ease-out);"></span></span></div>
+            <div style="display:flex;align-items:center;gap:var(--hbd-space-4);"><span class="hbd-text-label hbd-text-primary" style="min-width:10ch;">in-out</span><span class="hbd-text-mono hbd-text-muted" style="min-width:28ch;">cubic-bezier(0.4, 0, 0.2, 1)</span><span class="motion-ease-track"><span class="motion-ease-dot" style="--demo-ease:var(--hbd-ease-in-out);"></span></span></div>
+            <div style="display:flex;align-items:center;gap:var(--hbd-space-4);"><span class="hbd-text-label hbd-text-primary" style="min-width:10ch;">anticipate</span><span class="hbd-text-mono hbd-text-muted" style="min-width:28ch;">cubic-bezier(0.4, -0.3, 0.2, 1.3)</span><span class="motion-ease-track"><span class="motion-ease-dot" style="--demo-ease:var(--hbd-ease-anticipate);"></span></span></div>
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>transition-timing-function: var(--hbd-ease-anticipate);</code></pre>
+          </details>
+        </div>
+
+        <!-- Group 3 · Animation library -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">Animation library</h3>
+          <div class="ds-preview-canvas hbd-grid hbd-grid--3" style="display:grid;">
+            <div class="hbd-border-card hbd-p-6" style="text-align:center;background:var(--hbd-color-surface-default);">
+              <div class="motion-demo-target hbd-animate-fade-in" data-anim="hbd-animate-fade-in" style="margin:0 auto var(--hbd-space-3);"></div>
+              <span class="hbd-text-label hbd-text-primary" style="display:block;">.hbd-animate-fade-in</span>
+              <button type="button" class="motion-replay hbd-focus-ring hbd-border hbd-border--thin hbd-border--strong hbd-px-3 hbd-py-2 hbd-mt-3" style="background:var(--hbd-color-surface-raised);color:var(--hbd-color-text-primary);cursor:pointer;"><span class="hbd-text-micro">Replay</span></button>
+            </div>
+            <div class="hbd-border-card hbd-p-6" style="text-align:center;background:var(--hbd-color-surface-default);">
+              <div class="motion-demo-target hbd-animate-slide-up" data-anim="hbd-animate-slide-up" style="margin:0 auto var(--hbd-space-3);"></div>
+              <span class="hbd-text-label hbd-text-primary" style="display:block;">.hbd-animate-slide-up</span>
+              <button type="button" class="motion-replay hbd-focus-ring hbd-border hbd-border--thin hbd-border--strong hbd-px-3 hbd-py-2 hbd-mt-3" style="background:var(--hbd-color-surface-raised);color:var(--hbd-color-text-primary);cursor:pointer;"><span class="hbd-text-micro">Replay</span></button>
+            </div>
+            <div class="hbd-border-card hbd-p-6" style="text-align:center;background:var(--hbd-color-surface-default);">
+              <div class="motion-demo-target hbd-animate-slide-down" data-anim="hbd-animate-slide-down" style="margin:0 auto var(--hbd-space-3);"></div>
+              <span class="hbd-text-label hbd-text-primary" style="display:block;">.hbd-animate-slide-down</span>
+              <button type="button" class="motion-replay hbd-focus-ring hbd-border hbd-border--thin hbd-border--strong hbd-px-3 hbd-py-2 hbd-mt-3" style="background:var(--hbd-color-surface-raised);color:var(--hbd-color-text-primary);cursor:pointer;"><span class="hbd-text-micro">Replay</span></button>
+            </div>
+            <div class="hbd-border-card hbd-p-6" style="text-align:center;background:var(--hbd-color-surface-default);">
+              <div class="motion-demo-target hbd-animate-scale-in" data-anim="hbd-animate-scale-in" style="margin:0 auto var(--hbd-space-3);"></div>
+              <span class="hbd-text-label hbd-text-primary" style="display:block;">.hbd-animate-scale-in</span>
+              <button type="button" class="motion-replay hbd-focus-ring hbd-border hbd-border--thin hbd-border--strong hbd-px-3 hbd-py-2 hbd-mt-3" style="background:var(--hbd-color-surface-raised);color:var(--hbd-color-text-primary);cursor:pointer;"><span class="hbd-text-micro">Replay</span></button>
+            </div>
+            <div class="hbd-border-card hbd-p-6" style="text-align:center;background:var(--hbd-color-surface-default);">
+              <div class="motion-demo-target hbd-animate-fade-out" data-anim="hbd-animate-fade-out" style="margin:0 auto var(--hbd-space-3);"></div>
+              <span class="hbd-text-label hbd-text-primary" style="display:block;">.hbd-animate-fade-out</span>
+              <button type="button" class="motion-replay hbd-focus-ring hbd-border hbd-border--thin hbd-border--strong hbd-px-3 hbd-py-2 hbd-mt-3" style="background:var(--hbd-color-surface-raised);color:var(--hbd-color-text-primary);cursor:pointer;"><span class="hbd-text-micro">Replay</span></button>
+            </div>
+            <div class="hbd-border-card hbd-p-6" style="text-align:center;background:var(--hbd-color-surface-default);">
+              <div class="motion-demo-target hbd-animate-pulse" data-anim="hbd-animate-pulse" style="margin:0 auto var(--hbd-space-3);"></div>
+              <span class="hbd-text-label hbd-text-primary" style="display:block;">.hbd-animate-pulse</span>
+              <button type="button" class="motion-replay hbd-focus-ring hbd-border hbd-border--thin hbd-border--strong hbd-px-3 hbd-py-2 hbd-mt-3" style="background:var(--hbd-color-surface-raised);color:var(--hbd-color-text-primary);cursor:pointer;"><span class="hbd-text-micro">Replay</span></button>
+            </div>
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>&lt;div class="hbd-animate-slide-up"&gt;…&lt;/div&gt;</code></pre>
+          </details>
+        </div>
+
+        <!-- Group 4 · Reduced motion -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">Reduced motion</h3>
+          <div class="ds-preview-canvas" style="flex-direction:column;align-items:flex-start;gap:var(--hbd-space-4);">
+            <div class="motion-demo-target hbd-animate-pulse"></div>
+            <p class="hbd-text-body hbd-text-primary" style="max-width:60ch;">
+              Enable "Reduce Motion" in your OS accessibility settings to see this animation pause.
+              The global <code>prefers-reduced-motion</code> rule in motion.css collapses all
+              animation and transition durations to near-zero.
+            </p>
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>@media (prefers-reduced-motion: reduce) { /* durations → 0.01ms */ }</code></pre>
+          </details>
+        </div>
+
+      </div>
+
+      <script>
+        /* Motion section — vanilla JS only. Pause toggle + per-card replay. */
+        (function () {
+          var section = document.getElementById('foundation-motion');
+          if (!section) return;
+
+          var toggle = document.getElementById('motion-pause-toggle');
+          if (toggle) {
+            toggle.addEventListener('click', function () {
+              var paused = section.classList.toggle('is-paused');
+              toggle.setAttribute('aria-pressed', paused ? 'true' : 'false');
+              toggle.querySelector('.hbd-text-label').textContent =
+                paused ? 'Resume animations' : 'Pause animations';
+            });
+          }
+
+          section.addEventListener('click', function (e) {
+            var btn = e.target.closest('.motion-replay');
+            if (!btn) return;
+            var card = btn.closest('div');
+            var target = card.querySelector('.motion-demo-target');
+            if (!target) return;
+            var cls = target.getAttribute('data-anim');
+            target.classList.remove(cls);
+            /* force reflow so the animation restarts */
+            void target.offsetWidth;
+            target.classList.add(cls);
+          });
+        })();
+      </script>
+    </section>
+
+    <!-- ── SIGIL · Motion divider ── -->
+    <div class="sigil-divider" role="presentation" aria-hidden="true">
+      <svg width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true" focusable="false">
+        <circle cx="22" cy="22" r="19" stroke="#7a5a22" stroke-width="1" opacity="0.4"/>
+        <path d="M8 22 Q22 6 36 22" fill="none" stroke="#b8893b" stroke-width="1.5"/>
+        <circle cx="36" cy="22" r="2" fill="#7a1212"/>
       </svg>
     </div>
 
