@@ -2097,6 +2097,7 @@
           <li><a class="ds-toc__link" href="#component-codeblock">Code Block</a></li>
           <li><a class="ds-toc__link" href="#component-divider">Divider</a></li>
           <li><a class="ds-toc__link" href="#component-time-picker">Time Picker</a></li>
+          <li><a class="ds-toc__link" href="#component-spell-card">Spell Card</a></li>
           <li><a class="ds-toc__link" href="#texture">Texture</a></li>
           <li><a class="ds-toc__link" href="#borders">Borders</a></li>
           <li><a class="ds-toc__link" href="#components">Components</a></li>
@@ -4054,6 +4055,142 @@
         <circle cx="22" cy="22" r="19" stroke="#7a5a22" stroke-width="1" opacity="0.4"/>
         <circle cx="22" cy="22" r="11" fill="none" stroke="#b8893b" stroke-width="1.5"/>
         <path d="M22 16v6l4 3" fill="none" stroke="#7a1212" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+
+    <!-- ══════════════════════ COMPONENT · SPELL CARD ══════════════════════ -->
+    <section class="ds-section" id="component-spell-card" aria-labelledby="heading-spell-card">
+      <div class="container">
+        <span class="section-numeral" aria-hidden="true">C·8</span>
+        <h2 class="ds-section__heading" id="heading-spell-card">Spell Card</h2>
+        <p class="ds-section__description">
+          Spell cards display a D&amp;D spell in a structured format including school, level,
+          casting requirements, and description. Rendered as <code>&lt;hbd-spell-card&gt;</code>.
+          The school of magic sets the colour band and badge; the school name is always shown as
+          visible text so identity never depends on colour alone. The card is static and
+          presentational — focusable for reading but with no interactive behaviour.
+        </p>
+
+        <!-- Group 1 · Spell schools -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">Spell schools</h3>
+          <div class="ds-preview-canvas" style="align-items:flex-start;gap:var(--hbd-space-6);">
+            <hbd-spell-card name="Counterspell" level="3" school="abjuration"
+              casting-time="1 reaction" range="60 feet" components="S" duration="Instantaneous"
+              style="max-width:240px;">Interrupt a creature in the process of casting a spell.</hbd-spell-card>
+
+            <hbd-spell-card name="Misty Step" level="2" school="conjuration"
+              casting-time="1 bonus action" range="Self" components="V" duration="Instantaneous"
+              style="max-width:240px;">Surrounded by silver mist, you teleport up to 30 feet to an unoccupied space.</hbd-spell-card>
+
+            <hbd-spell-card name="Detect Magic" level="1" school="divination"
+              casting-time="1 action" range="Self (30 ft)" components="V, S" duration="10 minutes"
+              style="max-width:240px;">You sense the presence of magic within 30 feet, perceiving its aura and school.</hbd-spell-card>
+
+            <hbd-spell-card name="Charm Person" level="1" school="enchantment"
+              casting-time="1 action" range="30 feet" components="V, S" duration="1 hour"
+              style="max-width:240px;">You attempt to charm a humanoid you can see within range.</hbd-spell-card>
+
+            <hbd-spell-card name="Fireball" level="3" school="evocation"
+              casting-time="1 action" range="150 feet" components="V, S, M" duration="Instantaneous"
+              style="max-width:240px;">A bright streak flashes to a point and blossoms into an explosion of flame.</hbd-spell-card>
+
+            <hbd-spell-card name="Invisibility" level="2" school="illusion"
+              casting-time="1 action" range="Touch" components="V, S, M" duration="Concentration, up to 1 hour"
+              concentration style="max-width:240px;">A creature you touch becomes invisible until the spell ends.</hbd-spell-card>
+
+            <hbd-spell-card name="Animate Dead" level="3" school="necromancy"
+              casting-time="1 minute" range="10 feet" components="V, S, M" duration="Instantaneous"
+              style="max-width:240px;">You imbue a pile of bones or a corpse with a foul mimicry of life.</hbd-spell-card>
+
+            <hbd-spell-card name="Polymorph" level="4" school="transmutation"
+              casting-time="1 action" range="60 feet" components="V, S, M" duration="Concentration, up to 1 hour"
+              concentration style="max-width:240px;">You transform a creature into a new form for the duration.</hbd-spell-card>
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>&lt;hbd-spell-card name="Fireball" level="3" school="evocation"
+  casting-time="1 action" range="150 feet" components="V, S, M"
+  duration="Instantaneous"&gt;A bright streak flashes to a point and
+  blossoms into an explosion of flame.&lt;/hbd-spell-card&gt;</code></pre>
+          </details>
+        </div>
+
+        <!-- Group 2 · Special types -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">Special types</h3>
+          <div class="ds-preview-canvas" style="align-items:flex-start;gap:var(--hbd-space-6);">
+            <hbd-spell-card name="Fire Bolt" level="cantrip" school="evocation"
+              casting-time="1 action" range="120 feet" components="V, S" duration="Instantaneous"
+              style="max-width:240px;">You hurl a mote of fire at a creature or object within range.</hbd-spell-card>
+
+            <hbd-spell-card name="Detect Magic" level="1" school="divination"
+              casting-time="1 action" range="Self (30 ft)" components="V, S" duration="Concentration, up to 10 minutes"
+              ritual concentration style="max-width:240px;">You sense the presence of magic within 30 feet. As a ritual, it can be cast without a spell slot.</hbd-spell-card>
+
+            <hbd-spell-card name="Hold Person" level="2" school="enchantment"
+              casting-time="1 action" range="60 feet" components="V, S, M" duration="Concentration, up to 1 minute"
+              concentration style="max-width:240px;">Choose a humanoid you can see within range; the target must succeed on a Wisdom save or be paralyzed.</hbd-spell-card>
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>&lt;hbd-spell-card name="Fire Bolt" level="cantrip" school="evocation" …&gt;…&lt;/hbd-spell-card&gt;
+&lt;hbd-spell-card name="Detect Magic" level="1" school="divination" ritual …&gt;…&lt;/hbd-spell-card&gt;
+&lt;hbd-spell-card name="Hold Person" level="2" school="enchantment" concentration …&gt;…&lt;/hbd-spell-card&gt;</code></pre>
+          </details>
+        </div>
+
+        <!-- Group 3 · Full card — expanded -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">Full card — all fields</h3>
+          <div class="ds-preview-canvas" style="align-items:flex-start;">
+            <hbd-spell-card name="Fireball" level="3" school="evocation"
+              casting-time="1 action" range="150 feet" components="V, S, M (a tiny ball of bat guano and sulfur)"
+              duration="Instantaneous" style="max-width:300px;">
+              A bright streak flashes from your pointing finger to a point you choose within range,
+              then blossoms with a low roar into an explosion of flame. Each creature in a 20-foot-radius
+              sphere must make a Dexterity saving throw, taking 8d6 fire damage on a failed save, or half
+              as much on a success.
+              <span slot="higher-levels">When you cast this spell using a spell slot of 4th level or higher,
+              the damage increases by 1d6 for each slot level above 3rd.</span>
+              <span slot="footer">Player's Handbook · p. 241</span>
+            </hbd-spell-card>
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>&lt;hbd-spell-card name="Fireball" level="3" school="evocation"
+  casting-time="1 action" range="150 feet"
+  components="V, S, M (a tiny ball of bat guano and sulfur)"
+  duration="Instantaneous"&gt;
+  A bright streak flashes from your pointing finger…
+  &lt;span slot="higher-levels"&gt;When you cast this spell using a slot of
+  4th level or higher, the damage increases by 1d6…&lt;/span&gt;
+  &lt;span slot="footer"&gt;Player's Handbook · p. 241&lt;/span&gt;
+&lt;/hbd-spell-card&gt;</code></pre>
+          </details>
+        </div>
+
+        <!-- Group 4 · Interactive states -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">Interactive states</h3>
+          <div class="ds-preview-canvas">
+            <p class="ds-placeholder-notice">
+              The spell card is a static, presentational component — it has no hover, expand, or flip
+              behaviour. It is focusable (a visible focus ring appears on <kbd>Tab</kbd>) so the content
+              region can be reached and read by keyboard, but there are no interactive actions to demonstrate.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── SIGIL · Spell Card divider ── -->
+    <div class="sigil-divider" role="presentation" aria-hidden="true">
+      <svg width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true" focusable="false">
+        <circle cx="22" cy="22" r="19" stroke="#7a5a22" stroke-width="1" opacity="0.4"/>
+        <path d="M22 11l3 7h7l-5.5 4.5L28 30l-6-4-6 4 1.5-7.5L12 18h7z" fill="none" stroke="#b8893b" stroke-width="1.5" stroke-linejoin="round"/>
+        <circle cx="22" cy="22" r="2" fill="#7a1212"/>
       </svg>
     </div>
 

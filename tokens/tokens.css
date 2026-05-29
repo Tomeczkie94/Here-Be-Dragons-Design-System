@@ -77,6 +77,12 @@
   --hbd-color-blood: #7a1212;
   --hbd-color-blood-deep: #4a0808;
   --hbd-color-emerald: #2d5a3d;
+  --hbd-color-emerald-bright: #5aab74;
+  --hbd-color-azure: #4a7ab8;
+  --hbd-color-amethyst: #6b3fa0;
+  --hbd-color-rose: #a8336b;
+  --hbd-color-umber: #9a5414;
+  --hbd-color-nightshade: #1e3320;
   --hbd-color-shadow-bg: #2a1f17;
   --hbd-color-white: #ffffff;
   --hbd-color-black: #000000;
@@ -125,6 +131,31 @@
   --hbd-color-status-info-text: var(--hbd-color-parchment-50);
   --hbd-color-status-info-icon: var(--hbd-color-sapphire-700);
   --hbd-color-focus-ring-outline: var(--hbd-color-gold-deep);
+  --hbd-color-border-ink-brown: var(--hbd-color-ink-brown);
+  --hbd-color-school-abjuration: var(--hbd-color-gold-deep);
+  --hbd-color-school-abjuration-accent: var(--hbd-color-gold-bright);
+  --hbd-color-school-abjuration-text: var(--hbd-color-parchment-50);
+  --hbd-color-school-conjuration: var(--hbd-color-emerald);
+  --hbd-color-school-conjuration-accent: var(--hbd-color-emerald-bright);
+  --hbd-color-school-conjuration-text: var(--hbd-color-parchment-50);
+  --hbd-color-school-divination: var(--hbd-color-sapphire);
+  --hbd-color-school-divination-accent: var(--hbd-color-azure);
+  --hbd-color-school-divination-text: var(--hbd-color-parchment-50);
+  --hbd-color-school-enchantment: var(--hbd-color-rose);
+  --hbd-color-school-enchantment-accent: var(--hbd-color-crimson-400);
+  --hbd-color-school-enchantment-text: var(--hbd-color-parchment-50);
+  --hbd-color-school-evocation: var(--hbd-color-blood);
+  --hbd-color-school-evocation-accent: var(--hbd-color-gold-bright);
+  --hbd-color-school-evocation-text: var(--hbd-color-parchment-50);
+  --hbd-color-school-illusion: var(--hbd-color-amethyst);
+  --hbd-color-school-illusion-accent: var(--hbd-color-sapphire-400);
+  --hbd-color-school-illusion-text: var(--hbd-color-parchment-50);
+  --hbd-color-school-necromancy: var(--hbd-color-nightshade);
+  --hbd-color-school-necromancy-accent: var(--hbd-color-forest-500);
+  --hbd-color-school-necromancy-text: var(--hbd-color-parchment-50);
+  --hbd-color-school-transmutation: var(--hbd-color-umber);
+  --hbd-color-school-transmutation-accent: var(--hbd-color-gold-400);
+  --hbd-color-school-transmutation-text: var(--hbd-color-parchment-50);
 
   /* ── spacing ───────────────────────────────────────────── */
   --hbd-space-1: 4px;
@@ -146,6 +177,8 @@
   --hbd-font-family-mono: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', 'Consolas', monospace;
 
   /* ── font-size ─────────────────────────────────────────── */
+  --hbd-font-size-3xs: 0.5rem;
+  --hbd-font-size-2xs: 0.5625rem;
   --hbd-font-size-xs: 0.75rem;
   --hbd-font-size-sm: 0.875rem;
   --hbd-font-size-md: 1rem;
@@ -196,6 +229,8 @@
   --hbd-letter-spacing-display: 0.02em;
   --hbd-letter-spacing-label: 0.3em;
   --hbd-letter-spacing-button: 0.2em;
+  --hbd-letter-spacing-eyebrow: 0.25em;
+  --hbd-letter-spacing-badge: 0.1em;
 
   /* ── radius ────────────────────────────────────────────── */
   --hbd-radius-none: 0;
@@ -286,4 +321,17 @@
   --hbd-syntax-number: var(--hbd-color-sapphire-300);
   --hbd-syntax-function: var(--hbd-color-parchment-300);
   --hbd-syntax-operator: var(--hbd-color-parchment-100);
+
+  /* ── spell-card ────────────────────────────────────────── */
+  --hbd-spell-card-padding-y: 0.75rem;
+  --hbd-spell-card-padding-x: 0.875rem;
+  --hbd-spell-card-bar-height: 3px;
+  --hbd-spell-card-badge-offset: 0.625rem;
+  --hbd-spell-card-badge-pad-y: 2px;
+  --hbd-spell-card-badge-pad-x: 6px;
+  --hbd-spell-card-corner-size: 18px;
+  --hbd-spell-card-corner-inset: 5px;
+  --hbd-spell-card-corner-weight: 1.5px;
+  --hbd-spell-card-shadow: 4px 4px 0 var(--hbd-color-parchment-400);
+  --hbd-spell-card-shadow-selected: 4px 4px 0 var(--hbd-color-gold-deep);
 }
