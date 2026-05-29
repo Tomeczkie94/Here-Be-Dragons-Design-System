@@ -2,9 +2,13 @@
  * Here Be Dragons DS
  * ds/styles/foundations/accessibility.css
  *
- * Foundation layer — global :focus-visible ring, skip-link, visually-hidden
- * utility, and forced-colors / high-contrast overrides (CLAUDE.md §8.3).
- * All values must reference --hbd-* custom properties.
- *
- * — Placeholder — no styles yet.
+ * Foundation layer — global :focus-visible ring (CLAUDE.md §8.3).
+ * Focus ring values are defined alongside .hbd-focus-ring in borders.css and
+ * consumed here for the global keyboard focus style. All values via --hbd-*.
  */
+
+/* Global keyboard focus ring — references the same tokens as .hbd-focus-ring */
+:focus-visible {
+  outline: var(--hbd-border-width-thin) solid var(--hbd-color-focus-ring-outline);
+  outline-offset: var(--hbd-focus-offset, 2px);
+}

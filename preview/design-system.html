@@ -2082,6 +2082,7 @@
           <li><a class="ds-toc__link" href="#foundation-typography">Typography</a></li>
           <li><a class="ds-toc__link" href="#foundation-colour">Colour</a></li>
           <li><a class="ds-toc__link" href="#foundation-spacing">Spacing</a></li>
+          <li><a class="ds-toc__link" href="#foundation-borders">Borders &amp; Radius</a></li>
           <li><a class="ds-toc__link" href="#texture">Texture</a></li>
           <li><a class="ds-toc__link" href="#borders">Borders</a></li>
           <li><a class="ds-toc__link" href="#components">Components</a></li>
@@ -2441,7 +2442,7 @@
                 <div><span style="display:block;width:48px;height:48px;background:var(--hbd-color-border-default);"></span><span class="hbd-text-micro hbd-text-primary" style="display:block;">border-default</span><span class="hbd-text-micro hbd-text-muted" style="display:block;">→ ink-300</span></div>
                 <div><span style="display:block;width:48px;height:48px;background:var(--hbd-color-border-subtle);"></span><span class="hbd-text-micro hbd-text-primary" style="display:block;">border-subtle</span><span class="hbd-text-micro hbd-text-muted" style="display:block;">→ ink-200</span></div>
                 <div><span style="display:block;width:48px;height:48px;background:var(--hbd-color-border-strong);"></span><span class="hbd-text-micro hbd-text-primary" style="display:block;">border-strong</span><span class="hbd-text-micro hbd-text-muted" style="display:block;">→ ink-700</span></div>
-                <div><span style="display:block;width:48px;height:48px;background:var(--hbd-color-border-focus);"></span><span class="hbd-text-micro hbd-text-primary" style="display:block;">border-focus</span><span class="hbd-text-micro hbd-text-muted" style="display:block;">→ gold</span></div>
+                <div><span style="display:block;width:48px;height:48px;background:var(--hbd-color-input-focus-border);"></span><span class="hbd-text-micro hbd-text-primary" style="display:block;">input-focus-border</span><span class="hbd-text-micro hbd-text-muted" style="display:block;">→ gold</span></div>
               </div>
             </div>
 
@@ -2467,7 +2468,7 @@
             <div>
               <span class="hbd-text-label hbd-text-primary" style="display:block;margin-bottom:var(--space-3);">Focus</span>
               <div style="display:flex;flex-wrap:wrap;gap:var(--space-4);">
-                <div><span style="display:block;width:48px;height:48px;background:var(--hbd-color-focus-ring);"></span><span class="hbd-text-micro hbd-text-primary" style="display:block;">focus-ring</span><span class="hbd-text-micro hbd-text-muted" style="display:block;">→ gold-bright</span></div>
+                <div><span style="display:block;width:48px;height:48px;background:var(--hbd-color-focus-ring-outline);"></span><span class="hbd-text-micro hbd-text-primary" style="display:block;">focus-ring-outline</span><span class="hbd-text-micro hbd-text-muted" style="display:block;">→ gold-deep</span></div>
               </div>
             </div>
 
@@ -2714,6 +2715,148 @@
       <svg width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true" focusable="false">
         <circle cx="22" cy="22" r="19" stroke="#7a5a22" stroke-width="1" opacity="0.4"/>
         <rect x="14" y="14" width="16" height="16" fill="none" stroke="#b8893b" stroke-width="1.5"/>
+        <circle cx="22" cy="22" r="2" fill="#7a1212"/>
+      </svg>
+    </div>
+
+    <!-- ══════════════════════ BORDERS & RADIUS ══════════════════════ -->
+    <section class="ds-section" id="foundation-borders" aria-labelledby="heading-borders">
+      <div class="container">
+        <span class="section-numeral" aria-hidden="true">II·d</span>
+        <h2 class="ds-section__heading" id="heading-borders">Borders &amp; Radius</h2>
+        <p class="ds-section__description">
+          Four border widths (hairline 1px → thick 4px), composable colour and style modifiers,
+          named manuscript border styles, and a sharp radius scale (0 → 4px, plus full). All values
+          reference tokens. Per the Here Be Dragons aesthetic, radii stay minimal — 2px is the
+          default for interactive elements.
+        </p>
+
+        <!-- Group 1 · Border widths -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">Border widths</h3>
+          <div class="ds-preview-canvas" style="align-items:flex-start;gap:var(--hbd-space-6);">
+            <div style="text-align:center;">
+              <span class="hbd-border hbd-border--strong hbd-p-6" style="display:block;background:var(--hbd-color-surface-raised);"></span>
+              <span class="hbd-text-micro hbd-text-primary" style="display:block;margin-top:var(--hbd-space-2);">.hbd-border</span>
+              <span class="hbd-text-micro hbd-text-muted" style="display:block;">hairline · 1px</span>
+            </div>
+            <div style="text-align:center;">
+              <span class="hbd-border hbd-border--thin hbd-border--strong hbd-p-6" style="display:block;background:var(--hbd-color-surface-raised);"></span>
+              <span class="hbd-text-micro hbd-text-primary" style="display:block;margin-top:var(--hbd-space-2);">.hbd-border--thin</span>
+              <span class="hbd-text-micro hbd-text-muted" style="display:block;">thin · 2px</span>
+            </div>
+            <div style="text-align:center;">
+              <span class="hbd-border hbd-border--medium hbd-border--strong hbd-p-6" style="display:block;background:var(--hbd-color-surface-raised);"></span>
+              <span class="hbd-text-micro hbd-text-primary" style="display:block;margin-top:var(--hbd-space-2);">.hbd-border--medium</span>
+              <span class="hbd-text-micro hbd-text-muted" style="display:block;">medium · 3px</span>
+            </div>
+            <div style="text-align:center;">
+              <span class="hbd-border hbd-border--thick hbd-border--strong hbd-p-6" style="display:block;background:var(--hbd-color-surface-raised);"></span>
+              <span class="hbd-text-micro hbd-text-primary" style="display:block;margin-top:var(--hbd-space-2);">.hbd-border--thick</span>
+              <span class="hbd-text-micro hbd-text-muted" style="display:block;">thick · 4px</span>
+            </div>
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>&lt;div class="hbd-border hbd-border--medium hbd-border--strong"&gt;…&lt;/div&gt;</code></pre>
+          </details>
+        </div>
+
+        <!-- Group 2 · Named border styles -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">Named border styles</h3>
+          <div class="ds-preview-canvas" style="align-items:flex-start;gap:var(--hbd-space-6);">
+            <span class="hbd-border-card hbd-p-4" style="background:var(--hbd-color-surface-raised);"><span class="hbd-text-label hbd-text-primary">card</span></span>
+            <span class="hbd-border-gold hbd-p-4"><span class="hbd-text-label hbd-text-primary">gold</span></span>
+            <span class="hbd-border-gold--dashed hbd-p-4"><span class="hbd-text-label hbd-text-primary">gold-dashed</span></span>
+            <span class="hbd-border-blood hbd-p-4"><span class="hbd-text-label hbd-text-primary">blood</span></span>
+            <span class="hbd-border-double hbd-p-4"><span class="hbd-text-label hbd-text-primary">double</span></span>
+            <span class="hbd-border-faint hbd-p-4"><span class="hbd-text-label hbd-text-primary">faint</span></span>
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>&lt;div class="hbd-border-gold--dashed"&gt;gold-dashed&lt;/div&gt;
+&lt;div class="hbd-border-blood"&gt;blood&lt;/div&gt;</code></pre>
+          </details>
+        </div>
+
+        <!-- Group 3 · Border styles -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">Border styles</h3>
+          <div class="ds-preview-canvas" style="align-items:flex-start;gap:var(--hbd-space-6);">
+            <span class="hbd-border hbd-border--medium hbd-border--strong hbd-p-4" style="background:var(--hbd-color-surface-raised);"><span class="hbd-text-label hbd-text-primary">solid</span></span>
+            <span class="hbd-border hbd-border--medium hbd-border--strong hbd-border--dashed hbd-p-4" style="background:var(--hbd-color-surface-raised);"><span class="hbd-text-label hbd-text-primary">dashed</span></span>
+            <span class="hbd-border hbd-border--medium hbd-border--strong hbd-border--double hbd-p-4" style="background:var(--hbd-color-surface-raised);"><span class="hbd-text-label hbd-text-primary">double</span></span>
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>&lt;div class="hbd-border hbd-border--medium hbd-border--strong hbd-border--dashed"&gt;…&lt;/div&gt;</code></pre>
+          </details>
+        </div>
+
+        <!-- Group 4 · Radius scale -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">Radius scale</h3>
+          <div class="ds-preview-canvas" style="align-items:flex-start;gap:var(--hbd-space-6);">
+            <div style="text-align:center;">
+              <span class="hbd-border hbd-rounded-none" style="display:block;width:48px;height:48px;background:var(--hbd-color-surface-raised);"></span>
+              <span class="hbd-text-micro hbd-text-primary" style="display:block;margin-top:var(--hbd-space-2);">.hbd-rounded-none</span>
+              <span class="hbd-text-micro hbd-text-muted" style="display:block;">0</span>
+            </div>
+            <div style="text-align:center;">
+              <span class="hbd-border hbd-rounded-sm" style="display:block;width:48px;height:48px;background:var(--hbd-color-surface-raised);"></span>
+              <span class="hbd-text-micro hbd-text-primary" style="display:block;margin-top:var(--hbd-space-2);">.hbd-rounded-sm</span>
+              <span class="hbd-text-micro hbd-text-muted" style="display:block;">1px</span>
+            </div>
+            <div style="text-align:center;">
+              <span class="hbd-border hbd-rounded-md" style="display:block;width:48px;height:48px;background:var(--hbd-color-surface-raised);"></span>
+              <span class="hbd-text-micro hbd-text-primary" style="display:block;margin-top:var(--hbd-space-2);">.hbd-rounded-md</span>
+              <span class="hbd-text-micro hbd-text-muted" style="display:block;">2px</span>
+            </div>
+            <div style="text-align:center;">
+              <span class="hbd-border hbd-rounded-lg" style="display:block;width:48px;height:48px;background:var(--hbd-color-surface-raised);"></span>
+              <span class="hbd-text-micro hbd-text-primary" style="display:block;margin-top:var(--hbd-space-2);">.hbd-rounded-lg</span>
+              <span class="hbd-text-micro hbd-text-muted" style="display:block;">3px</span>
+            </div>
+            <div style="text-align:center;">
+              <span class="hbd-border hbd-rounded-xl" style="display:block;width:48px;height:48px;background:var(--hbd-color-surface-raised);"></span>
+              <span class="hbd-text-micro hbd-text-primary" style="display:block;margin-top:var(--hbd-space-2);">.hbd-rounded-xl</span>
+              <span class="hbd-text-micro hbd-text-muted" style="display:block;">4px</span>
+            </div>
+            <div style="text-align:center;">
+              <span class="hbd-border hbd-rounded-full" style="display:block;width:48px;height:48px;background:var(--hbd-color-surface-raised);"></span>
+              <span class="hbd-text-micro hbd-text-primary" style="display:block;margin-top:var(--hbd-space-2);">.hbd-rounded-full</span>
+              <span class="hbd-text-micro hbd-text-muted" style="display:block;">9999px</span>
+            </div>
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>&lt;div class="hbd-border hbd-rounded-md"&gt;…&lt;/div&gt;</code></pre>
+          </details>
+        </div>
+
+        <!-- Group 5 · Focus ring -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">Focus ring</h3>
+          <div class="ds-preview-canvas">
+            <button type="button" class="hbd-focus-ring hbd-border hbd-border--thin hbd-border--strong hbd-px-6 hbd-py-3" style="background:var(--hbd-color-surface-raised);color:var(--hbd-color-text-primary);cursor:pointer;">
+              <span class="hbd-text-label">Tab to this button to see the focus ring</span>
+            </button>
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>&lt;button class="hbd-focus-ring"&gt;Tab to this button…&lt;/button&gt;</code></pre>
+          </details>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── SIGIL · Borders divider ── -->
+    <div class="sigil-divider" role="presentation" aria-hidden="true">
+      <svg width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true" focusable="false">
+        <circle cx="22" cy="22" r="19" stroke="#7a5a22" stroke-width="1" opacity="0.4"/>
+        <rect x="13" y="13" width="18" height="18" rx="2" fill="none" stroke="#b8893b" stroke-width="1.5"/>
         <circle cx="22" cy="22" r="2" fill="#7a1212"/>
       </svg>
     </div>

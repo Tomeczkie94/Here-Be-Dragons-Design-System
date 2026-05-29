@@ -105,8 +105,8 @@
   --hbd-color-border-subtle: var(--hbd-color-ink-200);
   --hbd-color-border-strong: var(--hbd-color-ink-700);
   --hbd-color-border-action: var(--hbd-color-crimson-700);
-  --hbd-color-border-focus: var(--hbd-color-gold);
   --hbd-color-border-error: var(--hbd-color-crimson-600);
+  --hbd-color-input-focus-border: var(--hbd-color-gold);
   --hbd-color-status-success-surface: var(--hbd-color-emerald);
   --hbd-color-status-success-border: var(--hbd-color-forest-600);
   --hbd-color-status-success-text: var(--hbd-color-parchment-50);
@@ -123,7 +123,7 @@
   --hbd-color-status-info-border: var(--hbd-color-sapphire-600);
   --hbd-color-status-info-text: var(--hbd-color-parchment-50);
   --hbd-color-status-info-icon: var(--hbd-color-sapphire-700);
-  --hbd-color-focus-ring: var(--hbd-color-gold-bright);
+  --hbd-color-focus-ring-outline: var(--hbd-color-gold-deep);
 
   /* ── spacing ───────────────────────────────────────────── */
   --hbd-space-1: 4px;
@@ -239,9 +239,9 @@
   --hbd-ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
 
   /* ── border ────────────────────────────────────────────── */
-  --hbd-border-width-hairline: 0.5px;
-  --hbd-border-width-thin: 1px;
-  --hbd-border-width-medium: 2px;
+  --hbd-border-width-hairline: 1px;
+  --hbd-border-width-thin: 2px;
+  --hbd-border-width-medium: 3px;
   --hbd-border-width-thick: 4px;
 
   /* ── layout ────────────────────────────────────────────── */
