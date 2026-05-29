@@ -2092,6 +2092,7 @@
           <li><a class="ds-toc__link" href="#foundation-accessibility">Accessibility</a></li>
           <li><a class="ds-toc__link" href="#component-button">Button</a></li>
           <li><a class="ds-toc__link" href="#component-breadcrumbs">Breadcrumbs</a></li>
+          <li><a class="ds-toc__link" href="#component-callout">Callout</a></li>
           <li><a class="ds-toc__link" href="#texture">Texture</a></li>
           <li><a class="ds-toc__link" href="#borders">Borders</a></li>
           <li><a class="ds-toc__link" href="#components">Components</a></li>
@@ -3542,6 +3543,118 @@
       <svg width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true" focusable="false">
         <circle cx="22" cy="22" r="19" stroke="#7a5a22" stroke-width="1" opacity="0.4"/>
         <path d="M14 14l8 8-8 8M22 14l8 8-8 8" fill="none" stroke="#b8893b" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+    </div>
+
+    <!-- ══════════════════════ COMPONENT · CALLOUT ══════════════════════ -->
+    <section class="ds-section" id="component-callout" aria-labelledby="heading-callout">
+      <div class="container">
+        <span class="section-numeral" aria-hidden="true">C·3</span>
+        <h2 class="ds-section__heading" id="heading-callout">Callout</h2>
+        <p class="ds-section__description">
+          Callouts draw attention to important information. Use <strong>info</strong> for guidance,
+          <strong>warning</strong> for caution, <strong>error</strong> for failures, and
+          <strong>success</strong> for confirmations. <strong>Sage Advice</strong> is a Here Be
+          Dragons-specific variant for in-world tips and lore — never for system status. The variant
+          maps to an ARIA role (note / status / alert) so meaning is conveyed without colour alone.
+        </p>
+
+        <!-- Group 1 · Variants -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">Variants</h3>
+          <div class="ds-preview-canvas" style="flex-direction:column;align-items:stretch;gap:var(--hbd-space-4);">
+            <hbd-callout variant="info" title="Arcane Knowledge">This spell requires verbal and somatic components.</hbd-callout>
+            <hbd-callout variant="warning" title="Dangerous Magic">Concentration must be maintained for the duration.</hbd-callout>
+            <hbd-callout variant="error" title="Spell Failed">The ritual components were consumed but the spell fizzled.</hbd-callout>
+            <hbd-callout variant="success" title="Spell Cast">Fireball erupts from your fingertip with a satisfying whomp.</hbd-callout>
+            <hbd-callout variant="sage-advice" title="Sage Advice">When in doubt, the answer is almost never "cast Fireball".</hbd-callout>
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>&lt;hbd-callout variant="info" title="Arcane Knowledge"&gt;This spell requires verbal and somatic components.&lt;/hbd-callout&gt;
+&lt;hbd-callout variant="warning" title="Dangerous Magic"&gt;Concentration must be maintained…&lt;/hbd-callout&gt;
+&lt;hbd-callout variant="error" title="Spell Failed"&gt;The ritual components were consumed…&lt;/hbd-callout&gt;
+&lt;hbd-callout variant="success" title="Spell Cast"&gt;Fireball erupts…&lt;/hbd-callout&gt;
+&lt;hbd-callout variant="sage-advice" title="Sage Advice"&gt;When in doubt…&lt;/hbd-callout&gt;</code></pre>
+          </details>
+        </div>
+
+        <!-- Group 2 · Sage Advice — HBD variant -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">Sage Advice — HBD variant</h3>
+          <p class="hbd-text-body hbd-text-primary" style="margin:0 0 var(--hbd-space-3);">
+            A Here Be Dragons-specific variant for in-world guidance, tips, and lore — not for
+            system status messages. Use info/warning/error/success for those.
+          </p>
+          <div class="ds-preview-canvas" style="flex-direction:column;align-items:stretch;gap:var(--hbd-space-4);">
+            <hbd-callout variant="sage-advice" title="Sage Advice">
+              The spell's damage increases at higher levels — at 5th, the melee attack deals an extra 1d6 fire damage.
+            </hbd-callout>
+            <hbd-callout variant="sage-advice">
+              "In the age before the Sundering, the compendiums were not books — they were oaths."
+            </hbd-callout>
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>&lt;hbd-callout variant="sage-advice" title="Sage Advice"&gt;The spell's damage increases…&lt;/hbd-callout&gt;
+&lt;hbd-callout variant="sage-advice"&gt;"In the age before the Sundering…"&lt;/hbd-callout&gt;</code></pre>
+          </details>
+        </div>
+
+        <!-- Group 3 · Dismissible -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">Dismissible</h3>
+          <div class="ds-preview-canvas" style="flex-direction:column;align-items:stretch;gap:var(--hbd-space-4);">
+            <p class="hbd-text-body hbd-text-primary" style="margin:0;">Click × to dismiss.</p>
+            <hbd-callout variant="info" title="Arcane Knowledge" dismissible>This spell requires verbal and somatic components.</hbd-callout>
+            <hbd-callout variant="warning" title="Dangerous Magic" dismissible>Concentration must be maintained for the duration.</hbd-callout>
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>&lt;hbd-callout variant="info" title="Arcane Knowledge" dismissible&gt;…&lt;/hbd-callout&gt;</code></pre>
+          </details>
+        </div>
+
+        <!-- Group 4 · Without title -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">Without title</h3>
+          <div class="ds-preview-canvas" style="align-items:stretch;">
+            <hbd-callout variant="info">A compact callout with body text only and no heading line.</hbd-callout>
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>&lt;hbd-callout variant="info"&gt;A compact callout with body text only…&lt;/hbd-callout&gt;</code></pre>
+          </details>
+        </div>
+
+        <!-- Group 5 · With custom icon -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">With custom icon</h3>
+          <div class="ds-preview-canvas" style="align-items:stretch;">
+            <hbd-callout variant="success" title="Attunement Complete">
+              <span slot="icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 1l2.2 5.2 5.6.4-4.3 3.6 1.4 5.4L9 13.2 4.1 16l1.4-5.4L1.2 7l5.6-.4z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg>
+              </span>
+              The blade hums with newfound power, bound to your will.
+            </hbd-callout>
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>&lt;hbd-callout variant="success" title="Attunement Complete"&gt;
+  &lt;span slot="icon" aria-hidden="true"&gt;&lt;svg…&gt;&lt;/span&gt;
+  The blade hums with newfound power…
+&lt;/hbd-callout&gt;</code></pre>
+          </details>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── SIGIL · Callout divider ── -->
+    <div class="sigil-divider" role="presentation" aria-hidden="true">
+      <svg width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true" focusable="false">
+        <circle cx="22" cy="22" r="19" stroke="#7a5a22" stroke-width="1" opacity="0.4"/>
+        <path d="M22 11v10M22 27v2" stroke="#b8893b" stroke-width="2" stroke-linecap="round"/>
       </svg>
     </div>
 

@@ -3,3 +3,4 @@
 
 import './components/hbd-breadcrumbs.js';
 import './components/hbd-button.js';
+import './components/hbd-callout.js';

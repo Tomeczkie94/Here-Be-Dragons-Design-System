@@ -267,4 +267,8 @@
   --hbd-button-shadow-primary-active: 1px 1px 0 var(--hbd-color-blood-deep);
   --hbd-button-shadow-gold: 3px 3px 0 var(--hbd-color-gold-deep);
   --hbd-button-shadow-gold-active: 1px 1px 0 var(--hbd-color-gold-deep);
+
+  /* ── callout ───────────────────────────────────────────── */
+  --hbd-callout-sage-advice-bg: rgba(184, 137, 59, 0.08);
+  --hbd-callout-sage-advice-border: var(--hbd-color-gold-deep);
 }
