@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=IM+Fell+English:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/ds/index.css">
+  <script type="module" src="/ds/index.js"></script>
   <style>
     /* ─── Tiamat Condensed SC ───────────────────────────── */
     @font-face {
@@ -2089,11 +2090,19 @@
           <li><a class="ds-toc__link" href="#foundation-elevation">Elevation &amp; Shadows</a></li>
           <li><a class="ds-toc__link" href="#foundation-motion">Motion</a></li>
           <li><a class="ds-toc__link" href="#foundation-accessibility">Accessibility</a></li>
+          <li><a class="ds-toc__link" href="#component-button">Button</a></li>
+          <li><a class="ds-toc__link" href="#component-breadcrumbs">Breadcrumbs</a></li>
+          <li><a class="ds-toc__link" href="#component-callout">Callout</a></li>
+          <li><a class="ds-toc__link" href="#component-checkbox">Checkbox</a></li>
+          <li><a class="ds-toc__link" href="#component-codeblock">Code Block</a></li>
+          <li><a class="ds-toc__link" href="#component-divider">Divider</a></li>
+          <li><a class="ds-toc__link" href="#component-time-picker">Time Picker</a></li>
+          <li><a class="ds-toc__link" href="#component-spell-card">Spell Card</a></li>
+          <li><a class="ds-toc__link" href="#component-stat-block">Stat Block</a></li>
           <li><a class="ds-toc__link" href="#texture">Texture</a></li>
           <li><a class="ds-toc__link" href="#borders">Borders</a></li>
           <li><a class="ds-toc__link" href="#components">Components</a></li>
           <li><a class="ds-toc__link" href="#form-controls">Form Controls</a></li>
-          <li><a class="ds-toc__link" href="#breadcrumbs">Breadcrumbs</a></li>
           <li><a class="ds-toc__link" href="#time-picker">Time Picker</a></li>
           <li><a class="ds-toc__link" href="#elevation">Elevation</a></li>
           <li><a class="ds-toc__link" href="#motion">Motion</a></li>
@@ -3347,6 +3356,994 @@
       </svg>
     </div>
 
+    <!-- ══════════════════════ COMPONENT · BUTTON ══════════════════════ -->
+    <section class="ds-section" id="component-button" aria-labelledby="heading-button">
+      <div class="container">
+        <span class="section-numeral" aria-hidden="true">C·1</span>
+        <h2 class="ds-section__heading" id="heading-button">Button</h2>
+        <p class="ds-section__description">
+          Buttons trigger actions (submit, cast, delete); use a link instead when the control
+          navigates to another page or view. Rendered as the <code>&lt;hbd-button&gt;</code> web
+          component wrapping a native <code>&lt;button&gt;</code>.
+        </p>
+
+        <!-- Group 1 · Variants -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">Variants</h3>
+          <div class="ds-preview-canvas">
+            <hbd-button variant="default">Inspect Scroll</hbd-button>
+            <hbd-button variant="primary">Identify Creature</hbd-button>
+            <hbd-button variant="gold">Attune Item</hbd-button>
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>&lt;hbd-button variant="default"&gt;Inspect Scroll&lt;/hbd-button&gt;
+&lt;hbd-button variant="primary"&gt;Identify Creature&lt;/hbd-button&gt;
+&lt;hbd-button variant="gold"&gt;Attune Item&lt;/hbd-button&gt;</code></pre>
+          </details>
+        </div>
+
+        <!-- Group 2 · Sizes -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">Sizes</h3>
+          <div class="ds-preview-canvas">
+            <hbd-button variant="primary" size="sm">Small</hbd-button>
+            <hbd-button variant="primary" size="md">Medium</hbd-button>
+            <hbd-button variant="primary" size="lg">Large</hbd-button>
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>&lt;hbd-button variant="primary" size="sm"&gt;Small&lt;/hbd-button&gt;
+&lt;hbd-button variant="primary" size="md"&gt;Medium&lt;/hbd-button&gt;
+&lt;hbd-button variant="primary" size="lg"&gt;Large&lt;/hbd-button&gt;</code></pre>
+          </details>
+        </div>
+
+        <!-- Group 3 · States -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">States</h3>
+          <div class="ds-preview-canvas">
+            <hbd-button variant="primary">Default</hbd-button>
+            <hbd-button variant="primary" disabled>Disabled</hbd-button>
+            <hbd-button variant="primary" loading>Loading</hbd-button>
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>&lt;hbd-button variant="primary"&gt;Default&lt;/hbd-button&gt;
+&lt;hbd-button variant="primary" disabled&gt;Disabled&lt;/hbd-button&gt;
+&lt;hbd-button variant="primary" loading&gt;Loading&lt;/hbd-button&gt;</code></pre>
+          </details>
+        </div>
+
+        <!-- Group 4 · With icons -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">With icons</h3>
+          <div class="ds-preview-canvas">
+            <hbd-button variant="gold">
+              <span slot="icon-left" class="hbd-button__icon" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1l2 5h5l-4 3.5L12.5 15 8 11.5 3.5 15 5 9.5 1 6h5z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg>
+              </span>
+              Claim Reward
+            </hbd-button>
+            <hbd-button variant="default" aria-label="Close">
+              <span slot="icon-left" class="hbd-button__icon" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </span>
+            </hbd-button>
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>&lt;hbd-button variant="gold"&gt;
+  &lt;span slot="icon-left" class="hbd-button__icon" aria-hidden="true"&gt;&lt;svg…&gt;&lt;/span&gt;
+  Claim Reward
+&lt;/hbd-button&gt;
+
+&lt;hbd-button variant="default" aria-label="Close"&gt;
+  &lt;span slot="icon-left" class="hbd-button__icon" aria-hidden="true"&gt;&lt;svg…&gt;&lt;/span&gt;
+&lt;/hbd-button&gt;</code></pre>
+          </details>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── SIGIL · Button divider ── -->
+    <div class="sigil-divider" role="presentation" aria-hidden="true">
+      <svg width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true" focusable="false">
+        <circle cx="22" cy="22" r="19" stroke="#7a5a22" stroke-width="1" opacity="0.4"/>
+        <rect x="13" y="17" width="18" height="10" rx="2" fill="none" stroke="#b8893b" stroke-width="1.5"/>
+        <circle cx="22" cy="22" r="2" fill="#7a1212"/>
+      </svg>
+    </div>
+
+    <!-- ══════════════════════ COMPONENT · BREADCRUMBS ══════════════════════ -->
+    <section class="ds-section" id="component-breadcrumbs" aria-labelledby="heading-breadcrumbs">
+      <div class="container">
+        <span class="section-numeral" aria-hidden="true">C·2</span>
+        <h2 class="ds-section__heading" id="heading-breadcrumbs">Breadcrumbs</h2>
+        <p class="ds-section__description">
+          Breadcrumbs show the user's location within the site hierarchy and let them navigate
+          back to parent pages. Rendered as <code>&lt;hbd-breadcrumbs&gt;</code> wrapping a native
+          <code>&lt;nav&gt; &gt; &lt;ol&gt;</code> trail (WAI-ARIA 1.2 pattern).
+        </p>
+
+        <!-- Group 1 · Default -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">Default</h3>
+          <div class="ds-preview-canvas">
+            <hbd-breadcrumbs>
+              <nav aria-label="Breadcrumb">
+                <ol class="hbd-breadcrumbs__list">
+                  <li class="hbd-breadcrumbs__item"><a class="hbd-breadcrumbs__link" href="#component-breadcrumbs">Compendium</a></li>
+                  <li class="hbd-breadcrumbs__item"><span class="hbd-breadcrumbs__separator" aria-hidden="true">›</span><a class="hbd-breadcrumbs__link" href="#component-breadcrumbs">Spells</a></li>
+                  <li class="hbd-breadcrumbs__item"><span class="hbd-breadcrumbs__separator" aria-hidden="true">›</span><span class="hbd-breadcrumbs__current" aria-current="page">Fireball</span></li>
+                </ol>
+              </nav>
+            </hbd-breadcrumbs>
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>&lt;hbd-breadcrumbs&gt;
+  &lt;nav aria-label="Breadcrumb"&gt;
+    &lt;ol class="hbd-breadcrumbs__list"&gt;
+      &lt;li class="hbd-breadcrumbs__item"&gt;&lt;a class="hbd-breadcrumbs__link" href="…"&gt;Compendium&lt;/a&gt;&lt;/li&gt;
+      &lt;li class="hbd-breadcrumbs__item"&gt;&lt;span class="hbd-breadcrumbs__separator" aria-hidden="true"&gt;›&lt;/span&gt;&lt;a class="hbd-breadcrumbs__link" href="…"&gt;Spells&lt;/a&gt;&lt;/li&gt;
+      &lt;li class="hbd-breadcrumbs__item"&gt;&lt;span class="hbd-breadcrumbs__separator" aria-hidden="true"&gt;›&lt;/span&gt;&lt;span class="hbd-breadcrumbs__current" aria-current="page"&gt;Fireball&lt;/span&gt;&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/nav&gt;
+&lt;/hbd-breadcrumbs&gt;</code></pre>
+          </details>
+        </div>
+
+        <!-- Group 2 · Longer trail -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">Longer trail</h3>
+          <div class="ds-preview-canvas">
+            <hbd-breadcrumbs>
+              <nav aria-label="Breadcrumb">
+                <ol class="hbd-breadcrumbs__list">
+                  <li class="hbd-breadcrumbs__item"><a class="hbd-breadcrumbs__link" href="#component-breadcrumbs">Compendium</a></li>
+                  <li class="hbd-breadcrumbs__item"><span class="hbd-breadcrumbs__separator" aria-hidden="true">›</span><a class="hbd-breadcrumbs__link" href="#component-breadcrumbs">Spells</a></li>
+                  <li class="hbd-breadcrumbs__item"><span class="hbd-breadcrumbs__separator" aria-hidden="true">›</span><a class="hbd-breadcrumbs__link" href="#component-breadcrumbs">Evocation</a></li>
+                  <li class="hbd-breadcrumbs__item"><span class="hbd-breadcrumbs__separator" aria-hidden="true">›</span><a class="hbd-breadcrumbs__link" href="#component-breadcrumbs">Damaging</a></li>
+                  <li class="hbd-breadcrumbs__item"><span class="hbd-breadcrumbs__separator" aria-hidden="true">›</span><span class="hbd-breadcrumbs__current" aria-current="page">Fireball</span></li>
+                </ol>
+              </nav>
+            </hbd-breadcrumbs>
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>&lt;hbd-breadcrumbs&gt; … five &lt;li&gt; items … &lt;/hbd-breadcrumbs&gt;</code></pre>
+          </details>
+        </div>
+
+        <!-- Group 3 · Truncated -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">Truncated</h3>
+          <div class="ds-preview-canvas" style="flex-direction:column;align-items:flex-start;gap:var(--hbd-space-3);">
+            <p class="hbd-text-body hbd-text-primary" style="margin:0;">Click … to expand the full path.</p>
+            <hbd-breadcrumbs truncate="3">
+              <nav aria-label="Breadcrumb">
+                <ol class="hbd-breadcrumbs__list">
+                  <li class="hbd-breadcrumbs__item"><a class="hbd-breadcrumbs__link" href="#component-breadcrumbs">Compendium</a></li>
+                  <li class="hbd-breadcrumbs__item"><span class="hbd-breadcrumbs__separator" aria-hidden="true">›</span><a class="hbd-breadcrumbs__link" href="#component-breadcrumbs">Spells</a></li>
+                  <li class="hbd-breadcrumbs__item"><span class="hbd-breadcrumbs__separator" aria-hidden="true">›</span><a class="hbd-breadcrumbs__link" href="#component-breadcrumbs">Evocation</a></li>
+                  <li class="hbd-breadcrumbs__item"><span class="hbd-breadcrumbs__separator" aria-hidden="true">›</span><a class="hbd-breadcrumbs__link" href="#component-breadcrumbs">Damaging</a></li>
+                  <li class="hbd-breadcrumbs__item"><span class="hbd-breadcrumbs__separator" aria-hidden="true">›</span><span class="hbd-breadcrumbs__current" aria-current="page">Fireball</span></li>
+                </ol>
+              </nav>
+            </hbd-breadcrumbs>
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>&lt;hbd-breadcrumbs truncate="3"&gt; … five &lt;li&gt; items … &lt;/hbd-breadcrumbs&gt;
+&lt;!-- middle items hidden; ellipsis button injected after the first --&gt;</code></pre>
+          </details>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── SIGIL · Breadcrumbs divider ── -->
+    <div class="sigil-divider" role="presentation" aria-hidden="true">
+      <svg width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true" focusable="false">
+        <circle cx="22" cy="22" r="19" stroke="#7a5a22" stroke-width="1" opacity="0.4"/>
+        <path d="M14 14l8 8-8 8M22 14l8 8-8 8" fill="none" stroke="#b8893b" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+    </div>
+
+    <!-- ══════════════════════ COMPONENT · CALLOUT ══════════════════════ -->
+    <section class="ds-section" id="component-callout" aria-labelledby="heading-callout">
+      <div class="container">
+        <span class="section-numeral" aria-hidden="true">C·3</span>
+        <h2 class="ds-section__heading" id="heading-callout">Callout</h2>
+        <p class="ds-section__description">
+          Callouts draw attention to important information. Use <strong>info</strong> for guidance,
+          <strong>warning</strong> for caution, <strong>error</strong> for failures, and
+          <strong>success</strong> for confirmations. <strong>Sage Advice</strong> is a Here Be
+          Dragons-specific variant for in-world tips and lore — never for system status. The variant
+          maps to an ARIA role (note / status / alert) so meaning is conveyed without colour alone.
+        </p>
+
+        <!-- Group 1 · Variants -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">Variants</h3>
+          <div class="ds-preview-canvas" style="flex-direction:column;align-items:stretch;gap:var(--hbd-space-4);">
+            <hbd-callout variant="info" title="Arcane Knowledge">This spell requires verbal and somatic components.</hbd-callout>
+            <hbd-callout variant="warning" title="Dangerous Magic">Concentration must be maintained for the duration.</hbd-callout>
+            <hbd-callout variant="error" title="Spell Failed">The ritual components were consumed but the spell fizzled.</hbd-callout>
+            <hbd-callout variant="success" title="Spell Cast">Fireball erupts from your fingertip with a satisfying whomp.</hbd-callout>
+            <hbd-callout variant="sage-advice" title="Sage Advice">When in doubt, the answer is almost never "cast Fireball".</hbd-callout>
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>&lt;hbd-callout variant="info" title="Arcane Knowledge"&gt;This spell requires verbal and somatic components.&lt;/hbd-callout&gt;
+&lt;hbd-callout variant="warning" title="Dangerous Magic"&gt;Concentration must be maintained…&lt;/hbd-callout&gt;
+&lt;hbd-callout variant="error" title="Spell Failed"&gt;The ritual components were consumed…&lt;/hbd-callout&gt;
+&lt;hbd-callout variant="success" title="Spell Cast"&gt;Fireball erupts…&lt;/hbd-callout&gt;
+&lt;hbd-callout variant="sage-advice" title="Sage Advice"&gt;When in doubt…&lt;/hbd-callout&gt;</code></pre>
+          </details>
+        </div>
+
+        <!-- Group 2 · Sage Advice — HBD variant -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">Sage Advice — HBD variant</h3>
+          <p class="hbd-text-body hbd-text-primary" style="margin:0 0 var(--hbd-space-3);">
+            A Here Be Dragons-specific variant for in-world guidance, tips, and lore — not for
+            system status messages. Use info/warning/error/success for those.
+          </p>
+          <div class="ds-preview-canvas" style="flex-direction:column;align-items:stretch;gap:var(--hbd-space-4);">
+            <hbd-callout variant="sage-advice" title="Sage Advice">
+              The spell's damage increases at higher levels — at 5th, the melee attack deals an extra 1d6 fire damage.
+            </hbd-callout>
+            <hbd-callout variant="sage-advice">
+              "In the age before the Sundering, the compendiums were not books — they were oaths."
+            </hbd-callout>
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>&lt;hbd-callout variant="sage-advice" title="Sage Advice"&gt;The spell's damage increases…&lt;/hbd-callout&gt;
+&lt;hbd-callout variant="sage-advice"&gt;"In the age before the Sundering…"&lt;/hbd-callout&gt;</code></pre>
+          </details>
+        </div>
+
+        <!-- Group 3 · Dismissible -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">Dismissible</h3>
+          <div class="ds-preview-canvas" style="flex-direction:column;align-items:stretch;gap:var(--hbd-space-4);">
+            <p class="hbd-text-body hbd-text-primary" style="margin:0;">Click × to dismiss.</p>
+            <hbd-callout variant="info" title="Arcane Knowledge" dismissible>This spell requires verbal and somatic components.</hbd-callout>
+            <hbd-callout variant="warning" title="Dangerous Magic" dismissible>Concentration must be maintained for the duration.</hbd-callout>
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>&lt;hbd-callout variant="info" title="Arcane Knowledge" dismissible&gt;…&lt;/hbd-callout&gt;</code></pre>
+          </details>
+        </div>
+
+        <!-- Group 4 · Without title -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">Without title</h3>
+          <div class="ds-preview-canvas" style="align-items:stretch;">
+            <hbd-callout variant="info">A compact callout with body text only and no heading line.</hbd-callout>
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>&lt;hbd-callout variant="info"&gt;A compact callout with body text only…&lt;/hbd-callout&gt;</code></pre>
+          </details>
+        </div>
+
+        <!-- Group 5 · With custom icon -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">With custom icon</h3>
+          <div class="ds-preview-canvas" style="align-items:stretch;">
+            <hbd-callout variant="success" title="Attunement Complete">
+              <span slot="icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 1l2.2 5.2 5.6.4-4.3 3.6 1.4 5.4L9 13.2 4.1 16l1.4-5.4L1.2 7l5.6-.4z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg>
+              </span>
+              The blade hums with newfound power, bound to your will.
+            </hbd-callout>
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>&lt;hbd-callout variant="success" title="Attunement Complete"&gt;
+  &lt;span slot="icon" aria-hidden="true"&gt;&lt;svg…&gt;&lt;/span&gt;
+  The blade hums with newfound power…
+&lt;/hbd-callout&gt;</code></pre>
+          </details>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── SIGIL · Callout divider ── -->
+    <div class="sigil-divider" role="presentation" aria-hidden="true">
+      <svg width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true" focusable="false">
+        <circle cx="22" cy="22" r="19" stroke="#7a5a22" stroke-width="1" opacity="0.4"/>
+        <path d="M22 11v10M22 27v2" stroke="#b8893b" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </div>
+
+    <!-- ══════════════════════ COMPONENT · CHECKBOX ══════════════════════ -->
+    <section class="ds-section" id="component-checkbox" aria-labelledby="heading-checkbox">
+      <div class="container">
+        <span class="section-numeral" aria-hidden="true">C·4</span>
+        <h2 class="ds-section__heading" id="heading-checkbox">Checkbox</h2>
+        <p class="ds-section__description">
+          Checkboxes allow users to select one or more independent options. Use a checkbox group
+          with <code>&lt;fieldset&gt;</code> and <code>&lt;legend&gt;</code> when options are
+          related. Rendered as <code>&lt;hbd-checkbox&gt;</code> wrapping a native
+          <code>&lt;input type="checkbox"&gt;</code>.
+        </p>
+
+        <!-- Group 1 · States -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">States</h3>
+          <div class="ds-preview-canvas" style="flex-direction:column;align-items:flex-start;gap:var(--hbd-space-2);">
+            <hbd-checkbox>Unchecked</hbd-checkbox>
+            <hbd-checkbox checked>Checked</hbd-checkbox>
+            <hbd-checkbox indeterminate>Indeterminate</hbd-checkbox>
+            <hbd-checkbox disabled>Disabled unchecked</hbd-checkbox>
+            <hbd-checkbox checked disabled>Disabled checked</hbd-checkbox>
+            <hbd-checkbox error="You must accept the pact to proceed.">Error</hbd-checkbox>
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>&lt;hbd-checkbox&gt;Unchecked&lt;/hbd-checkbox&gt;
+&lt;hbd-checkbox checked&gt;Checked&lt;/hbd-checkbox&gt;
+&lt;hbd-checkbox indeterminate&gt;Indeterminate&lt;/hbd-checkbox&gt;
+&lt;hbd-checkbox disabled&gt;Disabled unchecked&lt;/hbd-checkbox&gt;
+&lt;hbd-checkbox checked disabled&gt;Disabled checked&lt;/hbd-checkbox&gt;
+&lt;hbd-checkbox error="You must accept the pact to proceed."&gt;Error&lt;/hbd-checkbox&gt;</code></pre>
+          </details>
+        </div>
+
+        <!-- Group 2 · With hint text -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">With hint text</h3>
+          <div class="ds-preview-canvas" style="flex-direction:column;align-items:flex-start;gap:var(--hbd-space-2);">
+            <hbd-checkbox>
+              Verbal component
+              <span slot="hint">This spell requires spoken incantation.</span>
+            </hbd-checkbox>
+            <hbd-checkbox>
+              Somatic component
+              <span slot="hint">This spell requires precise hand movements.</span>
+            </hbd-checkbox>
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>&lt;hbd-checkbox&gt;
+  Verbal component
+  &lt;span slot="hint"&gt;This spell requires spoken incantation.&lt;/span&gt;
+&lt;/hbd-checkbox&gt;</code></pre>
+          </details>
+        </div>
+
+        <!-- Group 3 · Checkbox group -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">Checkbox group</h3>
+          <div class="ds-preview-canvas" style="align-items:stretch;">
+            <fieldset class="hbd-checkbox-group">
+              <legend>Spell components</legend>
+              <hbd-checkbox name="components" value="verbal" checked>Verbal</hbd-checkbox>
+              <hbd-checkbox name="components" value="somatic" checked>Somatic</hbd-checkbox>
+              <hbd-checkbox name="components" value="material">Material</hbd-checkbox>
+              <hbd-checkbox name="components" value="focus" disabled>Focus</hbd-checkbox>
+            </fieldset>
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>&lt;fieldset class="hbd-checkbox-group"&gt;
+  &lt;legend&gt;Spell components&lt;/legend&gt;
+  &lt;hbd-checkbox name="components" value="verbal" checked&gt;Verbal&lt;/hbd-checkbox&gt;
+  &lt;hbd-checkbox name="components" value="somatic" checked&gt;Somatic&lt;/hbd-checkbox&gt;
+  &lt;hbd-checkbox name="components" value="material"&gt;Material&lt;/hbd-checkbox&gt;
+  &lt;hbd-checkbox name="components" value="focus" disabled&gt;Focus&lt;/hbd-checkbox&gt;
+&lt;/fieldset&gt;</code></pre>
+          </details>
+        </div>
+
+        <!-- Group 4 · Error group -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">Error group</h3>
+          <div class="ds-preview-canvas" style="align-items:stretch;">
+            <fieldset class="hbd-checkbox-group" aria-describedby="cb-group-error">
+              <legend>Spell components</legend>
+              <hbd-checkbox name="components-err" value="verbal">Verbal</hbd-checkbox>
+              <hbd-checkbox name="components-err" value="somatic">Somatic</hbd-checkbox>
+              <hbd-checkbox name="components-err" value="material">Material</hbd-checkbox>
+              <hbd-checkbox name="components-err" value="focus">Focus</hbd-checkbox>
+              <span id="cb-group-error" class="hbd-text-label" role="alert" style="color:var(--hbd-color-status-error-text);">Select at least one component to cast this spell.</span>
+            </fieldset>
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>&lt;fieldset class="hbd-checkbox-group" aria-describedby="err"&gt;
+  &lt;legend&gt;Spell components&lt;/legend&gt;
+  &lt;hbd-checkbox …&gt;Verbal&lt;/hbd-checkbox&gt; …
+  &lt;span id="err" role="alert"&gt;Select at least one component…&lt;/span&gt;
+&lt;/fieldset&gt;</code></pre>
+          </details>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── SIGIL · Checkbox divider ── -->
+    <div class="sigil-divider" role="presentation" aria-hidden="true">
+      <svg width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true" focusable="false">
+        <circle cx="22" cy="22" r="19" stroke="#7a5a22" stroke-width="1" opacity="0.4"/>
+        <rect x="14" y="14" width="16" height="16" rx="2" fill="none" stroke="#b8893b" stroke-width="1.5"/>
+        <path d="M17 22l3.5 3.5L28 18" fill="none" stroke="#7a1212" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+
+    <!-- ══════════════════════ COMPONENT · CODE BLOCK ══════════════════════ -->
+    <section class="ds-section" id="component-codeblock" aria-labelledby="heading-codeblock">
+      <div class="container">
+        <span class="section-numeral" aria-hidden="true">C·5</span>
+        <h2 class="ds-section__heading" id="heading-codeblock">Code Block</h2>
+        <p class="ds-section__description">
+          Code blocks display formatted code snippets with optional syntax highlighting, line
+          numbers, a filename/language header, and a copy button. Rendered as
+          <code>&lt;hbd-codeblock&gt;</code> wrapping a native <code>&lt;pre&gt;&lt;code&gt;</code>.
+        </p>
+
+        <!-- Group 1 · Basic -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">Basic</h3>
+          <div class="ds-preview-canvas" style="align-items:stretch;"><hbd-codeblock><span class="tok-selector">.hbd-button</span> {
+  <span class="tok-property">background</span><span class="tok-operator">:</span> <span class="tok-value">var(--hbd-color-surface-action)</span><span class="tok-operator">;</span>
+  <span class="tok-property">border-radius</span><span class="tok-operator">:</span> <span class="tok-value">var(--hbd-radius-sm)</span><span class="tok-operator">;</span>
+}</hbd-codeblock></div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>&lt;hbd-codeblock&gt;.hbd-button { … }&lt;/hbd-codeblock&gt;</code></pre>
+          </details>
+        </div>
+
+        <!-- Group 2 · With filename and language -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">With filename and language</h3>
+          <div class="ds-preview-canvas" style="align-items:stretch;"><hbd-codeblock filename="spell.css" language="css"><span class="tok-selector">.hbd-button</span> {
+  <span class="tok-property">background</span><span class="tok-operator">:</span> <span class="tok-value">var(--hbd-color-surface-action)</span><span class="tok-operator">;</span>
+  <span class="tok-property">border-radius</span><span class="tok-operator">:</span> <span class="tok-value">var(--hbd-radius-sm)</span><span class="tok-operator">;</span>
+}</hbd-codeblock></div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>&lt;hbd-codeblock filename="spell.css" language="css"&gt;…&lt;/hbd-codeblock&gt;</code></pre>
+          </details>
+        </div>
+
+        <!-- Group 3 · With line numbers -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">With line numbers</h3>
+          <div class="ds-preview-canvas" style="align-items:stretch;"><hbd-codeblock show-lines><span class="tok-selector">.hbd-button</span> {
+  <span class="tok-property">background</span><span class="tok-operator">:</span> <span class="tok-value">var(--hbd-color-surface-action)</span><span class="tok-operator">;</span>
+  <span class="tok-property">border-radius</span><span class="tok-operator">:</span> <span class="tok-value">var(--hbd-radius-sm)</span><span class="tok-operator">;</span>
+}</hbd-codeblock></div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>&lt;hbd-codeblock show-lines&gt;…&lt;/hbd-codeblock&gt;</code></pre>
+          </details>
+        </div>
+
+        <!-- Group 4 · Full featured -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">Full featured</h3>
+          <div class="ds-preview-canvas" style="align-items:stretch;"><hbd-codeblock filename="cast-spell.js" language="javascript" show-lines><span class="tok-comment">// Cast a spell from the grimoire</span>
+<span class="tok-keyword">function</span> <span class="tok-function">castSpell</span>(spell, caster) {
+  <span class="tok-keyword">const</span> dc <span class="tok-operator">=</span> <span class="tok-number">8</span> <span class="tok-operator">+</span> caster.proficiency <span class="tok-operator">+</span> caster.spellMod<span class="tok-operator">;</span>
+  <span class="tok-keyword">if</span> (<span class="tok-operator">!</span>caster.hasComponents(spell.components)) {
+    <span class="tok-keyword">throw</span> <span class="tok-keyword">new</span> <span class="tok-function">Error</span>(<span class="tok-string">'Missing spell components'</span>)<span class="tok-operator">;</span>
+  }
+  <span class="tok-keyword">const</span> damage <span class="tok-operator">=</span> <span class="tok-function">roll</span>(spell.dice)<span class="tok-operator">;</span>
+  <span class="tok-keyword">return</span> { dc, damage, school<span class="tok-operator">:</span> spell.school }<span class="tok-operator">;</span>
+}</hbd-codeblock></div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>&lt;hbd-codeblock filename="cast-spell.js" language="javascript" show-lines&gt;
+  // … 10+ lines …
+&lt;/hbd-codeblock&gt;</code></pre>
+          </details>
+        </div>
+
+        <!-- Group 5 · Single line -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">Single line</h3>
+          <div class="ds-preview-canvas" style="align-items:stretch;"><hbd-codeblock no-copy>node scripts/build-tokens.js</hbd-codeblock></div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>&lt;hbd-codeblock no-copy&gt;node scripts/build-tokens.js&lt;/hbd-codeblock&gt;</code></pre>
+          </details>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── SIGIL · Code Block divider ── -->
+    <div class="sigil-divider" role="presentation" aria-hidden="true">
+      <svg width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true" focusable="false">
+        <circle cx="22" cy="22" r="19" stroke="#7a5a22" stroke-width="1" opacity="0.4"/>
+        <path d="M18 16l-6 6 6 6M26 16l6 6-6 6" fill="none" stroke="#b8893b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+
+    <!-- ══════════════════════ COMPONENT · DIVIDER ══════════════════════ -->
+    <section class="ds-section" id="component-divider" aria-labelledby="heading-divider">
+      <div class="container">
+        <span class="section-numeral" aria-hidden="true">C·6</span>
+        <h2 class="ds-section__heading" id="heading-divider">Divider</h2>
+        <p class="ds-section__description">
+          Dividers separate content into distinct sections. Use structural dividers to indicate
+          hierarchy and ornamental dividers for visual rhythm in HBD-themed layouts. Rendered as
+          <code>&lt;hbd-divider&gt;</code> (Light DOM, <code>role="separator"</code>).
+        </p>
+
+        <!-- Group 1 · Horizontal variants -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">Horizontal variants</h3>
+          <div class="ds-preview-canvas" style="flex-direction:column;align-items:stretch;gap:var(--hbd-space-6);">
+            <div><span class="hbd-text-micro hbd-text-muted">default solid</span><hbd-divider></hbd-divider></div>
+            <div><span class="hbd-text-micro hbd-text-muted">subtle solid</span><hbd-divider color="subtle"></hbd-divider></div>
+            <div><span class="hbd-text-micro hbd-text-muted">strong solid</span><hbd-divider color="strong"></hbd-divider></div>
+            <div><span class="hbd-text-micro hbd-text-muted">gold solid</span><hbd-divider color="gold"></hbd-divider></div>
+            <div><span class="hbd-text-micro hbd-text-muted">default dashed</span><hbd-divider style-type="dashed"></hbd-divider></div>
+            <div><span class="hbd-text-micro hbd-text-muted">default double</span><hbd-divider style-type="double"></hbd-divider></div>
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>&lt;hbd-divider&gt;&lt;/hbd-divider&gt;
+&lt;hbd-divider color="subtle"&gt;&lt;/hbd-divider&gt;
+&lt;hbd-divider color="strong"&gt;&lt;/hbd-divider&gt;
+&lt;hbd-divider color="gold"&gt;&lt;/hbd-divider&gt;
+&lt;hbd-divider style-type="dashed"&gt;&lt;/hbd-divider&gt;
+&lt;hbd-divider style-type="double"&gt;&lt;/hbd-divider&gt;</code></pre>
+          </details>
+        </div>
+
+        <!-- Group 2 · Vertical -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">Vertical</h3>
+          <div class="ds-preview-canvas">
+            <span class="hbd-text-body hbd-text-primary">Wizard<hbd-divider variant="vertical"></hbd-divider>Elf<hbd-divider variant="vertical"></hbd-divider>Level 12</span>
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>Wizard &lt;hbd-divider variant="vertical"&gt;&lt;/hbd-divider&gt; Elf
+&lt;hbd-divider variant="vertical"&gt;&lt;/hbd-divider&gt; Level 12</code></pre>
+          </details>
+        </div>
+
+        <!-- Group 3 · With label -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">With label</h3>
+          <div class="ds-preview-canvas" style="flex-direction:column;align-items:stretch;gap:var(--hbd-space-6);">
+            <hbd-divider variant="with-label">or</hbd-divider>
+            <hbd-divider variant="with-label" color="subtle">Chapter II</hbd-divider>
+            <hbd-divider variant="with-label" color="gold">Component Rules</hbd-divider>
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>&lt;hbd-divider variant="with-label"&gt;or&lt;/hbd-divider&gt;
+&lt;hbd-divider variant="with-label" color="subtle"&gt;Chapter II&lt;/hbd-divider&gt;
+&lt;hbd-divider variant="with-label" color="gold"&gt;Component Rules&lt;/hbd-divider&gt;</code></pre>
+          </details>
+        </div>
+
+        <!-- Group 4 · Ornamental -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">Ornamental</h3>
+          <div class="ds-preview-canvas" style="flex-direction:column;align-items:stretch;gap:var(--hbd-space-4);">
+            <p class="hbd-text-body hbd-text-primary" style="margin:0;">The eye that watches all, seeing through illusion and shadow.</p>
+            <hbd-divider variant="ornamental"><svg width="28" height="28" viewBox="0 0 32 32" fill="none"><ellipse cx="16" cy="16" rx="14" ry="9" stroke="currentColor" stroke-width="1.5"/><ellipse cx="16" cy="16" rx="4.5" ry="8" fill="currentColor"/><line x1="16" y1="4" x2="16" y2="7" stroke="currentColor" stroke-width="1.2"/><line x1="16" y1="25" x2="16" y2="28" stroke="currentColor" stroke-width="1.2"/></svg></hbd-divider>
+            <p class="hbd-text-body hbd-text-primary" style="margin:0;">Between major chapters of the compendium, a sigil announces the transition.</p>
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>&lt;hbd-divider variant="ornamental"&gt;&lt;svg…&gt;&lt;/svg&gt;&lt;/hbd-divider&gt;</code></pre>
+          </details>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── SIGIL · Divider divider ── -->
+    <div class="sigil-divider" role="presentation" aria-hidden="true">
+      <svg width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true" focusable="false">
+        <circle cx="22" cy="22" r="19" stroke="#7a5a22" stroke-width="1" opacity="0.4"/>
+        <line x1="10" y1="22" x2="34" y2="22" stroke="#b8893b" stroke-width="1.5" stroke-linecap="round"/>
+        <circle cx="22" cy="22" r="2.5" fill="#7a1212"/>
+      </svg>
+    </div>
+
+    <!-- ══════════════════════ COMPONENT · TIME PICKER ══════════════════════ -->
+    <section class="ds-section" id="component-time-picker" aria-labelledby="heading-time-picker">
+      <div class="container">
+        <span class="section-numeral" aria-hidden="true">C·7</span>
+        <h2 class="ds-section__heading" id="heading-time-picker">Time Picker</h2>
+        <p class="ds-section__description">
+          The time picker selects a time value through a drum-roll panel of hour and minute columns
+          (plus AM/PM in 12-hour mode), with a click-to-type hour shortcut. Rendered as
+          <code>&lt;hbd-time-picker&gt;</code>. Use for scheduling and time-based inputs where free
+          text would be error-prone.
+        </p>
+
+        <!-- Group 1 · 24-hour format -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">24-hour format</h3>
+          <div class="ds-preview-canvas">
+            <label class="hbd-text-label hbd-text-primary" style="display:flex;flex-direction:column;gap:var(--hbd-space-2);">Watch begins
+              <hbd-time-picker format="24" value="14:30" aria-label="Watch begins"></hbd-time-picker>
+            </label>
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>&lt;hbd-time-picker format="24" value="14:30" aria-label="Watch begins"&gt;&lt;/hbd-time-picker&gt;</code></pre>
+          </details>
+        </div>
+
+        <!-- Group 2 · 12-hour format -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">12-hour format</h3>
+          <div class="ds-preview-canvas">
+            <label class="hbd-text-label hbd-text-primary" style="display:flex;flex-direction:column;gap:var(--hbd-space-2);">Ritual start time
+              <hbd-time-picker format="12" value="14:30" aria-label="Ritual start time"></hbd-time-picker>
+            </label>
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>&lt;hbd-time-picker format="12" value="14:30" aria-label="Ritual start time"&gt;&lt;/hbd-time-picker&gt;</code></pre>
+          </details>
+        </div>
+
+        <!-- Group 3 · Minute step -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">Minute step</h3>
+          <div class="ds-preview-canvas" style="gap:var(--hbd-space-8);">
+            <label class="hbd-text-label hbd-text-primary" style="display:flex;flex-direction:column;gap:var(--hbd-space-2);">15-minute steps
+              <hbd-time-picker format="24" value="14:30" minute-step="15" aria-label="15-minute steps"></hbd-time-picker>
+            </label>
+            <label class="hbd-text-label hbd-text-primary" style="display:flex;flex-direction:column;gap:var(--hbd-space-2);">30-minute steps
+              <hbd-time-picker format="24" value="14:30" minute-step="30" aria-label="30-minute steps"></hbd-time-picker>
+            </label>
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>&lt;hbd-time-picker format="24" minute-step="15"&gt;&lt;/hbd-time-picker&gt;</code></pre>
+          </details>
+        </div>
+
+        <!-- Group 4 · States -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">States</h3>
+          <div class="ds-preview-canvas" style="gap:var(--hbd-space-8);">
+            <label class="hbd-text-label hbd-text-primary" style="display:flex;flex-direction:column;gap:var(--hbd-space-2);">Default
+              <hbd-time-picker format="24" aria-label="Default time picker"></hbd-time-picker>
+            </label>
+            <label class="hbd-text-label hbd-text-primary" style="display:flex;flex-direction:column;gap:var(--hbd-space-2);">Disabled
+              <hbd-time-picker format="24" value="18:00" disabled aria-label="Disabled time picker"></hbd-time-picker>
+            </label>
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>&lt;hbd-time-picker format="24"&gt;&lt;/hbd-time-picker&gt;
+&lt;hbd-time-picker format="24" value="18:00" disabled&gt;&lt;/hbd-time-picker&gt;</code></pre>
+          </details>
+        </div>
+
+        <!-- Group 5 · With error -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">With error</h3>
+          <div class="ds-preview-canvas">
+            <label class="hbd-text-label hbd-text-primary" style="display:flex;flex-direction:column;gap:var(--hbd-space-2);">Encounter time
+              <hbd-time-picker format="24" error="Invalid time selected" aria-label="Encounter time"></hbd-time-picker>
+            </label>
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>&lt;hbd-time-picker format="24" error="Invalid time selected"&gt;&lt;/hbd-time-picker&gt;</code></pre>
+          </details>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── SIGIL · Time Picker divider ── -->
+    <div class="sigil-divider" role="presentation" aria-hidden="true">
+      <svg width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true" focusable="false">
+        <circle cx="22" cy="22" r="19" stroke="#7a5a22" stroke-width="1" opacity="0.4"/>
+        <circle cx="22" cy="22" r="11" fill="none" stroke="#b8893b" stroke-width="1.5"/>
+        <path d="M22 16v6l4 3" fill="none" stroke="#7a1212" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+
+    <!-- ══════════════════════ COMPONENT · SPELL CARD ══════════════════════ -->
+    <section class="ds-section" id="component-spell-card" aria-labelledby="heading-spell-card">
+      <div class="container">
+        <span class="section-numeral" aria-hidden="true">C·8</span>
+        <h2 class="ds-section__heading" id="heading-spell-card">Spell Card</h2>
+        <p class="ds-section__description">
+          Spell cards display a D&amp;D spell in a structured format including school, level,
+          casting requirements, and description. Rendered as <code>&lt;hbd-spell-card&gt;</code>.
+          The school of magic sets the colour band and badge; the school name is always shown as
+          visible text so identity never depends on colour alone. The card is static and
+          presentational — focusable for reading but with no interactive behaviour.
+        </p>
+
+        <!-- Group 1 · Spell schools -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">Spell schools</h3>
+          <div class="ds-preview-canvas" style="align-items:flex-start;gap:var(--hbd-space-6);">
+            <hbd-spell-card name="Counterspell" level="3" school="abjuration"
+              casting-time="1 reaction" range="60 feet" components="S" duration="Instantaneous"
+              style="max-width:240px;">Interrupt a creature in the process of casting a spell.</hbd-spell-card>
+
+            <hbd-spell-card name="Misty Step" level="2" school="conjuration"
+              casting-time="1 bonus action" range="Self" components="V" duration="Instantaneous"
+              style="max-width:240px;">Surrounded by silver mist, you teleport up to 30 feet to an unoccupied space.</hbd-spell-card>
+
+            <hbd-spell-card name="Detect Magic" level="1" school="divination"
+              casting-time="1 action" range="Self (30 ft)" components="V, S" duration="10 minutes"
+              style="max-width:240px;">You sense the presence of magic within 30 feet, perceiving its aura and school.</hbd-spell-card>
+
+            <hbd-spell-card name="Charm Person" level="1" school="enchantment"
+              casting-time="1 action" range="30 feet" components="V, S" duration="1 hour"
+              style="max-width:240px;">You attempt to charm a humanoid you can see within range.</hbd-spell-card>
+
+            <hbd-spell-card name="Fireball" level="3" school="evocation"
+              casting-time="1 action" range="150 feet" components="V, S, M" duration="Instantaneous"
+              style="max-width:240px;">A bright streak flashes to a point and blossoms into an explosion of flame.</hbd-spell-card>
+
+            <hbd-spell-card name="Invisibility" level="2" school="illusion"
+              casting-time="1 action" range="Touch" components="V, S, M" duration="Concentration, up to 1 hour"
+              concentration style="max-width:240px;">A creature you touch becomes invisible until the spell ends.</hbd-spell-card>
+
+            <hbd-spell-card name="Animate Dead" level="3" school="necromancy"
+              casting-time="1 minute" range="10 feet" components="V, S, M" duration="Instantaneous"
+              style="max-width:240px;">You imbue a pile of bones or a corpse with a foul mimicry of life.</hbd-spell-card>
+
+            <hbd-spell-card name="Polymorph" level="4" school="transmutation"
+              casting-time="1 action" range="60 feet" components="V, S, M" duration="Concentration, up to 1 hour"
+              concentration style="max-width:240px;">You transform a creature into a new form for the duration.</hbd-spell-card>
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>&lt;hbd-spell-card name="Fireball" level="3" school="evocation"
+  casting-time="1 action" range="150 feet" components="V, S, M"
+  duration="Instantaneous"&gt;A bright streak flashes to a point and
+  blossoms into an explosion of flame.&lt;/hbd-spell-card&gt;</code></pre>
+          </details>
+        </div>
+
+        <!-- Group 2 · Special types -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">Special types</h3>
+          <div class="ds-preview-canvas" style="align-items:flex-start;gap:var(--hbd-space-6);">
+            <hbd-spell-card name="Fire Bolt" level="cantrip" school="evocation"
+              casting-time="1 action" range="120 feet" components="V, S" duration="Instantaneous"
+              style="max-width:240px;">You hurl a mote of fire at a creature or object within range.</hbd-spell-card>
+
+            <hbd-spell-card name="Detect Magic" level="1" school="divination"
+              casting-time="1 action" range="Self (30 ft)" components="V, S" duration="Concentration, up to 10 minutes"
+              ritual concentration style="max-width:240px;">You sense the presence of magic within 30 feet. As a ritual, it can be cast without a spell slot.</hbd-spell-card>
+
+            <hbd-spell-card name="Hold Person" level="2" school="enchantment"
+              casting-time="1 action" range="60 feet" components="V, S, M" duration="Concentration, up to 1 minute"
+              concentration style="max-width:240px;">Choose a humanoid you can see within range; the target must succeed on a Wisdom save or be paralyzed.</hbd-spell-card>
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>&lt;hbd-spell-card name="Fire Bolt" level="cantrip" school="evocation" …&gt;…&lt;/hbd-spell-card&gt;
+&lt;hbd-spell-card name="Detect Magic" level="1" school="divination" ritual …&gt;…&lt;/hbd-spell-card&gt;
+&lt;hbd-spell-card name="Hold Person" level="2" school="enchantment" concentration …&gt;…&lt;/hbd-spell-card&gt;</code></pre>
+          </details>
+        </div>
+
+        <!-- Group 3 · Full card — expanded -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">Full card — all fields</h3>
+          <div class="ds-preview-canvas" style="align-items:flex-start;">
+            <hbd-spell-card name="Fireball" level="3" school="evocation"
+              casting-time="1 action" range="150 feet" components="V, S, M (a tiny ball of bat guano and sulfur)"
+              duration="Instantaneous" style="max-width:300px;">
+              A bright streak flashes from your pointing finger to a point you choose within range,
+              then blossoms with a low roar into an explosion of flame. Each creature in a 20-foot-radius
+              sphere must make a Dexterity saving throw, taking 8d6 fire damage on a failed save, or half
+              as much on a success.
+              <span slot="higher-levels">When you cast this spell using a spell slot of 4th level or higher,
+              the damage increases by 1d6 for each slot level above 3rd.</span>
+              <span slot="footer">Player's Handbook · p. 241</span>
+            </hbd-spell-card>
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>&lt;hbd-spell-card name="Fireball" level="3" school="evocation"
+  casting-time="1 action" range="150 feet"
+  components="V, S, M (a tiny ball of bat guano and sulfur)"
+  duration="Instantaneous"&gt;
+  A bright streak flashes from your pointing finger…
+  &lt;span slot="higher-levels"&gt;When you cast this spell using a slot of
+  4th level or higher, the damage increases by 1d6…&lt;/span&gt;
+  &lt;span slot="footer"&gt;Player's Handbook · p. 241&lt;/span&gt;
+&lt;/hbd-spell-card&gt;</code></pre>
+          </details>
+        </div>
+
+        <!-- Group 4 · Interactive states -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">Interactive states</h3>
+          <div class="ds-preview-canvas">
+            <p class="ds-placeholder-notice">
+              The spell card is a static, presentational component — it has no hover, expand, or flip
+              behaviour. It is focusable (a visible focus ring appears on <kbd>Tab</kbd>) so the content
+              region can be reached and read by keyboard, but there are no interactive actions to demonstrate.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── SIGIL · Spell Card divider ── -->
+    <div class="sigil-divider" role="presentation" aria-hidden="true">
+      <svg width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true" focusable="false">
+        <circle cx="22" cy="22" r="19" stroke="#7a5a22" stroke-width="1" opacity="0.4"/>
+        <path d="M22 11l3 7h7l-5.5 4.5L28 30l-6-4-6 4 1.5-7.5L12 18h7z" fill="none" stroke="#b8893b" stroke-width="1.5" stroke-linejoin="round"/>
+        <circle cx="22" cy="22" r="2" fill="#7a1212"/>
+      </svg>
+    </div>
+
+    <!-- ══════════════════════ COMPONENT · STAT BLOCK ══════════════════════ -->
+    <section class="ds-section" id="component-stat-block" aria-labelledby="heading-stat-block">
+      <div class="container">
+        <span class="section-numeral" aria-hidden="true">C·9</span>
+        <h2 class="ds-section__heading" id="heading-stat-block">Stat Block</h2>
+        <p class="ds-section__description">
+          Stat blocks display the complete game statistics for a D&amp;D creature or NPC in the
+          structured format familiar to players and Dungeon Masters. Rendered as
+          <code>&lt;hbd-stat-block&gt;</code>. Ability scores use a real <code>&lt;table&gt;</code>,
+          properties use <code>&lt;dl&gt;</code> pairs, and each section is an <code>&lt;h3&gt;</code>
+          inside the card's <code>&lt;article&gt;</code>. The component is static and display-only.
+        </p>
+
+        <!-- Group 1 · Standard creature -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">Standard creature</h3>
+          <div class="ds-preview-canvas" style="align-items:flex-start;">
+            <hbd-stat-block creature-name="Goblin Scout" size="Small" type="Humanoid (goblinoid)"
+              alignment="Neutral Evil" ac="13 (leather armor)" hp="7 (2d6)" speed="30 ft."
+              str="8" dex="14" con="10" int="10" wis="8" cha="8" cr="¼ (50 XP)">
+              <span slot="senses">darkvision 60 ft., passive Perception 9</span>
+              <span slot="languages">Common, Goblin</span>
+              <div slot="traits">
+                <p class="hbd-stat-block__trait"><span class="hbd-stat-block__trait-name">Nimble Escape. </span><span class="hbd-stat-block__trait-body">The goblin can take the Disengage or Hide action as a bonus action on each of its turns.</span></p>
+              </div>
+              <div slot="actions">
+                <p class="hbd-stat-block__trait"><span class="hbd-stat-block__trait-name">Scimitar. </span><span class="hbd-stat-block__trait-body">Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 5 (1d6 + 2) slashing damage.</span></p>
+                <p class="hbd-stat-block__trait"><span class="hbd-stat-block__trait-name">Shortbow. </span><span class="hbd-stat-block__trait-body">Ranged Weapon Attack: +4 to hit, range 80/320 ft., one target. Hit: 5 (1d6 + 2) piercing damage.</span></p>
+              </div>
+            </hbd-stat-block>
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>&lt;hbd-stat-block creature-name="Goblin Scout" size="Small"
+  type="Humanoid (goblinoid)" alignment="Neutral Evil"
+  ac="13 (leather armor)" hp="7 (2d6)" speed="30 ft."
+  str="8" dex="14" con="10" int="10" wis="8" cha="8" cr="¼ (50 XP)"&gt;
+  &lt;span slot="senses"&gt;darkvision 60 ft., passive Perception 9&lt;/span&gt;
+  &lt;span slot="languages"&gt;Common, Goblin&lt;/span&gt;
+  &lt;div slot="actions"&gt;
+    &lt;p class="hbd-stat-block__trait"&gt;&lt;span class="hbd-stat-block__trait-name"&gt;Scimitar. &lt;/span&gt;
+    &lt;span class="hbd-stat-block__trait-body"&gt;Melee Weapon Attack…&lt;/span&gt;&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/hbd-stat-block&gt;</code></pre>
+          </details>
+        </div>
+
+        <!-- Group 2 · Legendary creature -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">Legendary creature</h3>
+          <div class="ds-preview-canvas" style="align-items:flex-start;">
+            <hbd-stat-block legendary creature-name="Ancient Red Dragon" size="Gargantuan"
+              type="Dragon" alignment="Chaotic Evil" ac="22 (natural armor)"
+              hp="546 (28d20 + 252)" speed="40 ft., climb 40 ft., fly 80 ft."
+              str="30" dex="10" con="29" int="18" wis="15" cha="23" cr="24 (62,000 XP)">
+              <span slot="saving-throws">Dex +7, Con +16, Wis +9, Cha +13</span>
+              <span slot="senses">blindsight 60 ft., darkvision 120 ft.</span>
+              <span slot="languages">Common, Draconic</span>
+              <div slot="traits">
+                <p class="hbd-stat-block__trait"><span class="hbd-stat-block__trait-name">Legendary Resistance (3/Day). </span><span class="hbd-stat-block__trait-body">If the dragon fails a saving throw, it can choose to succeed instead.</span></p>
+              </div>
+              <div slot="actions">
+                <p class="hbd-stat-block__trait"><span class="hbd-stat-block__trait-name">Multiattack. </span><span class="hbd-stat-block__trait-body">The dragon can use its Frightful Presence. It then makes three attacks: one with its bite and two with its claws.</span></p>
+                <p class="hbd-stat-block__trait"><span class="hbd-stat-block__trait-name">Fire Breath (Recharge 5–6). </span><span class="hbd-stat-block__trait-body">The dragon exhales fire in a 90-foot cone. Each creature in that area must make a DC 24 Dexterity saving throw, taking 91 (26d6) fire damage on a failed save.</span></p>
+              </div>
+              <div slot="legendary-actions">
+                <p class="hbd-stat-block__trait"><span class="hbd-stat-block__trait-name">Detect. </span><span class="hbd-stat-block__trait-body">The dragon makes a Wisdom (Perception) check.</span></p>
+                <p class="hbd-stat-block__trait"><span class="hbd-stat-block__trait-name">Wing Attack (Costs 2 Actions). </span><span class="hbd-stat-block__trait-body">The dragon beats its wings. Each creature within 15 feet must succeed on a DC 25 Dexterity saving throw or take 17 (2d6 + 10) bludgeoning damage and be knocked prone.</span></p>
+              </div>
+            </hbd-stat-block>
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>&lt;hbd-stat-block legendary creature-name="Ancient Red Dragon" …&gt;
+  &lt;span slot="saving-throws"&gt;Dex +7, Con +16, Wis +9, Cha +13&lt;/span&gt;
+  &lt;div slot="legendary-actions"&gt;
+    &lt;p class="hbd-stat-block__trait"&gt;&lt;span class="hbd-stat-block__trait-name"&gt;Detect. &lt;/span&gt;
+    &lt;span class="hbd-stat-block__trait-body"&gt;The dragon makes a Wisdom check.&lt;/span&gt;&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/hbd-stat-block&gt;</code></pre>
+          </details>
+        </div>
+
+        <!-- Group 3 · Compact variant -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">Compact variant</h3>
+          <div class="ds-preview-canvas" style="align-items:flex-start;gap:var(--hbd-space-8);">
+            <hbd-stat-block compact creature-name="Goblin Scout" size="Small"
+              type="Humanoid (goblinoid)" alignment="Neutral Evil" ac="13 (leather armor)"
+              hp="7 (2d6)" speed="30 ft." str="8" dex="14" con="10" int="10" wis="8" cha="8"
+              cr="¼ (50 XP)">
+              <span slot="senses">darkvision 60 ft., passive Perception 9</span>
+              <span slot="languages">Common, Goblin</span>
+              <div slot="actions">
+                <p class="hbd-stat-block__trait"><span class="hbd-stat-block__trait-name">Scimitar. </span><span class="hbd-stat-block__trait-body">Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 5 (1d6 + 2) slashing damage.</span></p>
+              </div>
+            </hbd-stat-block>
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>&lt;hbd-stat-block compact creature-name="Goblin Scout" …&gt;…&lt;/hbd-stat-block&gt;</code></pre>
+          </details>
+        </div>
+
+        <!-- Group 4 · NPC / humanoid -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">NPC / humanoid</h3>
+          <div class="ds-preview-canvas" style="align-items:flex-start;">
+            <hbd-stat-block creature-name="Mage" size="Medium" type="Humanoid (any race)"
+              alignment="Any alignment" ac="12 (15 with mage armor)" hp="40 (9d8)" speed="30 ft."
+              str="9" dex="14" con="11" int="17" wis="12" cha="11" cr="6 (2,300 XP)">
+              <span slot="saving-throws">Int +6, Wis +4</span>
+              <span slot="skills">Arcana +6, History +6</span>
+              <span slot="senses">passive Perception 11</span>
+              <span slot="languages">any four languages</span>
+              <div slot="traits">
+                <p class="hbd-stat-block__trait"><span class="hbd-stat-block__trait-name">Spellcasting. </span><span class="hbd-stat-block__trait-body">The mage is a 9th-level spellcaster. Its spellcasting ability is Intelligence (spell save DC 14, +6 to hit with spell attacks).</span></p>
+              </div>
+              <div slot="actions">
+                <p class="hbd-stat-block__trait"><span class="hbd-stat-block__trait-name">Dagger. </span><span class="hbd-stat-block__trait-body">Melee or Ranged Weapon Attack: +5 to hit, reach 5 ft. or range 20/60 ft., one target. Hit: 4 (1d4 + 2) piercing damage.</span></p>
+              </div>
+            </hbd-stat-block>
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>&lt;hbd-stat-block creature-name="Mage" size="Medium" type="Humanoid (any race)"
+  alignment="Any alignment" ac="12 (15 with mage armor)" hp="40 (9d8)"
+  speed="30 ft." str="9" dex="14" con="11" int="17" wis="12" cha="11"
+  cr="6 (2,300 XP)"&gt;
+  &lt;span slot="saving-throws"&gt;Int +6, Wis +4&lt;/span&gt;
+  &lt;span slot="skills"&gt;Arcana +6, History +6&lt;/span&gt;
+  &lt;div slot="traits"&gt;&lt;p class="hbd-stat-block__trait"&gt;…Spellcasting…&lt;/p&gt;&lt;/div&gt;
+&lt;/hbd-stat-block&gt;</code></pre>
+          </details>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── SIGIL · Stat Block divider ── -->
+    <div class="sigil-divider" role="presentation" aria-hidden="true">
+      <svg width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true" focusable="false">
+        <circle cx="22" cy="22" r="19" stroke="#7a5a22" stroke-width="1" opacity="0.4"/>
+        <rect x="14" y="13" width="16" height="18" fill="none" stroke="#b8893b" stroke-width="1.5"/>
+        <line x1="17" y1="19" x2="27" y2="19" stroke="#7a1212" stroke-width="1.2"/>
+        <line x1="17" y1="23" x2="27" y2="23" stroke="#7a1212" stroke-width="1.2"/>
+      </svg>
+    </div>
+
     <!-- ══════════════════════ III. TEXTURE ══════════════════════ -->
     <section class="ds-section" id="texture" aria-labelledby="texture-title">
       <div class="container">
@@ -4528,267 +5525,7 @@ DC <span class="tok-val">20</span> <span class="tok-cmt">— Ancient inscription
       </svg>
     </div>
 
-    <!-- ══════════════════════ X. BREADCRUMBS ══════════════════════ -->
-    <section class="ds-section" id="breadcrumbs" aria-labelledby="breadcrumb-title">
-      <div class="container">
-        <span class="section-numeral" aria-hidden="true">X</span>
-        <h2 class="section-title" id="breadcrumb-title">Breadcrumbs</h2>
-
-        <p style="max-width:65ch;margin-bottom:var(--space-8);color:var(--ink-brown);">Wayfinding trail for deep content hierarchies — display-face ancestor links in faded ink, gold <code class="mono-pill" style="font-size:0.8125rem;">›</code> separators, iron-gall current page. Implements the WAI-ARIA 1.2 breadcrumb navigation pattern.</p>
-
-        <!-- ─ 1. Standard ─ -->
-        <h3 class="sub-head">Standard — Three Levels</h3>
-        <div class="bc-demo">
-          <nav aria-label="Breadcrumb">
-            <ol class="breadcrumb">
-              <li class="breadcrumb__item">
-                <a href="#" class="breadcrumb__link">Compendium</a>
-              </li>
-              <li class="breadcrumb__item">
-                <span class="breadcrumb__sep" aria-hidden="true">›</span>
-                <a href="#" class="breadcrumb__link">Spells</a>
-              </li>
-              <li class="breadcrumb__item">
-                <span class="breadcrumb__sep" aria-hidden="true">›</span>
-                <span class="breadcrumb__current" aria-current="page">Fireball</span>
-              </li>
-            </ol>
-          </nav>
-        </div>
-        <pre class="code-block" data-lang="HTML" style="margin-bottom:var(--space-12);"><code>&lt;nav aria-label="Breadcrumb"&gt;
-  &lt;ol class="breadcrumb"&gt;
-    &lt;li class="breadcrumb__item"&gt;
-      &lt;a href="/compendium" class="breadcrumb__link"&gt;Compendium&lt;/a&gt;
-    &lt;/li&gt;
-    &lt;li class="breadcrumb__item"&gt;
-      &lt;span class="breadcrumb__sep" aria-hidden="true"&gt;›&lt;/span&gt;
-      &lt;a href="/compendium/spells" class="breadcrumb__link"&gt;Spells&lt;/a&gt;
-    &lt;/li&gt;
-    &lt;li class="breadcrumb__item"&gt;
-      &lt;span class="breadcrumb__sep" aria-hidden="true"&gt;›&lt;/span&gt;
-      &lt;span class="breadcrumb__current" aria-current="page"&gt;Fireball&lt;/span&gt;
-    &lt;/li&gt;
-  &lt;/ol&gt;
-&lt;/nav&gt;</code></pre>
-
-        <!-- ─ 2. With location eyebrow ─ -->
-        <h3 class="sub-head">With Location Eyebrow — Four Levels</h3>
-        <div class="bc-demo">
-          <div class="breadcrumb-group">
-            <span class="eyebrow" style="margin-bottom:0;">Location</span>
-            <nav aria-label="Breadcrumb">
-              <ol class="breadcrumb">
-                <li class="breadcrumb__item">
-                  <a href="#" class="breadcrumb__link">Compendium</a>
-                </li>
-                <li class="breadcrumb__item">
-                  <span class="breadcrumb__sep" aria-hidden="true">›</span>
-                  <a href="#" class="breadcrumb__link">Spells</a>
-                </li>
-                <li class="breadcrumb__item">
-                  <span class="breadcrumb__sep" aria-hidden="true">›</span>
-                  <a href="#" class="breadcrumb__link">School of Evocation</a>
-                </li>
-                <li class="breadcrumb__item">
-                  <span class="breadcrumb__sep" aria-hidden="true">›</span>
-                  <span class="breadcrumb__current" aria-current="page">Fireball</span>
-                </li>
-              </ol>
-            </nav>
-          </div>
-        </div>
-        <div class="callout" style="margin-bottom:var(--space-12);">
-          <p class="callout__label">Sage Advice</p>
-          <p class="callout__body">Pair the breadcrumb with an <code style="font-style:normal;font-family:var(--font-mono);font-size:0.8125rem;">.eyebrow</code> label above it using <code style="font-style:normal;font-family:var(--font-mono);font-size:0.8125rem;">.breadcrumb-group</code> (column flex, 4px gap). Recommended on spell, creature, and item detail pages.</p>
-        </div>
-
-        <!-- ─ 3. Page header with divider ─ -->
-        <h3 class="sub-head">Page Header — With Dashed Divider</h3>
-        <div class="bc-demo">
-          <div class="breadcrumb-header">
-            <div class="breadcrumb-group">
-              <span class="eyebrow" style="margin-bottom:0;">Location</span>
-              <nav aria-label="Breadcrumb">
-                <ol class="breadcrumb">
-                  <li class="breadcrumb__item">
-                    <a href="#" class="breadcrumb__link">Compendium</a>
-                  </li>
-                  <li class="breadcrumb__item">
-                    <span class="breadcrumb__sep" aria-hidden="true">›</span>
-                    <a href="#" class="breadcrumb__link">Monsters</a>
-                  </li>
-                  <li class="breadcrumb__item">
-                    <span class="breadcrumb__sep" aria-hidden="true">›</span>
-                    <span class="breadcrumb__current" aria-current="page">Ancient Red Dragon</span>
-                  </li>
-                </ol>
-              </nav>
-            </div>
-          </div>
-          <p style="font-family:var(--font-flavor);font-style:italic;font-size:var(--text-flavor);color:var(--ink-faded);">The <code style="font-style:normal;font-family:var(--font-mono);font-size:0.75rem;">.breadcrumb-header</code> wrapper adds a <code style="font-style:normal;font-family:var(--font-mono);font-size:0.75rem;">1px dashed --ink-faded</code> bottom rule and padding, creating a clear content zone above the page title.</p>
-        </div>
-        <pre class="code-block" data-lang="HTML" style="margin-bottom:var(--space-12);"><code>&lt;div class="breadcrumb-header"&gt;
-  &lt;div class="breadcrumb-group"&gt;
-    &lt;span class="eyebrow"&gt;Location&lt;/span&gt;
-    &lt;nav aria-label="Breadcrumb"&gt;…&lt;/nav&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;h1&gt;Ancient Red Dragon&lt;/h1&gt;</code></pre>
-
-        <!-- ─ 4. Collapsed ─ -->
-        <h3 class="sub-head">Collapsed — Deep Hierarchy</h3>
-        <div class="bc-demo">
-          <nav aria-label="Breadcrumb">
-            <ol class="breadcrumb">
-              <li class="breadcrumb__item">
-                <a href="#" class="breadcrumb__link">Compendium</a>
-              </li>
-              <li class="breadcrumb__item">
-                <span class="breadcrumb__sep" aria-hidden="true">›</span>
-                <span class="breadcrumb__ellipsis" aria-label="more pages">…</span>
-              </li>
-              <li class="breadcrumb__item">
-                <span class="breadcrumb__sep" aria-hidden="true">›</span>
-                <a href="#" class="breadcrumb__link">School of Evocation</a>
-              </li>
-              <li class="breadcrumb__item">
-                <span class="breadcrumb__sep" aria-hidden="true">›</span>
-                <span class="breadcrumb__current" aria-current="page">Fireball</span>
-              </li>
-            </ol>
-          </nav>
-        </div>
-        <div class="callout" style="margin-bottom:var(--space-12);">
-          <p class="callout__label">Sage Advice</p>
-          <p class="callout__body">Always show: root + ellipsis + last two ancestors + current page. Collapse when three or more intermediate levels are hidden. The ellipsis <code style="font-style:normal;font-family:var(--font-mono);font-size:0.8125rem;">&lt;span&gt;</code> carries <code style="font-style:normal;font-family:var(--font-mono);font-size:0.8125rem;">aria-label="more pages"</code> so screen readers announce it correctly. In the React component, pass <code style="font-style:normal;font-family:var(--font-mono);font-size:0.8125rem;">maxVisible={3}</code>.</p>
-        </div>
-
-        <!-- ─ 5. On card surface ─ -->
-        <h3 class="sub-head">On Card Surface (Parchment-200)</h3>
-        <div class="bc-demo bc-demo--card">
-          <nav aria-label="Breadcrumb">
-            <ol class="breadcrumb">
-              <li class="breadcrumb__item">
-                <a href="#" class="breadcrumb__link">Compendium</a>
-              </li>
-              <li class="breadcrumb__item">
-                <span class="breadcrumb__sep" aria-hidden="true">›</span>
-                <a href="#" class="breadcrumb__link">Equipment</a>
-              </li>
-              <li class="breadcrumb__item">
-                <span class="breadcrumb__sep" aria-hidden="true">›</span>
-                <span class="breadcrumb__current" aria-current="page">Flametongue</span>
-              </li>
-            </ol>
-          </nav>
-        </div>
-        <p style="font-family:var(--font-flavor);font-style:italic;font-size:var(--text-flavor);color:var(--ink-faded);margin-bottom:var(--space-12);">Default token colours hold on <code style="font-style:normal;font-family:var(--font-mono);font-size:0.75rem;">--parchment-200</code> card surfaces. <code style="font-style:normal;font-family:var(--font-mono);font-size:0.75rem;">--ink-faded</code> links pass ~4.8:1 (AA for UI components); <code style="font-style:normal;font-family:var(--font-mono);font-size:0.75rem;">--gold-deep</code> hover passes ~4.1:1 (AA large text).</p>
-
-        <!-- ─ 6. Dark surface ─ -->
-        <h3 class="sub-head">Dark Surface — Sidebar / Dark Panel</h3>
-        <div class="bc-demo bc-demo--dark">
-          <nav aria-label="Breadcrumb">
-            <ol class="breadcrumb breadcrumb--dark">
-              <li class="breadcrumb__item">
-                <a href="#" class="breadcrumb__link">Compendium</a>
-              </li>
-              <li class="breadcrumb__item">
-                <span class="breadcrumb__sep" aria-hidden="true">›</span>
-                <a href="#" class="breadcrumb__link">Characters</a>
-              </li>
-              <li class="breadcrumb__item">
-                <span class="breadcrumb__sep" aria-hidden="true">›</span>
-                <span class="breadcrumb__current" aria-current="page">Aragorn Dunedain</span>
-              </li>
-            </ol>
-          </nav>
-        </div>
-        <pre class="code-block" data-lang="HTML" style="margin-bottom:var(--space-12);"><code>&lt;!-- Add .breadcrumb--dark on the &lt;ol&gt; for dark panel backgrounds --&gt;
-&lt;ol class="breadcrumb breadcrumb--dark"&gt;…&lt;/ol&gt;
-
-&lt;!-- React: dark prop --&gt;
-&lt;Breadcrumb dark={true} items={…} /&gt;</code></pre>
-
-        <!-- ─ 7. Edge cases: single + two levels ─ -->
-        <h3 class="sub-head">Edge Cases — Single &amp; Two Levels</h3>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-6);margin-bottom:var(--space-12);">
-          <div>
-            <span class="eyebrow" style="font-size:var(--text-micro);margin-bottom:var(--space-3);">Single level — root page</span>
-            <div class="bc-demo" style="margin-bottom:0;">
-              <nav aria-label="Breadcrumb">
-                <ol class="breadcrumb">
-                  <li class="breadcrumb__item">
-                    <span class="breadcrumb__current" aria-current="page">Compendium</span>
-                  </li>
-                </ol>
-              </nav>
-            </div>
-            <p style="font-family:var(--font-flavor);font-style:italic;font-size:0.8125rem;color:var(--ink-faded);margin-top:var(--space-3);">Single item, no separator, <code style="font-style:normal;font-family:var(--font-mono);font-size:0.75rem;">aria-current="page"</code>. Keep the landmark for consistent AT structure; consider omitting entirely at root.</p>
-          </div>
-          <div>
-            <span class="eyebrow" style="font-size:var(--text-micro);margin-bottom:var(--space-3);">Two levels — section root</span>
-            <div class="bc-demo" style="margin-bottom:0;">
-              <nav aria-label="Breadcrumb">
-                <ol class="breadcrumb">
-                  <li class="breadcrumb__item">
-                    <a href="#" class="breadcrumb__link">Compendium</a>
-                  </li>
-                  <li class="breadcrumb__item">
-                    <span class="breadcrumb__sep" aria-hidden="true">›</span>
-                    <span class="breadcrumb__current" aria-current="page">Classes</span>
-                  </li>
-                </ol>
-              </nav>
-            </div>
-          </div>
-        </div>
-
-        <!-- ─ Accessibility ─ -->
-        <h3 class="sub-head">Accessibility</h3>
-        <div class="panel-grid" style="margin-bottom:var(--space-12);">
-          <div class="panel">
-            <span class="panel__title">ARIA pattern (WAI-ARIA 1.2)</span>
-            <p class="panel__body"><code class="mono-pill" style="font-size:0.75rem;">&lt;nav aria-label="Breadcrumb"&gt;</code> — named landmark</p>
-            <p class="panel__body"><code class="mono-pill" style="font-size:0.75rem;">&lt;ol&gt;</code> — ordered list; reading order conveys path depth</p>
-            <p class="panel__body"><code class="mono-pill" style="font-size:0.75rem;">aria-current="page"</code> — final non-linked item only</p>
-            <p class="panel__body"><code class="mono-pill" style="font-size:0.75rem;">aria-hidden="true"</code> — every <code style="font-size:0.8125rem;font-family:var(--font-mono);color:var(--gold-bright);background:var(--shadow);padding:2px 5px;border-left:3px solid var(--gold);">›</code> separator glyph</p>
-            <p class="panel__body" style="margin:0;"><code class="mono-pill" style="font-size:0.75rem;">aria-label="more pages"</code> — ellipsis span</p>
-          </div>
-          <div class="panel">
-            <span class="panel__title">Focus rings</span>
-            <p class="panel__body"><strong style="color:var(--ink-black);">Light surface</strong> — <code class="mono-pill" style="font-size:0.75rem;">outline: 2px solid --gold-deep</code>, offset 2px</p>
-            <p class="panel__body"><strong style="color:var(--ink-black);">Dark surface</strong> — <code class="mono-pill" style="font-size:0.75rem;">outline: 2px solid --parchment-100</code>, offset 2px</p>
-            <p class="panel__body"><code class="mono-pill" style="font-size:0.75rem;">:focus-visible</code> only — never suppress without replacement</p>
-            <p class="panel__body" style="margin:0;">No <code class="mono-pill" style="font-size:0.75rem;">scrollIntoView()</code> usage</p>
-          </div>
-        </div>
-
-        <!-- ─ Token reference ─ -->
-        <h3 class="sub-head">Token Reference</h3>
-        <div class="panel" style="max-width:600px;">
-          <span class="panel__title">Tokens used</span>
-          <div style="display:grid;grid-template-columns:auto 1fr;gap:var(--space-2) var(--space-6);align-items:baseline;">
-            <span style="font-family:var(--font-mono);font-size:0.75rem;color:var(--ink-faded);">font</span>
-            <span style="font-family:var(--font-mono);font-size:0.8125rem;color:var(--ink-black);">--font-display (links, current) · --font-body (ellipsis)</span>
-            <span style="font-family:var(--font-mono);font-size:0.75rem;color:var(--ink-faded);">size</span>
-            <span style="font-family:var(--font-mono);font-size:0.8125rem;color:var(--ink-black);">--text-label (0.8125rem · 13px)</span>
-            <span style="font-family:var(--font-mono);font-size:0.75rem;color:var(--ink-faded);">link</span>
-            <span style="font-family:var(--font-mono);font-size:0.8125rem;color:var(--ink-black);">--ink-faded → hover --gold-deep</span>
-            <span style="font-family:var(--font-mono);font-size:0.75rem;color:var(--ink-faded);">separator</span>
-            <span style="font-family:var(--font-mono);font-size:0.8125rem;color:var(--ink-black);">--gold · "›" · 0.75rem</span>
-            <span style="font-family:var(--font-mono);font-size:0.75rem;color:var(--ink-faded);">current</span>
-            <span style="font-family:var(--font-mono);font-size:0.8125rem;color:var(--ink-black);">--ink-black · no href</span>
-            <span style="font-family:var(--font-mono);font-size:0.75rem;color:var(--ink-faded);">ellipsis</span>
-            <span style="font-family:var(--font-mono);font-size:0.8125rem;color:var(--ink-black);">--ink-faded · --font-body</span>
-            <span style="font-family:var(--font-mono);font-size:0.75rem;color:var(--ink-faded);">focus</span>
-            <span style="font-family:var(--font-mono);font-size:0.8125rem;color:var(--ink-black);">2px solid --gold-deep · offset 2px</span>
-            <span style="font-family:var(--font-mono);font-size:0.75rem;color:var(--ink-faded);">transition</span>
-            <span style="font-family:var(--font-mono);font-size:0.8125rem;color:var(--ink-black);">color 0.12s ease · border-bottom-color 0.12s ease</span>
-          </div>
-        </div>
-
-      </div>
-    </section>
+    <!-- Legacy breadcrumbs section removed — migrated to #component-breadcrumbs. -->
 
     <!-- ── SIGIL X: Crossed Quills (Navigation) ── -->
     <div class="sigil-divider" role="presentation" aria-hidden="true">
