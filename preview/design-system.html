@@ -2091,11 +2091,11 @@
           <li><a class="ds-toc__link" href="#foundation-motion">Motion</a></li>
           <li><a class="ds-toc__link" href="#foundation-accessibility">Accessibility</a></li>
           <li><a class="ds-toc__link" href="#component-button">Button</a></li>
+          <li><a class="ds-toc__link" href="#component-breadcrumbs">Breadcrumbs</a></li>
           <li><a class="ds-toc__link" href="#texture">Texture</a></li>
           <li><a class="ds-toc__link" href="#borders">Borders</a></li>
           <li><a class="ds-toc__link" href="#components">Components</a></li>
           <li><a class="ds-toc__link" href="#form-controls">Form Controls</a></li>
-          <li><a class="ds-toc__link" href="#breadcrumbs">Breadcrumbs</a></li>
           <li><a class="ds-toc__link" href="#time-picker">Time Picker</a></li>
           <li><a class="ds-toc__link" href="#elevation">Elevation</a></li>
           <li><a class="ds-toc__link" href="#motion">Motion</a></li>
@@ -3449,6 +3449,102 @@
       </svg>
     </div>
 
+    <!-- ══════════════════════ COMPONENT · BREADCRUMBS ══════════════════════ -->
+    <section class="ds-section" id="component-breadcrumbs" aria-labelledby="heading-breadcrumbs">
+      <div class="container">
+        <span class="section-numeral" aria-hidden="true">C·2</span>
+        <h2 class="ds-section__heading" id="heading-breadcrumbs">Breadcrumbs</h2>
+        <p class="ds-section__description">
+          Breadcrumbs show the user's location within the site hierarchy and let them navigate
+          back to parent pages. Rendered as <code>&lt;hbd-breadcrumbs&gt;</code> wrapping a native
+          <code>&lt;nav&gt; &gt; &lt;ol&gt;</code> trail (WAI-ARIA 1.2 pattern).
+        </p>
+
+        <!-- Group 1 · Default -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">Default</h3>
+          <div class="ds-preview-canvas">
+            <hbd-breadcrumbs>
+              <nav aria-label="Breadcrumb">
+                <ol class="hbd-breadcrumbs__list">
+                  <li class="hbd-breadcrumbs__item"><a class="hbd-breadcrumbs__link" href="#component-breadcrumbs">Compendium</a></li>
+                  <li class="hbd-breadcrumbs__item"><span class="hbd-breadcrumbs__separator" aria-hidden="true">›</span><a class="hbd-breadcrumbs__link" href="#component-breadcrumbs">Spells</a></li>
+                  <li class="hbd-breadcrumbs__item"><span class="hbd-breadcrumbs__separator" aria-hidden="true">›</span><span class="hbd-breadcrumbs__current" aria-current="page">Fireball</span></li>
+                </ol>
+              </nav>
+            </hbd-breadcrumbs>
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>&lt;hbd-breadcrumbs&gt;
+  &lt;nav aria-label="Breadcrumb"&gt;
+    &lt;ol class="hbd-breadcrumbs__list"&gt;
+      &lt;li class="hbd-breadcrumbs__item"&gt;&lt;a class="hbd-breadcrumbs__link" href="…"&gt;Compendium&lt;/a&gt;&lt;/li&gt;
+      &lt;li class="hbd-breadcrumbs__item"&gt;&lt;span class="hbd-breadcrumbs__separator" aria-hidden="true"&gt;›&lt;/span&gt;&lt;a class="hbd-breadcrumbs__link" href="…"&gt;Spells&lt;/a&gt;&lt;/li&gt;
+      &lt;li class="hbd-breadcrumbs__item"&gt;&lt;span class="hbd-breadcrumbs__separator" aria-hidden="true"&gt;›&lt;/span&gt;&lt;span class="hbd-breadcrumbs__current" aria-current="page"&gt;Fireball&lt;/span&gt;&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/nav&gt;
+&lt;/hbd-breadcrumbs&gt;</code></pre>
+          </details>
+        </div>
+
+        <!-- Group 2 · Longer trail -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">Longer trail</h3>
+          <div class="ds-preview-canvas">
+            <hbd-breadcrumbs>
+              <nav aria-label="Breadcrumb">
+                <ol class="hbd-breadcrumbs__list">
+                  <li class="hbd-breadcrumbs__item"><a class="hbd-breadcrumbs__link" href="#component-breadcrumbs">Compendium</a></li>
+                  <li class="hbd-breadcrumbs__item"><span class="hbd-breadcrumbs__separator" aria-hidden="true">›</span><a class="hbd-breadcrumbs__link" href="#component-breadcrumbs">Spells</a></li>
+                  <li class="hbd-breadcrumbs__item"><span class="hbd-breadcrumbs__separator" aria-hidden="true">›</span><a class="hbd-breadcrumbs__link" href="#component-breadcrumbs">Evocation</a></li>
+                  <li class="hbd-breadcrumbs__item"><span class="hbd-breadcrumbs__separator" aria-hidden="true">›</span><a class="hbd-breadcrumbs__link" href="#component-breadcrumbs">Damaging</a></li>
+                  <li class="hbd-breadcrumbs__item"><span class="hbd-breadcrumbs__separator" aria-hidden="true">›</span><span class="hbd-breadcrumbs__current" aria-current="page">Fireball</span></li>
+                </ol>
+              </nav>
+            </hbd-breadcrumbs>
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>&lt;hbd-breadcrumbs&gt; … five &lt;li&gt; items … &lt;/hbd-breadcrumbs&gt;</code></pre>
+          </details>
+        </div>
+
+        <!-- Group 3 · Truncated -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">Truncated</h3>
+          <div class="ds-preview-canvas" style="flex-direction:column;align-items:flex-start;gap:var(--hbd-space-3);">
+            <p class="hbd-text-body hbd-text-primary" style="margin:0;">Click … to expand the full path.</p>
+            <hbd-breadcrumbs truncate="3">
+              <nav aria-label="Breadcrumb">
+                <ol class="hbd-breadcrumbs__list">
+                  <li class="hbd-breadcrumbs__item"><a class="hbd-breadcrumbs__link" href="#component-breadcrumbs">Compendium</a></li>
+                  <li class="hbd-breadcrumbs__item"><span class="hbd-breadcrumbs__separator" aria-hidden="true">›</span><a class="hbd-breadcrumbs__link" href="#component-breadcrumbs">Spells</a></li>
+                  <li class="hbd-breadcrumbs__item"><span class="hbd-breadcrumbs__separator" aria-hidden="true">›</span><a class="hbd-breadcrumbs__link" href="#component-breadcrumbs">Evocation</a></li>
+                  <li class="hbd-breadcrumbs__item"><span class="hbd-breadcrumbs__separator" aria-hidden="true">›</span><a class="hbd-breadcrumbs__link" href="#component-breadcrumbs">Damaging</a></li>
+                  <li class="hbd-breadcrumbs__item"><span class="hbd-breadcrumbs__separator" aria-hidden="true">›</span><span class="hbd-breadcrumbs__current" aria-current="page">Fireball</span></li>
+                </ol>
+              </nav>
+            </hbd-breadcrumbs>
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>&lt;hbd-breadcrumbs truncate="3"&gt; … five &lt;li&gt; items … &lt;/hbd-breadcrumbs&gt;
+&lt;!-- middle items hidden; ellipsis button injected after the first --&gt;</code></pre>
+          </details>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── SIGIL · Breadcrumbs divider ── -->
+    <div class="sigil-divider" role="presentation" aria-hidden="true">
+      <svg width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true" focusable="false">
+        <circle cx="22" cy="22" r="19" stroke="#7a5a22" stroke-width="1" opacity="0.4"/>
+        <path d="M14 14l8 8-8 8M22 14l8 8-8 8" fill="none" stroke="#b8893b" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+    </div>
+
     <!-- ══════════════════════ III. TEXTURE ══════════════════════ -->
     <section class="ds-section" id="texture" aria-labelledby="texture-title">
       <div class="container">
@@ -4630,267 +4726,7 @@ DC <span class="tok-val">20</span> <span class="tok-cmt">— Ancient inscription
       </svg>
     </div>
 
-    <!-- ══════════════════════ X. BREADCRUMBS ══════════════════════ -->
-    <section class="ds-section" id="breadcrumbs" aria-labelledby="breadcrumb-title">
-      <div class="container">
-        <span class="section-numeral" aria-hidden="true">X</span>
-        <h2 class="section-title" id="breadcrumb-title">Breadcrumbs</h2>
-
-        <p style="max-width:65ch;margin-bottom:var(--space-8);color:var(--ink-brown);">Wayfinding trail for deep content hierarchies — display-face ancestor links in faded ink, gold <code class="mono-pill" style="font-size:0.8125rem;">›</code> separators, iron-gall current page. Implements the WAI-ARIA 1.2 breadcrumb navigation pattern.</p>
-
-        <!-- ─ 1. Standard ─ -->
-        <h3 class="sub-head">Standard — Three Levels</h3>
-        <div class="bc-demo">
-          <nav aria-label="Breadcrumb">
-            <ol class="breadcrumb">
-              <li class="breadcrumb__item">
-                <a href="#" class="breadcrumb__link">Compendium</a>
-              </li>
-              <li class="breadcrumb__item">
-                <span class="breadcrumb__sep" aria-hidden="true">›</span>
-                <a href="#" class="breadcrumb__link">Spells</a>
-              </li>
-              <li class="breadcrumb__item">
-                <span class="breadcrumb__sep" aria-hidden="true">›</span>
-                <span class="breadcrumb__current" aria-current="page">Fireball</span>
-              </li>
-            </ol>
-          </nav>
-        </div>
-        <pre class="code-block" data-lang="HTML" style="margin-bottom:var(--space-12);"><code>&lt;nav aria-label="Breadcrumb"&gt;
-  &lt;ol class="breadcrumb"&gt;
-    &lt;li class="breadcrumb__item"&gt;
-      &lt;a href="/compendium" class="breadcrumb__link"&gt;Compendium&lt;/a&gt;
-    &lt;/li&gt;
-    &lt;li class="breadcrumb__item"&gt;
-      &lt;span class="breadcrumb__sep" aria-hidden="true"&gt;›&lt;/span&gt;
-      &lt;a href="/compendium/spells" class="breadcrumb__link"&gt;Spells&lt;/a&gt;
-    &lt;/li&gt;
-    &lt;li class="breadcrumb__item"&gt;
-      &lt;span class="breadcrumb__sep" aria-hidden="true"&gt;›&lt;/span&gt;
-      &lt;span class="breadcrumb__current" aria-current="page"&gt;Fireball&lt;/span&gt;
-    &lt;/li&gt;
-  &lt;/ol&gt;
-&lt;/nav&gt;</code></pre>
-
-        <!-- ─ 2. With location eyebrow ─ -->
-        <h3 class="sub-head">With Location Eyebrow — Four Levels</h3>
-        <div class="bc-demo">
-          <div class="breadcrumb-group">
-            <span class="eyebrow" style="margin-bottom:0;">Location</span>
-            <nav aria-label="Breadcrumb">
-              <ol class="breadcrumb">
-                <li class="breadcrumb__item">
-                  <a href="#" class="breadcrumb__link">Compendium</a>
-                </li>
-                <li class="breadcrumb__item">
-                  <span class="breadcrumb__sep" aria-hidden="true">›</span>
-                  <a href="#" class="breadcrumb__link">Spells</a>
-                </li>
-                <li class="breadcrumb__item">
-                  <span class="breadcrumb__sep" aria-hidden="true">›</span>
-                  <a href="#" class="breadcrumb__link">School of Evocation</a>
-                </li>
-                <li class="breadcrumb__item">
-                  <span class="breadcrumb__sep" aria-hidden="true">›</span>
-                  <span class="breadcrumb__current" aria-current="page">Fireball</span>
-                </li>
-              </ol>
-            </nav>
-          </div>
-        </div>
-        <div class="callout" style="margin-bottom:var(--space-12);">
-          <p class="callout__label">Sage Advice</p>
-          <p class="callout__body">Pair the breadcrumb with an <code style="font-style:normal;font-family:var(--font-mono);font-size:0.8125rem;">.eyebrow</code> label above it using <code style="font-style:normal;font-family:var(--font-mono);font-size:0.8125rem;">.breadcrumb-group</code> (column flex, 4px gap). Recommended on spell, creature, and item detail pages.</p>
-        </div>
-
-        <!-- ─ 3. Page header with divider ─ -->
-        <h3 class="sub-head">Page Header — With Dashed Divider</h3>
-        <div class="bc-demo">
-          <div class="breadcrumb-header">
-            <div class="breadcrumb-group">
-              <span class="eyebrow" style="margin-bottom:0;">Location</span>
-              <nav aria-label="Breadcrumb">
-                <ol class="breadcrumb">
-                  <li class="breadcrumb__item">
-                    <a href="#" class="breadcrumb__link">Compendium</a>
-                  </li>
-                  <li class="breadcrumb__item">
-                    <span class="breadcrumb__sep" aria-hidden="true">›</span>
-                    <a href="#" class="breadcrumb__link">Monsters</a>
-                  </li>
-                  <li class="breadcrumb__item">
-                    <span class="breadcrumb__sep" aria-hidden="true">›</span>
-                    <span class="breadcrumb__current" aria-current="page">Ancient Red Dragon</span>
-                  </li>
-                </ol>
-              </nav>
-            </div>
-          </div>
-          <p style="font-family:var(--font-flavor);font-style:italic;font-size:var(--text-flavor);color:var(--ink-faded);">The <code style="font-style:normal;font-family:var(--font-mono);font-size:0.75rem;">.breadcrumb-header</code> wrapper adds a <code style="font-style:normal;font-family:var(--font-mono);font-size:0.75rem;">1px dashed --ink-faded</code> bottom rule and padding, creating a clear content zone above the page title.</p>
-        </div>
-        <pre class="code-block" data-lang="HTML" style="margin-bottom:var(--space-12);"><code>&lt;div class="breadcrumb-header"&gt;
-  &lt;div class="breadcrumb-group"&gt;
-    &lt;span class="eyebrow"&gt;Location&lt;/span&gt;
-    &lt;nav aria-label="Breadcrumb"&gt;…&lt;/nav&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;h1&gt;Ancient Red Dragon&lt;/h1&gt;</code></pre>
-
-        <!-- ─ 4. Collapsed ─ -->
-        <h3 class="sub-head">Collapsed — Deep Hierarchy</h3>
-        <div class="bc-demo">
-          <nav aria-label="Breadcrumb">
-            <ol class="breadcrumb">
-              <li class="breadcrumb__item">
-                <a href="#" class="breadcrumb__link">Compendium</a>
-              </li>
-              <li class="breadcrumb__item">
-                <span class="breadcrumb__sep" aria-hidden="true">›</span>
-                <span class="breadcrumb__ellipsis" aria-label="more pages">…</span>
-              </li>
-              <li class="breadcrumb__item">
-                <span class="breadcrumb__sep" aria-hidden="true">›</span>
-                <a href="#" class="breadcrumb__link">School of Evocation</a>
-              </li>
-              <li class="breadcrumb__item">
-                <span class="breadcrumb__sep" aria-hidden="true">›</span>
-                <span class="breadcrumb__current" aria-current="page">Fireball</span>
-              </li>
-            </ol>
-          </nav>
-        </div>
-        <div class="callout" style="margin-bottom:var(--space-12);">
-          <p class="callout__label">Sage Advice</p>
-          <p class="callout__body">Always show: root + ellipsis + last two ancestors + current page. Collapse when three or more intermediate levels are hidden. The ellipsis <code style="font-style:normal;font-family:var(--font-mono);font-size:0.8125rem;">&lt;span&gt;</code> carries <code style="font-style:normal;font-family:var(--font-mono);font-size:0.8125rem;">aria-label="more pages"</code> so screen readers announce it correctly. In the React component, pass <code style="font-style:normal;font-family:var(--font-mono);font-size:0.8125rem;">maxVisible={3}</code>.</p>
-        </div>
-
-        <!-- ─ 5. On card surface ─ -->
-        <h3 class="sub-head">On Card Surface (Parchment-200)</h3>
-        <div class="bc-demo bc-demo--card">
-          <nav aria-label="Breadcrumb">
-            <ol class="breadcrumb">
-              <li class="breadcrumb__item">
-                <a href="#" class="breadcrumb__link">Compendium</a>
-              </li>
-              <li class="breadcrumb__item">
-                <span class="breadcrumb__sep" aria-hidden="true">›</span>
-                <a href="#" class="breadcrumb__link">Equipment</a>
-              </li>
-              <li class="breadcrumb__item">
-                <span class="breadcrumb__sep" aria-hidden="true">›</span>
-                <span class="breadcrumb__current" aria-current="page">Flametongue</span>
-              </li>
-            </ol>
-          </nav>
-        </div>
-        <p style="font-family:var(--font-flavor);font-style:italic;font-size:var(--text-flavor);color:var(--ink-faded);margin-bottom:var(--space-12);">Default token colours hold on <code style="font-style:normal;font-family:var(--font-mono);font-size:0.75rem;">--parchment-200</code> card surfaces. <code style="font-style:normal;font-family:var(--font-mono);font-size:0.75rem;">--ink-faded</code> links pass ~4.8:1 (AA for UI components); <code style="font-style:normal;font-family:var(--font-mono);font-size:0.75rem;">--gold-deep</code> hover passes ~4.1:1 (AA large text).</p>
-
-        <!-- ─ 6. Dark surface ─ -->
-        <h3 class="sub-head">Dark Surface — Sidebar / Dark Panel</h3>
-        <div class="bc-demo bc-demo--dark">
-          <nav aria-label="Breadcrumb">
-            <ol class="breadcrumb breadcrumb--dark">
-              <li class="breadcrumb__item">
-                <a href="#" class="breadcrumb__link">Compendium</a>
-              </li>
-              <li class="breadcrumb__item">
-                <span class="breadcrumb__sep" aria-hidden="true">›</span>
-                <a href="#" class="breadcrumb__link">Characters</a>
-              </li>
-              <li class="breadcrumb__item">
-                <span class="breadcrumb__sep" aria-hidden="true">›</span>
-                <span class="breadcrumb__current" aria-current="page">Aragorn Dunedain</span>
-              </li>
-            </ol>
-          </nav>
-        </div>
-        <pre class="code-block" data-lang="HTML" style="margin-bottom:var(--space-12);"><code>&lt;!-- Add .breadcrumb--dark on the &lt;ol&gt; for dark panel backgrounds --&gt;
-&lt;ol class="breadcrumb breadcrumb--dark"&gt;…&lt;/ol&gt;
-
-&lt;!-- React: dark prop --&gt;
-&lt;Breadcrumb dark={true} items={…} /&gt;</code></pre>
-
-        <!-- ─ 7. Edge cases: single + two levels ─ -->
-        <h3 class="sub-head">Edge Cases — Single &amp; Two Levels</h3>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-6);margin-bottom:var(--space-12);">
-          <div>
-            <span class="eyebrow" style="font-size:var(--text-micro);margin-bottom:var(--space-3);">Single level — root page</span>
-            <div class="bc-demo" style="margin-bottom:0;">
-              <nav aria-label="Breadcrumb">
-                <ol class="breadcrumb">
-                  <li class="breadcrumb__item">
-                    <span class="breadcrumb__current" aria-current="page">Compendium</span>
-                  </li>
-                </ol>
-              </nav>
-            </div>
-            <p style="font-family:var(--font-flavor);font-style:italic;font-size:0.8125rem;color:var(--ink-faded);margin-top:var(--space-3);">Single item, no separator, <code style="font-style:normal;font-family:var(--font-mono);font-size:0.75rem;">aria-current="page"</code>. Keep the landmark for consistent AT structure; consider omitting entirely at root.</p>
-          </div>
-          <div>
-            <span class="eyebrow" style="font-size:var(--text-micro);margin-bottom:var(--space-3);">Two levels — section root</span>
-            <div class="bc-demo" style="margin-bottom:0;">
-              <nav aria-label="Breadcrumb">
-                <ol class="breadcrumb">
-                  <li class="breadcrumb__item">
-                    <a href="#" class="breadcrumb__link">Compendium</a>
-                  </li>
-                  <li class="breadcrumb__item">
-                    <span class="breadcrumb__sep" aria-hidden="true">›</span>
-                    <span class="breadcrumb__current" aria-current="page">Classes</span>
-                  </li>
-                </ol>
-              </nav>
-            </div>
-          </div>
-        </div>
-
-        <!-- ─ Accessibility ─ -->
-        <h3 class="sub-head">Accessibility</h3>
-        <div class="panel-grid" style="margin-bottom:var(--space-12);">
-          <div class="panel">
-            <span class="panel__title">ARIA pattern (WAI-ARIA 1.2)</span>
-            <p class="panel__body"><code class="mono-pill" style="font-size:0.75rem;">&lt;nav aria-label="Breadcrumb"&gt;</code> — named landmark</p>
-            <p class="panel__body"><code class="mono-pill" style="font-size:0.75rem;">&lt;ol&gt;</code> — ordered list; reading order conveys path depth</p>
-            <p class="panel__body"><code class="mono-pill" style="font-size:0.75rem;">aria-current="page"</code> — final non-linked item only</p>
-            <p class="panel__body"><code class="mono-pill" style="font-size:0.75rem;">aria-hidden="true"</code> — every <code style="font-size:0.8125rem;font-family:var(--font-mono);color:var(--gold-bright);background:var(--shadow);padding:2px 5px;border-left:3px solid var(--gold);">›</code> separator glyph</p>
-            <p class="panel__body" style="margin:0;"><code class="mono-pill" style="font-size:0.75rem;">aria-label="more pages"</code> — ellipsis span</p>
-          </div>
-          <div class="panel">
-            <span class="panel__title">Focus rings</span>
-            <p class="panel__body"><strong style="color:var(--ink-black);">Light surface</strong> — <code class="mono-pill" style="font-size:0.75rem;">outline: 2px solid --gold-deep</code>, offset 2px</p>
-            <p class="panel__body"><strong style="color:var(--ink-black);">Dark surface</strong> — <code class="mono-pill" style="font-size:0.75rem;">outline: 2px solid --parchment-100</code>, offset 2px</p>
-            <p class="panel__body"><code class="mono-pill" style="font-size:0.75rem;">:focus-visible</code> only — never suppress without replacement</p>
-            <p class="panel__body" style="margin:0;">No <code class="mono-pill" style="font-size:0.75rem;">scrollIntoView()</code> usage</p>
-          </div>
-        </div>
-
-        <!-- ─ Token reference ─ -->
-        <h3 class="sub-head">Token Reference</h3>
-        <div class="panel" style="max-width:600px;">
-          <span class="panel__title">Tokens used</span>
-          <div style="display:grid;grid-template-columns:auto 1fr;gap:var(--space-2) var(--space-6);align-items:baseline;">
-            <span style="font-family:var(--font-mono);font-size:0.75rem;color:var(--ink-faded);">font</span>
-            <span style="font-family:var(--font-mono);font-size:0.8125rem;color:var(--ink-black);">--font-display (links, current) · --font-body (ellipsis)</span>
-            <span style="font-family:var(--font-mono);font-size:0.75rem;color:var(--ink-faded);">size</span>
-            <span style="font-family:var(--font-mono);font-size:0.8125rem;color:var(--ink-black);">--text-label (0.8125rem · 13px)</span>
-            <span style="font-family:var(--font-mono);font-size:0.75rem;color:var(--ink-faded);">link</span>
-            <span style="font-family:var(--font-mono);font-size:0.8125rem;color:var(--ink-black);">--ink-faded → hover --gold-deep</span>
-            <span style="font-family:var(--font-mono);font-size:0.75rem;color:var(--ink-faded);">separator</span>
-            <span style="font-family:var(--font-mono);font-size:0.8125rem;color:var(--ink-black);">--gold · "›" · 0.75rem</span>
-            <span style="font-family:var(--font-mono);font-size:0.75rem;color:var(--ink-faded);">current</span>
-            <span style="font-family:var(--font-mono);font-size:0.8125rem;color:var(--ink-black);">--ink-black · no href</span>
-            <span style="font-family:var(--font-mono);font-size:0.75rem;color:var(--ink-faded);">ellipsis</span>
-            <span style="font-family:var(--font-mono);font-size:0.8125rem;color:var(--ink-black);">--ink-faded · --font-body</span>
-            <span style="font-family:var(--font-mono);font-size:0.75rem;color:var(--ink-faded);">focus</span>
-            <span style="font-family:var(--font-mono);font-size:0.8125rem;color:var(--ink-black);">2px solid --gold-deep · offset 2px</span>
-            <span style="font-family:var(--font-mono);font-size:0.75rem;color:var(--ink-faded);">transition</span>
-            <span style="font-family:var(--font-mono);font-size:0.8125rem;color:var(--ink-black);">color 0.12s ease · border-bottom-color 0.12s ease</span>
-          </div>
-        </div>
-
-      </div>
-    </section>
+    <!-- Legacy breadcrumbs section removed — migrated to #component-breadcrumbs. -->
 
     <!-- ── SIGIL X: Crossed Quills (Navigation) ── -->
     <div class="sigil-divider" role="presentation" aria-hidden="true">
