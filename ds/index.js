@@ -5,3 +5,4 @@ import './components/hbd-breadcrumbs.js';
 import './components/hbd-button.js';
 import './components/hbd-callout.js';
 import './components/hbd-checkbox.js';
+import './components/hbd-codeblock.js';

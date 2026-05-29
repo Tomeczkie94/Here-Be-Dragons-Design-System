@@ -87,6 +87,7 @@
   --hbd-color-surface-raised: var(--hbd-color-parchment-300);
   --hbd-color-surface-overlay: var(--hbd-color-ink-900);
   --hbd-color-surface-inverse: var(--hbd-color-ink-900);
+  --hbd-color-surface-code: var(--hbd-color-ink-900);
   --hbd-color-surface-action: var(--hbd-color-blood);
   --hbd-color-surface-action-hover: var(--hbd-color-blood-deep);
   --hbd-color-surface-action-active: var(--hbd-color-crimson-950);
@@ -276,4 +277,13 @@
   --hbd-checkbox-size: 22px;
   --hbd-checkbox-shadow: 2px 2px 0 var(--hbd-color-parchment-400);
   --hbd-checkbox-shadow-checked: 2px 2px 0 var(--hbd-color-blood-deep);
+
+  /* ── syntax ────────────────────────────────────────────── */
+  --hbd-syntax-default: var(--hbd-color-text-inverse);
+  --hbd-syntax-keyword: var(--hbd-color-gold-bright);
+  --hbd-syntax-string: var(--hbd-color-forest-300);
+  --hbd-syntax-comment: var(--hbd-color-ink-300);
+  --hbd-syntax-number: var(--hbd-color-sapphire-300);
+  --hbd-syntax-function: var(--hbd-color-parchment-300);
+  --hbd-syntax-operator: var(--hbd-color-parchment-100);
 }
