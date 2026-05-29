@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -2080,6 +2080,7 @@
         <ul class="ds-toc__list">
           <li><a class="ds-toc__link" href="#color">Color</a></li>
           <li><a class="ds-toc__link" href="#foundation-typography">Typography</a></li>
+          <li><a class="ds-toc__link" href="#foundation-colour">Colour</a></li>
           <li><a class="ds-toc__link" href="#texture">Texture</a></li>
           <li><a class="ds-toc__link" href="#borders">Borders</a></li>
           <li><a class="ds-toc__link" href="#components">Components</a></li>
@@ -2326,6 +2327,192 @@
 &lt;span class="hbd-text-label"&gt;Saving Throw&lt;/span&gt;
 &lt;span class="hbd-text-micro"&gt;Recharge 5–6…&lt;/span&gt;
 &lt;code class="hbd-text-mono"&gt;const dmg = roll('8d6');&lt;/code&gt;</code></pre>
+          </details>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ══════════════════════ COLOUR ══════════════════════ -->
+    <section class="ds-section" id="foundation-colour" aria-labelledby="heading-colour">
+      <div class="container">
+        <span class="section-numeral" aria-hidden="true">II·b</span>
+        <h2 class="ds-section__heading" id="heading-colour">Colour</h2>
+        <p class="ds-section__description">
+          A three-tier token system: raw primitives, semantic role aliases that reference them, and
+          per-component overrides. Components consume semantic tokens only. The same semantic names
+          re-map across the light, dark, and high-contrast themes below.
+        </p>
+
+        <!-- Group 1 · Primitive palette -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">Primitive palette</h3>
+          <div class="ds-preview-canvas" style="flex-direction:column;align-items:stretch;gap:var(--space-6);">
+
+            <div>
+              <span class="hbd-text-label hbd-text-primary" style="display:block;margin-bottom:var(--space-3);">Parchment</span>
+              <div style="display:flex;flex-wrap:wrap;gap:var(--space-4);">
+                <div><span style="display:block;width:48px;height:48px;background:var(--hbd-color-parchment-50);border:1px solid var(--hbd-color-ink-300);"></span><span class="hbd-text-micro hbd-text-primary" style="display:block;">parchment-50</span><span class="hbd-text-micro hbd-text-muted" style="display:block;">#fdf8f0</span></div>
+                <div><span style="display:block;width:48px;height:48px;background:var(--hbd-color-parchment-100);border:1px solid var(--hbd-color-ink-300);"></span><span class="hbd-text-micro hbd-text-primary" style="display:block;">parchment-100</span><span class="hbd-text-micro hbd-text-muted" style="display:block;">#f5ecd7</span></div>
+                <div><span style="display:block;width:48px;height:48px;background:var(--hbd-color-parchment-200);border:1px solid var(--hbd-color-ink-300);"></span><span class="hbd-text-micro hbd-text-primary" style="display:block;">parchment-200</span><span class="hbd-text-micro hbd-text-muted" style="display:block;">#ead9b3</span></div>
+                <div><span style="display:block;width:48px;height:48px;background:var(--hbd-color-parchment-300);border:1px solid var(--hbd-color-ink-300);"></span><span class="hbd-text-micro hbd-text-primary" style="display:block;">parchment-300</span><span class="hbd-text-micro hbd-text-muted" style="display:block;">#d4bc88</span></div>
+              </div>
+            </div>
+
+            <div>
+              <span class="hbd-text-label hbd-text-primary" style="display:block;margin-bottom:var(--space-3);">Ink</span>
+              <div style="display:flex;flex-wrap:wrap;gap:var(--space-4);">
+                <div><span style="display:block;width:48px;height:48px;background:var(--hbd-color-ink-900);"></span><span class="hbd-text-micro hbd-text-primary" style="display:block;">ink-900</span><span class="hbd-text-micro hbd-text-muted" style="display:block;">#1a1410</span></div>
+                <div><span style="display:block;width:48px;height:48px;background:var(--hbd-color-ink-700);"></span><span class="hbd-text-micro hbd-text-primary" style="display:block;">ink-700</span><span class="hbd-text-micro hbd-text-muted" style="display:block;">#3d3020</span></div>
+                <div><span style="display:block;width:48px;height:48px;background:var(--hbd-color-ink-600);"></span><span class="hbd-text-micro hbd-text-primary" style="display:block;">ink-600</span><span class="hbd-text-micro hbd-text-muted" style="display:block;">#5a4530</span></div>
+                <div><span style="display:block;width:48px;height:48px;background:var(--hbd-color-ink-400);"></span><span class="hbd-text-micro hbd-text-primary" style="display:block;">ink-400</span><span class="hbd-text-micro hbd-text-muted" style="display:block;">#a07c57</span></div>
+                <div><span style="display:block;width:48px;height:48px;background:var(--hbd-color-ink-300);"></span><span class="hbd-text-micro hbd-text-primary" style="display:block;">ink-300</span><span class="hbd-text-micro hbd-text-muted" style="display:block;">#c4a07a</span></div>
+                <div><span style="display:block;width:48px;height:48px;background:var(--hbd-color-ink-200);"></span><span class="hbd-text-micro hbd-text-primary" style="display:block;">ink-200</span><span class="hbd-text-micro hbd-text-muted" style="display:block;">#dcc4a0</span></div>
+              </div>
+            </div>
+
+            <div>
+              <span class="hbd-text-label hbd-text-primary" style="display:block;margin-bottom:var(--space-3);">Gold</span>
+              <div style="display:flex;flex-wrap:wrap;gap:var(--space-4);">
+                <div><span style="display:block;width:48px;height:48px;background:var(--hbd-color-gold-bright);"></span><span class="hbd-text-micro hbd-text-primary" style="display:block;">gold-bright</span><span class="hbd-text-micro hbd-text-muted" style="display:block;">#d4a548</span></div>
+                <div><span style="display:block;width:48px;height:48px;background:var(--hbd-color-gold);"></span><span class="hbd-text-micro hbd-text-primary" style="display:block;">gold</span><span class="hbd-text-micro hbd-text-muted" style="display:block;">#b8893b</span></div>
+                <div><span style="display:block;width:48px;height:48px;background:var(--hbd-color-gold-deep);"></span><span class="hbd-text-micro hbd-text-primary" style="display:block;">gold-deep</span><span class="hbd-text-micro hbd-text-muted" style="display:block;">#7a5a22</span></div>
+              </div>
+            </div>
+
+            <div>
+              <span class="hbd-text-label hbd-text-primary" style="display:block;margin-bottom:var(--space-3);">Blood</span>
+              <div style="display:flex;flex-wrap:wrap;gap:var(--space-4);">
+                <div><span style="display:block;width:48px;height:48px;background:var(--hbd-color-blood);"></span><span class="hbd-text-micro hbd-text-primary" style="display:block;">blood</span><span class="hbd-text-micro hbd-text-muted" style="display:block;">#7a1212</span></div>
+                <div><span style="display:block;width:48px;height:48px;background:var(--hbd-color-blood-deep);"></span><span class="hbd-text-micro hbd-text-primary" style="display:block;">blood-deep</span><span class="hbd-text-micro hbd-text-muted" style="display:block;">#4a0808</span></div>
+              </div>
+            </div>
+
+            <div>
+              <span class="hbd-text-label hbd-text-primary" style="display:block;margin-bottom:var(--space-3);">Emerald</span>
+              <div style="display:flex;flex-wrap:wrap;gap:var(--space-4);">
+                <div><span style="display:block;width:48px;height:48px;background:var(--hbd-color-emerald);"></span><span class="hbd-text-micro hbd-text-primary" style="display:block;">emerald</span><span class="hbd-text-micro hbd-text-muted" style="display:block;">#2d5a3d</span></div>
+              </div>
+            </div>
+
+            <div>
+              <span class="hbd-text-label hbd-text-primary" style="display:block;margin-bottom:var(--space-3);">Sapphire</span>
+              <div style="display:flex;flex-wrap:wrap;gap:var(--space-4);">
+                <div><span style="display:block;width:48px;height:48px;background:var(--hbd-color-sapphire);"></span><span class="hbd-text-micro hbd-text-primary" style="display:block;">sapphire</span><span class="hbd-text-micro hbd-text-muted" style="display:block;">#1e3a5f</span></div>
+              </div>
+            </div>
+
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>&lt;span style="background:var(--hbd-color-blood);"&gt;&lt;/span&gt;
+&lt;span class="hbd-text-micro"&gt;blood&lt;/span&gt;</code></pre>
+          </details>
+        </div>
+
+        <!-- Group 2 · Semantic tokens -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">Semantic tokens</h3>
+          <div class="ds-preview-canvas" style="flex-direction:column;align-items:stretch;gap:var(--space-6);">
+
+            <div>
+              <span class="hbd-text-label hbd-text-primary" style="display:block;margin-bottom:var(--space-3);">Surfaces</span>
+              <div style="display:flex;flex-wrap:wrap;gap:var(--space-4);">
+                <div><span style="display:block;width:48px;height:48px;background:var(--hbd-color-surface-default);border:1px solid var(--hbd-color-border-default);"></span><span class="hbd-text-micro hbd-text-primary" style="display:block;">surface-default</span><span class="hbd-text-micro hbd-text-muted" style="display:block;">→ parchment-50</span></div>
+                <div><span style="display:block;width:48px;height:48px;background:var(--hbd-color-surface-subtle);border:1px solid var(--hbd-color-border-default);"></span><span class="hbd-text-micro hbd-text-primary" style="display:block;">surface-subtle</span><span class="hbd-text-micro hbd-text-muted" style="display:block;">→ parchment-100</span></div>
+                <div><span style="display:block;width:48px;height:48px;background:var(--hbd-color-surface-raised);border:1px solid var(--hbd-color-border-default);"></span><span class="hbd-text-micro hbd-text-primary" style="display:block;">surface-raised</span><span class="hbd-text-micro hbd-text-muted" style="display:block;">→ parchment-200</span></div>
+                <div><span style="display:block;width:48px;height:48px;background:var(--hbd-color-surface-overlay);border:1px solid var(--hbd-color-border-default);"></span><span class="hbd-text-micro hbd-text-primary" style="display:block;">surface-overlay</span><span class="hbd-text-micro hbd-text-muted" style="display:block;">→ ink-900</span></div>
+              </div>
+            </div>
+
+            <div>
+              <span class="hbd-text-label hbd-text-primary" style="display:block;margin-bottom:var(--space-3);">Text</span>
+              <div style="display:flex;flex-wrap:wrap;gap:var(--space-4);">
+                <div><span style="display:block;width:48px;height:48px;background:var(--hbd-color-text-primary);"></span><span class="hbd-text-micro hbd-text-primary" style="display:block;">text-primary</span><span class="hbd-text-micro hbd-text-muted" style="display:block;">→ ink-900</span></div>
+                <div><span style="display:block;width:48px;height:48px;background:var(--hbd-color-text-secondary);"></span><span class="hbd-text-micro hbd-text-primary" style="display:block;">text-secondary</span><span class="hbd-text-micro hbd-text-muted" style="display:block;">→ ink-700</span></div>
+                <div><span style="display:block;width:48px;height:48px;background:var(--hbd-color-text-muted);"></span><span class="hbd-text-micro hbd-text-primary" style="display:block;">text-muted</span><span class="hbd-text-micro hbd-text-muted" style="display:block;">→ ink-600</span></div>
+                <div><span style="display:block;width:48px;height:48px;background:var(--hbd-color-text-disabled);"></span><span class="hbd-text-micro hbd-text-primary" style="display:block;">text-disabled</span><span class="hbd-text-micro hbd-text-muted" style="display:block;">→ ink-400</span></div>
+              </div>
+            </div>
+
+            <div>
+              <span class="hbd-text-label hbd-text-primary" style="display:block;margin-bottom:var(--space-3);">Borders</span>
+              <div style="display:flex;flex-wrap:wrap;gap:var(--space-4);">
+                <div><span style="display:block;width:48px;height:48px;background:var(--hbd-color-border-default);"></span><span class="hbd-text-micro hbd-text-primary" style="display:block;">border-default</span><span class="hbd-text-micro hbd-text-muted" style="display:block;">→ ink-300</span></div>
+                <div><span style="display:block;width:48px;height:48px;background:var(--hbd-color-border-subtle);"></span><span class="hbd-text-micro hbd-text-primary" style="display:block;">border-subtle</span><span class="hbd-text-micro hbd-text-muted" style="display:block;">→ ink-200</span></div>
+                <div><span style="display:block;width:48px;height:48px;background:var(--hbd-color-border-strong);"></span><span class="hbd-text-micro hbd-text-primary" style="display:block;">border-strong</span><span class="hbd-text-micro hbd-text-muted" style="display:block;">→ ink-700</span></div>
+                <div><span style="display:block;width:48px;height:48px;background:var(--hbd-color-border-focus);"></span><span class="hbd-text-micro hbd-text-primary" style="display:block;">border-focus</span><span class="hbd-text-micro hbd-text-muted" style="display:block;">→ gold</span></div>
+              </div>
+            </div>
+
+            <div>
+              <span class="hbd-text-label hbd-text-primary" style="display:block;margin-bottom:var(--space-3);">Action</span>
+              <div style="display:flex;flex-wrap:wrap;gap:var(--space-4);">
+                <div><span style="display:block;width:48px;height:48px;background:var(--hbd-color-surface-action);"></span><span class="hbd-text-micro hbd-text-primary" style="display:block;">surface-action</span><span class="hbd-text-micro hbd-text-muted" style="display:block;">→ blood</span></div>
+                <div><span style="display:block;width:48px;height:48px;background:var(--hbd-color-surface-action-hover);"></span><span class="hbd-text-micro hbd-text-primary" style="display:block;">action-hover</span><span class="hbd-text-micro hbd-text-muted" style="display:block;">→ blood-deep</span></div>
+                <div><span style="display:block;width:48px;height:48px;background:var(--hbd-color-text-on-action);border:1px solid var(--hbd-color-border-default);"></span><span class="hbd-text-micro hbd-text-primary" style="display:block;">text-on-action</span><span class="hbd-text-micro hbd-text-muted" style="display:block;">→ parchment-50</span></div>
+              </div>
+            </div>
+
+            <div>
+              <span class="hbd-text-label hbd-text-primary" style="display:block;margin-bottom:var(--space-3);">Status</span>
+              <div style="display:flex;flex-wrap:wrap;gap:var(--space-4);">
+                <div><span style="display:block;width:48px;height:48px;background:var(--hbd-color-status-success-surface);"></span><span class="hbd-text-micro hbd-text-primary" style="display:block;">success</span><span class="hbd-text-micro hbd-text-muted" style="display:block;">→ emerald</span></div>
+                <div><span style="display:block;width:48px;height:48px;background:var(--hbd-color-status-warning-surface);"></span><span class="hbd-text-micro hbd-text-primary" style="display:block;">warning</span><span class="hbd-text-micro hbd-text-muted" style="display:block;">→ gold</span></div>
+                <div><span style="display:block;width:48px;height:48px;background:var(--hbd-color-status-error-surface);"></span><span class="hbd-text-micro hbd-text-primary" style="display:block;">error</span><span class="hbd-text-micro hbd-text-muted" style="display:block;">→ blood</span></div>
+                <div><span style="display:block;width:48px;height:48px;background:var(--hbd-color-status-info-surface);"></span><span class="hbd-text-micro hbd-text-primary" style="display:block;">info</span><span class="hbd-text-micro hbd-text-muted" style="display:block;">→ sapphire</span></div>
+              </div>
+            </div>
+
+            <div>
+              <span class="hbd-text-label hbd-text-primary" style="display:block;margin-bottom:var(--space-3);">Focus</span>
+              <div style="display:flex;flex-wrap:wrap;gap:var(--space-4);">
+                <div><span style="display:block;width:48px;height:48px;background:var(--hbd-color-focus-ring);"></span><span class="hbd-text-micro hbd-text-primary" style="display:block;">focus-ring</span><span class="hbd-text-micro hbd-text-muted" style="display:block;">→ gold-bright</span></div>
+              </div>
+            </div>
+
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>&lt;span style="background:var(--hbd-color-surface-action);"&gt;&lt;/span&gt;
+&lt;!-- surface-action → blood --&gt;</code></pre>
+          </details>
+        </div>
+
+        <!-- Group 3 · Theme preview -->
+        <div class="ds-preview-group">
+          <h3 class="ds-preview-group__label">Theme preview</h3>
+          <div class="ds-preview-canvas" style="align-items:stretch;gap:var(--space-6);">
+
+            <div data-theme="light" style="flex:1 1 220px;background:var(--hbd-color-surface-default);border:1px solid var(--hbd-color-border-default);padding:var(--space-6);">
+              <p class="hbd-text-h3" style="color:var(--hbd-color-text-primary);">Light</p>
+              <p class="hbd-text-body" style="color:var(--hbd-color-text-primary);">A scribe's fresh parchment under candlelight.</p>
+              <p class="hbd-text-micro" style="color:var(--hbd-color-text-muted);">Muted caption</p>
+              <span class="hbd-text-label" style="display:inline-block;margin-top:var(--space-3);padding:var(--space-2) var(--space-4);background:var(--hbd-color-surface-action);color:var(--hbd-color-text-on-action);">Cast Spell</span>
+            </div>
+
+            <div data-theme="dark" style="flex:1 1 220px;background:var(--hbd-color-surface-default);border:1px solid var(--hbd-color-border-default);padding:var(--space-6);">
+              <p class="hbd-text-h3" style="color:var(--hbd-color-text-primary);">Dark</p>
+              <p class="hbd-text-body" style="color:var(--hbd-color-text-primary);">The same page deep in a dragon's lair.</p>
+              <p class="hbd-text-micro" style="color:var(--hbd-color-text-muted);">Muted caption</p>
+              <span class="hbd-text-label" style="display:inline-block;margin-top:var(--space-3);padding:var(--space-2) var(--space-4);background:var(--hbd-color-surface-action);color:var(--hbd-color-text-on-action);">Cast Spell</span>
+            </div>
+
+            <div data-theme="high-contrast" style="flex:1 1 220px;background:var(--hbd-color-surface-default);border:1px solid var(--hbd-color-border-default);padding:var(--space-6);">
+              <p class="hbd-text-h3" style="color:var(--hbd-color-text-primary);">High contrast</p>
+              <p class="hbd-text-body" style="color:var(--hbd-color-text-primary);">Maximum legibility, AAA throughout.</p>
+              <p class="hbd-text-micro" style="color:var(--hbd-color-text-muted);">Muted caption</p>
+              <span class="hbd-text-label" style="display:inline-block;margin-top:var(--space-3);padding:var(--space-2) var(--space-4);background:var(--hbd-color-surface-action);color:var(--hbd-color-text-on-action);">Cast Spell</span>
+            </div>
+
+          </div>
+          <details class="ds-preview-code">
+            <summary>View code</summary>
+            <pre><code>&lt;div data-theme="dark" style="background:var(--hbd-color-surface-default);"&gt;
+  &lt;p class="hbd-text-h3" style="color:var(--hbd-color-text-primary);"&gt;Dark&lt;/p&gt;
+  &lt;p class="hbd-text-micro" style="color:var(--hbd-color-text-muted);"&gt;Muted caption&lt;/p&gt;
+  &lt;span style="background:var(--hbd-color-surface-action);color:var(--hbd-color-text-on-action);"&gt;Cast Spell&lt;/span&gt;
+&lt;/div&gt;</code></pre>
           </details>
         </div>
 

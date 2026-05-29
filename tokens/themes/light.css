@@ -1,0 +1,46 @@
+/* Here Be Dragons DS — tokens/themes/light.css
+ * Light theme (default). Explicit, auditable overrides of the semantic
+ * colour layer. Values match tokens.css defaults — re-declared here so the
+ * light theme is greppable alongside dark and high-contrast.
+ * References primitives via the semantic naming established in tokens.css.
+ */
+
+:root,
+[data-theme="light"] {
+  /* surfaces */
+  --hbd-color-surface-default: var(--hbd-color-parchment-100);
+  --hbd-color-surface-subtle:  var(--hbd-color-parchment-200);
+  --hbd-color-surface-raised:  var(--hbd-color-parchment-300);
+  --hbd-color-surface-overlay: var(--hbd-color-ink-900);
+
+  /* text */
+  --hbd-color-text-primary:   var(--hbd-color-ink-900);
+  --hbd-color-text-secondary: var(--hbd-color-ink-700);
+  --hbd-color-text-muted:     var(--hbd-color-ink-600);
+  --hbd-color-text-inverse:   var(--hbd-color-parchment-50);
+  --hbd-color-text-disabled:  var(--hbd-color-ink-400);
+
+  /* borders */
+  --hbd-color-border-default: var(--hbd-color-ink-300);
+  --hbd-color-border-subtle:  var(--hbd-color-ink-200);
+  --hbd-color-border-strong:  var(--hbd-color-ink-700);
+  --hbd-color-border-focus:   var(--hbd-color-gold);
+
+  /* action */
+  --hbd-color-surface-action:       var(--hbd-color-blood);
+  --hbd-color-surface-action-hover: var(--hbd-color-blood-deep);
+  --hbd-color-text-on-action:       var(--hbd-color-parchment-50);
+
+  /* status */
+  --hbd-color-status-success-surface: var(--hbd-color-emerald);
+  --hbd-color-status-success-text:    var(--hbd-color-parchment-50);
+  --hbd-color-status-warning-surface: var(--hbd-color-gold);
+  --hbd-color-status-warning-text:    var(--hbd-color-ink-900);
+  --hbd-color-status-error-surface:   var(--hbd-color-blood);
+  --hbd-color-status-error-text:      var(--hbd-color-parchment-50);
+  --hbd-color-status-info-surface:    var(--hbd-color-sapphire);
+  --hbd-color-status-info-text:       var(--hbd-color-parchment-50);
+
+  /* focus */
+  --hbd-color-focus-ring: var(--hbd-color-gold-bright);
+}
